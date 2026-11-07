@@ -226,6 +226,10 @@ node_modules/
 *.tsbuildinfo
 logs/
 *.jsonl
+
+# The Python template ignores lib/; this directory contains storefront source.
+!storefront/src/lib/
+!storefront/src/lib/**
 .env.*
 !.env.example
 .deployment/
@@ -233,3 +237,4 @@ logs/
 *.ppk
 *.key
 *.tar.gz
+!storefront/.env.template

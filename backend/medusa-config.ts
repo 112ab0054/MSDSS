@@ -3,6 +3,9 @@ import { defineConfig, loadEnv } from "@medusajs/framework/utils"
 loadEnv(process.env.NODE_ENV || "development", process.cwd())
 
 module.exports = defineConfig({
+  featureFlags: {
+    translation: true,
+  },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     redisUrl: process.env.REDIS_URL,
@@ -20,6 +23,7 @@ module.exports = defineConfig({
     },
   },
   modules: [
+    { resolve: "@medusajs/medusa/translation" },
     {
       resolve: "@medusajs/medusa/file",
       options: {

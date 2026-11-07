@@ -25,6 +25,7 @@
 `backend/src/scripts/seed.ts` 使用官方 starter 示範資料，包括商品、庫存、地區與銷售管道。
 商城商品列表、關鍵字搜尋、排序與篩選使用官方 DTC starter 的 `product` 搜尋索引，定義在 `backend/src/search/`，並由 `backend/src/api/middlewares.ts` 開放給 Store API。
 索引儲存在現有 PostgreSQL 中，服務啟動時填入商品，商品事件會持續同步；不需要額外的搜尋服務。
+已啟用官方 Translation Module，`GET /store/locales` 可取得商店支援的語系，目前為 `en-GB`（英國英文）。這只啟用語系資料與 API，商品內容仍使用原有英文。
 OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的 `info.version` 仍標示 `2.22.3`，此處保留原始版本欄位。
 為使 Swagger 的 Try it out 操作目前部署，僅將 OpenAPI 的 server URL 設為同一來源 `/`。
 
@@ -53,6 +54,7 @@ OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的
    ```
 
 商城的顧客帳號與管理員帳號分開。顧客在商城的 Account > Join us 自行註冊。
+新環境部署後，可在管理後台的商店設定加入支援語系 `en-GB`。啟用 Translation Module 的既有環境須先執行 `npm run migrate`；未啟用該功能時 `/store/locales` 會回傳 404。
 前台伺服器透過 Docker 內部網址 `http://medusa:9000` 呼叫 API；需要由瀏覽器發出的請求使用公開 API 網址。
 `NEXT_PUBLIC_*` 變數會在建置時寫入前台，因此變更公開網址或 publishable key 後需重新 build 前台。
 
