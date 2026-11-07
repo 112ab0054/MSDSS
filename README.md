@@ -63,6 +63,29 @@ OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的
 
 ## 維護
 
+### 簡單記錄 API request / response
+
+Medusa 的 `/store`、`/auth`、`/admin` API 會記錄成 JSONL，一行是一組 request / response。
+記錄包含時間、方法、網址、標頭、解析後的 JSON request body、JSON response body、狀態碼與耗時。
+這包含商城前台伺服器呼叫 Medusa 的 API；不記錄商城 HTML、圖片或管理介面的靜態檔案。
+記錄點位於 Medusa 的前置驗證之後；框架提前拒絕的請求（例如未登入的管理 API、缺少 Store API key 或無效 JSON）不會寫入此檔。進入登入端點後的帳密錯誤會記錄。
+
+檔案在 Medusa 容器的 `/app/logs/requests-YYYY-MM-DD.jsonl`，依 UTC 日期分檔，使用獨立 `api_logs` volume 保存，重啟容器仍會保留。
+
+在伺服器的 `/home/ubuntu/MSDSS` 執行：
+
+```sh
+# 查看最近的紀錄
+docker-compose exec -T medusa sh -c 'tail -n 20 /app/logs/requests-*.jsonl'
+# 匯出到伺服器的專案 logs 資料夾
+docker-compose cp medusa:/app/logs ./logs
+```
+
+密碼、Cookie、Authorization、Token 和 API key 欄位會遮蔽。單筆 JSON response 超過 64 KiB 時保留標頭與大小，省略 body；非 JSON response 也不保存 body。
+檔案不會自動刪除，實驗資料匯出後可自行清理。記錄檔與匯出的 `logs/` 已排除在 Git 之外。
+
+### 服務操作
+
 ```sh
 docker-compose ps
 docker-compose logs --tail=100 medusa

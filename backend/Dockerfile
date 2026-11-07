@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN if [ -f package-lock.json ]; then npm ci --legacy-peer-deps; else npm install --legacy-peer-deps; fi
 COPY . .
 RUN npm run build
-RUN mkdir -p .medusa/server/static/uploads && cp -R static/openapi .medusa/server/static/openapi
+RUN mkdir -p logs .medusa/server/static/uploads && cp -R static/openapi .medusa/server/static/openapi
 
 FROM node:22-bookworm-slim AS runtime
 ENV NODE_ENV=production

@@ -224,6 +224,8 @@ node_modules/
 .medusa/
 .next/
 *.tsbuildinfo
+logs/
+*.jsonl
 .env.*
 !.env.example
 .deployment/

@@ -53,6 +53,7 @@ services:
       MEDUSA_ADMIN_ONBOARDING_TYPE: default
     volumes:
       - uploads:/app/.medusa/server/static/uploads
+      - api_logs:/app/logs
     healthcheck:
       test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
       interval: 20s
@@ -92,6 +93,7 @@ services:
       start_period: 90s
 
 volumes:
+  api_logs:
   postgres_data:
   redis_data:
   uploads:
