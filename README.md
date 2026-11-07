@@ -23,6 +23,8 @@
 資料庫、Redis 與上傳檔案使用獨立 Docker volumes，重啟容器不會清除資料。
 
 `backend/src/scripts/seed.ts` 使用官方 starter 示範資料，包括商品、庫存、地區與銷售管道。
+商城商品列表、關鍵字搜尋、排序與篩選使用官方 DTC starter 的 `product` 搜尋索引，定義在 `backend/src/search/`，並由 `backend/src/api/middlewares.ts` 開放給 Store API。
+索引儲存在現有 PostgreSQL 中，服務啟動時填入商品，商品事件會持續同步；不需要額外的搜尋服務。
 OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的 `info.version` 仍標示 `2.22.3`，此處保留原始版本欄位。
 為使 Swagger 的 Try it out 操作目前部署，僅將 OpenAPI 的 server URL 設為同一來源 `/`。
 
@@ -55,6 +57,9 @@ OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的
 `NEXT_PUBLIC_*` 變數會在建置時寫入前台，因此變更公開網址或 publishable key 後需重新 build 前台。
 
 只在第一次初始化資料庫時執行 seed；不要每次部署都重複灌入示範資料。
+
+既有環境新增或調整搜尋索引後，先重新 build 後端，再執行 `docker-compose run --rm medusa npx medusa db:migrate:search --execute-safe-search`，最後重新啟動後端。
+此操作建立或更新搜尋索引，不會重新建立商品或清空原有商品資料。
 
 ## 維護
 

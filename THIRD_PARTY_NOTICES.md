@@ -21,3 +21,7 @@ Deployment changes add a standalone Docker build, internal backend routing, and 
 configurable cookie Secure flag for the current HTTP-only lab. Upstream design and
 commerce flows are retained. Next.js and its ESLint configuration are updated to
 16.4.5 to address the advisories reported for the upstream 16.3.8 dependency.
+
+`backend/src/search/` and `backend/src/api/middlewares.ts` are copied from the
+same official DTC starter commit. They supply the product index and Store Search
+access configuration required by its storefront listing, filters, and sorting.
