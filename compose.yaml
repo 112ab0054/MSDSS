@@ -44,9 +44,9 @@ services:
       PUBLIC_URL: ${PUBLIC_URL}
       DATABASE_URL: postgres://medusa:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/medusa?sslmode=disable
       REDIS_URL: redis://redis:6379
-      STORE_CORS: ${PUBLIC_URL},http://localhost:8000
+      STORE_CORS: ${PUBLIC_URL},${STOREFRONT_URL:-http://localhost:3000},http://localhost:8000
       ADMIN_CORS: ${PUBLIC_URL},http://localhost:8000
-      AUTH_CORS: ${PUBLIC_URL},http://localhost:8000
+      AUTH_CORS: ${PUBLIC_URL},${STOREFRONT_URL:-http://localhost:3000},http://localhost:8000
       JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
       COOKIE_SECRET: ${COOKIE_SECRET:?Set COOKIE_SECRET in .env}
       COOKIE_SECURE: ${COOKIE_SECURE:-false}
@@ -58,6 +58,37 @@ services:
       interval: 20s
       timeout: 5s
       retries: 10
+      start_period: 90s
+
+  storefront:
+    build:
+      context: ./storefront
+      args:
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${PUBLIC_URL}
+        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:?Set the storefront publishable key}
+        NEXT_PUBLIC_BASE_URL: ${STOREFRONT_URL:-http://localhost:3000}
+        NEXT_PUBLIC_DEFAULT_REGION: ${NEXT_PUBLIC_DEFAULT_REGION:-gb}
+    image: msdss-storefront:1.0.3
+    restart: unless-stopped
+    depends_on:
+      medusa:
+        condition: service_healthy
+    ports:
+      - "${STOREFRONT_PORT:-3000}:8000"
+    environment:
+      NODE_ENV: production
+      MEDUSA_BACKEND_URL: http://medusa:9000
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${PUBLIC_URL}
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY}
+      NEXT_PUBLIC_BASE_URL: ${STOREFRONT_URL:-http://localhost:3000}
+      NEXT_PUBLIC_DEFAULT_REGION: ${NEXT_PUBLIC_DEFAULT_REGION:-gb}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      NEXT_TELEMETRY_DISABLED: "1"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
       start_period: 90s
 
 volumes:

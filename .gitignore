@@ -222,6 +222,8 @@ __marimo__/
 # Medusa and deployment
 node_modules/
 .medusa/
+.next/
+*.tsbuildinfo
 .env.*
 !.env.example
 .deployment/

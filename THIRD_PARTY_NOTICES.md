@@ -13,3 +13,11 @@ The upstream `info.version` value is 2.22.3 even in this tag and is retained.
 The `servers` list is changed to the same-origin URL `/` for this deployment.
 
 Medusa is distributed under the MIT license. Swagger UI is distributed under Apache-2.0.
+
+`storefront/` originates from the maintained official DTC starter at:
+https://github.com/medusajs/dtc-starter/tree/4a1d53dc434ed124a78c4e2c9f312e1f47d4e9eb/apps/storefront
+
+Deployment changes add a standalone Docker build, internal backend routing, and a
+configurable cookie Secure flag for the current HTTP-only lab. Upstream design and
+commerce flows are retained. Next.js and its ESLint configuration are updated to
+16.4.5 to address the advisories reported for the upstream 16.3.8 dependency.
