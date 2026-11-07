@@ -1,0 +1,66 @@
+name: msdss
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: medusa
+      POSTGRES_USER: medusa
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa -d medusa"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  medusa:
+    build: ./backend
+    image: msdss-medusa:2.22.4
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${MEDUSA_PORT:-8000}:9000"
+    environment:
+      NODE_ENV: production
+      PUBLIC_URL: ${PUBLIC_URL}
+      DATABASE_URL: postgres://medusa:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/medusa?sslmode=disable
+      REDIS_URL: redis://redis:6379
+      STORE_CORS: ${PUBLIC_URL},http://localhost:8000
+      ADMIN_CORS: ${PUBLIC_URL},http://localhost:8000
+      AUTH_CORS: ${PUBLIC_URL},http://localhost:8000
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      COOKIE_SECRET: ${COOKIE_SECRET:?Set COOKIE_SECRET in .env}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      MEDUSA_ADMIN_ONBOARDING_TYPE: default
+    volumes:
+      - uploads:/app/.medusa/server/static/uploads
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      retries: 10
+      start_period: 90s
+
+volumes:
+  postgres_data:
+  redis_data:
+  uploads:

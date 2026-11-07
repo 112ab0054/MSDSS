@@ -218,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Medusa and deployment
+node_modules/
+.medusa/
+.env.*
+!.env.example
+.deployment/
+*.pem
+*.ppk
+*.key
+*.tar.gz
