@@ -1,0 +1,16 @@
+{
+  "origin": "historical_real_http_evidence",
+  "new_http_requests": 0,
+  "pilot_live_collected": 0,
+  "candidate_count": 195,
+  "platform_counts": {
+    "bagisto": 56,
+    "shopware": 81,
+    "sylius": 58
+  },
+  "covered_selected_operations": 62,
+  "exact_unique_inputs": 65,
+  "attack_samples": 0,
+  "human_approved_training_samples": 0,
+  "excluded_selected_operations": []
+}

@@ -1,0 +1,12 @@
+{
+  "dataset_unit_tests_passed": true,
+  "dataset_unit_test_count": 11,
+  "source_evidence_verified_rows": 195,
+  "credential_scan_passed": true,
+  "unapproved_export_rejected": true,
+  "new_live_pilot_rows": 0,
+  "new_live_attack_rows": 0,
+  "human_approved_training_rows": 0,
+  "training_started": false,
+  "note": "單元測試不代表採集器已在實機通過；等待資源後續測。"
+}

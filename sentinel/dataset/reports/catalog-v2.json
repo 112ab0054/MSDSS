@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "base_case_count": 56,
+  "base_proposed_labels": {
+    "sqli": 22,
+    "xss": 22,
+    "normal": 12
+  },
+  "http_collectable_base_cases": 34,
+  "attack_family_count": 12,
+  "training_ready": false,
+  "coverage_dimensions": 24,
+  "missing_dimensions": [],
+  "csv_rows": 56,
+  "csv_roundtrip_equal": true,
+  "actual_http_attack_samples": 0,
+  "json_sha256": "6f97c9e77826f112d94151ab56f1908250e607a37571f688dd3544d6309e493f",
+  "csv_sha256": "cb345e1f505e9fa4734ee4741e7c02e0a075d2001092aaa70075dbe366a8e25b"
+}

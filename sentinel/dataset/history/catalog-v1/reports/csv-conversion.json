@@ -1,0 +1,20 @@
+{
+  "format": "CSV UTF-8 BOM; quoted fields; embedded JSON for typed nested values",
+  "normal_request_rows": 195,
+  "normal_parameter_rows": 944,
+  "unexecuted_scenario_rows": 660,
+  "full_record_roundtrip_equal": true,
+  "nested_input_roundtrip_equal": true,
+  "source_files_unchanged": true,
+  "source_sha256": {
+    "reference\\normal-candidates.jsonl": "123053d20f9075aa42bd9b519dfd334d4cdb8d5065224debc0326d9865699660",
+    "scenario-catalog.json": "a843fe73a49875936a41ad0fd7a9c0b20b911b60232077df6dc5db614b8b4204"
+  },
+  "outputs": {
+    "reference\\normal-candidates.csv": "897483a5d8b60e1accb2e9a21379a85d87414e9ede8d50c3ea5f0b5931352cc9",
+    "reference\\normal-parameters.csv": "04ba4c0d51ed510226b3cd502cc413a3d1a451e1c0974e2ba84e6afcc2d11f0d",
+    "scenario-catalog.csv": "f95758841342a45452b3cda08f05526fdf717305584e08eebc8fd8f37fdf2942"
+  },
+  "training_started": false,
+  "deduplication_changed": false
+}

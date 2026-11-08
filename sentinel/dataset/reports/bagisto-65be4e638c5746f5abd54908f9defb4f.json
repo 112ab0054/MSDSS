@@ -1,0 +1,16 @@
+{
+  "run_id": "bagisto-65be4e638c5746f5abd54908f9defb4f",
+  "platform": "bagisto",
+  "outcome": "blocked",
+  "error": "前置條件或實機斷言未通過；詳見本次資源與已遮蔽 HTTP 證據。沒有補造未送出的樣本。",
+  "sample_count": 0,
+  "proposed_class_counts": {},
+  "eligible_for_review": 0,
+  "human_approved_training_samples": 0,
+  "target_gates": [],
+  "manifest_sha256": "ee78af19c6bab67acbd6a2638917ec73571de94e63245d346b79cf832cca02c3",
+  "collector_sha256": "fcfac05688258469d6d59054b8f9e274b420a84165045f7d4af6565d44f9e1ed",
+  "scenario_source_sha256": "17066f704b93706e5cd4f4b1c25ea64a8c15b6261713044db3cbedd32e87c6f9",
+  "training_started": false,
+  "medusa_used": false
+}

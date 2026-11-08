@@ -1,0 +1,41 @@
+{
+  "reason": "使用者要求按所有已說明面向重建，舊數字變體退役",
+  "files": [
+    {
+      "path": "scenarios.py",
+      "sha256": "f2d135782f36338859a1559e3ac0641ebf0e2f2840f7703c854799626cd8587e"
+    },
+    {
+      "path": "scenario-catalog.json",
+      "sha256": "a843fe73a49875936a41ad0fd7a9c0b20b911b60232077df6dc5db614b8b4204"
+    },
+    {
+      "path": "scenario-catalog.csv",
+      "sha256": "f95758841342a45452b3cda08f05526fdf717305584e08eebc8fd8f37fdf2942"
+    },
+    {
+      "path": "collect.py",
+      "sha256": "f2463a842d8f5f7cef78421d391741def05e88c127da5c272af2e24ebabfd218"
+    },
+    {
+      "path": "test_dataset.py",
+      "sha256": "45ec10d54607193f1a731ca1e54a6ef98c716856adf2dc06ee2367a2605adfdb"
+    },
+    {
+      "path": "to_csv.py",
+      "sha256": "6ecad6cbbfd26f30d5c2e6091789dd48f125a064a083e5de4bf1609742966d11"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9b7280535103e0935853d3daaf0a83f84f50f2264c053884657f9b9e26dddb32"
+    },
+    {
+      "path": "執行紀錄.md",
+      "sha256": "b82363ad7447a5851e59956f380b095731af6fade1efdbbaf8034f14ec6583b6"
+    },
+    {
+      "path": "reports/csv-conversion.json",
+      "sha256": "179f8c397520a65269cdd4361ff58526b2c127e28edbf47215e00b74b31b7c6a"
+    }
+  ]
+}

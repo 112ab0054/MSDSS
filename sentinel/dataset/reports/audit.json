@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "credential_scan_passed": true,
+  "violating_files": [],
+  "reference_rows": 195,
+  "source_evidence_verified_rows": 195,
+  "reference_sha256": "123053d20f9075aa42bd9b519dfd334d4cdb8d5065224debc0326d9865699660",
+  "all_reference_rows_pending_human_review": true,
+  "scenario_catalog_is_unexecuted_proposals": true,
+  "training_started": false
+}
