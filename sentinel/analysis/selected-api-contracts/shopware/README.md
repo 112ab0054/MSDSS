@@ -1,13 +1,12 @@
 # shopware API 索引
 
-共 21 個操作。[API 用途與填寫參數](API_parameters.md)。
+共 20 個操作。[API 用途與填寫參數](API_parameters.md)。
 
 下表連到實際採用的契約，包含另外保存的修正版；不要以舊目錄檔案是否存在判斷採用優先順序。
 
 | Method | Path | 角色 | 採用契約 |
 |---|---|---|---|
 | GET | `/checkout/cart` | 核心 | [JSON](../../api-extension/contract-corrections/shopware/get-checkout-cart.json) |
-| GET | `/checkout/gateway` | 選用 | [JSON](../../api-extension/contract-corrections/shopware/get-checkout-gateway.json) |
 | POST | `/account/address` | 核心 | [JSON](../../api-extension/contract-corrections/shopware/post-account-address.json) |
 | POST | `/account/customer` | 核心 | [JSON](../../api-extension/contract-corrections/shopware/post-account-customer.json) |
 | POST | `/account/list-address` | 核心 | [JSON](../../api-extension/contract-corrections/shopware/post-account-list-address.json) |

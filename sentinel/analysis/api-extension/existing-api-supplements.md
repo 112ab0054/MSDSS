@@ -12,7 +12,7 @@
 |---|---|---|---|
 | bagisto | `POST /customer/login` | `sentinel/analysis/selected-api-contracts/bagisto/post-customer-login.json` | [post-customer-login.json](contract-corrections/bagisto/post-customer-login.json) |
 | shopware | `GET /checkout/cart` | `sentinel/analysis/selected-api-contracts/shopware/get-checkout-cart.json` | [get-checkout-cart.json](contract-corrections/shopware/get-checkout-cart.json) |
-| shopware | `GET /checkout/gateway` | `sentinel/analysis/selected-api-contracts/shopware/get-checkout-gateway.json` | [get-checkout-gateway.json](contract-corrections/shopware/get-checkout-gateway.json) |
+| shopware（已移出現行範圍，僅保留來源） | `GET /checkout/gateway` | `sentinel/analysis/selected-api-contracts/shopware/get-checkout-gateway.json` | [get-checkout-gateway.json](contract-corrections/shopware/get-checkout-gateway.json) |
 | shopware | `POST /account/address` | `sentinel/analysis/selected-api-contracts/shopware/post-account-address.json` | [post-account-address.json](contract-corrections/shopware/post-account-address.json) |
 | shopware | `POST /account/customer` | `sentinel/analysis/selected-api-contracts/shopware/post-account-customer.json` | [post-account-customer.json](contract-corrections/shopware/post-account-customer.json) |
 | shopware | `POST /account/list-address` | `sentinel/analysis/selected-api-contracts/shopware/post-account-list-address.json` | [post-account-list-address.json](contract-corrections/shopware/post-account-list-address.json) |

@@ -1,0 +1,3072 @@
+{
+  "candidate_count": 2944,
+  "http_executed": 0,
+  "training_approved": 0,
+  "reference_sha256": "58380b90130861a28b97b6f3481151dc5edb190483db817da1af4ebc23c3f482",
+  "coverage": [
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/customer-addresses",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/customer-orders",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/customer-profile",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/payment-methods",
+      "has_historical_base": true,
+      "headers": {
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        },
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "authorization",
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 16,
+      "generated": 113,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/products",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/products/{id}",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/add-product-in-cart",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/cart",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/cart-tokens",
+      "has_historical_base": true,
+      "headers": {
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        },
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "authorization",
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 16,
+      "generated": 113,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-addresses",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-orders",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-payment-methods",
+      "has_historical_base": true,
+      "headers": {
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        },
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "authorization",
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 16,
+      "generated": 113,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-shipping-methods",
+      "has_historical_base": true,
+      "headers": {
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        },
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "authorization",
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 16,
+      "generated": 113,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customer-addresses",
+      "has_historical_base": true,
+      "headers": {
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        },
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "authorization",
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 16,
+      "generated": 113,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customer/login",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customer/logout",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customers",
+      "has_historical_base": true,
+      "headers": {
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        },
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-channel}"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-currency}"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-locale}"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "authorization",
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 16,
+      "generated": 113,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/remove-cart-item",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/update-cart-item",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "bagisto",
+      "method": "PUT",
+      "path": "/customer-addresses/{id}",
+      "has_historical_base": true,
+      "headers": {
+        "x-channel": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "default"
+          ]
+        },
+        "x-currency": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "USD"
+          ]
+        },
+        "x-locale": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en"
+          ]
+        },
+        "x-storefront-key": {
+          "required": true,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:x-storefront-key}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "x-channel",
+        "x-currency",
+        "x-locale"
+      ],
+      "presence_combinations": 8,
+      "generated": 57,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/checkout/cart",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/context",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/payment-method",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/shipping-method",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "PATCH",
+      "path": "/checkout/cart/line-item",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "PATCH",
+      "path": "/context",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/address",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-context-token": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-context-token}"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 22,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/customer",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-context-token": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-context-token}"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1",
+            "\"1\""
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-language-id"
+      ],
+      "presence_combinations": 8,
+      "generated": 66,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/list-address",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-context-token": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-context-token}"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1",
+            "\"1\""
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-language-id"
+      ],
+      "presence_combinations": 8,
+      "generated": 66,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/login",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/logout",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-context-token": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-context-token}"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 22,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/register",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/checkout/cart/line-item",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/checkout/cart/line-item/delete",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 21,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/checkout/order",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-context-token": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-context-token}"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-language-id"
+      ],
+      "presence_combinations": 4,
+      "generated": 22,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/order",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-context-token": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-context-token}"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-language-id"
+      ],
+      "presence_combinations": 8,
+      "generated": 62,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/product",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1",
+            "\"1\""
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-language-id"
+      ],
+      "presence_combinations": 8,
+      "generated": 65,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/product-listing/{categoryId}",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1",
+            "\"1\""
+          ]
+        },
+        "sw-include-seo-urls": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-include-seo-urls}"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-include-seo-urls",
+        "sw-language-id"
+      ],
+      "presence_combinations": 16,
+      "generated": 161,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/product/{productId}",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1",
+            "\"1\""
+          ]
+        },
+        "sw-include-seo-urls": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-include-seo-urls}"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-include-seo-urls",
+        "sw-language-id"
+      ],
+      "presence_combinations": 16,
+      "generated": 161,
+      "skipped": []
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/search",
+      "has_historical_base": true,
+      "headers": {
+        "sw-access-key": {
+          "required": false,
+          "conditional": true,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:sw-access-key}"
+          ]
+        },
+        "sw-context-source": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "session"
+          ]
+        },
+        "sw-include-search-info": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "0",
+            "1",
+            "\"1\""
+          ]
+        },
+        "sw-include-seo-urls": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-include-seo-urls}"
+          ]
+        },
+        "sw-language-id": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "${LIVE:sw-language-id}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "sw-context-source",
+        "sw-include-search-info",
+        "sw-include-seo-urls",
+        "sw-language-id"
+      ],
+      "presence_combinations": 16,
+      "generated": 161,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "DELETE",
+      "path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/addresses",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/addresses/{id}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/items",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/payment-methods",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/products",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/products/{code}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/complete",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/addresses",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/customers",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/customers/token",
+      "has_historical_base": true,
+      "headers": {},
+      "optional_headers": [],
+      "presence_combinations": 1,
+      "generated": 1,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/orders",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/orders/{tokenValue}/items",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language"
+      ],
+      "presence_combinations": 2,
+      "generated": 14,
+      "skipped": []
+    },
+    {
+      "platform": "sylius",
+      "method": "PUT",
+      "path": "/api/v2/shop/orders/{tokenValue}",
+      "has_historical_base": true,
+      "headers": {
+        "accept-language": {
+          "required": false,
+          "conditional": false,
+          "sensitive": false,
+          "in_manual_document": true,
+          "in_contract_parameters": true,
+          "values": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "authorization": {
+          "required": false,
+          "conditional": false,
+          "sensitive": true,
+          "in_manual_document": true,
+          "in_contract_parameters": false,
+          "values": [
+            "${LIVE:authorization}"
+          ]
+        }
+      },
+      "optional_headers": [
+        "accept-language",
+        "authorization"
+      ],
+      "presence_combinations": 4,
+      "generated": 28,
+      "skipped": []
+    }
+  ]
+}

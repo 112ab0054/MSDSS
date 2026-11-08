@@ -116,7 +116,7 @@ docker-compose stop
 
 ## 研究文件入口
 
-目前訓練平台候選為 Bagisto 21、Shopware 21、Sylius 22，共 64 操作；第一版 normal、sqli、xss。Sylius 顧客驗證請求路由在固定實例不存在，未納入現行清單。規格與計畫已整理，尚未完成固定實例、訓練資料、模型與效果驗證。
+目前訓練平台候選為 Bagisto 21、Shopware 20、Sylius 21，共 62 操作；第一版 normal、sqli、xss。Sylius 顧客驗證請求路由在固定實例不存在，未納入現行清單。規格與計畫已整理，尚未完成固定實例、訓練資料、模型與效果驗證。
 
 - [Sentinel 現行文件索引](sentinel/README.md)
 - [API 來源、版本與採用狀態](API_文件與採用範圍.md)

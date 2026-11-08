@@ -1,7 +1,7 @@
 # 現行 API 採用資料
 
 - [實施計畫](plan.md)：正常流程、第一版三分類、資料與測試條件。
-- [active-api-manifest.json](active-api-manifest.json)：64 個操作的機器採用清單，含來源雜湊與認證要求。
+- [active-api-manifest.json](active-api-manifest.json)：62 個操作的機器採用清單，含來源雜湊與認證要求。
 - [existing-api-supplements.md](existing-api-supplements.md)：16 份結構修正版的原因。
 - `contract-corrections/`：另存的修正版，依採用清單讀取。
 - [Medusa 待測索引](medusa-holdout-inventory.json)：79 操作，非實測結果。

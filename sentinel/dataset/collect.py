@@ -221,10 +221,8 @@ def main():
                 baseline.run(c)
             else:
                 baseline.run(c, config)
-            # Only up to 30 workflow rows enter the pilot; all HTTP remains in evidence.
+            # 保留完整已驗證正常流程，不再用任意 30 筆上限漏掉 API／參數。
             for row in c.rows:
-                if workflow_count >= 30:
-                    break
                 if row.get('business_verified') and 200 <= row.get('status', 0) < 300 and (row['method'], row['operation_path']) in selected:
                     samples.append(sample(platform, source.relative_to(ROOT).as_posix(), c.redact(row), batch,
                         kind='pilot_live', reason='當次完整正常購物流程與業務斷言', versions=environment))

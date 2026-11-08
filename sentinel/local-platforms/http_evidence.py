@@ -2,6 +2,7 @@
 import datetime as dt
 import hashlib
 import http.cookiejar
+import http.client
 import json
 import re
 import sys
@@ -17,6 +18,49 @@ SENSITIVE = re.compile(r'password|passwd|authorization|cookie|token|secret|api.?
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
+
+
+class CaptureRequestHeaders(urllib.request.HTTPHandler):
+    """在 Cookie 與 urllib 預設標頭加入後，保存實際送出前的 header。
+
+    這是 HTTP 客戶端層的觀測，不宣稱是封包擷取；資料寫檔仍經 redact。
+    不修改任何 header 或請求內容。
+    """
+    handler_order = 600
+
+    def __init__(self, client):
+        super().__init__()
+        self.client = client
+
+    def http_request(self, request):
+        request = self.do_request_(request)
+        if self.client.rows:
+            headers = dict(request.header_items())
+            self.client.remember(headers)
+            self.client.rows[-1]['request_headers'] = headers
+            self.client.rows[-1]['header_capture'] = 'urllib_pre_send'
+        return request
+
+    https_request = http_request
+
+    def http_open(self, request):
+        client = self.client
+
+        class Connection(http.client.HTTPConnection):
+            # http.client 還會自動加入 Accept-Encoding 等標頭，須在最終層觀測。
+            def putheader(self, name, *values):
+                if not hasattr(self, 'observed_headers'):
+                    self.observed_headers = {}
+                self.observed_headers[name] = ', '.join(str(v) for v in values)
+                return super().putheader(name, *values)
+
+            def endheaders(self, *args, **kwargs):
+                client.remember(self.observed_headers)
+                client.rows[-1]['request_headers'] = self.observed_headers.copy()
+                client.rows[-1]['header_capture'] = 'http_client_sent_headers'
+                return super().endheaders(*args, **kwargs)
+
+        return self.do_open(Connection, request)
 
 
 class EvidenceClient:
@@ -38,7 +82,7 @@ class EvidenceClient:
         self.cookie_jar = http.cookiejar.CookieJar()
         self.opener = urllib.request.build_opener(
             urllib.request.ProxyHandler({}), NoRedirect(),
-            urllib.request.HTTPCookieProcessor(self.cookie_jar))
+            urllib.request.HTTPCookieProcessor(self.cookie_jar), CaptureRequestHeaders(self))
         self.remember(self.headers)
 
     def remember(self, value):

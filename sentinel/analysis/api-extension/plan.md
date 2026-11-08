@@ -1,12 +1,12 @@
 # 三平台 API 增補採用計畫
 
-目前採用 64 個操作。三份 API_parameters.md 已有後續人工局部修訂，以現存參數文件為準；本計畫與 active-api-manifest.json 記錄採用範圍及流程，不用歷史產生器覆寫參數文件。
+目前採用 62 個操作。三份 API_parameters.md 已有後續人工局部修訂，以現存參數文件為準；本計畫與 active-api-manifest.json 記錄採用範圍及流程，不用歷史產生器覆寫參數文件。
 
 ## 採用範圍
 
-64 個操作：Bagisto 21、Shopware 21、Sylius 22。57 個核心、6 個流程支援、1 個選用；每平台操作數不必相同。
+62 個操作：Bagisto 21、Shopware 20、Sylius 21。56 個核心、6 個流程支援；每平台操作數不必相同。
 
-原 Shopware GET /checkout/gateway 與 Sylius 顧客驗證請求保留為選用，不阻擋第一版正常流程。角色以採用清單為準。
+Shopware GET /checkout/gateway、Sylius GET /api/v2/shop/products-by-slug/{slug} 不納入現行 62 操作；Sylius 顧客驗證請求也維持排除。來源規格保留供追溯。
 
 第一版標籤固定為 normal、sqli、xss。歷史五分類規劃中的 CMDi 與 path_traversal 需有既有功能的合理輸入情境及人工審核，再另立實驗。
 
@@ -61,7 +61,7 @@
 2. 以 POST /account/register 建帳（確認實例的信箱驗證設定），POST /account/login 登入；回應若更新情境 token，後續換用新值。
 3. 查詢商品，再 POST /checkout/cart/line-item 加入；PATCH 同一路徑改數量，POST /checkout/cart/line-item/delete 移除。
 4. POST /account/address 建立地址；GET /payment-method、GET /shipping-method 查詢可選值。
-5. PATCH /context 保存地址、配送與付款；GET /context 核對。GET /checkout/gateway 只列選用關卡檢查，不代替保存。
+5. PATCH /context 保存地址、配送與付款；GET /context 核對。GET /checkout/gateway 不在現行採集範圍。
 6. POST /checkout/order 建立測試訂單；POST /order 查詢結果，不混淆兩者。
 
 ### 正式收集前

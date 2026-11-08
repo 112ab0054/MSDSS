@@ -98,3 +98,7 @@ python sentinel/scripts/active_api_contracts.py
 原有三份 API_parameters、原始契約、active manifest、Medusa 與 Mirage 均未覆寫。另存的 `upstream/` 包含固定來源與新匯出的規格；不直接取代既有文件。原 Bagisto 規格來源 commit 的 Composer 需求已是 PHP 8.4／Laravel 13，但固定的 2.4.10 核心是 PHP 8.3～8.4／Laravel 12；必須使用 API 2.4.4 的相容版本。21 個選定路徑／方法在該 release 快照均存在，這仍不等於部署驗證。
 
 Shopware 原規格 `6.7.9999999-dev` 與實例 6.7.15.1 分開保存。Sylius 原規格 `0.0.0` 不當作平台版本。實際進度、資源紀錄與待處理問題另見 `reports/`，後續應先閱讀最近的執行摘要，再接續尚未通過的實測。
+
+## 現行範圍修正：62 操作
+
+依使用者決定，現行採用為 Bagisto 21、Shopware 20、Sylius 21。上方 64 操作與 gateway 實測敘述屬當時紀錄，不代表現行採集範圍。Shopware GET /checkout/gateway 與 Sylius GET /api/v2/shop/products-by-slug/{slug} 已移出採用清單；既有 HTTP 證據與原始規格保留，不宣稱端點不存在。

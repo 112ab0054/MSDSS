@@ -54,6 +54,46 @@ class EvidencePrivacyTests(unittest.TestCase):
             self.assertNotIn('password-known-secret', raw)
             self.assertFalse(json.loads(raw)['training_data'])
 
+    def test_actual_headers_captured_without_leaking_cookie(self):
+        """以本機 HTTP 實測 Cookie/default/User-Agent/header/body 是否一致保存。"""
+        import threading
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        observed = {}
+
+        class Handler(BaseHTTPRequestHandler):
+            def do_POST(self):
+                observed['headers'] = dict(self.headers)
+                observed['body'] = self.rfile.read(int(self.headers['Content-Length']))
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(b'{}')
+
+            def log_message(self, *args):
+                pass
+
+        server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                client = EvidenceClient('test', f'http://127.0.0.1:{server.server_port}', Path(tmp) / 'evidence.json',
+                                        {'X-Extra': 'all-fields-kept', 'Cookie': 'sid=private-cookie'})
+                client.request('POST', '/products?order=desc&page=2', {'nested': {'custom': 'kept'}})
+                self.assertEqual(json.loads(observed['body'])['nested']['custom'], 'kept')
+                stored = {k.lower(): v for k, v in client.redact(client.rows[0])['request_headers'].items()}
+                for name, value in observed['headers'].items():
+                    if name.lower() != 'cookie':
+                        self.assertEqual(stored[name.lower()], value)
+                self.assertEqual(stored['cookie'], '[REDACTED]')
+                self.assertEqual(stored['x-extra'], 'all-fields-kept')
+                self.assertIn('user-agent', stored)
+                self.assertIn('host', stored)
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join()
+
     def test_remote_and_credential_urls_rejected(self):
         for url in ('https://example.com', 'http://localhost:18082', 'http://127.0.0.1.evil.test',
                     'http://u:p@127.0.0.1:18082'):

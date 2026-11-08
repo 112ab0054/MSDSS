@@ -1,6 +1,6 @@
 # 現行訓練 API 索引
 
-更新日期：2026-11-08。共 64 個操作：Bagisto 21、Shopware 21、Sylius 22。第一版 normal、sqli、xss。
+更新日期：2026-11-08。共 62 個操作：Bagisto 21、Shopware 20、Sylius 21。第一版 normal、sqli、xss。
 
 本索引依 [採用清單](api-extension/active-api-manifest.json) 整理；API 標題取自現有參數文件，不重寫參數表格。原先 45 操作清單與審查已歸檔，不能當成目前完整範圍。
 
@@ -41,7 +41,6 @@
 | 角色 | Method | Path | 中文標題 | 採用契約 |
 |---|---|---|---|---|
 | 核心 | GET | `/checkout/cart` | 取得購物車 API | [JSON](api-extension/contract-corrections/shopware/get-checkout-cart.json) |
-| 選用 | GET | `/checkout/gateway` | 呼叫結帳關卡 API | [JSON](api-extension/contract-corrections/shopware/get-checkout-gateway.json) |
 | 核心 | POST | `/account/address` | 建立顧客地址 API | [JSON](api-extension/contract-corrections/shopware/post-account-address.json) |
 | 核心 | POST | `/account/customer` | 取得顧客資料 API | [JSON](api-extension/contract-corrections/shopware/post-account-customer.json) |
 | 核心 | POST | `/account/list-address` | 查詢顧客地址 API | [JSON](api-extension/contract-corrections/shopware/post-account-list-address.json) |
@@ -74,7 +73,6 @@
 | 核心 | GET | `/api/v2/shop/orders/{tokenValue}` | 取得單一訂單 API | [JSON](selected-api-contracts/sylius/get-api-v2-shop-orders-tokenvalue.json) |
 | 核心 | GET | `/api/v2/shop/orders` | 取得訂單清單 API | [JSON](selected-api-contracts/sylius/get-api-v2-shop-orders.json) |
 | 核心 | GET | `/api/v2/shop/payment-methods` | 取得付款方式清單 API | [JSON](selected-api-contracts/sylius/get-api-v2-shop-payment-methods.json) |
-| 核心 | GET | `/api/v2/shop/products-by-slug/{slug}` | 依網址識別字串取得商品 API | [JSON](selected-api-contracts/sylius/get-api-v2-shop-products-by-slug-slug.json) |
 | 核心 | GET | `/api/v2/shop/products/{code}` | 依商品代碼取得商品 API | [JSON](selected-api-contracts/sylius/get-api-v2-shop-products-code.json) |
 | 核心 | GET | `/api/v2/shop/products` | 取得商品清單 API | [JSON](selected-api-contracts/sylius/get-api-v2-shop-products.json) |
 | 核心 | PATCH | `/api/v2/shop/orders/{tokenValue}/complete` | 更新訂單 API | [JSON](selected-api-contracts/sylius/patch-api-v2-shop-orders-tokenvalue-complete.json) |
@@ -93,6 +91,7 @@
 
 ## 注意事項
 
-- Shopware GET /checkout/gateway 屬選用；POST /order 已納入查單。
 - 原始規格、保留的原拆分檔與實際採用的修正版分開保存。16 份修正版的原因見 [契約補充](api-extension/existing-api-supplements.md)。
 - 平台版本與正常購物流程未固定／驗證前，不開始宣稱正式資料收集就緒。完整順序見 [實施計畫](api-extension/plan.md)。
+
+Shopware `GET /checkout/gateway`、Sylius `GET /api/v2/shop/products-by-slug/{slug}` 已移出現行 62 操作範圍；來源規格保留供追溯。

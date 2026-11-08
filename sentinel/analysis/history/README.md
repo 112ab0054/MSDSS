@@ -1,6 +1,6 @@
 # 歷史文件與工具
 
-此區保存當時的原始內容，供追溯與回復；不是目前研究範圍、部署狀態或通過證明。現行入口是 [Sentinel](../../README.md)、[64 操作索引](../selected-apis.md) 與 [實施計畫](../api-extension/plan.md)。
+此區保存當時的原始內容，供追溯與回復；不是目前研究範圍、部署狀態或通過證明。現行入口是 [Sentinel](../../README.md)、[62 操作索引](../selected-apis.md) 與 [實施計畫](../api-extension/plan.md)。
 
 ## 2026-11-08
 

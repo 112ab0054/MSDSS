@@ -1,6 +1,6 @@
 # sylius API 索引
 
-共 22 個操作。[API 用途與填寫參數](API_parameters.md)。
+共 21 個操作。[API 用途與填寫參數](API_parameters.md)。
 
 下表連到實際採用的契約，包含另外保存的修正版；不要以舊目錄檔案是否存在判斷採用優先順序。
 
@@ -12,7 +12,6 @@
 | GET | `/api/v2/shop/orders/{tokenValue}` | 核心 | [JSON](get-api-v2-shop-orders-tokenvalue.json) |
 | GET | `/api/v2/shop/orders` | 核心 | [JSON](get-api-v2-shop-orders.json) |
 | GET | `/api/v2/shop/payment-methods` | 核心 | [JSON](get-api-v2-shop-payment-methods.json) |
-| GET | `/api/v2/shop/products-by-slug/{slug}` | 核心 | [JSON](get-api-v2-shop-products-by-slug-slug.json) |
 | GET | `/api/v2/shop/products/{code}` | 核心 | [JSON](get-api-v2-shop-products-code.json) |
 | GET | `/api/v2/shop/products` | 核心 | [JSON](get-api-v2-shop-products.json) |
 | PATCH | `/api/v2/shop/orders/{tokenValue}/complete` | 核心 | [JSON](patch-api-v2-shop-orders-tokenvalue-complete.json) |

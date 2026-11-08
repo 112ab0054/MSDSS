@@ -7,10 +7,10 @@
 | 平台 | 選定操作數 | 已保存的規格 | 規格 info.version | 部署／資料狀態 |
 |---|---:|---|---|---|
 | Bagisto | 21 | [Shop API](sentinel/analysis/api-contracts/bagisto/openapi-shop.json) | 2.4.10 | 尚未對應固定實例並跑通流程 |
-| Shopware | 21 | [Store API](sentinel/analysis/api-contracts/shopware/storeapi.json) | 6.7.9999999-dev | 開發版快照，須換成與固定實例相符的版本 |
+| Shopware | 20 | [Store API](sentinel/analysis/api-contracts/shopware/storeapi.json) | 6.7.9999999-dev | 開發版快照，須換成與固定實例相符的版本 |
 | Sylius | 23 | [Demo API](sentinel/analysis/api-contracts/sylius/openapi-demo.json) | 0.0.0 | Demo 文件，不能由此推定 framework 版本；須由固定實例重新匯出 |
 
-三平台共 64 個候選操作，角色為 57 核心、6 流程支援、1 選用。Sylius 的顧客驗證請求路由因固定實例不存在，已從現行採用清單移除；原始規格仍保留作來源快照。第一版採 normal、sqli、xss。原始來源 commit、URL 與實際 SHA-256 見 [快照來源](sentinel/analysis/api-contracts/README.md)。目前 ready_for_collection 均為 false。
+三平台共 62 個候選操作，角色為 56 核心、6 流程支援。Sylius 的顧客驗證請求路由因固定實例不存在，已從現行採用清單移除；原始規格仍保留作來源快照。第一版採 normal、sqli、xss。原始來源 commit、URL 與實際 SHA-256 見 [快照來源](sentinel/analysis/api-contracts/README.md)。目前 ready_for_collection 均為 false。
 
 - [完整 API 索引](sentinel/analysis/selected-apis.md)
 - [採用清單](sentinel/analysis/api-extension/active-api-manifest.json)：機器解析的來源與修正版路徑。

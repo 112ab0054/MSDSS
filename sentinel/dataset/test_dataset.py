@@ -38,7 +38,24 @@ class DatasetTests(unittest.TestCase):
         for value in ('private-token', 'private-jwt', 'private-api-key', 'private-password', 'confirm-private', 'actual-product-id', 'test@example.test', 'uuid123'):
             self.assertNotIn(value, str(result))
         self.assertEqual(result['body']['firstName'], "O'Connor")
-        self.assertEqual(set(result), {'method', 'path', 'query', 'headers', 'body'})
+        self.assertEqual(set(result), {'method', 'path', 'query', 'headers', 'body', 'path_parameters'})
+
+    def test_complete_request_and_legacy(self):
+        from core import evidence_digest_mode, sha
+        row = {'method': 'GET', 'operation_path': '/products/{id}',
+               'path': '/products/item-1?order=desc&page=2&per_page=10&type=simple',
+               'request_headers': {'X-Locale': 'en', 'X-Custom': '<svg onload="void(0)">',
+                                   'Cookie': 'private', 'User-Agent': 'Browser'},
+               'request_body': {'nested': {'new_field': 'kept'}}}
+        new = model_input(row)
+        self.assertEqual(set(new['query']), {'order', 'page', 'per_page', 'type'})
+        self.assertEqual(new['headers']['x-custom'], '<svg onload="void(0)">')
+        self.assertEqual(new['headers']['cookie'], '[REDACTED]')
+        self.assertEqual(new['path_parameters'], {'id': 'item-1'})
+        self.assertEqual(new['body']['nested']['new_field'], 'kept')
+        self.assertEqual(model_input(row, version=1)['headers'], {})
+        self.assertEqual(evidence_digest_mode(b'{\n}\n', sha(b'{\r\n}\r\n')), 'original_crlf_reconstructed')
+        self.assertIsNone(evidence_digest_mode(b'{changed}', sha(b'{original}')))
 
     def test_transitive_grouping_and_global_family(self):
         a = fixture('a', family='sql.same', session='s1')

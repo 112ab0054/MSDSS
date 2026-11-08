@@ -44,12 +44,32 @@ def scrub(value, key=''):
     return value
 
 
-def model_input(row):
+def model_input(row, version=2):
     url = urllib.parse.urlsplit(row['path'])
     query = urllib.parse.parse_qs(url.query, keep_blank_values=True, max_num_fields=1000)
+    if version == 1:
+        # 舊證據必須照當時白名單還原，避免更版使已保存的對帳失效。
+        return {'method': row['method'], 'path': row['operation_path'], 'query': scrub(query),
+                'headers': {k.lower(): v for k, v in row.get('request_headers', {}).items() if k.lower() in HEADERS},
+                'body': scrub(row.get('request_body'))}
+    if version != 2:
+        raise ValueError('不支援的請求輸入版本')
+    # 不依參數白名單挑欄位：保留完整 query、本文與所有實際擷取到的 header。
+    # 只將敏感值遮蔽、追蹤 ID 正規化，不保存可用憑證。
+    headers = {}
+    for key, value in row.get('request_headers', {}).items():
+        name = key.lower()
+        headers[name] = '[ID]' if name in {'x-request-id', 'traceparent', 'tracestate'} else scrub(value, name)
+    # URL 仍保存路由模板；各 path 參數另存，讓路徑中的惡意字串也能被檢查。
+    pattern = '^' + re.sub(r'\\\{[^}]+\\\}', '([^/]+)', re.escape(row['operation_path'])) + '$'
+    match = re.match(pattern, url.path)
+    names = re.findall(r'\{([^}]+)\}', row['operation_path'])
+    path_parameters = {name: ('[REDACTED]' if PRIVATE.search(name) else urllib.parse.unquote(value))
+                       for name, value in zip(names, match.groups() if match else [])}
     return {'method': row['method'], 'path': row['operation_path'], 'query': scrub(query),
-            'headers': {k.lower(): v for k, v in row.get('request_headers', {}).items() if k.lower() in HEADERS},
-            'body': scrub(row.get('request_body'))}
+            'headers': headers, 'body': scrub(row.get('request_body')),
+            'path_parameters': path_parameters}
+
 
 
 def near_fingerprint(request):
@@ -76,6 +96,7 @@ def sample(platform, source, row, batch, label='normal', family=None, pair=None,
                 'eligible_for_review': bool(eligibility and valid)},
             'metadata': {'platform': platform, 'versions': versions or {}, 'origin': kind,
                 'batch_id': batch, 'session_group': batch, 'family_id': family,
+                'request_input_version': 2,
                 'pair_group': pair, 'source_evidence': source, 'request_id': row['request_id'],
                 'manifest_sha256': sha(MANIFEST.read_bytes()), 'source_contract_sha256': selected['sources'][platform]['sha256'],
                 'fingerprint': sha(request), 'near_fingerprint': near_fingerprint(request), 'http_status': row.get('status'),
@@ -94,6 +115,22 @@ def read_jsonl(path):
     return [json.loads(line) for line in Path(path).read_text(encoding='utf-8').splitlines() if line.strip()]
 
 
+def evidence_digest_mode(raw, expected):
+    """跨 Windows/Linux 檢查既存 SHA，不更改預期雜湊或證據檔。
+
+    Git checkout 可能將 CRLF 改為 LF。僅當重建原換行後的完整位元組
+    SHA 確實等於原紀錄才接受，不接受任意內容的重新雜湊。
+    """
+    if sha(raw) == expected:
+        return 'exact_bytes'
+    lf = raw.replace(b'\r\n', b'\n')
+    if sha(lf) == expected:
+        return 'original_lf_reconstructed'
+    if sha(lf.replace(b'\n', b'\r\n')) == expected:
+        return 'original_crlf_reconstructed'
+    return None
+
+
 def verify_evidence(row):
     """Bind an export to an existing local HTTP artifact, not just a proposed label."""
     meta = row['metadata']
@@ -103,13 +140,13 @@ def verify_evidence(row):
     if not any(source.is_relative_to(folder) for folder in allowed) or not source.is_file():
         return False
     raw = source.read_bytes()
-    if sha(raw) != meta.get('source_evidence_sha256'):
+    if not evidence_digest_mode(raw, meta.get('source_evidence_sha256')):
         return False
     data = json.loads(raw)
     if not isinstance(data, dict) or data.get('platform') != meta['platform']:
         return False
     matches = [r for r in data.get('requests', []) if r.get('request_id') == meta.get('request_id')]
-    return len(matches) == 1 and not matches[0].get('transport_error') and matches[0].get('status') == meta.get('http_status') and model_input(matches[0]) == row['input']
+    return len(matches) == 1 and not matches[0].get('transport_error') and matches[0].get('status') == meta.get('http_status') and model_input(matches[0], version=meta.get('request_input_version', 1)) == row['input']
 
 
 def grouped(rows):

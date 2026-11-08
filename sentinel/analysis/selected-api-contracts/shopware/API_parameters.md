@@ -23,29 +23,7 @@
 |---|---|
 | 200 | 購物車。 |
 | 401 | 缺少 `sw-access-key` header。 |
-## 02. 呼叫結帳關卡 API
-
-`GET /checkout/gateway`
-
-**operationId：** checkoutGateway  
-**來源檔案：** get-checkout-gateway.json
-
-**API 涵義：** 回傳結帳關卡處理結果。
-
-| 位置 | 參數名稱 | 必填 | 型別 | 可輸入值／格式 | 代表的涵義 |
-|---|---|---|---|---|---|
-| header | sw-access-key | 依認證組合 | string | Shopware 銷售通路存取金鑰；屬敏感資料，不應寫入模型或一般日誌。 | 實際值由部署環境提供。 |
-| query | orderId | 選填 | string | 正規表達式：`^[0-9a-f]{32}$` | 參數 `orderId` 的業務涵義未在契約中詳細說明；僅依契約型別與欄位名稱記錄。 |
-| header | sw-language-id | 選填 | string | 正規表達式：`^[0-9a-f]{32}$` | Shopware 回應內容使用的語言識別值。 |
-| header | sw-context-source | 選填 | string | 固定值：`session` | Shopware 請求情境的來源識別值。 |
-
-### 回應狀態
-
-| 狀態碼 | 回應說明 |
-|---|---|
-| 200 | 此狀態表示 API 回應了「Checkout gateway response」結果。 |
-| 401 | 缺少 `sw-access-key` header。 |
-## 03. 建立顧客地址 API
+## 02. 建立顧客地址 API
 
 `POST /account/address`
 
@@ -94,7 +72,7 @@
 | 400 | 此狀態表示 API 回應了「The submitted address data failed validation, e.g. a missing required field or a zip code that does not match the selected country」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 目前沒有顧客登入。 |
-## 04. 取得顧客資料 API
+## 03. 取得顧客資料 API
 
 `POST /account/customer`
 
@@ -142,7 +120,7 @@
 | 400 | 此狀態表示 API 回應了「The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 目前沒有顧客登入。 |
-## 05. 查詢顧客地址 API
+## 04. 查詢顧客地址 API
 
 `POST /account/list-address`
 
@@ -191,7 +169,7 @@
 | 400 | 此狀態表示 API 回應了「The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 目前沒有顧客登入。 |
-## 06. 顧客登入 API
+## 05. 顧客登入 API
 
 `POST /account/login`
 
@@ -225,7 +203,7 @@
 | 200 | 契約未提供回應說明。 |
 | 401 | 此狀態表示 API 回應了「If credentials are incorrect an error is returned」結果。 |
 | 429 | 此狀態表示 API 回應了「Too many failed login attempts for this email address or client IP. The `Retry-After` window is contained in the error」結果。 |
-## 07. 顧客登出 API
+## 06. 顧客登出 API
 
 `POST /account/logout`
 
@@ -248,7 +226,7 @@
 | 200 | 契約未提供回應說明。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 契約未提供回應說明。 |
-## 08. 註冊顧客 API
+## 07. 註冊顧客 API
 
 `POST /account/register`
 
@@ -295,7 +273,7 @@
 | 200 | 成功。 |
 | 400 | 此狀態表示 API 回應了「The submitted registration data failed validation, e.g. a missing required field, an email address that is already registered or an unknown country」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
-## 09. 移除購物車商品 API
+## 08. 移除購物車商品 API
 
 `POST /checkout/cart/line-item/delete`
 
@@ -327,7 +305,7 @@
 | 200 | 此狀態表示 API 回應了「The updated cart」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 404 | 此狀態表示 API 回應了「One of the given ids does not reference a line item of the current cart」結果。 |
-## 10. 新增商品至購物車 API
+## 09. 新增商品至購物車 API
 
 `POST /checkout/cart/line-item`
 
@@ -360,7 +338,7 @@
 | 400 | 契約未提供回應說明。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 429 | 此狀態表示 API 回應了「Too many repeated line item additions. Wait for the number of seconds provided in the error before retrying」結果。 |
-## 11. 建立訂單 API
+## 10. 建立訂單 API
 
 `POST /checkout/order`
 
@@ -397,7 +375,7 @@
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 目前沒有顧客登入。 |
 | 409 | 此狀態表示 API 回應了「The `hash` sent by the client does not match the current cart content, so the cart changed since it was last read」結果。 |
-## 12. 查詢分類商品 API
+## 11. 查詢分類商品 API
 
 `POST /product-listing/{categoryId}`
 
@@ -465,7 +443,7 @@
 | 400 | 此狀態表示 API 回應了「The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 404 | 此狀態表示 API 回應了「No category exists for the given `categoryId` in this sales channel」結果。 |
-## 13. 取得單一商品 API
+## 12. 取得單一商品 API
 
 `POST /product/{productId}`
 
@@ -517,7 +495,7 @@
 | 400 | 此狀態表示 API 回應了「The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 404 | 此狀態表示 API 回應了「No product exists for the given `productId` in this sales channel」結果。 |
-## 14. 依條件查詢商品 API
+## 13. 依條件查詢商品 API
 
 `POST /product`
 
@@ -564,7 +542,7 @@
 | 200 | 契約未提供回應說明。 |
 | 400 | 此狀態表示 API 回應了「The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association」結果。 |
 | 401 | 缺少 `sw-access-key` header。 |
-## 15. 搜尋商品 API
+## 14. 搜尋商品 API
 
 `POST /search`
 
@@ -638,7 +616,7 @@
 ---
 
 以下為本次增補操作；原第 01–15 節內容保留不變。新增欄位沿用原表格，另補來源認證與巢狀結構；可輸入值列出來源的選項、預設、範例及限制。完整採用規則見 [增補計畫](../../api-extension/plan.md)。
-## 16. 更新購物車品項 API
+## 15. 更新購物車品項 API
 
 `PATCH /checkout/cart/line-item`
 
@@ -690,7 +668,7 @@
 | 400 | 品項無法更新，例如數量不是正整數、不是父品項數量的倍數，或品項類型不支援更新。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 404 | 提供的品項識別碼不屬於目前購物車。 |
-## 17. 更新購物情境設定 API
+## 16. 更新購物情境設定 API
 
 `PATCH /context`
 
@@ -730,7 +708,7 @@
 | 400 | 提交的識別碼不是字串，或不屬於目前銷售通路可用的實體。 |
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 未登入顧客卻提交了帳單地址或配送地址識別碼。 |
-## 18. 查詢顧客訂單 API
+## 17. 查詢顧客訂單 API
 
 `POST /order`
 
@@ -783,7 +761,7 @@
 | 401 | 缺少 `sw-access-key` header。 |
 | 403 | 未登入顧客且未提供符合的訪客訂單驗證資料。 |
 | 429 | 訪客驗證失敗次數過多。 |
-## 19. 取得購物情境 API
+## 18. 取得購物情境 API
 
 `GET /context`
 
@@ -804,7 +782,7 @@
 |---|---|
 | 200 | 目前購物情境，並在回應標頭提供 `sw-context-token`。 |
 | 401 | 缺少 `sw-access-key` header。 |
-## 20. 查詢付款方式 API
+## 19. 查詢付款方式 API
 
 `GET /payment-method`
 
@@ -843,7 +821,7 @@
 | 200 | 可用付款方式清單。 |
 | 400 | Criteria 條件無效。 |
 | 401 | 缺少 `sw-access-key` header。 |
-## 21. 查詢配送方式 API
+## 20. 查詢配送方式 API
 
 `GET /shipping-method`
 

@@ -1,6 +1,6 @@
 # API 與分類範圍
 
-目前選用 Bagisto 21、Shopware 21、Sylius 22，共 64 操作。完整端點與角色見 [現行索引](selected-apis.md)，實際契約路徑見 [採用清單](api-extension/active-api-manifest.json)。
+目前選用 Bagisto 21、Shopware 20、Sylius 21，共 62 操作。完整端點與角色見 [現行索引](selected-apis.md)，實際契約路徑見 [採用清單](api-extension/active-api-manifest.json)。
 
 ## 共同業務
 

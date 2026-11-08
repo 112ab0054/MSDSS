@@ -1,4 +1,4 @@
-"""Load the explicit 64-operation manifest, including separate corrected files.
+"""Load the explicit 62-operation manifest, including separate corrected files.
 
 This does not install an inference service or alter the original contracts.
 """
@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def load_active_contracts():
     manifest = json.loads((ROOT / "sentinel/analysis/api-extension/active-api-manifest.json").read_text(encoding="utf-8"))
+    if manifest["operation_count"] != 62 or len(manifest["operations"]) != 62:
+        raise ValueError("採用清單必須與現行 62 操作一致")
     sources, operations = {}, {}
     for entry in manifest["operations"]:
         source_path = entry["source_contract"]
