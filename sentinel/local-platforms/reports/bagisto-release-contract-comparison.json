@@ -1,0 +1,158 @@
+{
+  "live_test": false,
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/customer-addresses",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/customer-orders",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/customer-profile",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/products/{id}",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "present_in_release_snapshot": true,
+      "changed_sections": [
+        "parameters"
+      ],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/add-product-in-cart",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/cart",
+      "present_in_release_snapshot": true,
+      "changed_sections": [
+        "responses"
+      ],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-addresses",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-orders",
+      "present_in_release_snapshot": true,
+      "changed_sections": [
+        "responses"
+      ],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/customer/login",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/customer/logout",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/remove-cart-item",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/update-cart-item",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "PUT",
+      "path": "/customer-addresses/{id}",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/customers",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/customer-addresses",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-shipping-methods",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/payment-methods",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-payment-methods",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/cart-tokens",
+      "present_in_release_snapshot": true,
+      "changed_sections": [],
+      "live_verified": false
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "platform": "sylius",
+  "standard_template_version": "2.2.4",
+  "core_version": "2.2.12",
+  "compatibility_dependency": "friendsofsymfony/rest-bundle 3.9.0 (required by the template bundle registration but absent from resolved dependencies)",
+  "php_version": "8.3.30",
+  "spec_info_version": "0.0.0",
+  "live_spec_sha256": "ec28de35acffca6d6b356f908ca774ce2f88ebff49aec19dd0c3a4efbde1fe75",
+  "successful_runs": [
+    {
+      "file": "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+      "request_count": 31,
+      "passed_checks": 18
+    },
+    {
+      "file": "sylius-24210669ab954772890b8bfb2d54a449.json",
+      "request_count": 31,
+      "passed_checks": 18
+    }
+  ],
+  "selected_api_2xx_passed": 21,
+  "selected_api_redirect_verified": 1,
+  "selected_api_not_tested": 0,
+  "selected_api_total": 22,
+  "selected_operations_in_live_spec": [
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/addresses/{id}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/addresses",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/items",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/orders",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/payment-methods",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/products-by-slug/{slug}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/products/{code}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/products",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/complete",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/v2/shop/addresses",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/v2/shop/customers/token",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/v2/shop/customers",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/v2/shop/orders/{tokenValue}/items",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/v2/shop/orders",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v2/shop/orders/{tokenValue}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods",
+      "present_in_live_spec": true
+    }
+  ],
+  "known_differences": [
+    "GET products-by-slug returns 301 Location to canonical product-by-code; original snapshot documented a direct representation. Same product code verified after explicitly following local canonical path.",
+    "Order response email is customer.email; input email is a top-level property.",
+    "Test channel account verification disabled; otherwise registration creates a disabled user and JWT login is rejected."
+  ],
+  "not_tested": [
+    "POST /api/v2/shop/customers/verification-request"
+  ],
+  "ready_for_collection": false,
+  "state_after_test": "stopped, volumes retained",
+  "ui_assets_built": false,
+  "scope": "Real API shopping workflow, not storefront browser UI verification"
+}

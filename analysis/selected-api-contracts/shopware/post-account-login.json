@@ -1,0 +1,85 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "POST",
+  "path": "/account/login",
+  "operation": {
+    "tags": [
+      "Login & Registration"
+    ],
+    "summary": "Log in a customer",
+    "description": "Logs in customers given their credentials.",
+    "operationId": "loginCustomer",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "properties": {
+                  "email": {
+                    "description": "Email address of the customer. Takes precedence over `username` when both are sent.",
+                    "type": "string"
+                  },
+                  "password": "<redacted>"
+                }
+              },
+              {
+                "type": "object",
+                "required": [
+                  "username",
+                  "password"
+                ],
+                "properties": {
+                  "username": {
+                    "description": "Email address of the customer. Kept for backwards compatibility; `email` is the preferred field.",
+                    "type": "string"
+                  },
+                  "password": "<redacted>"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "$ref": "#/components/responses/ContextTokenResponse"
+      },
+      "401": {
+        "description": "If credentials are incorrect an error is returned",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      },
+      "429": {
+        "$ref": "#/components/responses/429",
+        "description": "Too many failed login attempts for this email address or client IP. The `Retry-After` window is contained in the error."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>"
+      }
+    ],
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  }
+}

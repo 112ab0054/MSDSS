@@ -1,0 +1,32 @@
+name: msdss-phase1-sylius
+services:
+  app:
+    build: ../php
+    image: msdss-phase1-php:8.3.30
+    command: [php, -S, "0.0.0.0:8000", -t, public, public/index.php]
+    ports: ["127.0.0.1:18083:8000"]
+    env_file: ../.runtime/sylius.env
+    volumes: ["../.runtime/sylius:/app", "vendor:/app/vendor", "var:/app/var", "../.runtime/composer-cache:/root/.composer/cache"]
+    mem_limit: 768m
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [isolated]
+    restart: "no"
+  db:
+    image: mariadb:10.11.14@sha256:dbe56e20372fc6d6b8e0e396866ba89c4c7f128c38c4f59aaa54d957db95790c
+    env_file: ../.runtime/sylius.env
+    volumes: ["db:/var/lib/mysql"]
+    mem_limit: 512m
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks: [isolated]
+    restart: "no"
+networks:
+  isolated: {}
+volumes:
+  db: {}
+  vendor: {}
+  var: {}

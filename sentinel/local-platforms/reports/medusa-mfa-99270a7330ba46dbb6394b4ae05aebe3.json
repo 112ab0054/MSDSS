@@ -1,0 +1,156 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-08T08:48:46.777302+00:00",
+  "outcome": "failed",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "6cd16bc8fec246449d66d1b2a2fc49a273a41f45bb513641c33e4166db548b23",
+    "run_medusa_mfa.py": "a26afc6e2f2e915a096ea371530f7182b43ccc46438ba43882b88b05bc444195"
+  },
+  "requests": [
+    {
+      "request_id": "dd4a0997-7c7d-439b-8f73-5394051c9a12",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/register",
+      "operation_path": "/auth/customer/{auth_provider}/register",
+      "request_headers": {
+        "Accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]",
+        "X-Request-ID": "dd4a0997-7c7d-439b-8f73-5394051c9a12",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "email": "mfa-1071a4f1d7484a6c921f7b17ad1b3bfb@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "b8f152ce-ad47-495c-a67e-cfbab1a10233",
+      "method": "POST",
+      "path": "/store/customers",
+      "operation_path": "/store/customers",
+      "request_headers": {
+        "Accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-ID": "b8f152ce-ad47-495c-a67e-cfbab1a10233",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "email": "mfa-1071a4f1d7484a6c921f7b17ad1b3bfb@example.test"
+      },
+      "business_verified": false,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M6X5H1Y8V9B21977VJP2GXJR",
+          "email": "mfa-1071a4f1d7484a6c921f7b17ad1b3bfb@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-08T08:48:46.537Z",
+          "updated_at": "2026-11-08T08:48:46.537Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "545178a8-57eb-43a9-a630-bc637ef05557",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-ID": "545178a8-57eb-43a9-a630-bc637ef05557",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "email": "mfa-1071a4f1d7484a6c921f7b17ad1b3bfb@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "e95e1d85-40e0-403d-9c8e-fbb89c5b6572",
+      "method": "GET",
+      "path": "/auth/mfa/factors",
+      "operation_path": "/auth/mfa/factors",
+      "request_headers": {
+        "Accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-ID": "e95e1d85-40e0-403d-9c8e-fbb89c5b6572"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "mfa_factors": []
+      }
+    },
+    {
+      "request_id": "9e4b77b2-9818-4b06-b43d-d6abd66d3cea",
+      "method": "POST",
+      "path": "/auth/mfa/factors",
+      "operation_path": "/auth/mfa/factors",
+      "request_headers": {
+        "Accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-ID": "9e4b77b2-9818-4b06-b43d-d6abd66d3cea",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "provider": "totp",
+        "label": "MSDSS local test",
+        "issuer": "MSDSS"
+      },
+      "business_verified": false,
+      "status": 400,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "type": "invalid_data",
+        "message": "MFA encryption key is required to use MFA methods"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "全新實體顧客尚無 MFA 因子",
+      "passed": true,
+      "request_ids": [
+        "e95e1d85-40e0-403d-9c8e-fbb89c5b6572"
+      ]
+    }
+  ],
+  "error": "MFA 真實流程尚未通過；詳見遮蔽證據，秘密與驗證碼不顯示。"
+}

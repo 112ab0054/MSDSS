@@ -1,0 +1,57 @@
+{
+  "platform": "sylius",
+  "source_contract": "sentinel/analysis/api-contracts/sylius/openapi-demo.json",
+  "method": "POST",
+  "path": "/api/v2/shop/customers/token",
+  "operation": {
+    "operationId": "postCustomerCredentialsItem",
+    "tags": [
+      "Customer",
+      "Security"
+    ],
+    "responses": {
+      "200": {
+        "description": "JWT token retrieval succeeded",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Customer-shop.customer.token.read"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "JWT token retrieval failed due to invalid request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Customer-shop.customer.token.read.bad-request"
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "JWT token retrieval failed due to invalid credentials",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Customer-shop.customer.token.read.unauthorized"
+            }
+          }
+        }
+      }
+    },
+    "summary": "Retrieves the JWT token.",
+    "requestBody": {
+      "description": "Retrieves the JWT token.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/Customer-shop.customer.token.create"
+          }
+        }
+      },
+      "required": false
+    }
+  }
+}

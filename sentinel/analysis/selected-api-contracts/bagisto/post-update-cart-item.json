@@ -1,0 +1,148 @@
+{
+  "platform": "bagisto",
+  "source_contract": "sentinel/analysis/api-contracts/bagisto/openapi-shop.json",
+  "method": "POST",
+  "path": "/update-cart-item",
+  "operation": {
+    "operationId": "updateItem",
+    "tags": [
+      "Cart"
+    ],
+    "responses": {
+      "201": {
+        "description": "Cart item quantity updated. Returns the full cart.",
+        "content": {
+          "application/json": {
+            "example": {
+              "id": 6888,
+              "cartToken": "<redacted>",
+              "customerId": 1537,
+              "channelId": 1,
+              "itemsCount": 1,
+              "items": [
+                {
+                  "id": 7765,
+                  "cartId": 6888,
+                  "productId": 1,
+                  "name": "Coastal Breeze Men's Blue Zipper Hoodie",
+                  "sku": "COASTALBREEZEMENSHOODIE",
+                  "quantity": 2,
+                  "price": 100,
+                  "total": 200,
+                  "type": "simple",
+                  "formattedPrice": "$100.00",
+                  "formattedTotal": "$200.00"
+                }
+              ],
+              "subtotal": 200,
+              "grandTotal": 200,
+              "taxAmount": 0,
+              "discountAmount": 0,
+              "couponCode": null,
+              "formattedSubtotal": "$200.00",
+              "formattedGrandTotal": "$200.00",
+              "success": true,
+              "message": "Cart item updated successfully"
+            }
+          }
+        },
+        "links": []
+      },
+      "400": {
+        "description": "Missing cartItemId/quantity, or item not in cart.",
+        "links": []
+      },
+      "422": {
+        "description": "Validation Error",
+        "links": []
+      }
+    },
+    "summary": "Update cart item quantity",
+    "description": "Update the quantity of an item in the cart.",
+    "parameters": [
+      {
+        "name": "X-STOREFRONT-KEY",
+        "in": "header",
+        "description": "Storefront API Key for authentication. Required for all shop/storefront API requests.",
+        "required": true,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": ""
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Locale",
+        "in": "header",
+        "description": "Locale code for localized data (e.g. \"en\", \"fr\", \"ar\"). Defaults to channel's default locale.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "en"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Channel",
+        "in": "header",
+        "description": "Channel code (e.g. \"default\"). Defaults to the current channel.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "default"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Currency",
+        "in": "header",
+        "description": "Currency code (e.g. \"USD\", \"EUR\", \"INR\"). Defaults to channel's base currency.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "USD"
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ],
+    "requestBody": {
+      "description": "Cart item update data",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "cartItemId",
+              "quantity"
+            ],
+            "properties": {
+              "cartItemId": {
+                "type": "integer",
+                "example": 1,
+                "description": "Cart item ID to update"
+              },
+              "quantity": {
+                "type": "integer",
+                "example": 3,
+                "description": "New quantity"
+              }
+            }
+          }
+        }
+      },
+      "required": true
+    }
+  }
+}

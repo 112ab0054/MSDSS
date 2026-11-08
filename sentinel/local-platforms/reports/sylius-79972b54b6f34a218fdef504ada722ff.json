@@ -1,0 +1,2106 @@
+{
+  "platform": "sylius",
+  "recorded_at": "2026-11-08T07:33:23.782501+00:00",
+  "outcome": "failed",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "83822d1ba7cd46c780afb00a2ed099808a3d4032776d2c355e1065943e86c287",
+    "run_sylius.py": "3e62772146897f58d49f85edf744e01a9ec553106cf21f56b6036fb6a08f8c53"
+  },
+  "requests": [
+    {
+      "request_id": "0cb804c1-c7f4-49a3-93e7-044e442e9c9f",
+      "method": "GET",
+      "path": "/api/v2/shop/products?itemsPerPage=30",
+      "operation_path": "/api/v2/shop/products",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "0cb804c1-c7f4-49a3-93e7-044e442e9c9f"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Product",
+        "@id": "/api/v2/shop/products",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 87,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/73",
+              "/api/v2/shop/product-taxons/74"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap/images/97",
+                "@type": "ProductImage",
+                "id": 97,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/29/e0/1b6e3649b140ae2f5527ed3327d6.webp"
+              }
+            ],
+            "id": 37,
+            "code": "Adventurous_Aurora_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-07 19:33:17",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Sunt fugiat culpa omnis et amet id. Illo soluta placeat illum molestiae voluptas et non. Ab repellat et omnis sunt repudiandae consequatur.",
+            "reviews": [],
+            "name": "Adventurous Aurora Cap",
+            "description": "Aliquam et reprehenderit amet sed perspiciatis. Occaecati eum ea quas debitis debitis magni est. Impedit quam illo molestiae voluptas libero. Ut qui autem est impedit et ullam alias ipsa.\n\nExpedita consequatur accusamus magni ut qui eos adipisci. Quam perspiciatis non illum in beatae ducimus. Rerum non nam placeat nostrum rerum est soluta. Quia aut facilis labore architecto.\n\nQuod et voluptatem eveniet officiis. Rerum culpa excepturi distinctio sed ab quo. Qui dolorem sed in omnis magni. Qui blanditiis debitis sint voluptatem.",
+            "slug": "adventurous-aurora-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 1520,
+              "originalPrice": 1520,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Apollo_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/29",
+              "/api/v2/shop/product-taxons/30"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Apollo_T_Shirt/images/46",
+                "@type": "ProductImage",
+                "id": 46,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/96/eb/766ffa6060d896c4d32564020495.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Apollo_T_Shirt/images/47",
+                "@type": "ProductImage",
+                "id": 47,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/76/2c/12db853827fbb32d6b31e3298932.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Apollo_T_Shirt/images/48",
+                "@type": "ProductImage",
+                "id": 48,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/09/0a/10bb07a8bfc5dca0d3d16bce6767.webp"
+              }
+            ],
+            "id": 15,
+            "code": "Apollo_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 22:12:57",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Veritatis autem ipsum molestiae corporis explicabo. Repellat reiciendis est minima omnis tenetur. Eveniet aut ea quos pariatur. Consectetur voluptatum debitis magni ut dolores accusantium tempora.",
+            "reviews": [],
+            "name": "Apollo T-Shirt",
+            "description": "Aut corrupti et aut in. Voluptas est totam consectetur quo ea a quam. Dolores non odit temporibus harum. Ut temporibus quo praesentium eius.\n\nIllum quibusdam ipsum enim beatae ullam quae. Ducimus quod quis accusantium dolore quaerat enim magnam. Porro fugit sapiente et deleniti aut ad aut.\n\nImpedit quia sit sunt. Sunt voluptatem ea non. Quidem harum aut ratione aliquid. Laborum rerum consectetur voluptates dolores magnam dolor reprehenderit.",
+            "slug": "apollo-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 491,
+              "originalPrice": 491,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/43",
+              "/api/v2/shop/product-taxons/44"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt/images/67",
+                "@type": "ProductImage",
+                "id": 67,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/ea/9a/01d80bf76be82138aaa21d6c6b4e.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt/images/68",
+                "@type": "ProductImage",
+                "id": 68,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/71/e0/1843e6b8cea365f830f924918f9f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt/images/69",
+                "@type": "ProductImage",
+                "id": 69,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/9f/4d/b321094e5678bece3e4bd7414436.webp"
+              }
+            ],
+            "id": 22,
+            "code": "Aurora_Surge_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [
+              "/api/v2/shop/product-associations/1"
+            ],
+            "createdAt": "2026-11-02 13:04:05",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Cupiditate perferendis aut odit fugit natus. Fuga aut cum accusamus molestias odio repellat porro at.",
+            "reviews": [],
+            "name": "Aurora Surge T-Shirt",
+            "description": "Cumque quos neque exercitationem magnam et nulla. Natus sed est nulla doloremque. Quos doloribus omnis ullam tempore autem id odio.\n\nAut et magnam veritatis provident ea ducimus saepe asperiores. Delectus voluptatem odio modi voluptatem. Saepe velit itaque dolorum est numquam aliquam. Suscipit cupiditate commodi molestiae repudiandae et corrupti voluptatem.\n\nQuas tempore nam est ea culpa quisquam. Eligendi ut omnis a eligendi ea impedit a. Vel dolor quia nisi.",
+            "slug": "aurora-surge-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 8488,
+              "originalPrice": 8488,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Azure_Dream_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/100",
+              "/api/v2/shop/product-taxons/101"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_jeans",
+            "averageRating": 2,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Azure_Dream_Jeans/images/121",
+                "@type": "ProductImage",
+                "id": 121,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/3e/b8/7725af0c709805bb255c30e4a657.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Azure_Dream_Jeans/images/122",
+                "@type": "ProductImage",
+                "id": 122,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/94/dd/ae861d86c3e4af98b59fb1a37671.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Azure_Dream_Jeans/images/123",
+                "@type": "ProductImage",
+                "id": 123,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/b5/25/1e7a1e2e7326eb5df8b0802f5877.webp"
+              }
+            ],
+            "id": 59,
+            "code": "Azure_Dream_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-05 07:34:08",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Unde alias corporis laudantium harum quia possimus. Quam est necessitatibus rerum perspiciatis autem quasi esse dolorem.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/30"
+              }
+            ],
+            "name": "Azure Dream Jeans",
+            "description": "Eius perferendis adipisci voluptatem et placeat. Reprehenderit officia omnis delectus numquam quia numquam. Qui veniam odio iusto vitae dicta aperiam. Quae architecto voluptatibus ut voluptatibus numquam voluptatem. Maiores ut quod voluptate aut.\n\nEos incidunt quae delectus delectus. Qui provident enim ut molestias dignissimos qui. Eum iusto quaerat numquam ea sit dicta. Quam impedit nulla natus saepe reiciendis quo dignissimos est.\n\nInventore id aliquam nesciunt fuga alias. Molestiae modi incidunt recusandae et aut. Animi qui explicabo dicta quia in aliquid.",
+            "slug": "azure-dream-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 9417,
+              "originalPrice": 9417,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Beach_Bonfire_Beauty",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/90"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Beach_Bonfire_Beauty/images/110",
+                "@type": "ProductImage",
+                "id": 110,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/a0/96/9c461b0564b942f60b45dcce3663.webp"
+              }
+            ],
+            "id": 50,
+            "code": "Beach_Bonfire_Beauty",
+            "variants": [
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-0",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-1",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-2",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-3",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-4",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-5",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-6",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-7",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-8",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-9",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-10",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-11",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-12",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-13",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 22:40:52",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Vitae quod fugiat minima ut adipisci assumenda et laborum. Delectus est quis est eligendi porro velit. Atque eos ducimus delectus voluptate eos.",
+            "reviews": [],
+            "name": "Beach Bonfire Beauty",
+            "description": "Est excepturi autem magnam eius eum hic optio. Animi quia molestiae ad unde est deleniti ut. Provident molestias aut nostrum hic possimus. Officiis dolores aperiam doloribus.\n\nAdipisci accusantium suscipit inventore voluptatem hic. Consequuntur nemo blanditiis veritatis ipsum eos sint. Rerum eligendi excepturi est sed. Ut voluptatum in consequuntur ipsum.\n\nAsperiores et laboriosam quisquam. Ut accusamus ut qui occaecati unde reiciendis. Quia aliquam et a vero officiis ratione consequatur. Et tempora necessitatibus sunt qui et inventore.",
+            "slug": "beach-bonfire-beauty",
+            "defaultVariant": "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 6110,
+              "originalPrice": 6110,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/134",
+              "/api/v2/shop/product-taxons/135"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans/images/172",
+                "@type": "ProductImage",
+                "id": 172,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/db/b2/fac5d92f91e699278aee70ce1963.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans/images/173",
+                "@type": "ProductImage",
+                "id": 173,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/a3/5c/1e1d2e4c027fd73eeccbf3a8708f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans/images/174",
+                "@type": "ProductImage",
+                "id": 174,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/3b/fc/1222d4f84007260de1d647d38fd8.webp"
+              }
+            ],
+            "id": 76,
+            "code": "Beachside_Bliss_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 17:35:49",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Voluptatum repudiandae quasi labore optio sequi et. Id reiciendis dicta reprehenderit rerum non. Architecto omnis sed dolor ut est id. Numquam incidunt voluptatibus veniam. Tempora inventore expedita architecto dignissimos.",
+            "reviews": [],
+            "name": "Beachside Bliss Jeans",
+            "description": "Ullam ut explicabo ea similique. Ea ut pariatur voluptas numquam pariatur ipsam placeat. Ut quia accusamus laboriosam sit sed quis. Minima consectetur voluptatibus fugit nam ullam quia mollitia. A praesentium aperiam illo sit eum eaque.\n\nVoluptas aut neque praesentium non. Dignissimos voluptas omnis adipisci ex.\n\nExpedita doloremque occaecati sunt et incidunt dolore. Illo cumque omnis repellat tenetur est. Mollitia harum mollitia consequatur distinctio sit.",
+            "slug": "beachside-bliss-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 5291,
+              "originalPrice": 5291,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Beachside_Twilight_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/154",
+              "/api/v2/shop/product-taxons/155"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_jeans",
+            "averageRating": 4,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Beachside_Twilight_Jeans/images/202",
+                "@type": "ProductImage",
+                "id": 202,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/db/c5/054accfe9398b088193f8ba8cd37.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Beachside_Twilight_Jeans/images/203",
+                "@type": "ProductImage",
+                "id": 203,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/cb/cb/21f64df71456845beb3f47a84db8.webp"
+              }
+            ],
+            "id": 86,
+            "code": "Beachside_Twilight_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-02 00:39:28",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Autem vero fugiat et optio alias officiis est. Voluptatem sed non asperiores possimus harum dicta quia rem. Sit repellendus omnis vitae voluptatem accusantium quo ipsa.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/33"
+              }
+            ],
+            "name": "Beachside Twilight Jeans",
+            "description": "Ut est sit repudiandae ipsum. Reprehenderit earum voluptatum consequuntur.\n\nDolor consequatur itaque sit velit. Tempore tempora libero molestiae sit ipsum nobis maiores. In qui distinctio et voluptatem. Et omnis explicabo deserunt non voluptatem. Veniam quisquam est qui vel nisi aut molestiae.\n\nAut ut tempora praesentium eveniet eum enim. Amet maiores necessitatibus minima voluptatum id ad. Architecto velit voluptates blanditiis alias non ea. Et molestias inventore ut.",
+            "slug": "beachside-twilight-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 3487,
+              "originalPrice": 3487,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Blissful_Breeze_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/49",
+              "/api/v2/shop/product-taxons/50"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Blissful_Breeze_Cap/images/74",
+                "@type": "ProductImage",
+                "id": 74,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/27/ea/e9642d1f1a96f5a2486255514020.webp"
+              }
+            ],
+            "id": 25,
+            "code": "Blissful_Breeze_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Blissful_Breeze_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-03 20:51:13",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Voluptate vel recusandae voluptatem aut. Sit voluptate animi sunt est sed dolores sed id. Voluptatibus dicta quo qui itaque ut. Odit necessitatibus et dolorem.",
+            "reviews": [],
+            "name": "Blissful Breeze Cap",
+            "description": "Asperiores aperiam itaque quis quidem accusamus molestiae sapiente. At amet laborum modi et at. Esse quod eum nihil dolorem dolore.\n\nSint dignissimos aut aut doloribus inventore rerum quisquam. Totam et voluptatem modi ea qui dolores. Voluptatem eius illum atque minus.\n\nQuam eos ex quia repudiandae debitis voluptatum est consequatur. Soluta accusamus voluptatibus et ut consequuntur. Repudiandae facilis natus aut. Veritatis vero fugit aut et eum sequi libero.",
+            "slug": "blissful-breeze-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Blissful_Breeze_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Blissful_Breeze_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 3768,
+              "originalPrice": 3768,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Boho_Beach_Breeze",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/82"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Boho_Beach_Breeze/images/102",
+                "@type": "ProductImage",
+                "id": 102,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/78/a0/39ab6640f5efca85879961eddde2.webp"
+              }
+            ],
+            "id": 42,
+            "code": "Boho_Beach_Breeze",
+            "variants": [
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-0",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-1",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-2",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-3",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-4",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-5",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-6",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-7",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-8",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-9",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-10",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-11",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-12",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-13",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 04:56:40",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Ut ipsam omnis earum est sed. Voluptates quis cumque quo aut voluptatem cum. Voluptatem minima nisi dolores ea. Excepturi maiores laudantium sint corporis qui cumque.",
+            "reviews": [],
+            "name": "Boho Beach Breeze",
+            "description": "Rem explicabo aut qui non. Quisquam quaerat delectus asperiores consequuntur. Error ea tenetur officiis id sequi qui.\n\nVoluptas deleniti repellendus vitae est quasi omnis adipisci. Nobis qui debitis molestiae ut occaecati. Omnis dolorem maxime quae culpa non exercitationem.\n\nQuis labore et veniam ut esse asperiores quis. Facere voluptatem quibusdam error ullam et occaecati. Recusandae iste voluptatibus aut temporibus aliquid fugiat ipsam. Ut consequatur non eos architecto.",
+            "slug": "boho-beach-breeze",
+            "defaultVariant": "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 2323,
+              "originalPrice": 2323,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Bold_Beach_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/69",
+              "/api/v2/shop/product-taxons/70"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Bold_Beach_Cap/images/94",
+                "@type": "ProductImage",
+                "id": 94,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/98/c4/f30aed316cf12d57b7ef712a1730.webp"
+              }
+            ],
+            "id": 35,
+            "code": "Bold_Beach_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Bold_Beach_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-06 05:23:53",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Dolorem possimus voluptatibus sed est sed qui voluptatem. Placeat est consectetur fugit consectetur repellendus. Cum ut officiis delectus. Modi in molestiae minus qui perferendis beatae. Ab nisi qui maiores aut vel nemo ipsa.",
+            "reviews": [],
+            "name": "Bold Beach Cap",
+            "description": "Qui repellendus vero adipisci in eum. Voluptate nostrum aliquam minima esse consequatur dignissimos corporis. Voluptates ut qui eum voluptatibus est.\n\nImpedit suscipit libero dolor sunt rerum. Qui quis unde ut ea adipisci. Culpa dolorem et omnis voluptatem.\n\nEt nesciunt aut inventore. Molestiae dignissimos iusto laboriosam molestias error at sequi optio. Qui odio vel in. Quia voluptatem et omnis illo quia numquam architecto.",
+            "slug": "bold-beach-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Bold_Beach_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Bold_Beach_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 634,
+              "originalPrice": 634,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Casual_Coastal_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/67",
+              "/api/v2/shop/product-taxons/68"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Casual_Coastal_Cap/images/93",
+                "@type": "ProductImage",
+                "id": 93,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/b9/47/42325338228016b542a62a5481d3.webp"
+              }
+            ],
+            "id": 34,
+            "code": "Casual_Coastal_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Casual_Coastal_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-07 21:42:24",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Repudiandae quo vitae quasi odio ut fuga accusantium. Repudiandae optio commodi maxime minima est voluptatem unde.",
+            "reviews": [],
+            "name": "Casual Coastal Cap",
+            "description": "Incidunt dignissimos sapiente quo quibusdam et enim tenetur hic. Dolor voluptatibus qui eius. Placeat debitis repudiandae qui ipsa et ex est.\n\nEst doloremque vel ut sit qui error libero. Voluptatem et assumenda nihil atque. Libero illo enim dolorem sed iusto dolores. Cupiditate quia voluptatem id rerum dolor reiciendis.\n\nMolestiae consequatur quia vitae explicabo quas fugiat. Sunt est omnis quod et id quis illo. Quos ducimus ut laborum omnis sunt sed ex. Pariatur ipsum rerum amet est sunt dolor natus.",
+            "slug": "casual-coastal-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Casual_Coastal_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Casual_Coastal_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 581,
+              "originalPrice": 581,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/5",
+              "/api/v2/shop/product-taxons/6"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/7",
+                "@type": "ProductImage",
+                "id": 7,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/64/de/47043585929c2a579851bba0bb72.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/8",
+                "@type": "ProductImage",
+                "id": 8,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/57/db/88af48e5fb0e4ab03c1b5c85078b.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/9",
+                "@type": "ProductImage",
+                "id": 9,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/bd/89/ca38f78d5906ab2af0fb4665ab55.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/10",
+                "@type": "ProductImage",
+                "id": 10,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/25/c2/4cdfe76a2a91b2a32100d724c6eb.webp"
+              }
+            ],
+            "id": 3,
+            "code": "Celestial_Harmony_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 12:35:48",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Aspernatur totam id eaque eum omnis facere sed. Commodi dolore tempore asperiores labore ea distinctio. Sit in asperiores excepturi repellendus. Et quos totam error eligendi sit.",
+            "reviews": [],
+            "name": "Celestial Harmony T-Shirt",
+            "description": "Hic debitis vitae corporis voluptatum ut voluptate. Eius nemo hic omnis iste et labore.\n\nEsse nihil tempore aperiam veritatis est maiores esse doloribus. Ut occaecati officiis nostrum repellendus. Et beatae quos neque id ipsum a. Est vitae eum tenetur earum.\n\nAsperiores qui molestiae rerum praesentium. Laudantium et a cupiditate assumenda. Omnis maiores temporibus eos sint. Dicta deleniti sunt rerum laboriosam et est.",
+            "slug": "celestial-harmony-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 1032,
+              "originalPrice": 1032,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Classic_Coastal_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/57",
+              "/api/v2/shop/product-taxons/58"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 4.5,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Classic_Coastal_Cap/images/80",
+                "@type": "ProductImage",
+                "id": 80,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/17/8c/c921c0b4b3a8184da56a30bdfe8a.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Classic_Coastal_Cap/images/81",
+                "@type": "ProductImage",
+                "id": 81,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c5/c6/40b9e205979c4642371e4298c590.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Classic_Coastal_Cap/images/82",
+                "@type": "ProductImage",
+                "id": 82,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/cf/80/66a08057ae70e49a5cf453eafddb.webp"
+              }
+            ],
+            "id": 29,
+            "code": "Classic_Coastal_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Classic_Coastal_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-06 18:34:01",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Omnis voluptate nostrum vel cum quibusdam. Ipsum illo minus quia praesentium est adipisci laborum.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/5"
+              },
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/23"
+              }
+            ],
+            "name": "Classic Coastal Cap",
+            "description": "Quas aperiam omnis et alias libero quos neque voluptatem. Molestias magnam eius a enim quis. Fuga eveniet minima ex ut. Et sapiente sapiente autem.\n\nQuia et quo et facilis beatae. Harum magni tenetur qui ea nobis placeat similique.\n\nDebitis rerum quis molestias voluptatem. Inventore sit vel excepturi esse odio voluptate soluta non.",
+            "slug": "classic-coastal-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Classic_Coastal_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Classic_Coastal_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 7818,
+              "originalPrice": 7818,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Classic_Summer_Elegance",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/87"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Classic_Summer_Elegance/images/107",
+                "@type": "ProductImage",
+                "id": 107,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c8/b2/cc3af44019f546646ca44e59ba24.webp"
+              }
+            ],
+            "id": 47,
+            "code": "Classic_Summer_Elegance",
+            "variants": [
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-0",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-1",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-2",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-3",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-4",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-5",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-6",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-7",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-8",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-9",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-10",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-11",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-12",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-13",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 15:47:22",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Officia voluptatum vero repellat et iusto. Eum aut labore vel tempore corrupti quo. At et excepturi aut occaecati reprehenderit voluptas eius.",
+            "reviews": [],
+            "name": "Classic Summer Elegance",
+            "description": "Sed unde incidunt numquam rerum soluta ex ratione. Nihil nobis earum totam qui non. Qui voluptate sunt error. Quasi consequuntur quae natus laboriosam eius.\n\nQuas est ex voluptatem aperiam hic soluta et quaerat. Iste aperiam nulla exercitationem minima vitae minima. Dolor repellat ratione autem et veritatis et voluptate. Assumenda est dignissimos voluptas quia possimus porro alias.\n\nLaborum natus sequi eos est esse qui. Error occaecati eaque est rerum omnis soluta. Corrupti modi autem at ducimus velit sint. Odio optio quis blanditiis voluptatem id vitae.",
+            "slug": "classic-summer-elegance",
+            "defaultVariant": "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 1604,
+              "originalPrice": 1604,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/106",
+              "/api/v2/shop/product-taxons/107"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans/images/130",
+                "@type": "ProductImage",
+                "id": 130,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/f9/ff/f1027d9da05338c4b51081ff0f73.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans/images/131",
+                "@type": "ProductImage",
+                "id": 131,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/be/e3/09f4bd464cd8c59a41640496d641.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans/images/132",
+                "@type": "ProductImage",
+                "id": 132,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/d0/33/67d4a2c5df369c8b5ef541d35fc7.webp"
+              }
+            ],
+            "id": 62,
+            "code": "Coastal_Bliss_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 06:23:12",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Quam nam veniam magnam sint accusamus corporis quaerat. Accusantium eveniet quasi facilis eius vero. Aspernatur magni id aut.",
+            "reviews": [],
+            "name": "Coastal Bliss Jeans",
+            "description": "Numquam quas nam repudiandae non harum inventore qui. Numquam perferendis quia laboriosam. Perspiciatis minima reiciendis iste ratione corrupti sed. Est quasi esse commodi consequatur.\n\nQui culpa beatae et eos. Delectus ut adipisci quae quia. Deleniti nulla illo accusamus beatae ut ut ea.\n\nDolor est culpa mollitia blanditiis. Id cum quod deserunt consectetur et sint. Eum aut sapiente velit odio. Architecto totam vel voluptates ut omnis.",
+            "slug": "coastal-bliss-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 2313,
+              "originalPrice": 2313,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/27",
+              "/api/v2/shop/product-taxons/28"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt/images/43",
+                "@type": "ProductImage",
+                "id": 43,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7f/00/0fb1e74a5e2a0e7e7f4042aa15ca.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt/images/44",
+                "@type": "ProductImage",
+                "id": 44,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/ab/4d/6f8e56062a221317fd0d67943e54.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt/images/45",
+                "@type": "ProductImage",
+                "id": 45,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/a0/98/f2cd863d818fca29ed2c5edac0ab.webp"
+              }
+            ],
+            "id": 14,
+            "code": "Comet_Pulse_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 18:43:20",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Repellendus sed fugit accusantium voluptate. Voluptatem et qui nesciunt cupiditate nemo.",
+            "reviews": [],
+            "name": "Comet Pulse T-Shirt",
+            "description": "Repellendus itaque et hic ut. Eius aut voluptate et nemo qui libero nobis. Sed non sit laborum temporibus nulla ea et. Aut dolor architecto dignissimos dolores ab.\n\nEligendi praesentium ut sint ut praesentium rerum maiores odio. Odio voluptate quisquam voluptatem nulla. Cum provident ut reprehenderit voluptatem veniam. Sint aut recusandae aut aliquam quia assumenda quia quo.\n\nSint sed consequatur sed fugit occaecati atque facere. Et illo rerum optio quia aperiam illum. Possimus placeat sit accusamus impedit quis neque.",
+            "slug": "comet-pulse-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 7149,
+              "originalPrice": 7149,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Cool_Breeze_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/138",
+              "/api/v2/shop/product-taxons/139"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Cool_Breeze_Jeans/images/178",
+                "@type": "ProductImage",
+                "id": 178,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/26/6a/13ff13e53eaa976ee924c54d960d.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cool_Breeze_Jeans/images/179",
+                "@type": "ProductImage",
+                "id": 179,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/b2/b6/b976ebcf54322e2d56f825761c60.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cool_Breeze_Jeans/images/180",
+                "@type": "ProductImage",
+                "id": 180,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/d5/2f/773edb5e630e8ecf825faf29be75.webp"
+              }
+            ],
+            "id": 78,
+            "code": "Cool_Breeze_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-08 05:02:47",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Quisquam et cupiditate eos occaecati pariatur quod deserunt. Dolore facilis quam quaerat incidunt est dolorem. Sed voluptates itaque eos voluptatibus. Ad ullam et doloribus dolorum vitae nesciunt.",
+            "reviews": [],
+            "name": "Cool Breeze Jeans",
+            "description": "Fugit et sint quo alias. Tempora tempora provident voluptas et placeat recusandae porro. Harum dolor doloribus ipsum accusamus cumque eligendi.\n\nPlaceat temporibus rerum nostrum nesciunt aliquid doloremque minus. Aperiam rerum repellat non. Debitis praesentium ratione molestias sed omnis nihil vel. A consequatur sed cumque perferendis.\n\nDeleniti aut non aut eum asperiores cumque. Quia deserunt sunt sed harum.",
+            "slug": "cool-breeze-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 4479,
+              "originalPrice": 4479,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Coral_Reef_Chic",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/97"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Coral_Reef_Chic/images/117",
+                "@type": "ProductImage",
+                "id": 117,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/20/18/6dd5e4b53d1de00da5d06fc3c2f9.webp"
+              }
+            ],
+            "id": 57,
+            "code": "Coral_Reef_Chic",
+            "variants": [
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-0",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-1",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-2",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-3",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-4",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-5",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-6",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-7",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-8",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-9",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-10",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-11",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-12",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-13",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 19:31:09",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Quia voluptate sit ut vel aperiam quibusdam est esse. Fugit aut incidunt corporis eos ducimus. Earum soluta in officiis deleniti consequuntur magnam. Tenetur quisquam enim provident reprehenderit quidem. Quia voluptatem iusto et voluptatem.",
+            "reviews": [],
+            "name": "Coral Reef Chic",
+            "description": "Consequuntur quia sint veritatis et. Commodi ut debitis rerum fugit magni. Voluptas quasi eaque voluptate non modi repellat et id.\n\nVelit beatae excepturi ut sint. Ut ut quae sequi error perferendis natus. Sequi tenetur autem occaecati. Excepturi rem voluptates amet sit accusamus.\n\nRerum iure doloribus perspiciatis blanditiis perspiciatis non. At similique voluptate perspiciatis libero. Voluptatum autem similique et est. Sed perspiciatis sit pariatur earum consequatur.",
+            "slug": "coral-reef-chic",
+            "defaultVariant": "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 9986,
+              "originalPrice": 9986,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/35",
+              "/api/v2/shop/product-taxons/36"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt/images/55",
+                "@type": "ProductImage",
+                "id": 55,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/ec/7f/91a4e756d04132e374f8281a0dd2.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt/images/56",
+                "@type": "ProductImage",
+                "id": 56,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/31/81/cb2220f544fb3c5b94d6e27d65e5.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt/images/57",
+                "@type": "ProductImage",
+                "id": 57,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/d6/d0/80a804f4e66b11cee98c2c3befd3.webp"
+              }
+            ],
+            "id": 18,
+            "code": "Cosmic_Drift_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 03:30:31",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "In sed illum nisi nobis. Alias et inventore quia id consequuntur est modi et. Fuga fuga non ullam sit consequatur nesciunt. Debitis commodi eligendi enim voluptate totam dolores praesentium.",
+            "reviews": [],
+            "name": "Cosmic Drift T-Shirt",
+            "description": "Harum dolore animi officia sapiente. At amet aut rerum eveniet.\n\nExplicabo veritatis corporis corporis vero quis. Explicabo quidem similique veniam quibusdam quia. Sapiente et in aut sit odit non.\n\nQuia reiciendis magnam inventore dolor. Voluptatibus aut fugit tenetur est. Rerum ex dolores assumenda magni tenetur quo sit.",
+            "slug": "cosmic-drift-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 294,
+              "originalPrice": 294,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Denim_Daydream",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/86"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Denim_Daydream/images/106",
+                "@type": "ProductImage",
+                "id": 106,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c0/17/6f40a6e049c1da1525af4876b6c5.webp"
+              }
+            ],
+            "id": 46,
+            "code": "Denim_Daydream",
+            "variants": [
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-0",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-1",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-2",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-3",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-4",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-5",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-6",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-7",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-8",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-9",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-10",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-11",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-12",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-13",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 04:30:02",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Voluptatum quae qui corporis sit atque dolore necessitatibus. Amet praesentium est corrupti vel et aut. Aliquid facilis voluptatem ut deserunt corrupti. Nam est repellat nihil est.",
+            "reviews": [],
+            "name": "Denim Daydream",
+            "description": "Repudiandae doloremque debitis et necessitatibus eos quos omnis. Sit laudantium laudantium at sint sit dolorem. Sit in numquam suscipit libero.\n\nEx consequatur est vel dignissimos magnam sint omnis repudiandae. Tempora veritatis sint aliquam facilis harum eaque. Soluta ad eos doloremque rem adipisci nesciunt. Laborum incidunt maiores quam est ad voluptatem neque.\n\nEt quo fugit sequi ad voluptatum. Quae doloremque illum sed enim nostrum qui asperiores soluta. Quisquam debitis assumenda omnis assumenda est.",
+            "slug": "denim-daydream",
+            "defaultVariant": "/api/v2/shop/product-variants/Denim_Daydream-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Denim_Daydream-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 7543,
+              "originalPrice": 7543,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/59",
+              "/api/v2/shop/product-taxons/60"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap/images/83",
+                "@type": "ProductImage",
+                "id": 83,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/3e/98/1ebef73bf36988053001d54bde43.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap/images/84",
+                "@type": "ProductImage",
+                "id": 84,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/38/fe/aa026121bb4999f2bf9071421c39.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap/images/85",
+                "@type": "ProductImage",
+                "id": 85,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/2f/34/bea3954e14000fde17d474975355.webp"
+              }
+            ],
+            "id": 30,
+            "code": "Dynamic_Dawn_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Dynamic_Dawn_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-06 03:49:59",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Nostrum commodi vel dolore unde et. Aut et exercitationem quis aut. Quos perspiciatis tempora aut fugit non. Et et quas illum nihil voluptates dolorem.",
+            "reviews": [],
+            "name": "Dynamic Dawn Cap",
+            "description": "Consequuntur saepe sed ut sed dolores ut enim. Quas pariatur modi ab magni. Error ut repellat fuga debitis. Enim magnam est nostrum recusandae. Labore dolor repellat eligendi.\n\nEt dignissimos eos ullam deleniti et at dolorum enim. Numquam eos natus velit fugit magnam iure animi. Quae fugit nihil aut tenetur consequatur id. Sit exercitationem eos velit id doloremque sed autem.\n\nMagni debitis nam rerum ut et excepturi ducimus. Quas et consectetur nisi eos et quisquam occaecati. Quasi rerum non veniam est in qui. Est iste vel veniam nihil.",
+            "slug": "dynamic-dawn-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Dynamic_Dawn_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Dynamic_Dawn_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 1454,
+              "originalPrice": 1454,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Elegant_Escape_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/55",
+              "/api/v2/shop/product-taxons/56"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 1,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Elegant_Escape_Cap/images/77",
+                "@type": "ProductImage",
+                "id": 77,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/9f/9b/c2ba5c95653e88d3f5a42369c438.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Elegant_Escape_Cap/images/78",
+                "@type": "ProductImage",
+                "id": 78,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/58/87/e535ef31b1aeedfdbae60b137161.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Elegant_Escape_Cap/images/79",
+                "@type": "ProductImage",
+                "id": 79,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/3f/c4/b7e4f28244787a76623212d5e9e0.webp"
+              }
+            ],
+            "id": 28,
+            "code": "Elegant_Escape_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Elegant_Escape_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-06 15:29:32",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Quidem magnam blanditiis sed officiis ducimus modi ut sed. Eligendi dolorem et sint rerum quo. Nemo excepturi est et illum omnis officiis nesciunt. Tenetur blanditiis delectus labore ipsum.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/15"
+              }
+            ],
+            "name": "Elegant Escape Cap",
+            "description": "Possimus deleniti ea eum voluptas quos voluptatum quo. Nobis nam voluptatum omnis eligendi. Velit et delectus iure consequatur assumenda. Adipisci rerum ab quia unde velit.\n\nUt corporis sunt ex et dolores quo. Veritatis rem delectus autem voluptas officiis.\n\nMolestiae facilis ut soluta maiores sed voluptatem incidunt. Fugit doloribus rerum excepturi sed cupiditate. Nobis quo quo iure necessitatibus. Iste quo voluptas et sapiente soluta cum voluptas.",
+            "slug": "elegant-escape-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Elegant_Escape_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Elegant_Escape_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 3051,
+              "originalPrice": 3051,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/1",
+              "/api/v2/shop/product-taxons/2"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_t_shirts",
+            "averageRating": 1,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/1",
+                "@type": "ProductImage",
+                "id": 1,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/f4/1d/1f16bf1689b5866e0f5ee07c28e4.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/2",
+                "@type": "ProductImage",
+                "id": 2,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/b6/88/452e3cdc04b76ae1d3eb20257b71.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/3",
+                "@type": "ProductImage",
+                "id": 3,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/75/09/bd801114012b7b05298bcff52c39.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/4",
+                "@type": "ProductImage",
+                "id": 4,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/3b/29/032951ee6b15d5c8c6b6abecf6c9.webp"
+              }
+            ],
+            "id": 1,
+            "code": "Ethereal_Drift_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 05:56:26",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Et nostrum beatae dolorem quod doloribus aperiam velit. Recusandae quos qui a odio quae ut laborum quae. Sunt animi repudiandae in doloremque cupiditate assumenda.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/10"
+              }
+            ],
+            "name": "Ethereal Drift T-Shirt",
+            "description": "Quam et inventore qui est. Qui aspernatur in quae nobis ea. Esse sit corporis occaecati sed. Dolor consequuntur omnis dolores.\n\nEveniet provident molestias voluptatem non. Laboriosam voluptas ut est eius iste odio. Illo non aut ipsam optio mollitia itaque fugiat.\n\nIn possimus temporibus accusantium incidunt magnam aut. Cupiditate commodi vero omnis voluptas quae dolor fuga. Corrupti aperiam architecto explicabo maxime earum.",
+            "slug": "ethereal-drift-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 998,
+              "originalPrice": 998,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Evening_Star_Gown",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/85"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Evening_Star_Gown/images/105",
+                "@type": "ProductImage",
+                "id": 105,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/07/c9/01bcb07943dc9ddee69dd3022788.webp"
+              }
+            ],
+            "id": 45,
+            "code": "Evening_Star_Gown",
+            "variants": [
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-0",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-1",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-2",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-3",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-4",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-5",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-6",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-7",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-8",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-9",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-10",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-11",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-12",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-13",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-02 20:14:56",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Quia fugit accusantium non ut libero. Neque similique quasi maiores facilis.",
+            "reviews": [],
+            "name": "Evening Star Gown",
+            "description": "Quia perferendis cumque sunt praesentium accusantium molestias ab. Quod fugit perspiciatis esse vel voluptas corporis. Vero id est sunt dolores ut. Dicta reiciendis aut voluptatum vel illo aperiam quae. Qui quia odit ut voluptas et unde.\n\nMinus fuga animi voluptatibus nisi soluta magnam aperiam. Fugit omnis quam ipsum nam. Aut itaque consequatur nostrum omnis sint fuga sed. Dolores repellat incidunt dolores labore maiores reprehenderit enim.\n\nCommodi molestiae voluptatem facilis. Ea iste temporibus magnam rem. Hic eos vel fuga accusamus molestias exercitationem quo. Sed eos qui aut reiciendis impedit.",
+            "slug": "evening-star-gown",
+            "defaultVariant": "/api/v2/shop/product-variants/Evening_Star_Gown-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Evening_Star_Gown-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 2183,
+              "originalPrice": 2183,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Festival_Ruffle_Wrap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/83"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Festival_Ruffle_Wrap/images/103",
+                "@type": "ProductImage",
+                "id": 103,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/47/b7/a46bffcab4f2546b9125dcd0a1fa.webp"
+              }
+            ],
+            "id": 43,
+            "code": "Festival_Ruffle_Wrap",
+            "variants": [
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-0",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-1",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-2",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-3",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-4",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-5",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-6",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-7",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-8",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-9",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-10",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-11",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-12",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-13",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-05 04:06:03",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Impedit sit placeat sapiente rerum qui perferendis repellat. Nam dicta incidunt accusamus modi et ipsa. Sed animi facilis quo porro. Quod aut sint aut minus. Suscipit libero dignissimos asperiores ea vel sed.",
+            "reviews": [],
+            "name": "Festival Ruffle Wrap",
+            "description": "Magnam ut fugiat quisquam et molestiae. Eius ad odit quas exercitationem et. Sunt consequuntur ut eius.\n\nEst ex modi vero accusamus est. Nemo et iusto distinctio labore aperiam minima eligendi amet. Optio est quibusdam ad et odit.\n\nAut et delectus ut minus fugit facilis aut. Tempore aut quisquam temporibus sed iste. Ex quo corporis sed minima quo voluptatem. Quisquam omnis enim repellendus voluptatem quia quis aliquam minus. Minus voluptatem blanditiis sapiente harum non officiis.",
+            "slug": "festival-ruffle-wrap",
+            "defaultVariant": "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 5346,
+              "originalPrice": 5346,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Floral_Garden_Party",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/84"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Floral_Garden_Party/images/104",
+                "@type": "ProductImage",
+                "id": 104,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c7/98/e5922338ca9e9879c04c71e02fa2.webp"
+              }
+            ],
+            "id": 44,
+            "code": "Floral_Garden_Party",
+            "variants": [
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-0",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-1",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-2",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-3",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-4",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-5",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-6",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-7",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-8",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-9",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-10",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-11",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-12",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-13",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-06 19:40:28",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Molestias quis eveniet beatae ut. Ut neque ut repudiandae. Voluptatibus sed quod quidem tempora.",
+            "reviews": [],
+            "name": "Floral Garden Party",
+            "description": "Officia fuga suscipit modi sint necessitatibus quia. Quia qui sit natus voluptas. Deserunt voluptate voluptas consectetur praesentium enim ullam cumque. Non officiis eveniet fuga et. Non nihil asperiores assumenda quisquam autem recusandae nemo.\n\nPossimus quia id doloribus soluta et. Et molestiae maiores aut. Soluta facere atque aliquam sit. Sed non ut deleniti quidem fugiat recusandae.\n\nAb cupiditate nulla et autem quis. In ab non quam quam voluptatem et. Perferendis qui aut beatae. Quos dolorum laudantium voluptatibus minus sequi enim.",
+            "slug": "floral-garden-party",
+            "defaultVariant": "/api/v2/shop/product-variants/Floral_Garden_Party-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Floral_Garden_Party-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 658,
+              "originalPrice": 658,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/15",
+              "/api/v2/shop/product-taxons/16"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt/images/25",
+                "@type": "ProductImage",
+                "id": 25,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/0b/ec/e8fd222100385b2a0591f5384f6b.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt/images/26",
+                "@type": "ProductImage",
+                "id": 26,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7e/d0/bfdb79016db6d6a0b8ec5d783099.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt/images/27",
+                "@type": "ProductImage",
+                "id": 27,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/e4/67/9cd06fdc73a24bdbc8fc8af69f7f.webp"
+              }
+            ],
+            "id": 8,
+            "code": "Galactic_Breeze_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-02 14:10:52",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Sit placeat quas eum. Eum ut vel quia aut quae.",
+            "reviews": [],
+            "name": "Galactic Breeze T-Shirt",
+            "description": "Sed velit neque ea. In enim eligendi quo laboriosam recusandae. Vel natus quia ea rerum fugit quisquam rerum molestiae.\n\nEos id magni cum sint. Exercitationem eum commodi iste sit sequi facere. Expedita dignissimos et cum beatae nemo unde.\n\nUt ut eligendi praesentium hic. Ut mollitia aut aut quis. Eum veritatis voluptate rerum maxime omnis. A quia occaecati reprehenderit quia sint deserunt voluptatum nam.",
+            "slug": "galactic-breeze-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 6352,
+              "originalPrice": 6352,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/39",
+              "/api/v2/shop/product-taxons/40"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt/images/61",
+                "@type": "ProductImage",
+                "id": 61,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/47/2a/e83ba748c3980a827a1dbaa98451.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt/images/62",
+                "@type": "ProductImage",
+                "id": 62,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/a4/b4/a9fe56d0b8388674beb9fc5993f2.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt/images/63",
+                "@type": "ProductImage",
+                "id": 63,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7a/ef/7517fd38736a39175b1c4bdf7a37.webp"
+              }
+            ],
+            "id": 20,
+            "code": "Galactic_Pulse_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-01 18:00:30",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Qui voluptas a sint atque quis. Voluptatum mollitia aut et aut numquam non. Corrupti quasi ipsa natus dolores eveniet. Cum voluptate voluptates quia. Necessitatibus expedita et qui at qui unde.",
+            "reviews": [],
+            "name": "Galactic Pulse T-Shirt",
+            "description": "Ea sunt maiores ex aliquid. Sunt repellendus in maiores sit temporibus saepe. Molestiae voluptatibus repellat vel rem veniam in. Ea qui porro nam molestiae deleniti voluptatem autem voluptate.\n\nIpsa fugiat qui omnis sint iusto officiis molestiae iusto. Ipsam eius et similique non illum necessitatibus. Dolores illum voluptates asperiores minus.\n\nOccaecati consequuntur nemo est placeat quos sed earum. Quia dolor facere veniam aperiam corporis dolores iure. Voluptatem eveniet et reiciendis et hic quisquam doloremque. Ut voluptates ea reprehenderit veniam.",
+            "slug": "galactic-pulse-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 9929,
+              "originalPrice": 9929,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Golden_Horizon_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/102",
+              "/api/v2/shop/product-taxons/103"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Golden_Horizon_Jeans/images/124",
+                "@type": "ProductImage",
+                "id": 124,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/22/f5/02b0a9157c59ec0334d0bbef3c75.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Golden_Horizon_Jeans/images/125",
+                "@type": "ProductImage",
+                "id": 125,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/be/0e/f97ab3aefd12fb374a5d1a7e686a.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Golden_Horizon_Jeans/images/126",
+                "@type": "ProductImage",
+                "id": 126,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/b6/53/7b7ca00d1bd89a35bf91aa7bd5cd.webp"
+              }
+            ],
+            "id": 60,
+            "code": "Golden_Horizon_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 13:24:21",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Rerum sit aut error consequatur. Ad praesentium fugiat exercitationem architecto non. Consectetur aliquid dolores maiores quia.",
+            "reviews": [],
+            "name": "Golden Horizon Jeans",
+            "description": "Sint tenetur rerum repellendus ipsa sunt perferendis. Rerum qui sapiente illo accusantium enim voluptas. Illum pariatur qui provident pariatur quasi. Ea quam dignissimos voluptas et.\n\nEa officiis distinctio fugiat sed quia libero. Pariatur cumque aliquid dolorem enim rerum amet exercitationem. Error et reiciendis in facilis ipsam. Enim magni qui officia molestiae beatae.\n\nEt magni quam dolore earum aliquam. Earum modi omnis sapiente. Perspiciatis accusamus maiores aliquid.",
+            "slug": "golden-horizon-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 1690,
+              "originalPrice": 1690,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Harmonious_Horizon_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/77",
+              "/api/v2/shop/product-taxons/78"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Harmonious_Horizon_Cap/images/99",
+                "@type": "ProductImage",
+                "id": 99,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/20/87/acff61d853078c65b50aa44e17d0.webp"
+              }
+            ],
+            "id": 39,
+            "code": "Harmonious_Horizon_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Harmonious_Horizon_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-02 07:29:38",
+            "updatedAt": "2026-11-08 07:26:44",
+            "shortDescription": "Nesciunt velit harum et ipsa dolor numquam. Est ducimus soluta a dolor. Explicabo maxime officiis ut rerum quis distinctio velit.",
+            "reviews": [],
+            "name": "Harmonious Horizon Cap",
+            "description": "Tempora commodi perferendis et est. Ratione aliquam veritatis et animi voluptates maxime. Assumenda quis iusto error.\n\nNihil numquam et quas. Similique omnis nostrum delectus consequatur non quos similique. Ipsa ad tempore est aut. Dolorem sit illo ipsum unde ea.\n\nProvident commodi temporibus laborum porro voluptates. Cupiditate facilis aspernatur perferendis. Laborum voluptatem id accusamus dolores.",
+            "slug": "harmonious-horizon-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Harmonious_Horizon_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Harmonious_Horizon_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 8639,
+              "originalPrice": 8639,
+              "lowestPriceBeforeDiscount": null
+            }
+          }
+        ],
+        "hydra:view": {
+          "@id": "/api/v2/shop/products?itemsPerPage=30&page=1",
+          "@type": "hydra:PartialCollectionView",
+          "hydra:first": "/api/v2/shop/products?itemsPerPage=30&page=1",
+          "hydra:last": "/api/v2/shop/products?itemsPerPage=30&page=3",
+          "hydra:next": "/api/v2/shop/products?itemsPerPage=30&page=2"
+        },
+        "hydra:search": {
+          "@type": "hydra:IriTemplate",
+          "hydra:template": "/api/v2/shop/products{?translations.name,productTaxons.taxon.code,productTaxons.taxon.code[],order[code],order[createdAt],order[price],order[translation.name],localeCode for order[translation.name],taxon,association[typeCode],association[ownerCode]}",
+          "hydra:variableRepresentation": "BasicRepresentation",
+          "hydra:mapping": [
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "translations.name",
+              "property": "translations.name",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "productTaxons.taxon.code",
+              "property": "productTaxons.taxon.code",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "productTaxons.taxon.code[]",
+              "property": "productTaxons.taxon.code",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[code]",
+              "property": "code",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[createdAt]",
+              "property": "createdAt",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[price]",
+              "property": "price",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[translation.name]",
+              "property": "translation",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "localeCode for order[translation.name]",
+              "property": "localeCode",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "taxon",
+              "property": null,
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "association[typeCode]",
+              "property": "association",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "association[ownerCode]",
+              "property": "association",
+              "required": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request_id": "e71d57e6-4083-422f-8b96-f6e03fc891db",
+      "method": "GET",
+      "path": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+      "operation_path": "/api/v2/shop/products/{code}",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "e71d57e6-4083-422f-8b96-f6e03fc891db"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Product",
+        "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+        "@type": "Product",
+        "productTaxons": [
+          "/api/v2/shop/product-taxons/73",
+          "/api/v2/shop/product-taxons/74"
+        ],
+        "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+        "averageRating": 0,
+        "images": [
+          {
+            "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap/images/97",
+            "@type": "ProductImage",
+            "id": 97,
+            "type": "main",
+            "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/29/e0/1b6e3649b140ae2f5527ed3327d6.webp"
+          }
+        ],
+        "id": 37,
+        "code": "Adventurous_Aurora_Cap",
+        "variants": [
+          "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0"
+        ],
+        "options": [],
+        "associations": [],
+        "createdAt": "2026-11-07 19:33:17",
+        "updatedAt": "2026-11-08 07:26:44",
+        "shortDescription": "Sunt fugiat culpa omnis et amet id. Illo soluta placeat illum molestiae voluptas et non. Ab repellat et omnis sunt repudiandae consequatur.",
+        "reviews": [],
+        "name": "Adventurous Aurora Cap",
+        "description": "Aliquam et reprehenderit amet sed perspiciatis. Occaecati eum ea quas debitis debitis magni est. Impedit quam illo molestiae voluptas libero. Ut qui autem est impedit et ullam alias ipsa.\n\nExpedita consequatur accusamus magni ut qui eos adipisci. Quam perspiciatis non illum in beatae ducimus. Rerum non nam placeat nostrum rerum est soluta. Quia aut facilis labore architecto.\n\nQuod et voluptatem eveniet officiis. Rerum culpa excepturi distinctio sed ab quo. Qui dolorem sed in omnis magni. Qui blanditiis debitis sint voluptatem.",
+        "slug": "adventurous-aurora-cap",
+        "defaultVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+        "defaultVariantData": {
+          "@context": "/api/v2/contexts/ProductVariant",
+          "@id": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+          "@type": "ProductVariant",
+          "name": "",
+          "inStock": true,
+          "price": 1520,
+          "originalPrice": 1520,
+          "lowestPriceBeforeDiscount": null
+        }
+      }
+    },
+    {
+      "request_id": "0cc3838c-ceb9-4288-bd23-d2013a4503c6",
+      "method": "GET",
+      "path": "/api/v2/shop/products-by-slug/adventurous-aurora-cap",
+      "operation_path": "/api/v2/shop/products-by-slug/{slug}",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "0cc3838c-ceb9-4288-bd23-d2013a4503c6"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "status": 301,
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Location": "/api/v2/shop/products/Adventurous_Aurora_Cap"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      }
+    },
+    {
+      "request_id": "ce150cf4-1b09-475b-8a61-33b16f5ec7f7",
+      "method": "GET",
+      "path": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+      "operation_path": "/api/v2/shop/products/{code}",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "ce150cf4-1b09-475b-8a61-33b16f5ec7f7"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Product",
+        "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+        "@type": "Product",
+        "productTaxons": [
+          "/api/v2/shop/product-taxons/73",
+          "/api/v2/shop/product-taxons/74"
+        ],
+        "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+        "averageRating": 0,
+        "images": [
+          {
+            "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap/images/97",
+            "@type": "ProductImage",
+            "id": 97,
+            "type": "main",
+            "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/29/e0/1b6e3649b140ae2f5527ed3327d6.webp"
+          }
+        ],
+        "id": 37,
+        "code": "Adventurous_Aurora_Cap",
+        "variants": [
+          "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0"
+        ],
+        "options": [],
+        "associations": [],
+        "createdAt": "2026-11-07 19:33:17",
+        "updatedAt": "2026-11-08 07:26:44",
+        "shortDescription": "Sunt fugiat culpa omnis et amet id. Illo soluta placeat illum molestiae voluptas et non. Ab repellat et omnis sunt repudiandae consequatur.",
+        "reviews": [],
+        "name": "Adventurous Aurora Cap",
+        "description": "Aliquam et reprehenderit amet sed perspiciatis. Occaecati eum ea quas debitis debitis magni est. Impedit quam illo molestiae voluptas libero. Ut qui autem est impedit et ullam alias ipsa.\n\nExpedita consequatur accusamus magni ut qui eos adipisci. Quam perspiciatis non illum in beatae ducimus. Rerum non nam placeat nostrum rerum est soluta. Quia aut facilis labore architecto.\n\nQuod et voluptatem eveniet officiis. Rerum culpa excepturi distinctio sed ab quo. Qui dolorem sed in omnis magni. Qui blanditiis debitis sint voluptatem.",
+        "slug": "adventurous-aurora-cap",
+        "defaultVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+        "defaultVariantData": {
+          "@context": "/api/v2/contexts/ProductVariant",
+          "@id": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+          "@type": "ProductVariant",
+          "name": "",
+          "inStock": true,
+          "price": 1520,
+          "originalPrice": 1520,
+          "lowestPriceBeforeDiscount": null
+        }
+      }
+    },
+    {
+      "request_id": "e78b1562-42f3-494f-a5e3-5efaafa926c7",
+      "method": "POST",
+      "path": "/api/v2/shop/customers",
+      "operation_path": "/api/v2/shop/customers",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "e78b1562-42f3-494f-a5e3-5efaafa926c7",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "email": "phase1-cf29f133140b4911a2ec9a70d94494c4@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "status": 204,
+      "response_headers": {},
+      "response_body": null
+    },
+    {
+      "request_id": "35b230e9-aca3-4a58-9837-4a44f2915dea",
+      "method": "POST",
+      "path": "/api/v2/shop/customers/token",
+      "operation_path": "/api/v2/shop/customers/token",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "35b230e9-aca3-4a58-9837-4a44f2915dea",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "email": "phase1-cf29f133140b4911a2ec9a70d94494c4@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "code": 401,
+        "message": "Invalid credentials."
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "商品列表含可選商品與 variant",
+      "passed": true,
+      "request_ids": [
+        "0cb804c1-c7f4-49a3-93e7-044e442e9c9f"
+      ]
+    },
+    {
+      "description": "商品詳情與列表代碼一致",
+      "passed": true,
+      "request_ids": [
+        "e71d57e6-4083-422f-8b96-f6e03fc891db"
+      ]
+    },
+    {
+      "description": "由 slug 及本機 canonical 商品路徑查詢到同一商品",
+      "passed": true,
+      "request_ids": [
+        "0cc3838c-ceb9-4288-bd23-d2013a4503c6",
+        "ce150cf4-1b09-475b-8a61-33b16f5ec7f7"
+      ]
+    }
+  ],
+  "error": "HTTP 401：詳見已遮蔽的證據"
+}

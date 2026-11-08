@@ -1,0 +1,20 @@
+name: msdss-phase1-shopware
+services:
+  shopware:
+    image: dockware/shopware:6.7.15.1@sha256:0472eef46236ce5885364bdaca6a6f5d7d5705bd003f7aae48f94b5f538ee011
+    ports:
+      - "127.0.0.1:18082:80"
+    environment:
+      XDEBUG_ENABLED: "0"
+    mem_limit: 1536m
+    memswap_limit: 1536m
+    volumes:
+      - shop:/var/www/html
+      - db:/var/lib/mysql
+    networks: [isolated]
+    restart: "no"
+networks:
+  isolated: {}
+volumes:
+  shop: {}
+  db: {}

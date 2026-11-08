@@ -1,0 +1,989 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "source_sha256": "97d434d38bb669b9ffdc098fc68a29d2dcc8d23a28999e485e24ee1f17c338bb",
+  "source_info_version": "6.7.9999999-dev",
+  "method": "GET",
+  "path": "/checkout/gateway",
+  "operation": {
+    "tags": [
+      "Gateway"
+    ],
+    "summary": "Call the checkout gateway",
+    "description": "Call the checkout gateway, which is used to manipulate certain aspects of the checkout process (e.g. available payment methods).",
+    "operationId": "checkoutGateway",
+    "responses": {
+      "200": {
+        "description": "Checkout gateway response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "payments",
+                "shipments",
+                "errors"
+              ],
+              "properties": {
+                "payments": {
+                  "description": "Payment methods that are available after the gateway ran.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentMethod"
+                  }
+                },
+                "shipments": {
+                  "description": "Shipping methods that are available after the gateway ran.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingMethod"
+                  }
+                },
+                "errors": {
+                  "description": "Cart errors added by the gateway. An empty list is returned as `[]`, otherwise the errors are keyed by their id.",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CartError"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/CartError"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "orderId",
+        "in": "query",
+        "description": "Evaluates the availability for this order of the current customer instead of the current session.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  },
+  "effective_security": [
+    {
+      "ApiKey": []
+    }
+  ],
+  "path_parameters": [],
+  "servers": [
+    {
+      "url": "/store-api"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "description": "Identifies the sales channel you want to access the API through",
+        "name": "sw-access-key",
+        "in": "header"
+      }
+    },
+    "parameters": {
+      "swContextSource": {
+        "name": "sw-context-source",
+        "in": "header",
+        "description": "Set to `session` to resolve the context from the storefront session cookie instead of a context token. Mutually exclusive with `sw-context-token`: sending both fails with HTTP 400 and `FRAMEWORK__ROUTING_SESSION_CONTEXT_NOT_RESOLVABLE`, as does a session that cannot be resumed.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "const": "session"
+        }
+      },
+      "swLanguageId": {
+        "name": "sw-language-id",
+        "in": "header",
+        "description": "Instructs Shopware to return the response in the given language.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      }
+    },
+    "responses": {
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "failure": {
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for this particular occurrence of the problem."
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "status": {
+            "type": "string",
+            "description": "The HTTP status code applicable to this problem, expressed as a string value."
+          },
+          "code": {
+            "type": "string",
+            "description": "An application-specific error code, expressed as a string value."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem. It **SHOULD NOT** change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the problem."
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "pointer": {
+                "type": "string",
+                "description": "A JSON Pointer [RFC6901] to the associated entity in the request document [e.g. \"/data\" for a primary data object, or \"/data/attributes/title\" for a specific attribute]."
+              },
+              "parameter": {
+                "type": "string",
+                "description": "A string indicating which query parameter caused the error."
+              }
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "meta": {
+        "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+        "type": "object",
+        "additionalProperties": true
+      },
+      "links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/link"
+        }
+      },
+      "link": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object.",
+        "oneOf": [
+          {
+            "description": "A string containing the link's URL.",
+            "type": "string",
+            "format": "uri-reference"
+          },
+          {
+            "type": "object",
+            "required": [
+              "href"
+            ],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL.",
+                "type": "string",
+                "format": "uri-reference"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/meta"
+              }
+            }
+          }
+        ]
+      },
+      "CartError": {
+        "type": "object",
+        "description": "A list of all cart errors, such as insufficient stocks, invalid addresses or vouchers.",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "level": {
+            "type": "number",
+            "enum": [
+              0,
+              10,
+              20
+            ],
+            "description": "* `0` - notice,\n* `10` - warning,\n* `20` - error"
+          },
+          "message": {
+            "type": "string"
+          },
+          "messageKey": {
+            "type": "string"
+          },
+          "block": {
+            "type": "boolean",
+            "description": "Whether the error blocks the order from being placed."
+          }
+        },
+        "required": [
+          "key",
+          "level",
+          "message",
+          "messageKey",
+          "block"
+        ]
+      },
+      "ShippingMethod": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "technicalName",
+          "deliveryTimeId",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of shipping method."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the shipping method."
+          },
+          "technicalName": {
+            "type": "string"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the shipping methods are available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "position": {
+            "description": "The order of the tabs of your defined shipping methods in the storefront by entering numerical values like 1,2,3, etc.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "mediaId": {
+            "description": "Unique identity of media.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "deliveryTimeId": {
+            "description": "Unique identity of deliveryTime.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "taxType": {
+            "description": "Refers `Free`, `Net` or `Gross` type of taxes.",
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of each shipping method."
+          },
+          "trackingUrl": {
+            "type": "string",
+            "description": "This URL allows to track packages."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "deliveryTime": {
+            "$ref": "#/components/schemas/DeliveryTime",
+            "description": "Estimated delivery time information"
+          },
+          "availabilityRule": {
+            "$ref": "#/components/schemas/Rule",
+            "description": "Rule defining when this shipping method is available"
+          },
+          "prices": {
+            "description": "Shipping prices based on weight, volume, or cart value",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShippingMethodPrice"
+            }
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media",
+            "description": "Shipping method logo or carrier image"
+          },
+          "tags": {
+            "description": "Tags for organizing shipping methods",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          },
+          "tax": {
+            "$ref": "#/components/schemas/Tax",
+            "description": "Tax configuration for shipping costs"
+          }
+        },
+        "type": "object"
+      },
+      "Tax": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "taxRate",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of tax."
+          },
+          "taxRate": {
+            "description": "Rate of tax.",
+            "type": "number",
+            "format": "float"
+          },
+          "name": {
+            "description": "Name defined for a Tax.",
+            "type": "string"
+          },
+          "position": {
+            "description": "The order of the tabs of your defined taxes in the storefront by entering numerical values like 1,2,3, etc.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "Tag": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of tag."
+          },
+          "name": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "Media": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "apiAlias",
+          "fileExtension",
+          "fileName",
+          "hasFile",
+          "path",
+          "private",
+          "url",
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of media."
+          },
+          "mimeType": {
+            "description": "A string sent along with a file indicating the type of the file. For example: image/jpeg.",
+            "type": "string"
+          },
+          "fileExtension": {
+            "description": "Type of file indication. For example: jpeg, png.",
+            "type": "string"
+          },
+          "uploadedAt": {
+            "description": "Date and time at which media was added.",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "fileName": {
+            "description": "Name of the media file uploaded.",
+            "type": "string"
+          },
+          "fileSize": {
+            "description": "Size of the file media file uploaded.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "metaData": {
+            "type": "object",
+            "readOnly": true,
+            "properties": {
+              "height": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "width": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            "description": "Details of the media file uploaded."
+          },
+          "config": {
+            "type": "object"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Alternate text for media."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title name give to the media."
+          },
+          "url": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "hasFile": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "private": {
+            "description": "When `true`, the media display is kept private.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "thumbnails": {
+            "description": "Generated thumbnail images in various sizes",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MediaThumbnail"
+            }
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "media"
+          },
+          "extensions": {
+            "description": "To store additional data to a media from extensions."
+          }
+        },
+        "type": "object"
+      },
+      "MediaThumbnail": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "url",
+          "id",
+          "mediaId",
+          "width",
+          "height"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of media thumbnail."
+          },
+          "mediaId": {
+            "description": "Unique identity of media.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "mediaThumbnailSizeId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "width": {
+            "description": "Width of the thumbnail.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "height": {
+            "description": "Height of the thumbnail.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "url": {
+            "description": "Public url of media thumbnail.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "ShippingMethodPrice": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "shippingMethodId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of shipping method price."
+          },
+          "shippingMethodId": {
+            "description": "Unique identity of shipping method.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "ruleId": {
+            "description": "Unique identity of rule.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "calculation": {
+            "description": "Shipping price calculated based on quantity, price, weight or volume of items.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "calculationRuleId": {
+            "description": "Unique identity of rule calculation.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "quantityStart": {
+            "description": "Starting range of quantity of an item.",
+            "type": "number",
+            "format": "float"
+          },
+          "quantityEnd": {
+            "description": "Ending range of quantity of an item.",
+            "type": "number",
+            "format": "float"
+          },
+          "currencyPrice": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Price"
+            },
+            "description": "Contains currency-based price."
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "Price": {
+        "type": "object",
+        "description": "Price object",
+        "properties": {
+          "currencyId": {
+            "description": "Unique identity of the associated currency.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "gross": {
+            "description": "Gross price for the associated currency.",
+            "type": "number"
+          },
+          "net": {
+            "description": "Net price for the associated currency.",
+            "type": "number"
+          },
+          "linked": {
+            "description": "Whether gross and net prices are linked through the tax configuration.",
+            "type": "boolean"
+          },
+          "percentage": {
+            "description": "Discount percentage relative to the list price for the gross and net amounts. `null` when no list price is set.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "gross": {
+                "description": "Discount percentage relative to the gross list price.",
+                "type": "number"
+              },
+              "net": {
+                "description": "Discount percentage relative to the net list price.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "gross",
+              "net"
+            ]
+          },
+          "listPrice": {
+            "description": "Reference list price for displaying discounts.",
+            "type": "object",
+            "properties": {
+              "currencyId": {
+                "description": "Unique identity of the associated currency.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "gross": {
+                "description": "Gross list price for the associated currency.",
+                "type": "number"
+              },
+              "net": {
+                "description": "Net list price for the associated currency.",
+                "type": "number"
+              },
+              "linked": {
+                "description": "Whether gross and net list prices are linked through the tax configuration.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "gross",
+              "net"
+            ]
+          },
+          "regulationPrice": {
+            "description": "Reference price used for legal price disclosures.",
+            "type": "object",
+            "properties": {
+              "currencyId": {
+                "description": "Unique identity of the associated currency.",
+                "type": "string",
+                "pattern": "^[0-9a-f]{32}$"
+              },
+              "gross": {
+                "description": "Gross regulation price for the associated currency.",
+                "type": "number"
+              },
+              "net": {
+                "description": "Net regulation price for the associated currency.",
+                "type": "number"
+              },
+              "linked": {
+                "description": "Whether gross and net regulation prices are linked through the tax configuration.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "gross",
+              "net"
+            ]
+          }
+        },
+        "required": [
+          "currencyId",
+          "gross",
+          "net"
+        ]
+      },
+      "Rule": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of rule."
+          },
+          "name": {
+            "description": "Name of the rule defined.",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description of the rule.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "extensions": {
+            "description": "To store additional data to a rule from extensions."
+          }
+        },
+        "type": "object"
+      },
+      "DeliveryTime": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "name",
+          "min",
+          "max",
+          "unit"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of delivery time."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name given to delivery time."
+          },
+          "min": {
+            "description": "Minimum delivery time taken.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "max": {
+            "description": "Maximum delivery time taken.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "unit": {
+            "description": "Unit in which the delivery time is defined. For example, days or hours.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "PaymentMethod": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "technicalName",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of payment method."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the payment method."
+          },
+          "distinguishableName": {
+            "type": "string",
+            "readOnly": true,
+            "description": "System identifier name for payment method."
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description about the payment method."
+          },
+          "position": {
+            "description": "The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the payment methods are available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "afterOrderEnabled": {
+            "description": "When set to true, customers are redirected to the payment options page to choose a new payment method on order failure.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "mediaId": {
+            "description": "Unique identity of media.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "technicalName": {
+            "type": "string"
+          },
+          "shortName": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media",
+            "description": "Payment method logo or icon image"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

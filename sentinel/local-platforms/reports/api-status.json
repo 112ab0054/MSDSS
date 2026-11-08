@@ -1,0 +1,924 @@
+{
+  "operation_count": 64,
+  "counts": {
+    "成功": 64
+  },
+  "note": "成功僅採用完整流程 passed 且有業務斷言的證據；其他操作不由靜態檢查推定成功。",
+  "operations": [
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/customer-addresses",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/customer-orders",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/customer-profile",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/products/{id}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/products",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/add-product-in-cart",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/cart",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-addresses",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-orders",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customer/login",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customer/logout",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/remove-cart-item",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/update-cart-item",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "PUT",
+      "path": "/customer-addresses/{id}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customers",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/customer-addresses",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-shipping-methods",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "GET",
+      "path": "/payment-methods",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/checkout-payment-methods",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "bagisto",
+      "method": "POST",
+      "path": "/cart-tokens",
+      "role": "support",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "bagisto-06da5b920937474aa5682afece8e65e0.json",
+        "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/checkout/cart",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/checkout/gateway",
+      "role": "optional",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/address",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/customer",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/list-address",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/login",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/logout",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/account/register",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/checkout/cart/line-item/delete",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/checkout/cart/line-item",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/checkout/order",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/product-listing/{categoryId}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/product/{productId}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/product",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/search",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "PATCH",
+      "path": "/checkout/cart/line-item",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "PATCH",
+      "path": "/context",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "POST",
+      "path": "/order",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/context",
+      "role": "support",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/payment-method",
+      "role": "support",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "shopware",
+      "method": "GET",
+      "path": "/shipping-method",
+      "role": "support",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+        "shopware-32c3c4c9f50644a993ede3c43d5debc2.json",
+        "shopware-e44f75f68dab45538045a43a66b6933a.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/addresses/{id}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/addresses",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/items",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/payment-methods",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/products-by-slug/{slug}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "301 canonical 跳轉後已核對同一商品",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/products/{code}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/products",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/complete",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/addresses",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/customers/token",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/customers",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/orders/{tokenValue}/items",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "POST",
+      "path": "/api/v2/shop/orders",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "PUT",
+      "path": "/api/v2/shop/orders/{tokenValue}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "DELETE",
+      "path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}",
+      "role": "core",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods",
+      "role": "support",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    },
+    {
+      "platform": "sylius",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods",
+      "role": "support",
+      "test_status": "成功",
+      "reason": "完整正常流程與業務斷言",
+      "evidence_files": [
+        "sylius-0daa99cc36ad462db8dc5c14334c61e5.json",
+        "sylius-24210669ab954772890b8bfb2d54a449.json"
+      ],
+      "contract_status": "已保存實例規格，尚未逐欄核對全部參數",
+      "ready_for_collection": false
+    }
+  ]
+}

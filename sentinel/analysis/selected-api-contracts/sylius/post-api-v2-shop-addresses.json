@@ -1,0 +1,136 @@
+{
+  "platform": "sylius",
+  "source_contract": "sentinel/analysis/api-contracts/sylius/openapi-demo.json",
+  "method": "POST",
+  "path": "/api/v2/shop/addresses",
+  "operation": {
+    "operationId": "sylius_api_shop_address_post",
+    "tags": [
+      "Address"
+    ],
+    "responses": {
+      "201": {
+        "description": "Address resource created",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Address.jsonld-sylius.shop.address.show_validation.sylius"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Address-sylius.shop.address.show_validation.sylius"
+            }
+          }
+        },
+        "links": {}
+      },
+      "400": {
+        "description": "Invalid input",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error.jsonld"
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "links": {}
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error.jsonld"
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "links": {}
+      },
+      "422": {
+        "description": "An error occurred",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ConstraintViolation.jsonld"
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ConstraintViolation"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ConstraintViolation"
+            }
+          }
+        },
+        "links": {}
+      }
+    },
+    "summary": "Creates a Address resource.",
+    "description": "Creates a Address resource.",
+    "parameters": [
+      {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "Locales in this enum are all locales defined in the shop and only enabled ones will work in the given channel in the shop.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ],
+    "requestBody": {
+      "description": "The new Address resource",
+      "content": {
+        "application/ld+json": {
+          "schema": {
+            "$ref": "#/components/schemas/Address-sylius.shop.address.create_validation.sylius"
+          }
+        },
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/Address-sylius.shop.address.create_validation.sylius"
+          }
+        }
+      },
+      "required": true
+    }
+  }
+}

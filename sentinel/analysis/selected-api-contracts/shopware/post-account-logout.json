@@ -1,0 +1,40 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "POST",
+  "path": "/account/logout",
+  "operation": {
+    "tags": [
+      "Login & Registration"
+    ],
+    "summary": "Log out a customer",
+    "description": "Logs out a customer.",
+    "operationId": "logoutCustomer",
+    "responses": {
+      "200": {
+        "$ref": "#/components/responses/ContextTokenResponse"
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      },
+      "403": {
+        "$ref": "#/components/responses/403"
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>",
+        "ContextToken": "<redacted>"
+      }
+    ],
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  }
+}

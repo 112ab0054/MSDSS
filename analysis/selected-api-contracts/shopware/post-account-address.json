@@ -1,0 +1,68 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "POST",
+  "path": "/account/address",
+  "operation": {
+    "tags": [
+      "Address"
+    ],
+    "summary": "Create a new address for a customer",
+    "description": "Creates a new address for a customer.",
+    "operationId": "createCustomerAddress",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomerAddressBody"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CustomerAddress"
+                },
+                {
+                  "$ref": "#/components/schemas/CustomerAddressRead"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The submitted address data failed validation, e.g. a missing required field or a zip code that does not match the selected country."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      },
+      "403": {
+        "$ref": "#/components/responses/403",
+        "description": "No customer is logged in."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>",
+        "ContextToken": "<redacted>"
+      }
+    ],
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  }
+}

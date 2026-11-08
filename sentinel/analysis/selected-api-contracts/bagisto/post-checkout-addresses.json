@@ -1,0 +1,228 @@
+{
+  "platform": "bagisto",
+  "source_contract": "sentinel/analysis/api-contracts/bagisto/openapi-shop.json",
+  "method": "POST",
+  "path": "/checkout-addresses",
+  "operation": {
+    "operationId": "api_apishopcheckout-addresses_post",
+    "tags": [
+      "Checkout"
+    ],
+    "responses": {
+      "201": {
+        "description": "Addresses saved successfully.",
+        "content": {
+          "application/json": {
+            "example": {
+              "id": 5564,
+              "cartToken": "<redacted>",
+              "customerId": 1536,
+              "billingFirstName": "John",
+              "billingLastName": "Doe",
+              "billingEmail": "john@example.com",
+              "billingCompanyName": "",
+              "billingAddress": "123 Main St",
+              "billingCountry": "US",
+              "billingState": "NY",
+              "billingCity": "New York",
+              "billingPostcode": "10001",
+              "billingPhoneNumber": "1234567890",
+              "shippingFirstName": "John",
+              "shippingLastName": "Doe",
+              "shippingEmail": "john@example.com",
+              "shippingCompanyName": "",
+              "shippingAddress": "123 Main St",
+              "shippingCountry": "US",
+              "shippingState": "NY",
+              "shippingCity": "New York",
+              "shippingPostcode": "10001",
+              "shippingPhoneNumber": "1234567890",
+              "success": true,
+              "message": "Address saved successfully"
+            }
+          }
+        },
+        "links": []
+      },
+      "400": {
+        "description": "Invalid input",
+        "links": []
+      },
+      "422": {
+        "description": "Validation Error",
+        "links": []
+      },
+      "500": {
+        "description": "Billing address missing/invalid, or no active cart."
+      }
+    },
+    "summary": "Save billing and shipping addresses for checkout",
+    "description": "Saves billing and shipping addresses to the current cart. Use `useForShipping: true` to copy billing as shipping, or provide shipping fields for a different shipping address.",
+    "parameters": [
+      {
+        "name": "X-STOREFRONT-KEY",
+        "in": "header",
+        "description": "Storefront API Key for authentication. Required for all shop/storefront API requests.",
+        "required": true,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": ""
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Locale",
+        "in": "header",
+        "description": "Locale code for localized data (e.g. \"en\", \"fr\", \"ar\"). Defaults to channel's default locale.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "en"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Channel",
+        "in": "header",
+        "description": "Channel code (e.g. \"default\"). Defaults to the current channel.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "default"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Currency",
+        "in": "header",
+        "description": "Currency code (e.g. \"USD\", \"EUR\", \"INR\"). Defaults to channel's base currency.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "USD"
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ],
+    "requestBody": {
+      "description": "The new CheckoutAddress resource",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "billingFirstName",
+              "billingLastName",
+              "billingEmail",
+              "billingAddress",
+              "billingCity",
+              "billingCountry",
+              "billingState",
+              "billingPostcode",
+              "billingPhoneNumber"
+            ],
+            "properties": {
+              "billingFirstName": {
+                "type": "string",
+                "example": "John"
+              },
+              "billingLastName": {
+                "type": "string",
+                "example": "Doe"
+              },
+              "billingEmail": {
+                "type": "string",
+                "example": "john@example.com"
+              },
+              "billingCompanyName": {
+                "type": "string",
+                "example": ""
+              },
+              "billingAddress": {
+                "type": "string",
+                "example": "123 Main St"
+              },
+              "billingCity": {
+                "type": "string",
+                "example": "Los Angeles"
+              },
+              "billingCountry": {
+                "type": "string",
+                "example": "US"
+              },
+              "billingState": {
+                "type": "string",
+                "example": "CA"
+              },
+              "billingPostcode": {
+                "type": "string",
+                "example": "90001"
+              },
+              "billingPhoneNumber": {
+                "type": "string",
+                "example": "2125551234"
+              },
+              "useForShipping": {
+                "type": "boolean",
+                "example": true
+              },
+              "shippingFirstName": {
+                "type": "string",
+                "example": "Jane"
+              },
+              "shippingLastName": {
+                "type": "string",
+                "example": "Doe"
+              },
+              "shippingEmail": {
+                "type": "string",
+                "example": "jane@example.com"
+              },
+              "shippingCompanyName": {
+                "type": "string",
+                "example": ""
+              },
+              "shippingAddress": {
+                "type": "string",
+                "example": "456 Oak Ave"
+              },
+              "shippingCity": {
+                "type": "string",
+                "example": "San Francisco"
+              },
+              "shippingCountry": {
+                "type": "string",
+                "example": "US"
+              },
+              "shippingState": {
+                "type": "string",
+                "example": "CA"
+              },
+              "shippingPostcode": {
+                "type": "string",
+                "example": "94102"
+              },
+              "shippingPhoneNumber": {
+                "type": "string",
+                "example": "4155559876"
+              }
+            }
+          }
+        }
+      },
+      "required": true
+    }
+  }
+}

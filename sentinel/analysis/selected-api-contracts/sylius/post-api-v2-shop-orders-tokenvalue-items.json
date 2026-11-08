@@ -1,0 +1,127 @@
+{
+  "platform": "sylius",
+  "source_contract": "sentinel/analysis/api-contracts/sylius/openapi-demo.json",
+  "method": "POST",
+  "path": "/api/v2/shop/orders/{tokenValue}/items",
+  "operation": {
+    "operationId": "sylius_api_shop_order_order_item_post",
+    "tags": [
+      "Order"
+    ],
+    "responses": {
+      "201": {
+        "description": "Order resource created",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Order.jsonld-sylius.shop.cart.show_validation.sylius"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Order-sylius.shop.cart.show_validation.sylius"
+            }
+          }
+        },
+        "links": {}
+      },
+      "400": {
+        "description": "Invalid input",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error.jsonld"
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "links": {}
+      },
+      "422": {
+        "description": "An error occurred",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ConstraintViolation.jsonld"
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ConstraintViolation"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ConstraintViolation"
+            }
+          }
+        },
+        "links": {}
+      }
+    },
+    "summary": "Creates a Order resource.",
+    "description": "Creates a Order resource.",
+    "parameters": [
+      {
+        "name": "tokenValue",
+        "in": "path",
+        "description": "Order identifier",
+        "required": true,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "Locales in this enum are all locales defined in the shop and only enabled ones will work in the given channel in the shop.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ],
+    "requestBody": {
+      "description": "The new Order resource",
+      "content": {
+        "application/ld+json": {
+          "schema": {
+            "$ref": "#/components/schemas/Order.AddItemToCart-sylius.shop.cart.add_item_validation.sylius"
+          }
+        },
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/Order.AddItemToCart-sylius.shop.cart.add_item_validation.sylius"
+          }
+        }
+      },
+      "required": true
+    }
+  }
+}

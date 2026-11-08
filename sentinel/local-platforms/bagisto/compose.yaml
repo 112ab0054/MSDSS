@@ -1,0 +1,34 @@
+name: msdss-phase1-bagisto
+services:
+  app:
+    build: ../php
+    image: msdss-phase1-php:8.3.30
+    command: [php, artisan, serve, --host=0.0.0.0, --port=8000]
+    ports: ["127.0.0.1:18081:8000"]
+    env_file: ../.runtime/bagisto.env
+    volumes: ["../.runtime/bagisto:/app", "vendor:/app/vendor", "core-packages:/app/packages", "storage:/app/storage", "bootstrap-cache:/app/bootstrap/cache", "../.runtime/composer-cache:/root/.composer/cache"]
+    mem_limit: 768m
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [isolated]
+    restart: "no"
+  db:
+    image: mariadb:10.11.14@sha256:dbe56e20372fc6d6b8e0e396866ba89c4c7f128c38c4f59aaa54d957db95790c
+    env_file: ../.runtime/bagisto.env
+    volumes: ["db:/var/lib/mysql"]
+    mem_limit: 512m
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks: [isolated]
+    restart: "no"
+networks:
+  isolated: {}
+volumes:
+  db: {}
+  vendor: {}
+  storage: {}
+  bootstrap-cache: {}
+  core-packages: {}

@@ -1,0 +1,125 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "POST",
+  "path": "/product/{productId}",
+  "operation": {
+    "tags": [
+      "Product"
+    ],
+    "summary": "Fetch a single product",
+    "description": "This route is used to load a single product with the corresponding details. In addition to loading the data, the best variant of the product is determined when a parent id is passed.\n\n**Available Associations:**\n- `downloads` - Downloadable files associated with the product (e.g., manuals, digital content)\n- `children` - Product variants that inherit from this parent product\n- `deliveryTime` - Estimated delivery time for the product\n- `tax` - Tax configuration (rate and calculation rules)\n- `manufacturer` - Product manufacturer or brand information\n- `unit` - Product unit of measure (e.g., piece, liter, kg)\n- `cover` - Main product image displayed in listings and detail pages\n- `openGraphMedia` - Open Graph image for social media sharing\n- `cmsPage` - Custom CMS page layout for the product detail page\n- `canonicalProduct` - Canonical product reference for variant consolidation and SEO purposes\n- `media` - Product images and media gallery\n- `crossSellings` - Cross-selling configurations (related products, accessories, similar items)\n- `configuratorSettings` - Variant configurator settings defining available options for product variants\n- `productReviews` - Customer reviews and ratings for the product\n- `mainCategories` - Primary category assignments per sales channel for SEO and navigation\n- `seoUrls` - SEO-friendly URLs for the product across different sales channels\n- `options` - Product variant options (e.g., size, color) that define different variants\n- `properties` - Product properties and characteristics for filtering\n- `categories` - Categories this product is assigned to\n- `streams` - Dynamic product streams this product belongs to based on defined filters\n- `categoriesRo` - Read-only category tree including all parent categories for optimized queries\n- `tags` - Tags for organizing and filtering products\n- `seoCategory` - Main category used for SEO URL generation in the current sales channel",
+    "operationId": "readProductDetail",
+    "parameters": [
+      {
+        "name": "productId",
+        "in": "path",
+        "description": "Product ID",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      {
+        "description": "Instructs Shopware to try and resolve SEO URLs for the given navigation item",
+        "in": "header",
+        "name": "sw-include-seo-urls",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "sw-include-search-info",
+        "in": "header",
+        "description": "Controls whether API search information is included in the response. Default is 1 (enabled), will be 0 (disabled) in the next major version.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1"
+          ],
+          "default": "1"
+        }
+      },
+      {
+        "description": "Instructs Shopware to skip loading the configurator data",
+        "in": "query",
+        "name": "skipConfigurator",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      {
+        "description": "Instructs Shopware to skip loading the CMS page data",
+        "in": "query",
+        "name": "skipCmsPage",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ],
+    "requestBody": {
+      "required": false,
+      "content": {
+        "application/json": {
+          "schema": {
+            "allOf": [
+              {
+                "properties": {
+                  "slots": {
+                    "description": "Resolves only the given slot identifiers. The identifiers have to be separated by a `|` character.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "$ref": "#/components/schemas/NoneFieldsCriteria"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Product information along with variant groups and options",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProductDetailResponse"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      },
+      "404": {
+        "$ref": "#/components/responses/404",
+        "description": "No product exists for the given `productId` in this sales channel."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>"
+      }
+    ]
+  }
+}

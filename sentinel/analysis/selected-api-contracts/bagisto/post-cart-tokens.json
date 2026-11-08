@@ -1,0 +1,136 @@
+{
+  "platform": "bagisto",
+  "source_contract": "sentinel/analysis/api-contracts/bagisto/openapi-shop.json",
+  "source_sha256": "f619df36bf29cde40aec76796b88d4690756fd9ccd4cc046b4c92ee458e78985",
+  "source_info_version": "2.4.10",
+  "method": "POST",
+  "path": "/cart-tokens",
+  "operation": {
+    "operationId": "createCartToken",
+    "tags": [
+      "Cart"
+    ],
+    "responses": {
+      "201": {
+        "description": "Guest cart created; returns the cart token used to identify the guest for subsequent cart/checkout calls.",
+        "content": {
+          "application/json": {}
+        },
+        "links": []
+      },
+      "400": {
+        "description": "Invalid input",
+        "links": []
+      },
+      "422": {
+        "description": "Validation Error",
+        "links": []
+      }
+    },
+    "summary": "Create cart token",
+    "description": "Create a new guest cart with unique UUID token or get authenticated customer cart. Returns sessionToken for guests.",
+    "parameters": [
+      {
+        "name": "X-STOREFRONT-KEY",
+        "in": "header",
+        "description": "Storefront API Key for authentication. Required for all shop/storefront API requests.",
+        "required": true,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Locale",
+        "in": "header",
+        "description": "Locale code for localized data (e.g. \"en\", \"fr\", \"ar\"). Defaults to channel's default locale.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Channel",
+        "in": "header",
+        "description": "Channel code (e.g. \"default\"). Defaults to the current channel.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Currency",
+        "in": "header",
+        "description": "Currency code (e.g. \"USD\", \"EUR\", \"INR\"). Defaults to channel's base currency.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ],
+    "requestBody": {
+      "description": "Cart creation payload",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "description": "Session ID for cart creation (optional)"
+              },
+              "createNew": {
+                "type": "boolean",
+                "description": "Generate new cart with unique token (optional)"
+              }
+            }
+          }
+        }
+      },
+      "required": false
+    }
+  },
+  "effective_security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "path_parameters": [],
+  "servers": [
+    {
+      "url": "{url}/api/shop",
+      "description": "Bagisto Shop API",
+      "variables": {
+        "url": {
+          "default": "http://localhost:8000",
+          "description": "Base URL of your Bagisto installation."
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "Value for the http bearer parameter.",
+        "scheme": "bearer",
+        "bearerFormat": "UUID"
+      }
+    }
+  }
+}

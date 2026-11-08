@@ -1,0 +1,305 @@
+{
+  "platform": "bagisto",
+  "source_contract": "sentinel/analysis/api-contracts/bagisto/openapi-shop.json",
+  "method": "GET",
+  "path": "/products",
+  "operation": {
+    "operationId": "api_apishopproducts_get_collection",
+    "tags": [
+      "Product"
+    ],
+    "responses": {
+      "200": {
+        "description": "A paginated list of products matching the search, filter, and sort criteria.",
+        "content": {
+          "application/json": {
+            "example": [
+              {
+                "id": 1,
+                "sku": "COASTALBREEZEMENSHOODIE",
+                "type": "simple",
+                "bookingType": null,
+                "name": "Coastal Breeze Men's Blue Zipper Hoodie",
+                "urlKey": "coastal-breeze-mens-blue-zipper-hoodie",
+                "status": true,
+                "shortDescription": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie.",
+                "price": 100,
+                "specialPrice": null,
+                "new": true,
+                "featured": true,
+                "minimumPrice": 100,
+                "maximumPrice": 100,
+                "formattedPrice": "$100.00",
+                "formattedSpecialPrice": null,
+                "formattedMinimumPrice": "$100.00",
+                "formattedMaximumPrice": "$100.00",
+                "isInWishlist": 0,
+                "isInCompare": 0,
+                "baseImageUrl": "http://localhost:8000/storage/product/1/zKcWZTLDjcawJmaNg8g1cpARqwVONgEKEflabstT.webp"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "summary": "List products with search, filter, sort, and pagination",
+    "description": "Mirrors the GraphQL products query. Any query param outside the reserved set (query, sort, order, page, per_page, locale, channel, filter, suggest) is treated as a filterable attribute — so new attributes like material, pattern, etc. work automatically without schema changes.",
+    "parameters": [
+      {
+        "name": "query",
+        "in": "query",
+        "description": "Search term (matches SKU or product name).",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "suggest",
+        "in": "query",
+        "description": "Elasticsearch only: when the store searches with Elasticsearch, the query is swapped for its \"did you mean\" suggestion (see `GET /api/shop/search-redirect`). Send `0` to search the exact query instead.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1"
+          ]
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "description": "Compound sort token. One of: name-asc, name-desc, price-asc, price-desc, created_at-desc (newest first), created_at-asc (oldest first), updated_at-desc, updated_at-asc, id-asc, id-desc. May also be used with a separate `order` param (e.g. sort=name&order=desc).",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "example": "name-asc"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "order",
+        "in": "query",
+        "description": "Sort direction when `sort` is a bare key (e.g. sort=name&order=desc). Ignored if `sort` already has a -asc/-desc suffix.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "description": "Page number (1-based).",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 1,
+          "example": 1
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "per_page",
+        "in": "query",
+        "description": "Items per page. Default matches the GraphQL `first` default.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 30,
+          "example": 30
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "description": "Product type.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "simple",
+            "configurable",
+            "virtual",
+            "downloadable",
+            "bundle",
+            "grouped",
+            "booking"
+          ]
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "category_id",
+        "in": "query",
+        "description": "Filter products by category ID.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "example": 2
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "price",
+        "in": "query",
+        "description": "Compound price range — from,to (e.g. 10,200). Alternative to price_from + price_to.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "example": "10,200"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "price_from",
+        "in": "query",
+        "description": "Minimum price (inclusive).",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "number"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "price_to",
+        "in": "query",
+        "description": "Maximum price (inclusive).",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "number"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "new",
+        "in": "query",
+        "description": "Only return products flagged as new.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "boolean"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "featured",
+        "in": "query",
+        "description": "Only return products flagged as featured.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "boolean"
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "filter",
+        "in": "query",
+        "description": "Attribute filters as a dynamic key/value map. In Swagger UI, click \"Add string item\" to add a row, enter the attribute code as the key (e.g. brand, color, size, material, any filterable attribute) and the option ID as the value. Multi-select: comma-separate option IDs (e.g. 1,2,3). Generates URLs like ?filter[brand]=38&filter[color]=3. A raw JSON filter string is also accepted for GraphQL parity, e.g. {\"color\":{\"match\":\"3\",\"match_type\":\"PARTIAL\"}}.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "example": {
+            "brand": "38",
+            "color": "3"
+          }
+        },
+        "style": "deepObject",
+        "explode": true
+      },
+      {
+        "name": "X-STOREFRONT-KEY",
+        "in": "header",
+        "description": "Storefront API Key for authentication. Required for all shop/storefront API requests.",
+        "required": true,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": ""
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Locale",
+        "in": "header",
+        "description": "Locale code for localized data (e.g. \"en\", \"fr\", \"ar\"). Defaults to channel's default locale.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "en"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Channel",
+        "in": "header",
+        "description": "Channel code (e.g. \"default\"). Defaults to the current channel.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "default"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "X-Currency",
+        "in": "header",
+        "description": "Currency code (e.g. \"USD\", \"EUR\", \"INR\"). Defaults to channel's base currency.",
+        "required": false,
+        "deprecated": false,
+        "allowEmptyValue": false,
+        "schema": {
+          "type": "string",
+          "example": "USD"
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ]
+  }
+}

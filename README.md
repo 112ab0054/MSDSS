@@ -106,6 +106,21 @@ docker-compose stop
 - `storefront/`：官方 DTC starter 的 Next.js 商城前台與 Docker 設定。
 - `compose.yaml`：四個服務及持久化儲存設定。
 - `.env.example`：環境變數範本，不含真正密碼。
+- `API_文件與採用範圍.md`：跨平台 API 文件來源、版本核對與採用範圍紀錄。
+- `問題排除紀錄.md`：開發與部署期間遇到的問題、處理方式與目前狀態。
+- `sentinel/`：XGBoost 偵測模組，以及訓練前的 API、資料、特徵與驗證分析。
 - `THIRD_PARTY_NOTICES.md`：官方 starter 與 API 規格來源。
 
 官方部署說明：https://docs.medusajs.com/learn/deployment/general
+
+
+## 研究文件入口
+
+目前訓練平台候選為 Bagisto 21、Shopware 21、Sylius 22，共 64 操作；第一版 normal、sqli、xss。Sylius 顧客驗證請求路由在固定實例不存在，未納入現行清單。規格與計畫已整理，尚未完成固定實例、訓練資料、模型與效果驗證。
+
+- [Sentinel 現行文件索引](sentinel/README.md)
+- [API 來源、版本與採用狀態](API_文件與採用範圍.md)
+- [Medusa 79 操作與舊 77 文件狀態](MSDSS_部署核對紀錄.md)
+- [歷史審查與已停用工具](sentinel/analysis/history/README.md)
+
+三平台參數表為人工維護文件，不用舊重建工具覆寫。原始 OpenAPI、參數文件與已實測結果分開解讀。

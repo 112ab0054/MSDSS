@@ -1,0 +1,29 @@
+{
+  "platform": "shopware",
+  "version": "6.7.15.1",
+  "php_version": "8.2.35",
+  "http_base": "http://127.0.0.1:18082",
+  "bound_address": "127.0.0.1",
+  "isolated_project": "msdss-phase1-shopware",
+  "memory_limit_mib": 1536,
+  "payment_mode": "native offline CashPayment/InvoicePayment; no real charge",
+  "successful_runs": [
+    {
+      "file": "shopware-169394414b8a4d5180f8b5859fa77dce.json",
+      "request_count": 30,
+      "passed_checks": 19
+    },
+    {
+      "file": "shopware-e44f75f68dab45538045a43a66b6933a.json",
+      "request_count": 29,
+      "passed_checks": 18
+    }
+  ],
+  "selected_api_passed": 21,
+  "selected_api_total": 21,
+  "not_tested": [],
+  "live_spec": "sentinel/local-platforms/upstream/shopware-6.7.15.1-live-storeapi.json",
+  "live_spec_sha256": "ed1dbb800ebbc6f3cb80f02990a66f3744f21fca3373139e51ede45ae91a8bb8",
+  "ready_for_collection": false,
+  "state_after_test": "stopped, volumes retained"
+}

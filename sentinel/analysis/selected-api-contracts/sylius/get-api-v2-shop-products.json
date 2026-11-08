@@ -1,0 +1,287 @@
+{
+  "platform": "sylius",
+  "source_contract": "sentinel/analysis/api-contracts/sylius/openapi-demo.json",
+  "method": "GET",
+  "path": "/api/v2/shop/products",
+  "operation": {
+    "operationId": "sylius_api_shop_product_get_collection",
+    "tags": [
+      "Product"
+    ],
+    "responses": {
+      "200": {
+        "description": "Product collection",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "type": "object",
+              "description": "Product.jsonld-sylius.shop.product.index collection.",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/HydraCollectionBaseSchema"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "hydra:member"
+                  ],
+                  "properties": {
+                    "hydra:member": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Product.jsonld-sylius.shop.product.index"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Product-sylius.shop.product.index"
+              }
+            }
+          }
+        }
+      }
+    },
+    "summary": "Retrieves the collection of Product resources.",
+    "description": "Retrieves the collection of Product resources.",
+    "parameters": [
+      {
+        "name": "page",
+        "in": "query",
+        "description": "The collection page number",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 1
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "itemsPerPage",
+        "in": "query",
+        "description": "The number of items per page",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 30,
+          "minimum": 0,
+          "maximum": 30
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "translations.name",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "productTaxons.taxon.code",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "productTaxons.taxon.code[]",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "order[code]",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "default": "",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "order[createdAt]",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "default": "",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "order[price]",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "order[translation.name]",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "localeCode for order[translation.name]",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "taxon",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "association[typeCode]",
+        "in": "query",
+        "description": "Filter by association type code.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "association[ownerCode]",
+        "in": "query",
+        "description": "Filter by association owner code.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      {
+        "name": "imageFilter",
+        "in": "query",
+        "description": "Image filter to be applied on image resources.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "sylius_original",
+            "sylius_small",
+            "sylius_medium",
+            "sylius_large",
+            "sylius_admin_product_original",
+            "sylius_admin_avatar",
+            "sylius_admin_product_thumbnail",
+            "sylius_admin_product_large_thumbnail",
+            "sylius_shop_product_original",
+            "sylius_shop_product_small_thumbnail",
+            "sylius_shop_product_thumbnail",
+            "sylius_shop_product_large_thumbnail",
+            "sylius_shop_taxon_thumbnail"
+          ]
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "Locales in this enum are all locales defined in the shop and only enabled ones will work in the given channel in the shop.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ]
+  }
+}

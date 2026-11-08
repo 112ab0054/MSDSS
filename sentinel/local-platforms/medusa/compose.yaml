@@ -1,0 +1,50 @@
+name: msdss-phase1-medusa
+services:
+  app:
+    build:
+      context: ../../../backend
+      dockerfile: ../sentinel/local-platforms/medusa/Dockerfile
+      args:
+        AUTH_MFA_ENCRYPTION_KEY: ${AUTH_MFA_ENCRYPTION_KEY}
+    image: msdss-phase1-medusa:2.22.4
+    env_file: ../.runtime/medusa.env
+    ports: ["127.0.0.1:18084:9000"]
+    mem_limit: 1024m
+    depends_on:
+      db: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    volumes: ["uploads:/app/.medusa/server/static/uploads", "logs:/app/logs"]
+    networks: [isolated]
+    restart: "no"
+  db:
+    image: postgres:16-alpine@sha256:3c5c8892d184f738f4fe282d14ddaa613a38f00f4189d2d94725ebe6f2909ddb
+    env_file: ../.runtime/medusa.env
+    mem_limit: 384m
+    command: [postgres, -c, shared_buffers=64MB, -c, max_connections=50]
+    healthcheck:
+      test: [CMD, pg_isready, -U, msdss_medusa_verify, -d, msdss_medusa_verify]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    volumes: ["db:/var/lib/postgresql/data"]
+    networks: [isolated]
+    restart: "no"
+  redis:
+    image: redis:7.4.7-alpine@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf
+    command: [redis-server, --appendonly, "yes"]
+    mem_limit: 128m
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    volumes: ["redis:/data"]
+    networks: [isolated]
+    restart: "no"
+networks:
+  isolated: {}
+volumes:
+  db: {}
+  redis: {}
+  uploads: {}
+  logs: {}

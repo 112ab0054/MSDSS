@@ -1,0 +1,150 @@
+{
+  "platform": "bagisto",
+  "core_version": "2.4.10",
+  "api_package_version": "2.4.4",
+  "live_openapi_info_version": "2.4.4",
+  "old_snapshot_info_version": "2.4.10",
+  "php_version": "8.3.30",
+  "laravel_version": "12.71.0",
+  "api_platform_laravel_version": "4.3.21",
+  "database_version": "10.11.14-MariaDB",
+  "bound_address": "127.0.0.1:18081",
+  "isolated_project": "msdss-phase1-bagisto",
+  "successful_runs": [
+    {
+      "file": "bagisto-06da5b920937474aa5682afece8e65e0.json",
+      "request_count": 30,
+      "passed_checks": 18
+    },
+    {
+      "file": "bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json",
+      "request_count": 30,
+      "passed_checks": 18
+    }
+  ],
+  "selected_api_passed": 21,
+  "selected_api_total": 21,
+  "live_spec_sha256": "8904b669b0f122198e040f85300aacf53cdff90bf66fdaed09df01f09296fc9b",
+  "selected_operations_in_live_spec": [
+    {
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/customer-addresses",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/customer-orders",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/customer-profile",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/products/{id}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/add-product-in-cart",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/cart",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-addresses",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-orders",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/customer/login",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/customer/logout",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/remove-cart-item",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/update-cart-item",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "PUT",
+      "path": "/customer-addresses/{id}",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/customers",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/customer-addresses",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-shipping-methods",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "GET",
+      "path": "/payment-methods",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/checkout-payment-methods",
+      "present_in_live_spec": true
+    },
+    {
+      "method": "POST",
+      "path": "/cart-tokens",
+      "present_in_live_spec": true
+    }
+  ],
+  "known_issues": [
+    {
+      "case": "Read member cart after removing last item",
+      "status": 500,
+      "detail": "Call to a member function load() on null",
+      "evidence": "bagisto-164af7fff3b04ba398ed4004c692eb4d.json",
+      "resolution": "Unresolved upstream edge case; main flow removes one of two real products and re-reads the remaining cart. No platform API code was patched."
+    },
+    {
+      "case": "Original API installer optimize step",
+      "detail": "Timed out at 300 seconds while core/cache were on Windows bind mounts. Dedicated core, vendor, storage and bootstrap-cache volumes plus API-only config/route caching used for recovery; database installer was not repeated."
+    }
+  ],
+  "ready_for_collection": false,
+  "state_after_test": "stopped, volumes retained"
+}

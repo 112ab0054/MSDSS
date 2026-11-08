@@ -1,0 +1,1758 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "source_sha256": "97d434d38bb669b9ffdc098fc68a29d2dcc8d23a28999e485e24ee1f17c338bb",
+  "source_info_version": "6.7.9999999-dev",
+  "method": "POST",
+  "path": "/account/register",
+  "operation": {
+    "tags": [
+      "Login & Registration"
+    ],
+    "summary": "Register a customer",
+    "description": "Registers a customer. Used both for normal customers and guest customers.See the Guide \"Register a customer\" for more information on customer registration.",
+    "operationId": "register",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "email": {
+                "description": "Email of the customer. Has to be unique, unless `guest` is `true`",
+                "type": "string"
+              },
+              "password": {
+                "description": "Password for the customer. Required, unless `guest` is `true`",
+                "type": "string"
+              },
+              "salutationId": {
+                "description": "Id of the salutation for the customer account. Fetch options using `salutation` endpoint.",
+                "type": "string"
+              },
+              "firstName": {
+                "description": "Customer first name. Required unless a `billingAddress` is sent, whose first name is used instead. When both are sent, this value also replaces the first name of the billing address.",
+                "type": "string"
+              },
+              "lastName": {
+                "description": "Customer last name. Required unless a `billingAddress` is sent, whose last name is used instead. When both are sent, this value also replaces the last name of the billing address.",
+                "type": "string"
+              },
+              "acceptedDataProtection": {
+                "description": "Flag indicating accepted data protection. Only required when the `core.loginRegistration.requireDataProtectionCheckbox` setting is enabled, which is off by default.",
+                "type": "boolean"
+              },
+              "storefrontUrl": {
+                "description": "URL of the storefront for that registration. Used in the double opt-in confirmation email. Only required when double opt-in is enabled, through `core.loginRegistration.doubleOptInRegistration` for customers or `core.loginRegistration.doubleOptInGuestOrder` for guests, both off by default. The value then has to match one of the domains configured for the sales channel.",
+                "type": "string"
+              },
+              "requestedGroupId": {
+                "description": "Optional customer group registration request. The customer is created in the current sales channel group and this field stores the requested target group. The group must be available for registration in the current sales channel.",
+                "type": "string"
+              },
+              "billingAddress": {
+                "description": "Billing address of the customer. Required unless a `shippingAddress` is sent, which is then used as the billing address as well.",
+                "$ref": "#/components/schemas/CustomerAddressBody"
+              },
+              "shippingAddress": {
+                "description": "Shipping address of the customer. When no `billingAddress` is sent, this address becomes the default billing address too.",
+                "$ref": "#/components/schemas/CustomerAddressBody"
+              },
+              "guest": {
+                "description": "If set, will create a guest customer. Guest customers can re-use an email address and don't need a password.",
+                "type": "boolean",
+                "default": false
+              },
+              "birthdayDay": {
+                "description": "Birthday day",
+                "type": "integer"
+              },
+              "birthdayMonth": {
+                "description": "Birthday month",
+                "type": "integer"
+              },
+              "birthdayYear": {
+                "description": "Birthday year",
+                "type": "integer"
+              },
+              "title": {
+                "description": "(Academic) title of the customer",
+                "type": "string"
+              },
+              "affiliateCode": {
+                "description": "Field can be used to store an affiliate tracking code",
+                "type": "string"
+              },
+              "campaignCode": {
+                "description": "Field can be used to store a campaign tracking code",
+                "type": "string"
+              },
+              "customFields": {
+                "description": "Custom fields of the customer. Only fields defined for the customer entity are stored.",
+                "type": "object"
+              },
+              "redirectTo": {
+                "description": "Route name the double opt-in confirmation link points to. Only used when double opt-in registration is enabled.",
+                "type": "string"
+              },
+              "redirectParameters": {
+                "description": "Additional parameters for the double opt-in confirmation link, as a JSON encoded string. Only used when double opt-in registration is enabled.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "email"
+            ],
+            "allOf": [
+              {
+                "anyOf": [
+                  {
+                    "required": [
+                      "billingAddress"
+                    ],
+                    "properties": {
+                      "billingAddress": {
+                        "$ref": "#/components/schemas/CustomerAddressBody"
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "shippingAddress",
+                      "firstName",
+                      "lastName"
+                    ],
+                    "properties": {
+                      "shippingAddress": {
+                        "$ref": "#/components/schemas/CustomerAddressBody"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "required": [
+                      "guest"
+                    ],
+                    "properties": {
+                      "guest": {
+                        "const": true
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "password"
+                    ],
+                    "properties": {
+                      "password": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "accountType": {
+                        "description": "Type of the customer account. Default value is 'private'.",
+                        "type": "string",
+                        "enum": [
+                          "private"
+                        ],
+                        "default": "private"
+                      },
+                      "company": {
+                        "description": "Not used for a private account, the value is ignored.",
+                        "type": "string"
+                      },
+                      "vatIds": {
+                        "description": "Not used for a private account, the value is ignored.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "accountType"
+                    ],
+                    "properties": {
+                      "accountType": {
+                        "description": "Type of the customer account. Can be `private` or `business`.",
+                        "type": "string",
+                        "enum": [
+                          "business"
+                        ]
+                      },
+                      "billingAddress": {
+                        "description": "For a business account the billing address has to carry the `company`, which becomes the company of the customer. Only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled.",
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/CustomerAddressBody"
+                          },
+                          {
+                            "required": [
+                              "company"
+                            ],
+                            "properties": {
+                              "company": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "company": {
+                        "description": "Not read during registration. The company of the customer is taken from `billingAddress`, falling back to `shippingAddress`.",
+                        "type": "string"
+                      },
+                      "vatIds": {
+                        "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`, and only required when the country of the sent address has `vatIdRequired` enabled.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "type": "object"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "headers": {
+          "sw-context-token": {
+            "description": "Contains the new sw-context-token value.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Customer"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The submitted registration data failed validation, e.g. a missing required field, an email address that is already registered or an unknown country."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": []
+      }
+    ],
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  },
+  "effective_security": [
+    {
+      "ApiKey": []
+    }
+  ],
+  "path_parameters": [],
+  "servers": [
+    {
+      "url": "/store-api"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "description": "Identifies the sales channel you want to access the API through",
+        "name": "sw-access-key",
+        "in": "header"
+      }
+    },
+    "parameters": {
+      "swContextSource": {
+        "name": "sw-context-source",
+        "in": "header",
+        "description": "Set to `session` to resolve the context from the storefront session cookie instead of a context token. Mutually exclusive with `sw-context-token`: sending both fails with HTTP 400 and `FRAMEWORK__ROUTING_SESSION_CONTEXT_NOT_RESOLVABLE`, as does a session that cannot be resumed.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "const": "session"
+        }
+      },
+      "swLanguageId": {
+        "name": "sw-language-id",
+        "in": "header",
+        "description": "Instructs Shopware to return the response in the given language.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      }
+    },
+    "responses": {
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "failure": {
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for this particular occurrence of the problem."
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "status": {
+            "type": "string",
+            "description": "The HTTP status code applicable to this problem, expressed as a string value."
+          },
+          "code": {
+            "type": "string",
+            "description": "An application-specific error code, expressed as a string value."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem. It **SHOULD NOT** change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the problem."
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "pointer": {
+                "type": "string",
+                "description": "A JSON Pointer [RFC6901] to the associated entity in the request document [e.g. \"/data\" for a primary data object, or \"/data/attributes/title\" for a specific attribute]."
+              },
+              "parameter": {
+                "type": "string",
+                "description": "A string indicating which query parameter caused the error."
+              }
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "meta": {
+        "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+        "type": "object",
+        "additionalProperties": true
+      },
+      "links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/link"
+        }
+      },
+      "link": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object.",
+        "oneOf": [
+          {
+            "description": "A string containing the link's URL.",
+            "type": "string",
+            "format": "uri-reference"
+          },
+          {
+            "type": "object",
+            "required": [
+              "href"
+            ],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL.",
+                "type": "string",
+                "format": "uri-reference"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/meta"
+              }
+            }
+          }
+        ]
+      },
+      "Customer": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "apiAlias",
+          "activeBillingAddress",
+          "activeShippingAddress",
+          "id",
+          "groupId",
+          "salesChannelId",
+          "languageId",
+          "defaultBillingAddressId",
+          "defaultShippingAddressId",
+          "customerNumber",
+          "firstName",
+          "lastName",
+          "email"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the customer."
+          },
+          "groupId": {
+            "description": "Unique identity of customer group.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salesChannelId": {
+            "description": "Unique identity of sales channel.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "languageId": {
+            "description": "Unique identity of language.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "lastPaymentMethodId": {
+            "description": "Unique identity of previous payment method.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "defaultBillingAddressId": {
+            "description": "Unique identity of default billing address.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "defaultShippingAddressId": {
+            "description": "Unique identity of default shipping address.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "customerNumber": {
+            "description": "Unique  number assigned to identity a customer.",
+            "type": "string"
+          },
+          "salutationId": {
+            "description": "Unique identity of salutation.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "description": "First name of the customer.",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last name of the customer.",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email ID of the customer.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Titles or honorifics like Mr, Mrs, etc.",
+            "type": "string"
+          },
+          "affiliateCode": {
+            "description": "An affiliate code is an identification option with which website operators can mark outgoing links.",
+            "type": "string"
+          },
+          "campaignCode": {
+            "description": "A campaign code is the globally unique identifier for a campaign.",
+            "type": "string"
+          },
+          "active": {
+            "description": "To keep the status of the customer active, the boolean value is set to `true`.",
+            "type": "boolean"
+          },
+          "doubleOptInRegistration": {
+            "description": "Set to `true` to allow user subscriptions to an email marketing list.",
+            "type": "boolean"
+          },
+          "doubleOptInEmailSentDate": {
+            "description": "Date and time when the double opt-in email was sent.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "doubleOptInConfirmDate": {
+            "description": "Date and time when the double opt-in email was confirmed.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "hash": {
+            "description": "Password hash for account recovery.",
+            "type": "string"
+          },
+          "guest": {
+            "description": "Boolean value is `true` if it is to be a guest account.",
+            "type": "boolean"
+          },
+          "firstLogin": {
+            "description": "To capture date and time of customer's first login.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastLogin": {
+            "description": "To capture date and time of customer's last login.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "birthday": {
+            "description": "To capture customer's birthday details.",
+            "type": "string"
+          },
+          "lastOrderDate": {
+            "description": "Captures last order date.",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "orderCount": {
+            "description": "Captures the number of orders placed.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "orderTotalAmount": {
+            "description": "Sum of total amount to be paid.",
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "reviewCount": {
+            "description": "Number of reviews the customer has given.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "tagIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{32}$"
+            },
+            "readOnly": true,
+            "description": "Unique identity tag names given to the line item."
+          },
+          "requestedGroupId": {
+            "description": "Unique identity of requested group.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "updatedById": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "group": {
+            "$ref": "#/components/schemas/CustomerGroup",
+            "description": "Customer group determining pricing and permissions"
+          },
+          "language": {
+            "$ref": "#/components/schemas/Language",
+            "description": "Preferred language for customer communication"
+          },
+          "lastPaymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod",
+            "description": "Last used payment method by the customer"
+          },
+          "defaultBillingAddress": {
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Default billing address for the customer"
+          },
+          "activeBillingAddress": {
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Currently active billing address in the session"
+          },
+          "defaultShippingAddress": {
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Default shipping address for the customer"
+          },
+          "activeShippingAddress": {
+            "$ref": "#/components/schemas/CustomerAddress",
+            "description": "Currently active shipping address in the session"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation",
+            "description": "Customer salutation (e.g., Mr., Mrs., Ms.)"
+          },
+          "addresses": {
+            "description": "All addresses saved for the customer",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerAddress"
+            }
+          },
+          "tags": {
+            "description": "Tags assigned to the customer for organization and segmentation",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "customer"
+          },
+          "defaultPaymentMethodId": {
+            "description": "Unique identity of default payment method."
+          },
+          "company": {
+            "description": "Company name of the customer."
+          },
+          "vatIds": {
+            "description": "Unique identity of VAT."
+          },
+          "accountType": {
+            "description": "Account type can be personal or business."
+          },
+          "extensions": {
+            "properties": {
+              "specificFeatures": {
+                "description": "To store additional data to a customer from extensions."
+              }
+            }
+          }
+        },
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "accountType"
+            ],
+            "properties": {
+              "accountType": {
+                "type": "string",
+                "enum": [
+                  "private"
+                ]
+              }
+            }
+          },
+          {
+            "required": [
+              "accountType",
+              "vatIds",
+              "company"
+            ],
+            "properties": {
+              "accountType": {
+                "type": "string",
+                "enum": [
+                  "business"
+                ]
+              },
+              "vatIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "company": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "Tag": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of tag."
+          },
+          "name": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "CustomerAddress": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "customerId",
+          "countryId",
+          "firstName",
+          "lastName",
+          "city",
+          "street"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of customer's address."
+          },
+          "customerId": {
+            "description": "Unique identity of customer.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryId": {
+            "description": "Unique identity of country.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "description": "Unique identity of country's state.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salutationId": {
+            "description": "Unique identity of salutation.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "description": "First name of the customer.",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last name of the customer.",
+            "type": "string"
+          },
+          "zipcode": {
+            "description": "Postal or zip code of customer's address.",
+            "type": "string"
+          },
+          "city": {
+            "description": "Name of customer's city.",
+            "type": "string"
+          },
+          "company": {
+            "description": "Name of customer's company.",
+            "type": "string"
+          },
+          "street": {
+            "description": "Name of customer's street.",
+            "type": "string"
+          },
+          "department": {
+            "description": "Name of customer's department.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Titles given to customer like Dr. , Prof., etc",
+            "type": "string"
+          },
+          "phoneNumber": {
+            "description": "Customer's phone number.",
+            "type": "string"
+          },
+          "additionalAddressLine1": {
+            "description": "Additional customer's address information.",
+            "type": "string"
+          },
+          "additionalAddressLine2": {
+            "description": "Additional customer's address information.",
+            "type": "string"
+          },
+          "hash": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "isDefaultBillingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "isDefaultShippingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "type": "object"
+      },
+      "Salutation": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "salutationKey",
+          "displayName",
+          "letterName"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of salutation."
+          },
+          "salutationKey": {
+            "description": "Technical name given to salutation. For example: mr",
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Name given for salutation and displayed in storefront. For example: Mr"
+          },
+          "letterName": {
+            "type": "string",
+            "description": "Name given for salutation and used in the mail templates. For example, Dear Mr"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "CountryState": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "countryId",
+          "shortCode",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the country's state."
+          },
+          "countryId": {
+            "description": "Unique identity of the country.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "shortCode": {
+            "description": "An abbreviation for the country's state.",
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country's state."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined states must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the country's state is available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "Country": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the country."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country."
+          },
+          "iso": {
+            "description": "Internationally recognized two-letter country codes. For example, DE, IN, NO, etc.",
+            "type": "string"
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined countries must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the country is available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "shippingAvailable": {
+            "description": "The shipping availability for a country is enabled when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "iso3": {
+            "description": "Internationally recognized three-letter country codes. For example, DEU, IND, NOR, etc.",
+            "type": "string"
+          },
+          "displayStateInRegistration": {
+            "description": "The country's state is displayed in the address when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "forceStateInRegistration": {
+            "description": "State details in the address are force included when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "checkVatIdPattern": {
+            "description": "Verify if VAT ID is valid or not.",
+            "type": "boolean"
+          },
+          "vatIdRequired": {
+            "description": "Set to true, if VAT ID is to be made mandatory.",
+            "type": "boolean"
+          },
+          "vatIdPattern": {
+            "description": "Unique VAT ID with country code and numbers, for example - GB999 9999",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "customerTax": {
+            "required": [
+              "enabled",
+              "currencyId",
+              "amount"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "The boolean value is `true` if the tax for the customer apply."
+              },
+              "currencyId": {
+                "type": "string",
+                "description": "Unique identity of currency."
+              },
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Sum of money to be paid by the customer."
+              }
+            },
+            "type": "object"
+          },
+          "companyTax": {
+            "required": [
+              "enabled",
+              "currencyId",
+              "amount"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "The boolean value is `true`, if the tax for the company apply."
+              },
+              "currencyId": {
+                "type": "string",
+                "description": "Unique identity of currency."
+              },
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Sum of money to be paid by the company."
+              }
+            },
+            "type": "object"
+          },
+          "postalCodeRequired": {
+            "description": "The postal code is made mandatory specification in the address, when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "checkPostalCodePattern": {
+            "description": "Verify for valid postal code pattern.",
+            "type": "boolean"
+          },
+          "checkAdvancedPostalCodePattern": {
+            "description": "Verify for advanced postal code pattern.",
+            "type": "boolean"
+          },
+          "advancedPostalCodePattern": {
+            "description": "Wildcard formatted zip codes to allow easy searching in the frontend based on initial constants, for example - 24****, 1856**.",
+            "type": "string"
+          },
+          "addressFormat": {
+            "type": "object",
+            "description": "The address format with recipient's name, building number, street name, city, state and ZIP code on different lines as required."
+          },
+          "defaultPostalCodePattern": {
+            "description": "Default pattern of postal or zip code.",
+            "type": "string"
+          },
+          "isEu": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "states": {
+            "description": "States/provinces/regions within the country",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryState"
+            }
+          },
+          "taxFree": {
+            "description": "When tax doesn't apply for a particular country, then the boolean value is `true`."
+          },
+          "companyTaxFree": {
+            "description": "When a registered company is free from paying taxes, then the boolean value is `true`."
+          }
+        },
+        "type": "object"
+      },
+      "PaymentMethod": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "technicalName",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of payment method."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the payment method."
+          },
+          "distinguishableName": {
+            "type": "string",
+            "readOnly": true,
+            "description": "System identifier name for payment method."
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description about the payment method."
+          },
+          "position": {
+            "description": "The order of the tabs of your defined payment methods in the storefront by entering numerical values like 1,2,3, etc.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the payment methods are available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "afterOrderEnabled": {
+            "description": "When set to true, customers are redirected to the payment options page to choose a new payment method on order failure.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "mediaId": {
+            "description": "Unique identity of media.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "technicalName": {
+            "type": "string"
+          },
+          "shortName": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media",
+            "description": "Payment method logo or icon image"
+          }
+        },
+        "type": "object"
+      },
+      "Media": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "apiAlias",
+          "fileExtension",
+          "fileName",
+          "hasFile",
+          "path",
+          "private",
+          "url",
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of media."
+          },
+          "mimeType": {
+            "description": "A string sent along with a file indicating the type of the file. For example: image/jpeg.",
+            "type": "string"
+          },
+          "fileExtension": {
+            "description": "Type of file indication. For example: jpeg, png.",
+            "type": "string"
+          },
+          "uploadedAt": {
+            "description": "Date and time at which media was added.",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "fileName": {
+            "description": "Name of the media file uploaded.",
+            "type": "string"
+          },
+          "fileSize": {
+            "description": "Size of the file media file uploaded.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "metaData": {
+            "type": "object",
+            "readOnly": true,
+            "properties": {
+              "height": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "width": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            "description": "Details of the media file uploaded."
+          },
+          "config": {
+            "type": "object"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Alternate text for media."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title name give to the media."
+          },
+          "url": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "hasFile": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "private": {
+            "description": "When `true`, the media display is kept private.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "thumbnails": {
+            "description": "Generated thumbnail images in various sizes",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MediaThumbnail"
+            }
+          },
+          "apiAlias": {
+            "type": "string",
+            "const": "media"
+          },
+          "extensions": {
+            "description": "To store additional data to a media from extensions."
+          }
+        },
+        "type": "object"
+      },
+      "MediaThumbnail": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "url",
+          "id",
+          "mediaId",
+          "width",
+          "height"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of media thumbnail."
+          },
+          "mediaId": {
+            "description": "Unique identity of media.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "mediaThumbnailSizeId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "width": {
+            "description": "Width of the thumbnail.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "height": {
+            "description": "Height of the thumbnail.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "url": {
+            "description": "Public url of media thumbnail.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "Language": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "localeId",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of language."
+          },
+          "parentId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of parent language."
+          },
+          "localeId": {
+            "description": "Unique identity of locale.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "translationCodeId": {
+            "description": "Unique identity of translation code.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "name": {
+            "description": "Name of the language.",
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Language",
+            "description": "Unique identity of language."
+          },
+          "locale": {
+            "$ref": "#/components/schemas/Locale",
+            "description": "Locale defining regional settings (date, time, number formats)"
+          },
+          "translationCode": {
+            "$ref": "#/components/schemas/Locale",
+            "description": "Locale used for translating content"
+          },
+          "children": {
+            "description": "Child languages inheriting from this parent language",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Language"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "Locale": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "code",
+          "name",
+          "territory"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of locale."
+          },
+          "code": {
+            "description": "Code given to the locale. For example: en-CA.",
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the locale. For example: English."
+          },
+          "territory": {
+            "type": "string",
+            "description": "Name of the location. For example: Canada."
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "CustomerGroup": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "translated",
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the customer's group."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the customer group."
+          },
+          "displayGross": {
+            "description": "If boolean value is `true` gross value is displayed else, net value will be displayed to the customer.",
+            "type": "boolean"
+          },
+          "priceBasis": {
+            "description": "Defines which stored price value is authoritative when the tax display shows the other one. With `net` the gross is derived from the stored net value, with `gross` the net is derived from the stored gross value. Added since version: 6.7.17.0.",
+            "enum": [
+              "net",
+              "gross"
+            ],
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "registrationActive": {
+            "description": "To enable the registration of partner customer group.",
+            "type": "boolean"
+          },
+          "registrationTitle": {
+            "type": "string",
+            "description": "Title defined for the customer group during registration."
+          },
+          "registrationIntroduction": {
+            "type": "string",
+            "description": "A brief description about the registration."
+          },
+          "registrationOnlyCompanyRegistration": {
+            "type": "boolean",
+            "description": "Register as a company rather than as a private customer group."
+          },
+          "registrationSeoMetaDescription": {
+            "type": "string",
+            "description": "A short description of the registration page for search results listings."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "registrationIntroduction": {
+                "type": "string"
+              },
+              "registrationSeoMetaDescription": {
+                "type": "string"
+              },
+              "registrationTitle": {
+                "type": "string"
+              }
+            },
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "CustomerAddressBody": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "countryId",
+          "firstName",
+          "lastName",
+          "zipcode",
+          "city",
+          "street"
+        ],
+        "properties": {
+          "countryId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salutationId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "zipcode": {
+            "description": "Postal code. Every country on a default installation has `postalCodeRequired` enabled. For a country without it, an empty value is accepted.",
+            "type": "string",
+            "maxLength": 50
+          },
+          "city": {
+            "type": "string"
+          },
+          "accountType": {
+            "description": "Type of the account the address belongs to, `private` or `business`. A `business` address requires `company`, which is only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled. The value is not stored on the address. During registration the billing address follows the top-level `accountType` instead, and the shipping address keeps its own.",
+            "type": "string",
+            "enum": [
+              "private",
+              "business"
+            ]
+          },
+          "company": {
+            "description": "Company of the address. Required when `accountType` is `business`.",
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "description": "Phone number. Required when the `core.loginRegistration.showPhoneNumberField` and `core.loginRegistration.phoneNumberFieldRequired` settings are both enabled. Both are off by default.",
+            "type": "string"
+          },
+          "additionalAddressLine1": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField1` and `core.loginRegistration.additionalAddressField1Required` settings are both enabled. Both are off by default.",
+            "type": "string"
+          },
+          "additionalAddressLine2": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField2` and `core.loginRegistration.additionalAddressField2Required` settings are both enabled. Both are off by default.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "allOf": [
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "private"
+                    ]
+                  }
+                }
+              },
+              {
+                "required": [
+                  "accountType",
+                  "company"
+                ],
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "business"
+                    ]
+                  },
+                  "company": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

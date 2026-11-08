@@ -1,0 +1,1408 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "source_sha256": "97d434d38bb669b9ffdc098fc68a29d2dcc8d23a28999e485e24ee1f17c338bb",
+  "source_info_version": "6.7.9999999-dev",
+  "method": "POST",
+  "path": "/account/list-address",
+  "operation": {
+    "tags": [
+      "Address",
+      "Endpoints supporting Criteria "
+    ],
+    "summary": "Fetch addresses of a customer",
+    "description": "Lists all addresses of the current customer and allows filtering them based on a criteria.",
+    "operationId": "listAddress",
+    "requestBody": {
+      "required": false,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/Criteria"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "elements"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CustomerAddress"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/EntitySearchResult"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The `Criteria` sent with the request is invalid, e.g. an unknown filter field, sorting field or association."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      },
+      "403": {
+        "$ref": "#/components/responses/403",
+        "description": "No customer is logged in."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": [],
+        "ContextToken": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "sw-include-search-info",
+        "in": "header",
+        "description": "Controls whether API search information is included in the response. Default is 1 (enabled), will be 0 (disabled) in the next major version.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1"
+          ],
+          "default": "1"
+        }
+      },
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  },
+  "effective_security": [
+    {
+      "ApiKey": [],
+      "ContextToken": []
+    }
+  ],
+  "path_parameters": [],
+  "servers": [
+    {
+      "url": "/store-api"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "description": "Identifies the sales channel you want to access the API through",
+        "name": "sw-access-key",
+        "in": "header"
+      },
+      "ContextToken": {
+        "type": "apiKey",
+        "description": "Identifies an anonymous or identified user session",
+        "name": "sw-context-token",
+        "in": "header"
+      }
+    },
+    "parameters": {
+      "swContextSource": {
+        "name": "sw-context-source",
+        "in": "header",
+        "description": "Set to `session` to resolve the context from the storefront session cookie instead of a context token. Mutually exclusive with `sw-context-token`: sending both fails with HTTP 400 and `FRAMEWORK__ROUTING_SESSION_CONTEXT_NOT_RESOLVABLE`, as does a session that cannot be resumed.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "const": "session"
+        }
+      },
+      "swLanguageId": {
+        "name": "sw-language-id",
+        "in": "header",
+        "description": "Instructs Shopware to return the response in the given language.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      }
+    },
+    "responses": {
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "failure": {
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for this particular occurrence of the problem."
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "status": {
+            "type": "string",
+            "description": "The HTTP status code applicable to this problem, expressed as a string value."
+          },
+          "code": {
+            "type": "string",
+            "description": "An application-specific error code, expressed as a string value."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem. It **SHOULD NOT** change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the problem."
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "pointer": {
+                "type": "string",
+                "description": "A JSON Pointer [RFC6901] to the associated entity in the request document [e.g. \"/data\" for a primary data object, or \"/data/attributes/title\" for a specific attribute]."
+              },
+              "parameter": {
+                "type": "string",
+                "description": "A string indicating which query parameter caused the error."
+              }
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "meta": {
+        "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+        "type": "object",
+        "additionalProperties": true
+      },
+      "links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/link"
+        }
+      },
+      "link": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object.",
+        "oneOf": [
+          {
+            "description": "A string containing the link's URL.",
+            "type": "string",
+            "format": "uri-reference"
+          },
+          {
+            "type": "object",
+            "required": [
+              "href"
+            ],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL.",
+                "type": "string",
+                "format": "uri-reference"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/meta"
+              }
+            }
+          }
+        ]
+      },
+      "EntitySearchResult": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer",
+            "description": "The total number of found entities"
+          },
+          "aggregations": {
+            "description": "Contains aggregated data keyed by the aggregation name. A simple example is the determination of the average price from a product search query. An empty array is returned when no aggregations were requested.",
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object"
+                }
+              },
+              {
+                "type": "array",
+                "maxItems": 0
+              }
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "The actual page. This can be used for pagination."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The actual limit. This is used for pagination and goes together with the page."
+          }
+        }
+      },
+      "CustomerAddress": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "customerId",
+          "countryId",
+          "firstName",
+          "lastName",
+          "city",
+          "street"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of customer's address."
+          },
+          "customerId": {
+            "description": "Unique identity of customer.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryId": {
+            "description": "Unique identity of country.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "description": "Unique identity of country's state.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salutationId": {
+            "description": "Unique identity of salutation.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "description": "First name of the customer.",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last name of the customer.",
+            "type": "string"
+          },
+          "zipcode": {
+            "description": "Postal or zip code of customer's address.",
+            "type": "string"
+          },
+          "city": {
+            "description": "Name of customer's city.",
+            "type": "string"
+          },
+          "company": {
+            "description": "Name of customer's company.",
+            "type": "string"
+          },
+          "street": {
+            "description": "Name of customer's street.",
+            "type": "string"
+          },
+          "department": {
+            "description": "Name of customer's department.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Titles given to customer like Dr. , Prof., etc",
+            "type": "string"
+          },
+          "phoneNumber": {
+            "description": "Customer's phone number.",
+            "type": "string"
+          },
+          "additionalAddressLine1": {
+            "description": "Additional customer's address information.",
+            "type": "string"
+          },
+          "additionalAddressLine2": {
+            "description": "Additional customer's address information.",
+            "type": "string"
+          },
+          "hash": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "isDefaultBillingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "isDefaultShippingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "type": "object"
+      },
+      "Salutation": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "salutationKey",
+          "displayName",
+          "letterName"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of salutation."
+          },
+          "salutationKey": {
+            "description": "Technical name given to salutation. For example: mr",
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Name given for salutation and displayed in storefront. For example: Mr"
+          },
+          "letterName": {
+            "type": "string",
+            "description": "Name given for salutation and used in the mail templates. For example, Dear Mr"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "CountryState": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "countryId",
+          "shortCode",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the country's state."
+          },
+          "countryId": {
+            "description": "Unique identity of the country.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "shortCode": {
+            "description": "An abbreviation for the country's state.",
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country's state."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined states must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the country's state is available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "Country": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the country."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country."
+          },
+          "iso": {
+            "description": "Internationally recognized two-letter country codes. For example, DE, IN, NO, etc.",
+            "type": "string"
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined countries must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the country is available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "shippingAvailable": {
+            "description": "The shipping availability for a country is enabled when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "iso3": {
+            "description": "Internationally recognized three-letter country codes. For example, DEU, IND, NOR, etc.",
+            "type": "string"
+          },
+          "displayStateInRegistration": {
+            "description": "The country's state is displayed in the address when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "forceStateInRegistration": {
+            "description": "State details in the address are force included when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "checkVatIdPattern": {
+            "description": "Verify if VAT ID is valid or not.",
+            "type": "boolean"
+          },
+          "vatIdRequired": {
+            "description": "Set to true, if VAT ID is to be made mandatory.",
+            "type": "boolean"
+          },
+          "vatIdPattern": {
+            "description": "Unique VAT ID with country code and numbers, for example - GB999 9999",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "customerTax": {
+            "required": [
+              "enabled",
+              "currencyId",
+              "amount"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "The boolean value is `true` if the tax for the customer apply."
+              },
+              "currencyId": {
+                "type": "string",
+                "description": "Unique identity of currency."
+              },
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Sum of money to be paid by the customer."
+              }
+            },
+            "type": "object"
+          },
+          "companyTax": {
+            "required": [
+              "enabled",
+              "currencyId",
+              "amount"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "The boolean value is `true`, if the tax for the company apply."
+              },
+              "currencyId": {
+                "type": "string",
+                "description": "Unique identity of currency."
+              },
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Sum of money to be paid by the company."
+              }
+            },
+            "type": "object"
+          },
+          "postalCodeRequired": {
+            "description": "The postal code is made mandatory specification in the address, when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "checkPostalCodePattern": {
+            "description": "Verify for valid postal code pattern.",
+            "type": "boolean"
+          },
+          "checkAdvancedPostalCodePattern": {
+            "description": "Verify for advanced postal code pattern.",
+            "type": "boolean"
+          },
+          "advancedPostalCodePattern": {
+            "description": "Wildcard formatted zip codes to allow easy searching in the frontend based on initial constants, for example - 24****, 1856**.",
+            "type": "string"
+          },
+          "addressFormat": {
+            "type": "object",
+            "description": "The address format with recipient's name, building number, street name, city, state and ZIP code on different lines as required."
+          },
+          "defaultPostalCodePattern": {
+            "description": "Default pattern of postal or zip code.",
+            "type": "string"
+          },
+          "isEu": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "states": {
+            "description": "States/provinces/regions within the country",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryState"
+            }
+          },
+          "taxFree": {
+            "description": "When tax doesn't apply for a particular country, then the boolean value is `true`."
+          },
+          "companyTaxFree": {
+            "description": "When a registered company is free from paying taxes, then the boolean value is `true`."
+          }
+        },
+        "type": "object"
+      },
+      "Criteria": {
+        "type": "object",
+        "description": "Criteria to query entities.",
+        "properties": {
+          "page": {
+            "description": "Search result page",
+            "type": "integer"
+          },
+          "term": {
+            "description": "Search term",
+            "type": "string"
+          },
+          "limit": {
+            "description": "Number of items per result page",
+            "type": "integer"
+          },
+          "filter": {
+            "type": "array",
+            "description": "List of filters to restrict the search result. For more information, see [Search Queries > Filter](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#filter)",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SimpleFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/EqualsFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/MultiNotFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/RangeFilter"
+                }
+              ]
+            },
+            "properties": {
+              "type": {
+                "description": "To filter the results and aggregations with filter types like ==, >=, etc."
+              },
+              "field": {
+                "description": "To filter the results and aggregations by field like an property identifier."
+              },
+              "value": {
+                "description": "To filter the results and aggregations by value."
+              }
+            }
+          },
+          "ids": {
+            "type": "array",
+            "description": "List of ids to search for",
+            "items": {
+              "type": "string"
+            }
+          },
+          "query": {
+            "type": "string",
+            "description": "The query string to search for"
+          },
+          "associations": {
+            "$ref": "#/components/schemas/Associations"
+          },
+          "post-filter": {
+            "type": "array",
+            "description": "Filters that applied without affecting aggregations. For more information, see [Search Queries > Post Filter](https://shopware.stoplight.io/docs/store-api/docs/concepts/search-queries.md#post-filter)",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SimpleFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/EqualsFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/MultiNotFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/RangeFilter"
+                }
+              ]
+            },
+            "properties": {
+              "type": {
+                "description": "To filter only the results but not the aggregations with filter types like ==, >=, etc."
+              },
+              "field": {
+                "description": "To filter only the results but not the aggregations by field like an property identifier."
+              },
+              "value": {
+                "description": "To filter only the results but not the aggregations by value."
+              }
+            }
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sorting in the search result.",
+            "items": {
+              "$ref": "#/components/schemas/Sort"
+            },
+            "properties": {
+              "field": {
+                "description": "Sort the search results by field like an property identifier."
+              },
+              "order": {
+                "description": "Sort the search results of orders by ascending or descending."
+              },
+              "naturalSorting": {
+                "description": "Sorting for special cases such as German letters with umlauts and similar characters etc."
+              }
+            }
+          },
+          "aggregations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aggregation"
+            }
+          },
+          "fields": {
+            "type": "array",
+            "description": "Fields which should be returned in the search result.",
+            "items": {
+              "type": "string",
+              "description": "Name of a field"
+            }
+          },
+          "grouping": {
+            "type": "array",
+            "description": "Perform groupings over certain fields",
+            "items": {
+              "type": "string",
+              "description": "Name of a field"
+            }
+          },
+          "total-count-mode": {
+            "$ref": "#/components/schemas/TotalCountMode"
+          },
+          "includes": {
+            "$ref": "#/components/schemas/Includes"
+          },
+          "excludes": {
+            "$ref": "#/components/schemas/Excludes"
+          }
+        }
+      },
+      "Excludes": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "Includes": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "TotalCountMode": {
+        "description": "Whether the total for the total number of hits should be determined for the search query. none = disabled total count, exact = calculate exact total amount (slow), next-pages = calculate only for next page (fast)",
+        "type": "string",
+        "default": "none",
+        "enum": [
+          "none",
+          "exact",
+          "next-pages"
+        ]
+      },
+      "Aggregation": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AggregationMetrics"
+          },
+          {
+            "title": "AggregationEntity",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationEntity"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationFilter",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationTerms",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationTerms"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationHistogram",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationHistogram"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          },
+          {
+            "title": "AggregationRange",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AggregationRange"
+              },
+              {
+                "$ref": "#/components/schemas/SubAggregations"
+              }
+            ]
+          }
+        ]
+      },
+      "SubAggregations": {
+        "type": "object",
+        "properties": {
+          "aggregation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AggregationMetrics"
+              },
+              {
+                "$ref": "#/components/schemas/AggregationEntity"
+              },
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              },
+              {
+                "$ref": "#/components/schemas/AggregationTerms"
+              },
+              {
+                "$ref": "#/components/schemas/AggregationHistogram"
+              },
+              {
+                "$ref": "#/components/schemas/AggregationRange"
+              }
+            ]
+          }
+        }
+      },
+      "AggregationRange": {
+        "title": "AggregationRange",
+        "description": "For more information, see [Aggregations Reference > Range Aggregation](https://developer.shopware.com/docs/resources/references/core-reference/dal-reference/aggregations-reference.html#range-aggregations)",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "range"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "ranges": {
+            "description": "The ranges of the aggregation",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "anyOf": [
+                {
+                  "type": "object",
+                  "title": "From and to",
+                  "properties": {
+                    "from": {
+                      "type": "number",
+                      "description": "The lower bound of the range"
+                    },
+                    "to": {
+                      "type": "number",
+                      "description": "The upper bound of the range"
+                    }
+                  },
+                  "required": [
+                    "from",
+                    "to"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "title": "From only",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "The lower bound of the range"
+                    }
+                  },
+                  "required": [
+                    "from"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "title": "To only",
+                  "properties": {
+                    "to": {
+                      "type": "string",
+                      "description": "The upper bound of the range"
+                    }
+                  },
+                  "required": [
+                    "to"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field",
+          "ranges"
+        ]
+      },
+      "AggregationHistogram": {
+        "title": "AggregationHistogram",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "histogram"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "interval": {
+            "description": "The interval of the histogram",
+            "type": "number"
+          },
+          "format": {
+            "description": "The format of the histogram",
+            "type": "string"
+          },
+          "timeZone": {
+            "description": "The timezone of the histogram",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field"
+        ]
+      },
+      "AggregationTerms": {
+        "title": "AggregationTerms",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "terms"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "limit": {
+            "description": "The number of terms to return",
+            "type": "number"
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sorting the aggregation result.",
+            "items": {
+              "$ref": "#/components/schemas/Sort"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field"
+        ]
+      },
+      "Sort": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "order": {
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "naturalSorting": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "field",
+          "order"
+        ]
+      },
+      "AggregationFilter": {
+        "title": "AggregationFilter",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "filter"
+            ]
+          },
+          "filter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filters"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "filter"
+        ]
+      },
+      "Filters": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/SimpleFilter"
+            },
+            {
+              "$ref": "#/components/schemas/EqualsFilter"
+            },
+            {
+              "$ref": "#/components/schemas/MultiNotFilter"
+            },
+            {
+              "$ref": "#/components/schemas/RangeFilter"
+            }
+          ]
+        }
+      },
+      "RangeFilter": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "range"
+            ]
+          },
+          "field": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "gte": {
+                "type": "number"
+              },
+              "gt": {
+                "type": "number"
+              },
+              "lte": {
+                "type": "number"
+              },
+              "lt": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "required": [
+          "type",
+          "field",
+          "parameters"
+        ]
+      },
+      "MultiNotFilter": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "multi",
+              "not"
+            ]
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "and",
+              "or",
+              "nor",
+              "nand"
+            ]
+          },
+          "queries": {
+            "$ref": "#/components/schemas/Filters"
+          }
+        },
+        "required": [
+          "type",
+          "operator",
+          "queries"
+        ]
+      },
+      "EqualsFilter": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "equals"
+            ]
+          },
+          "field": {
+            "type": "string"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "field",
+          "value"
+        ]
+      },
+      "SimpleFilter": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "contains",
+              "equalsAny",
+              "prefix",
+              "suffix"
+            ]
+          },
+          "field": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "field",
+          "value"
+        ]
+      },
+      "AggregationEntity": {
+        "title": "AggregationEntity",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Give your aggregation an identifier, so you can find it easier",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of aggregation",
+            "type": "string",
+            "enum": [
+              "entity"
+            ]
+          },
+          "field": {
+            "description": "The field you want to aggregate over.",
+            "type": "string"
+          },
+          "definition": {
+            "description": "The entity definition e.g \"product_manufacturer\".",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field",
+          "definition"
+        ]
+      },
+      "AggregationMetrics": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "avg",
+              "count",
+              "max",
+              "min",
+              "stats",
+              "sum"
+            ]
+          },
+          "field": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "field"
+        ]
+      },
+      "Associations": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/Criteria"
+        }
+      }
+    }
+  }
+}

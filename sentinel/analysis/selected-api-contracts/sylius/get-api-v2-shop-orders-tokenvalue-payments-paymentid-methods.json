@@ -1,0 +1,368 @@
+{
+  "platform": "sylius",
+  "source_contract": "sentinel/analysis/api-contracts/sylius/openapi-demo.json",
+  "source_sha256": "4ee96f0b2526d86170b626e00d78699a3d554f7d6008ffef17b6a17543439e1f",
+  "source_info_version": "0.0.0",
+  "method": "GET",
+  "path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods",
+  "operation": {
+    "operationId": "sylius_api_shop_order_payment_payment_method_get_collection",
+    "tags": [
+      "PaymentMethod"
+    ],
+    "responses": {
+      "200": {
+        "description": "PaymentMethod collection",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "type": "object",
+              "description": "PaymentMethod.jsonld-sylius.shop.payment_method.index collection.",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/HydraCollectionBaseSchema"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "hydra:member"
+                  ],
+                  "properties": {
+                    "hydra:member": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PaymentMethod.jsonld-sylius.shop.payment_method.index"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PaymentMethod-sylius.shop.payment_method.index"
+              }
+            }
+          }
+        }
+      }
+    },
+    "summary": "Retrieves the collection of PaymentMethod resources.",
+    "description": "Retrieves the collection of PaymentMethod resources.",
+    "parameters": [
+      {
+        "name": "tokenValue",
+        "in": "path",
+        "description": "Order identifier",
+        "required": true,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "paymentId",
+        "in": "path",
+        "description": "Payment identifier",
+        "required": true,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "description": "The collection page number",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 1
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "itemsPerPage",
+        "in": "query",
+        "description": "The number of items per page",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 30,
+          "minimum": 0,
+          "maximum": 30
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "Locales in this enum are all locales defined in the shop and only enabled ones will work in the given channel in the shop.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ]
+  },
+  "effective_security": [
+    {
+      "JWT": []
+    }
+  ],
+  "path_parameters": [],
+  "servers": [
+    {
+      "url": "/",
+      "description": ""
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "JWT": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "PaymentMethod-sylius.shop.payment_method.index": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "code": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer"
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "instructions": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "PaymentMethod.jsonld-sylius.shop.payment_method.index": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HydraItemBaseSchema"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "readOnly": true,
+                "type": "integer"
+              },
+              "code": {
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "instructions": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "HydraItemBaseSchema": {
+        "type": "object",
+        "properties": {
+          "@context": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "@vocab": {
+                    "type": "string"
+                  },
+                  "hydra": {
+                    "type": "string",
+                    "enum": [
+                      "http://www.w3.org/ns/hydra/core#"
+                    ]
+                  }
+                },
+                "required": [
+                  "@vocab",
+                  "hydra"
+                ],
+                "additionalProperties": true
+              }
+            ]
+          },
+          "@id": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id",
+          "@type"
+        ]
+      },
+      "HydraCollectionBaseSchema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HydraCollectionBaseSchemaNoPagination"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "hydra:view": {
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "type": "string",
+                    "format": "iri-reference"
+                  },
+                  "@type": {
+                    "type": "string"
+                  },
+                  "hydra:first": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  },
+                  "hydra:last": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  },
+                  "hydra:previous": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  },
+                  "hydra:next": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "HydraCollectionBaseSchemaNoPagination": {
+        "type": "object",
+        "properties": {
+          "hydra:totalItems": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "hydra:search": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string"
+              },
+              "hydra:template": {
+                "type": "string"
+              },
+              "hydra:variableRepresentation": {
+                "type": "string"
+              },
+              "hydra:mapping": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "string"
+                    },
+                    "variable": {
+                      "type": "string"
+                    },
+                    "property": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "required": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

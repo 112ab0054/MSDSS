@@ -1,0 +1,33 @@
+{
+  "platform": "sylius",
+  "recorded_at": "2026-11-08T07:33:08.656419+00:00",
+  "outcome": "running",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "83822d1ba7cd46c780afb00a2ed099808a3d4032776d2c355e1065943e86c287"
+  },
+  "requests": [
+    {
+      "request_id": "71afd923-11bd-4997-bf8c-317c6426192c",
+      "method": "GET",
+      "path": "/api/v2/shop/products-by-slug/adventurous-aurora-cap",
+      "operation_path": "/api/v2/shop/products-by-slug/adventurous-aurora-cap",
+      "request_headers": {
+        "Accept": "application/ld+json",
+        "X-Request-ID": "71afd923-11bd-4997-bf8c-317c6426192c"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "status": 301,
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Location": "/api/v2/shop/products/Adventurous_Aurora_Cap"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      }
+    }
+  ],
+  "checks": [],
+  "error": null
+}

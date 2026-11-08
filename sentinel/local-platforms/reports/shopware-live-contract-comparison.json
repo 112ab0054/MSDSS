@@ -1,0 +1,183 @@
+{
+  "snapshot_info_version": "6.7.9999999-dev",
+  "live_info_version": "6.7.15.1",
+  "note": "Inline operation comparison only; referenced component changes require separate review.",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/checkout/cart",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/checkout/gateway",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/account/address",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/account/customer",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/account/list-address",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/account/login",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/account/logout",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/account/register",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/cart/line-item/delete",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/cart/line-item",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "responses"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/order",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/product-listing/{categoryId}",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/product/{productId}",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/product",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/search",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/checkout/cart/line-item",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/context",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/order",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters",
+        "requestBody"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/context",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/payment-method",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/shipping-method",
+      "present_in_live_spec": true,
+      "changed_sections": [
+        "parameters"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+﻿platform,method,path,role,test_status,reason,evidence_files,contract_status,ready_for_collection
+bagisto,GET,/checkout-shipping-methods,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,GET,/customer-addresses,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,GET,/customer-orders,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,GET,/customer-profile,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,GET,/products/{id},core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,GET,/products,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/add-product-in-cart,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/cart,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/checkout-addresses,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/checkout-orders,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/customer/login,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/customer/logout,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/remove-cart-item,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/update-cart-item,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,PUT,/customer-addresses/{id},core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/customers,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/customer-addresses,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/checkout-shipping-methods,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,GET,/payment-methods,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/checkout-payment-methods,core,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+bagisto,POST,/cart-tokens,support,成功,完整正常流程與業務斷言,"['bagisto-06da5b920937474aa5682afece8e65e0.json', 'bagisto-67146e3f4ed54ddf9df9c299128fdfb2.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,GET,/checkout/cart,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,GET,/checkout/gateway,optional,成功,完整正常流程與業務斷言,['shopware-169394414b8a4d5180f8b5859fa77dce.json'],已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/account/address,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/account/customer,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/account/list-address,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/account/login,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/account/logout,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/account/register,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/checkout/cart/line-item/delete,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/checkout/cart/line-item,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/checkout/order,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/product-listing/{categoryId},core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/product/{productId},core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/product,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/search,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,PATCH,/checkout/cart/line-item,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,PATCH,/context,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,POST,/order,core,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,GET,/context,support,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,GET,/payment-method,support,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+shopware,GET,/shipping-method,support,成功,完整正常流程與業務斷言,"['shopware-169394414b8a4d5180f8b5859fa77dce.json', 'shopware-32c3c4c9f50644a993ede3c43d5debc2.json', 'shopware-e44f75f68dab45538045a43a66b6933a.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/addresses/{id},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/addresses,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/orders/{tokenValue}/items,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/orders/{tokenValue},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/orders,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/payment-methods,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/products-by-slug/{slug},core,成功,301 canonical 跳轉後已核對同一商品,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/products/{code},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/products,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,PATCH,/api/v2/shop/orders/{tokenValue}/complete,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,POST,/api/v2/shop/addresses,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,POST,/api/v2/shop/customers/token,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,POST,/api/v2/shop/customers,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,POST,/api/v2/shop/orders/{tokenValue}/items,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,POST,/api/v2/shop/orders,core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,PUT,/api/v2/shop/orders/{tokenValue},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,PATCH,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,DELETE,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,PATCH,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,PATCH,/api/v2/shop/orders/{tokenValue}/payments/{paymentId},core,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,support,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False
+sylius,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,support,成功,完整正常流程與業務斷言,"['sylius-0daa99cc36ad462db8dc5c14334c61e5.json', 'sylius-24210669ab954772890b8bfb2d54a449.json']",已保存實例規格，尚未逐欄核對全部參數,False

@@ -1,0 +1,79 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "POST",
+  "path": "/checkout/order",
+  "operation": {
+    "tags": [
+      "Order"
+    ],
+    "summary": "Create an order from a cart",
+    "description": "Creates a new order from the current cart and deletes the cart.\n\nIf you are using the [prepared payment flow](https://developer.shopware.com/docs/concepts/commerce/checkout-concept/payments#2.1-prepare-payment-optional), this endpoint also receives additional transaction details. The exact name of the parameters depends on the implementation of the corresponding *payment handler*.",
+    "operationId": "createOrder",
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ],
+    "requestBody": {
+      "description": "Contains additional metadata which is stored together with the order. It can also contain payment transaction details.",
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "customerComment": {
+                "description": "Adds a comment from the customer to the order.",
+                "type": "string"
+              },
+              "affiliateCode": {
+                "description": "The affiliate code can be used to track which referrer the customer came through. An example could be `Price-comparison-company-XY`.",
+                "type": "string"
+              },
+              "campaignCode": {
+                "description": "The campaign code is used to track which action the customer came from. An example could be `Summer-Deals`",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Order",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Order"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The cart cannot be turned into an order, e.g. because it is empty."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      },
+      "403": {
+        "$ref": "#/components/responses/403",
+        "description": "No customer is logged in."
+      },
+      "409": {
+        "description": "The `hash` sent by the client does not match the current cart content, so the cart changed since it was last read."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>",
+        "ContextToken": "<redacted>"
+      }
+    ]
+  }
+}

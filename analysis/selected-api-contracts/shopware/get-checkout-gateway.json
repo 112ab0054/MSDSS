@@ -1,0 +1,91 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "GET",
+  "path": "/checkout/gateway",
+  "operation": {
+    "tags": [
+      "Gateway"
+    ],
+    "summary": "Call the checkout gateway",
+    "description": "Call the checkout gateway, which is used to manipulate certain aspects of the checkout process (e.g. available payment methods).",
+    "operationId": "checkoutGateway",
+    "responses": {
+      "200": {
+        "description": "Checkout gateway response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "payments",
+                "shipments",
+                "errors"
+              ],
+              "properties": {
+                "payments": {
+                  "description": "Payment methods that are available after the gateway ran.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentMethod"
+                  }
+                },
+                "shipments": {
+                  "description": "Shipping methods that are available after the gateway ran.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingMethod"
+                  }
+                },
+                "errors": {
+                  "description": "Cart errors added by the gateway. An empty list is returned as `[]`, otherwise the errors are keyed by their id.",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CartError"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/CartError"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "orderId",
+        "in": "query",
+        "description": "Evaluates the availability for this order of the current customer instead of the current session.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  }
+}

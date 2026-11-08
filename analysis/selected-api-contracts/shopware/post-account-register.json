@@ -1,0 +1,269 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "method": "POST",
+  "path": "/account/register",
+  "operation": {
+    "tags": [
+      "Login & Registration"
+    ],
+    "summary": "Register a customer",
+    "description": "Registers a customer. Used both for normal customers and guest customers.See the Guide \"Register a customer\" for more information on customer registration.",
+    "operationId": "register",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "email": {
+                "description": "Email of the customer. Has to be unique, unless `guest` is `true`",
+                "type": "string"
+              },
+              "password": "<redacted>",
+              "salutationId": {
+                "description": "Id of the salutation for the customer account. Fetch options using `salutation` endpoint.",
+                "type": "string"
+              },
+              "firstName": {
+                "description": "Customer first name. Required unless a `billingAddress` is sent, whose first name is used instead. When both are sent, this value also replaces the first name of the billing address.",
+                "type": "string"
+              },
+              "lastName": {
+                "description": "Customer last name. Required unless a `billingAddress` is sent, whose last name is used instead. When both are sent, this value also replaces the last name of the billing address.",
+                "type": "string"
+              },
+              "acceptedDataProtection": {
+                "description": "Flag indicating accepted data protection. Only required when the `core.loginRegistration.requireDataProtectionCheckbox` setting is enabled, which is off by default.",
+                "type": "boolean"
+              },
+              "storefrontUrl": {
+                "description": "URL of the storefront for that registration. Used in the double opt-in confirmation email. Only required when double opt-in is enabled, through `core.loginRegistration.doubleOptInRegistration` for customers or `core.loginRegistration.doubleOptInGuestOrder` for guests, both off by default. The value then has to match one of the domains configured for the sales channel.",
+                "type": "string"
+              },
+              "requestedGroupId": {
+                "description": "Optional customer group registration request. The customer is created in the current sales channel group and this field stores the requested target group. The group must be available for registration in the current sales channel.",
+                "type": "string"
+              },
+              "billingAddress": {
+                "description": "Billing address of the customer. Required unless a `shippingAddress` is sent, which is then used as the billing address as well.",
+                "$ref": "#/components/schemas/CustomerAddressBody"
+              },
+              "shippingAddress": {
+                "description": "Shipping address of the customer. When no `billingAddress` is sent, this address becomes the default billing address too.",
+                "$ref": "#/components/schemas/CustomerAddressBody"
+              },
+              "guest": {
+                "description": "If set, will create a guest customer. Guest customers can re-use an email address and don't need a password.",
+                "type": "boolean",
+                "default": false
+              },
+              "birthdayDay": {
+                "description": "Birthday day",
+                "type": "integer"
+              },
+              "birthdayMonth": {
+                "description": "Birthday month",
+                "type": "integer"
+              },
+              "birthdayYear": {
+                "description": "Birthday year",
+                "type": "integer"
+              },
+              "title": {
+                "description": "(Academic) title of the customer",
+                "type": "string"
+              },
+              "affiliateCode": {
+                "description": "Field can be used to store an affiliate tracking code",
+                "type": "string"
+              },
+              "campaignCode": {
+                "description": "Field can be used to store a campaign tracking code",
+                "type": "string"
+              },
+              "customFields": {
+                "description": "Custom fields of the customer. Only fields defined for the customer entity are stored.",
+                "type": "object"
+              },
+              "redirectTo": {
+                "description": "Route name the double opt-in confirmation link points to. Only used when double opt-in registration is enabled.",
+                "type": "string"
+              },
+              "redirectParameters": {
+                "description": "Additional parameters for the double opt-in confirmation link, as a JSON encoded string. Only used when double opt-in registration is enabled.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "email"
+            ],
+            "allOf": [
+              {
+                "anyOf": [
+                  {
+                    "required": [
+                      "billingAddress"
+                    ],
+                    "properties": {
+                      "billingAddress": {
+                        "$ref": "#/components/schemas/CustomerAddressBody"
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "shippingAddress",
+                      "firstName",
+                      "lastName"
+                    ],
+                    "properties": {
+                      "shippingAddress": {
+                        "$ref": "#/components/schemas/CustomerAddressBody"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "required": [
+                      "guest"
+                    ],
+                    "properties": {
+                      "guest": {
+                        "const": true
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "password"
+                    ],
+                    "properties": {
+                      "password": "<redacted>"
+                    }
+                  }
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "accountType": {
+                        "description": "Type of the customer account. Default value is 'private'.",
+                        "type": "string",
+                        "enum": [
+                          "private"
+                        ],
+                        "default": "private"
+                      },
+                      "company": {
+                        "description": "Not used for a private account, the value is ignored.",
+                        "type": "string"
+                      },
+                      "vatIds": {
+                        "description": "Not used for a private account, the value is ignored.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "accountType"
+                    ],
+                    "properties": {
+                      "accountType": {
+                        "description": "Type of the customer account. Can be `private` or `business`.",
+                        "type": "string",
+                        "enum": [
+                          "business"
+                        ]
+                      },
+                      "billingAddress": {
+                        "description": "For a business account the billing address has to carry the `company`, which becomes the company of the customer. Only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled.",
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/CustomerAddressBody"
+                          },
+                          {
+                            "required": [
+                              "company"
+                            ],
+                            "properties": {
+                              "company": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "company": {
+                        "description": "Not read during registration. The company of the customer is taken from `billingAddress`, falling back to `shippingAddress`.",
+                        "type": "string"
+                      },
+                      "vatIds": {
+                        "description": "VAT IDs of the customer's company. Only valid when `accountType` is `business`, and only required when the country of the sent address has `vatIdRequired` enabled.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "type": "object"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "headers": {
+          "sw-context-token": "<redacted>"
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Customer"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The submitted registration data failed validation, e.g. a missing required field, an email address that is already registered or an unknown country."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": "<redacted>"
+      }
+    ],
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  }
+}

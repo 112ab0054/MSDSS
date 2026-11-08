@@ -1,0 +1,1015 @@
+{
+  "application_version": "2.22.4",
+  "spec_info_version": "2.22.3",
+  "spec_sha256": "3009a79e1ff670882033fc739724a8aa0dc720ae006ba5ec174fd59e6dffbc6c",
+  "source_hash_matches_inventory": true,
+  "legacy_operation_count": 77,
+  "selected_operation_count": 79,
+  "bundled_operation_count": 79,
+  "selected_missing_from_spec": [],
+  "legacy_missing_from_spec": [],
+  "added_since_legacy": [
+    [
+      "POST",
+      "/store/payment-collections/{id}/payment-sessions/{session_id}"
+    ],
+    [
+      "POST",
+      "/store/search"
+    ]
+  ],
+  "existing_unmodified_container_observation": {
+    "container": "mirage-commerce-real-medusa-1",
+    "port": 9100,
+    "installed_medusa_version": "2.21.0",
+    "node_version": "22.23.2",
+    "method": "Read-only package metadata via docker exec; no service configuration or database writes",
+    "interpretation": "This separate pre-existing container is not evidence of the MSDSS 2.22.4 deployment; the historical port-8000 observation cannot be reconstructed from it."
+  },
+  "isolated_test_target": "http://127.0.0.1:18084",
+  "training_or_tuning_on_medusa": false,
+  "status_counts": {
+    "版本差異": 8,
+    "成功": 56,
+    "前置條件不足": 8,
+    "尚未測試": 7
+  },
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/auth/customer/emailpass/verification/confirm",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/customer/providers",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/callback",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "沒有郵件／第三方登入／驗證碼送達的完整情境，不能使用虛假 Token 補造成功",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/register",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/reset-password",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "沒有郵件／第三方登入／驗證碼送達的完整情境，不能使用虛假 Token 補造成功",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/update",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "沒有郵件／第三方登入／驗證碼送達的完整情境，不能使用虛假 Token 補造成功",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/challenges/{id}/verify",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "MFA 實機註冊回 400：未配置 MFA encryption key；不以拒絕回應當成成功",
+      "evidence_files": []
+    },
+    {
+      "method": "GET",
+      "path": "/auth/mfa/factors",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-mfa-cf90592d78914c559ef5c9e935125a1b.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/factors",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-mfa-cf90592d78914c559ef5c9e935125a1b.json"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/mfa/factors/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-mfa-cf90592d78914c559ef5c9e935125a1b.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/factors/{id}/verify",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-mfa-cf90592d78914c559ef5c9e935125a1b.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/recovery-codes",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-mfa-cf90592d78914c559ef5c9e935125a1b.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/session",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/session",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/refresh",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/verification/confirm",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "沒有郵件／第三方登入／驗證碼送達的完整情境，不能使用虛假 Token 補造成功",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/auth/verification/request",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "沒有郵件／第三方登入／驗證碼送達的完整情境，不能使用虛假 Token 補造成功",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/carts/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/complete",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/customer",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/gift-cards",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/store/carts/{id}/gift-cards",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/line-items",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/line-items/{line_id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/store/carts/{id}/line-items/{line_id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/promotions",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/store/carts/{id}/promotions",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/shipping-methods",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/store-credits",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/taxes",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-probes-0c1adbd9a40140c0b6b7cfddaee6e5cb.json",
+        "medusa-probes-3d03f6aeedde419e87ed16e11317beff.json",
+        "medusa-probes-48d781ddfc6944bc9a3b5a8fe67eea31.json",
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/collections",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/collections/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/currencies",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/currencies/{code}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/customers",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/customers/me",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/customers/me",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/customers/me/addresses",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/customers/me/addresses",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/customers/me/addresses/{address_id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/customers/me/addresses/{address_id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/store/customers/me/addresses/{address_id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/gift-cards/{idOrCode}",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/locales",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/orders",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/orders/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/orders/{id}/transfer/accept",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/orders/{id}/transfer/cancel",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/orders/{id}/transfer/decline",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/orders/{id}/transfer/request",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/payment-collections",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/payment-collections/{id}/payment-sessions",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/payment-collections/{id}/payment-sessions/{session_id}",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": false,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "原生 pp_system_default 接受 client_data 但不回傳／保存此提供者特定資料；只確認路由受理與 session 身分一致，不能宣稱已驗證 PSP 客戶端資料變更。",
+      "evidence_files": [
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/payment-providers",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-categories",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-categories/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-options",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-options/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-tags",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-tags/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-types",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-types/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-variants",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/products",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/products/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/regions",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/regions/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/return-reasons",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/return-reasons/{id}",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/returns",
+      "runtime_status": "尚未測試",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "尚無通過的實機情境；退貨須已履約訂單、移轉須雙方與有效移轉 token、促銷須有效折扣資料",
+      "evidence_files": []
+    },
+    {
+      "method": "POST",
+      "path": "/store/search",
+      "runtime_status": "成功",
+      "in_legacy_77_document": false,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-probes-0c1adbd9a40140c0b6b7cfddaee6e5cb.json",
+        "medusa-probes-48d781ddfc6944bc9a3b5a8fe67eea31.json",
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/shipping-options",
+      "runtime_status": "成功",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "有真實回應與業務斷言證據（主流程或獨立功能探查）",
+      "evidence_files": [
+        "medusa-0b64cbb3dffd446d9dc36f2bd9c9ec58.json",
+        "medusa-72caa767eed84dcead80c23929ac09b5.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/shipping-options/{id}/calculate",
+      "runtime_status": "前置條件不足",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": true,
+      "runtime_reason": "manual 提供者 canCalculate()=false、calculatePrice() 明確拋錯；本機 calculate 回 500。需要支援計價的提供者；固定費率配送與結帳已成功。",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/store-credit-accounts",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/store/store-credit-accounts/claim",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/store/store-credit-accounts/{id}",
+      "runtime_status": "版本差異",
+      "in_legacy_77_document": true,
+      "in_current_bundled_spec": true,
+      "in_installed_code_routes": false,
+      "runtime_reason": "bundled 規格列有，但原生／工作區編譯 route 無對應且本機探查 404；不是業務成功",
+      "evidence_files": [
+        "medusa-probes-aea1423a6a974623bab0a42339eb0e99.json"
+      ]
+    }
+  ]
+}

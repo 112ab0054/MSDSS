@@ -1,0 +1,22 @@
+[
+  {
+    "file": "bagisto-api-v2.4.4-shop.json",
+    "sha256": "37a56692b7a4c13e8b26f52bde3ce3424343b2809c5f0798093cc8669c601353",
+    "source": "https://raw.githubusercontent.com/bagisto/bagisto-api/968cfe114090fb7c74f4169d9116cde6099def84/schema/generated/openapi-shop.json"
+  },
+  {
+    "file": "bagisto-v2.4.10-composer.json",
+    "sha256": "960f9d9a4ebb66c09783c86546e7bf002ded6ac528161c74a28e6b8642dd840e",
+    "source": "https://raw.githubusercontent.com/bagisto/bagisto/72beea139e644e9e1b6981b717d57dfa68ad3106/composer.json"
+  },
+  {
+    "file": "bagisto-api-v2.4.4-composer.json",
+    "sha256": "d881c27c4a6edf72bbda90668eb45b00581ac265c35d8c22d966ac8808652bb8",
+    "source": "https://raw.githubusercontent.com/bagisto/bagisto-api/968cfe114090fb7c74f4169d9116cde6099def84/composer.json"
+  },
+  {
+    "file": "sylius-standard-v2.2.4-composer.json",
+    "sha256": "ecc1217c39c3a3ee79ec3919d9dba3a8a8b362fb3c5c731340f2f6ab58f7ac14",
+    "source": "https://raw.githubusercontent.com/Sylius/Sylius-Standard/6b580309567f2cf9b840e98efca2c7e3544a55bd/composer.json"
+  }
+]

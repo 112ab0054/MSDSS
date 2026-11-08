@@ -1,0 +1,119 @@
+{
+  "platform": "sylius",
+  "source_contract": "sentinel/analysis/api-contracts/sylius/openapi-demo.json",
+  "method": "GET",
+  "path": "/api/v2/shop/orders/{tokenValue}/items",
+  "operation": {
+    "operationId": "sylius_api_shop_order_order_item_get_collection",
+    "tags": [
+      "OrderItem"
+    ],
+    "responses": {
+      "200": {
+        "description": "OrderItem collection",
+        "content": {
+          "application/ld+json": {
+            "schema": {
+              "type": "object",
+              "description": "OrderItem.jsonld-sylius.shop.cart.show collection.",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/HydraCollectionBaseSchema"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "hydra:member"
+                  ],
+                  "properties": {
+                    "hydra:member": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrderItem.jsonld-sylius.shop.cart.show"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/OrderItem-sylius.shop.cart.show"
+              }
+            }
+          }
+        }
+      }
+    },
+    "summary": "Retrieves the collection of OrderItem resources.",
+    "description": "Retrieves the collection of OrderItem resources.",
+    "parameters": [
+      {
+        "name": "tokenValue",
+        "in": "path",
+        "description": "Order identifier",
+        "required": true,
+        "deprecated": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple",
+        "explode": false
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "description": "The collection page number",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 1
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "itemsPerPage",
+        "in": "query",
+        "description": "The number of items per page",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "integer",
+          "default": 30,
+          "minimum": 0,
+          "maximum": 30
+        },
+        "style": "form",
+        "explode": true
+      },
+      {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "Locales in this enum are all locales defined in the shop and only enabled ones will work in the given channel in the shop.",
+        "required": false,
+        "deprecated": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "en_US",
+            "de_DE",
+            "fr_FR",
+            "pl_PL",
+            "es_ES",
+            "es_MX",
+            "pt_PT",
+            "zh_CN",
+            "fr_GQ"
+          ]
+        },
+        "style": "simple",
+        "explode": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "selected_on": "2026-11-08",
+  "deployment_verified": false,
+  "bagisto": {
+    "repository": "https://github.com/bagisto/bagisto.git",
+    "tag": "v2.4.10",
+    "commit": "72beea139e644e9e1b6981b717d57dfa68ad3106",
+    "api_package": "bagisto/bagisto-api",
+    "api_version": "2.4.4",
+    "api_commit": "968cfe114090fb7c74f4169d9116cde6099def84",
+    "url": "http://127.0.0.1:18081",
+    "spec_snapshot_matches_deployment": false
+  },
+  "shopware": {
+    "version": "6.7.15.1",
+    "commit": "fc6b754982a0328200ffd3f8d795664a0a6e8447",
+    "image": "dockware/shopware:6.7.15.1@sha256:0472eef46236ce5885364bdaca6a6f5d7d5705bd003f7aae48f94b5f538ee011",
+    "url": "http://127.0.0.1:18082",
+    "spec_snapshot_matches_deployment": false
+  },
+  "sylius": {
+    "repository": "https://github.com/Sylius/Sylius-Standard.git",
+    "template_tag": "v2.2.4",
+    "template_commit": "6b580309567f2cf9b840e98efca2c7e3544a55bd",
+    "core_version": "2.2.12",
+    "core_commit": "5dbe9797aea44229294043dec7ffadef32637678",
+    "compatibility_dependencies": {"friendsofsymfony/rest-bundle": "3.9.0"},
+    "url": "http://127.0.0.1:18083",
+    "spec_snapshot_matches_deployment": false
+  },
+  "runtime": {
+    "php": "php:8.3.30-cli-bookworm@sha256:68e9d207ef1afe71769cbcf17fd671c7f565ad1cad8bdfb02c710eb84da50da1",
+    "composer": "composer:2.8.12@sha256:5248900ab8b5f7f880c2d62180e40960cd87f60149ec9a1abfd62ac72a02577c",
+    "database": "mariadb:10.11.14@sha256:dbe56e20372fc6d6b8e0e396866ba89c4c7f128c38c4f59aaa54d957db95790c"
+  }
+}

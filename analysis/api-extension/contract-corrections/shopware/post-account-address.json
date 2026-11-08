@@ -1,0 +1,840 @@
+{
+  "platform": "shopware",
+  "source_contract": "sentinel/analysis/api-contracts/shopware/storeapi.json",
+  "source_sha256": "97d434d38bb669b9ffdc098fc68a29d2dcc8d23a28999e485e24ee1f17c338bb",
+  "source_info_version": "6.7.9999999-dev",
+  "method": "POST",
+  "path": "/account/address",
+  "operation": {
+    "tags": [
+      "Address"
+    ],
+    "summary": "Create a new address for a customer",
+    "description": "Creates a new address for a customer.",
+    "operationId": "createCustomerAddress",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/CustomerAddressBody"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CustomerAddress"
+                },
+                {
+                  "$ref": "#/components/schemas/CustomerAddressRead"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "#/components/responses/400",
+        "description": "The submitted address data failed validation, e.g. a missing required field or a zip code that does not match the selected country."
+      },
+      "401": {
+        "$ref": "#/components/responses/401",
+        "description": "The `sw-access-key` header is missing."
+      },
+      "403": {
+        "$ref": "#/components/responses/403",
+        "description": "No customer is logged in."
+      }
+    },
+    "security": [
+      {
+        "ApiKey": [],
+        "ContextToken": []
+      }
+    ],
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/swLanguageId"
+      },
+      {
+        "$ref": "#/components/parameters/swContextSource"
+      }
+    ]
+  },
+  "effective_security": [
+    {
+      "ApiKey": [],
+      "ContextToken": []
+    }
+  ],
+  "path_parameters": [],
+  "servers": [
+    {
+      "url": "/store-api"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "description": "Identifies the sales channel you want to access the API through",
+        "name": "sw-access-key",
+        "in": "header"
+      },
+      "ContextToken": {
+        "type": "apiKey",
+        "description": "Identifies an anonymous or identified user session",
+        "name": "sw-context-token",
+        "in": "header"
+      }
+    },
+    "parameters": {
+      "swContextSource": {
+        "name": "sw-context-source",
+        "in": "header",
+        "description": "Set to `session` to resolve the context from the storefront session cookie instead of a context token. Mutually exclusive with `sw-context-token`: sending both fails with HTTP 400 and `FRAMEWORK__ROUTING_SESSION_CONTEXT_NOT_RESOLVABLE`, as does a session that cannot be resumed.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "const": "session"
+        }
+      },
+      "swLanguageId": {
+        "name": "sw-language-id",
+        "in": "header",
+        "description": "Instructs Shopware to return the response in the given language.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      }
+    },
+    "responses": {
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          },
+          "application/vnd.api+json": {
+            "schema": {
+              "$ref": "#/components/schemas/failure"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "failure": {
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/error"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for this particular occurrence of the problem."
+          },
+          "links": {
+            "$ref": "#/components/schemas/links"
+          },
+          "status": {
+            "type": "string",
+            "description": "The HTTP status code applicable to this problem, expressed as a string value."
+          },
+          "code": {
+            "type": "string",
+            "description": "An application-specific error code, expressed as a string value."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem. It **SHOULD NOT** change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the problem."
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "pointer": {
+                "type": "string",
+                "description": "A JSON Pointer [RFC6901] to the associated entity in the request document [e.g. \"/data\" for a primary data object, or \"/data/attributes/title\" for a specific attribute]."
+              },
+              "parameter": {
+                "type": "string",
+                "description": "A string indicating which query parameter caused the error."
+              }
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/meta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "meta": {
+        "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+        "type": "object",
+        "additionalProperties": true
+      },
+      "links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/link"
+        }
+      },
+      "link": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object.",
+        "oneOf": [
+          {
+            "description": "A string containing the link's URL.",
+            "type": "string",
+            "format": "uri-reference"
+          },
+          {
+            "type": "object",
+            "required": [
+              "href"
+            ],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL.",
+                "type": "string",
+                "format": "uri-reference"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/meta"
+              }
+            }
+          }
+        ]
+      },
+      "CustomerAddressRead": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "customerId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CountryState"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "required": [
+          "customerId",
+          "createdAt",
+          "updatedAt",
+          "country",
+          "salutation"
+        ]
+      },
+      "Salutation": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "salutationKey",
+          "displayName",
+          "letterName"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of salutation."
+          },
+          "salutationKey": {
+            "description": "Technical name given to salutation. For example: mr",
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Name given for salutation and displayed in storefront. For example: Mr"
+          },
+          "letterName": {
+            "type": "string",
+            "description": "Name given for salutation and used in the mail templates. For example, Dear Mr"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined salutations must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "CountryState": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "countryId",
+          "shortCode",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the country's state."
+          },
+          "countryId": {
+            "description": "Unique identity of the country.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "shortCode": {
+            "description": "An abbreviation for the country's state.",
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country's state."
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined states must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the country's state is available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          }
+        },
+        "type": "object"
+      },
+      "Country": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of the country."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country."
+          },
+          "iso": {
+            "description": "Internationally recognized two-letter country codes. For example, DE, IN, NO, etc.",
+            "type": "string"
+          },
+          "position": {
+            "description": "Numerical value that indicates the order in which the defined countries must be displayed in the frontend.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "description": "When boolean value is `true`, the country is available for selection in the storefront.",
+            "type": "boolean"
+          },
+          "shippingAvailable": {
+            "description": "The shipping availability for a country is enabled when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "iso3": {
+            "description": "Internationally recognized three-letter country codes. For example, DEU, IND, NOR, etc.",
+            "type": "string"
+          },
+          "displayStateInRegistration": {
+            "description": "The country's state is displayed in the address when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "forceStateInRegistration": {
+            "description": "State details in the address are force included when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "checkVatIdPattern": {
+            "description": "Verify if VAT ID is valid or not.",
+            "type": "boolean"
+          },
+          "vatIdRequired": {
+            "description": "Set to true, if VAT ID is to be made mandatory.",
+            "type": "boolean"
+          },
+          "vatIdPattern": {
+            "description": "Unique VAT ID with country code and numbers, for example - GB999 9999",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "customerTax": {
+            "required": [
+              "enabled",
+              "currencyId",
+              "amount"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "The boolean value is `true` if the tax for the customer apply."
+              },
+              "currencyId": {
+                "type": "string",
+                "description": "Unique identity of currency."
+              },
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Sum of money to be paid by the customer."
+              }
+            },
+            "type": "object"
+          },
+          "companyTax": {
+            "required": [
+              "enabled",
+              "currencyId",
+              "amount"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "The boolean value is `true`, if the tax for the company apply."
+              },
+              "currencyId": {
+                "type": "string",
+                "description": "Unique identity of currency."
+              },
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "Sum of money to be paid by the company."
+              }
+            },
+            "type": "object"
+          },
+          "postalCodeRequired": {
+            "description": "The postal code is made mandatory specification in the address, when boolean value is `true`.",
+            "type": "boolean"
+          },
+          "checkPostalCodePattern": {
+            "description": "Verify for valid postal code pattern.",
+            "type": "boolean"
+          },
+          "checkAdvancedPostalCodePattern": {
+            "description": "Verify for advanced postal code pattern.",
+            "type": "boolean"
+          },
+          "advancedPostalCodePattern": {
+            "description": "Wildcard formatted zip codes to allow easy searching in the frontend based on initial constants, for example - 24****, 1856**.",
+            "type": "string"
+          },
+          "addressFormat": {
+            "type": "object",
+            "description": "The address format with recipient's name, building number, street name, city, state and ZIP code on different lines as required."
+          },
+          "defaultPostalCodePattern": {
+            "description": "Default pattern of postal or zip code.",
+            "type": "string"
+          },
+          "isEu": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "translated": {
+            "type": "object",
+            "description": "Contains the translations of all translated fields."
+          },
+          "states": {
+            "description": "States/provinces/regions within the country",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryState"
+            }
+          },
+          "taxFree": {
+            "description": "When tax doesn't apply for a particular country, then the boolean value is `true`."
+          },
+          "companyTaxFree": {
+            "description": "When a registered company is free from paying taxes, then the boolean value is `true`."
+          }
+        },
+        "type": "object"
+      },
+      "CustomerAddress": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "id",
+          "customerId",
+          "countryId",
+          "firstName",
+          "lastName",
+          "city",
+          "street"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Unique identity of customer's address."
+          },
+          "customerId": {
+            "description": "Unique identity of customer.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryId": {
+            "description": "Unique identity of country.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "description": "Unique identity of country's state.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salutationId": {
+            "description": "Unique identity of salutation.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "description": "First name of the customer.",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last name of the customer.",
+            "type": "string"
+          },
+          "zipcode": {
+            "description": "Postal or zip code of customer's address.",
+            "type": "string"
+          },
+          "city": {
+            "description": "Name of customer's city.",
+            "type": "string"
+          },
+          "company": {
+            "description": "Name of customer's company.",
+            "type": "string"
+          },
+          "street": {
+            "description": "Name of customer's street.",
+            "type": "string"
+          },
+          "department": {
+            "description": "Name of customer's department.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Titles given to customer like Dr. , Prof., etc",
+            "type": "string"
+          },
+          "phoneNumber": {
+            "description": "Customer's phone number.",
+            "type": "string"
+          },
+          "additionalAddressLine1": {
+            "description": "Additional customer's address information.",
+            "type": "string"
+          },
+          "additionalAddressLine2": {
+            "description": "Additional customer's address information.",
+            "type": "string"
+          },
+          "hash": {
+            "description": "Runtime field, cannot be used as part of the criteria.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object",
+            "description": "Additional fields that offer a possibility to add own fields for the different program-areas."
+          },
+          "isDefaultBillingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "isDefaultShippingAddress": {
+            "description": "Added since version: 6.7.7.0. Runtime field, cannot be used as part of the criteria.",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "type": "object"
+      },
+      "CustomerAddressBody": {
+        "description": "Added since version: 6.0.0.0",
+        "required": [
+          "countryId",
+          "firstName",
+          "lastName",
+          "zipcode",
+          "city",
+          "street"
+        ],
+        "properties": {
+          "countryId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "countryStateId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "salutationId": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "zipcode": {
+            "description": "Postal code. Every country on a default installation has `postalCodeRequired` enabled. For a country without it, an empty value is accepted.",
+            "type": "string",
+            "maxLength": 50
+          },
+          "city": {
+            "type": "string"
+          },
+          "accountType": {
+            "description": "Type of the account the address belongs to, `private` or `business`. A `business` address requires `company`, which is only enforced while the `core.loginRegistration.showAccountTypeSelection` setting is enabled. The value is not stored on the address. During registration the billing address follows the top-level `accountType` instead, and the shipping address keeps its own.",
+            "type": "string",
+            "enum": [
+              "private",
+              "business"
+            ]
+          },
+          "company": {
+            "description": "Company of the address. Required when `accountType` is `business`.",
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "description": "Phone number. Required when the `core.loginRegistration.showPhoneNumberField` and `core.loginRegistration.phoneNumberFieldRequired` settings are both enabled. Both are off by default.",
+            "type": "string"
+          },
+          "additionalAddressLine1": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField1` and `core.loginRegistration.additionalAddressField1Required` settings are both enabled. Both are off by default.",
+            "type": "string"
+          },
+          "additionalAddressLine2": {
+            "description": "Required when the `core.loginRegistration.showAdditionalAddressField2` and `core.loginRegistration.additionalAddressField2Required` settings are both enabled. Both are off by default.",
+            "type": "string"
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "countryState": {
+            "$ref": "#/components/schemas/CountryState"
+          },
+          "salutation": {
+            "$ref": "#/components/schemas/Salutation"
+          }
+        },
+        "allOf": [
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "private"
+                    ]
+                  }
+                }
+              },
+              {
+                "required": [
+                  "accountType",
+                  "company"
+                ],
+                "properties": {
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "business"
+                    ]
+                  },
+                  "company": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "type": "object"
+      }
+    }
+  }
+}
