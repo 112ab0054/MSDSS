@@ -28,7 +28,7 @@ def main():
                 output.append(item)
     write_jsonl(HERE / 'reference/normal-candidates.jsonl', output)
     counts = collections.Counter(r['metadata']['platform'] for r in output)
-    ops = {(r['metadata']['platform'], r['input']['method'], r['input']['path']) for r in output}
+    ops = {(r['metadata']['platform'], r['input']['method'], r['metadata']['operation_path']) for r in output}
     report = {'origin': 'historical_real_http_evidence', 'new_http_requests': 0, 'pilot_live_collected': 0,
         'candidate_count': len(output), 'platform_counts': dict(counts), 'covered_selected_operations': len(ops),
         'exact_unique_inputs': len({r['metadata']['fingerprint'] for r in output}),
@@ -48,7 +48,7 @@ def main():
                 visit(v, prefix + '[]', found)
     for platform, method, path in sorted(selected):
         fields = set()
-        relevant = [r for r in output if (r['metadata']['platform'], r['input']['method'], r['input']['path']) == (platform, method, path)]
+        relevant = [r for r in output if (r['metadata']['platform'], r['input']['method'], r['metadata']['operation_path']) == (platform, method, path)]
         for r in relevant:
             visit(r['input']['query'], 'query', fields)
             visit(r['input']['body'], 'body', fields)

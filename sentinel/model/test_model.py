@@ -11,6 +11,8 @@ import unittest
 import numpy as np
 from evaluate import metrics, cluster_interval
 from features import features
+from header_contracts import documented_headers
+from request_input import prepare_request, from_evidence, redact_json_text
 from train import groups
 
 ROOT = Path(__file__).resolve().parent
@@ -36,7 +38,8 @@ class ModelTests(unittest.TestCase):
         """header 攻擊會影響特徵；大小寫不影響結果，憑證內容不進特徵。"""
         base = {"headers": {"X-Locale": "en", "Authorization": "abc"}}
         attack = {"headers": {"X-Locale": "<script>void(0)</script>", "Authorization": "abc"}}
-        self.assertEqual(len(features(base)), 140)
+        names, _ = documented_headers()
+        self.assertEqual(len(features(base)), 74 + 17 * len(names))
         self.assertNotEqual(features(base), features(attack))
         self.assertEqual(features(base), features({"headers": {"x-locale": "en", "authorization": "xyz"}}))
         self.assertEqual(features({"headers": {"Host": "a.example"}}),
@@ -50,8 +53,62 @@ class ModelTests(unittest.TestCase):
         self.assertNotEqual(features({'body': {'nested': {'extra': 'ok'}}}),
                             features({'body': {'nested': {'extra': '<script>void(0)</script>'}}}))
         self.assertNotEqual(features({'body': 'plain text'}), features({'body': '<script>void(0)</script>'}))
-        self.assertNotEqual(features({'path_parameters': {'slug': 'shirt'}}),
-                            features({'path_parameters': {'slug': "' OR 'a'='a' --"}}))
+        self.assertNotEqual(features({'path': '/products/shirt'}),
+                            features({'path': '/products/1%20OR%201=1'}))
+
+    def test_raw_input_values_and_encoding_are_preserved(self):
+        raw = ' { "productId" : "1 OR 1=1", "isValid": true, "email":"user@example.test", "password" : "private-value" } '
+        expected = raw.replace('"private-value"', '"[REDACTED]"')
+        self.assertEqual(redact_json_text(raw), expected)
+        row = {'method':'POST','path':'/products/1%20OR%201=1?q=A%2fb&q=A+B',
+            'operation_path':'/products/{id}','request_headers':{'Content-Type':'application/json','X-Request-ID':'real-id','Host':'example.test'},
+            'request_body':json.loads(raw),'request_body_raw':raw}
+        result = from_evidence(row)
+        self.assertEqual(result['path'],'/products/1%20OR%201=1')
+        self.assertEqual(result['raw_query'],'q=A%2fb&q=A+B')
+        self.assertEqual(result['raw_body'],expected)
+        self.assertEqual(result['body']['isValid'],True)
+        self.assertEqual(result['body']['productId'],'1 OR 1=1')
+        self.assertEqual(result['headers']['X-Request-ID'],'real-id')
+        self.assertEqual(result['headers']['Host'],'example.test')
+
+    def test_every_documented_header_has_an_individual_slot(self):
+        names, sources = documented_headers()
+        self.assertEqual(len(names),12);self.assertEqual(len(sources),3)
+        from features import SENSITIVE, header_features
+        for index,name in enumerate(names):
+            base=header_features({},names);present=header_features({name:'en'},names)
+            start=18+17*index
+            self.assertEqual(base[start],0);self.assertEqual(present[start],1)
+            if not SENSITIVE.search(name):
+                attack=header_features({name:'<script>void(0)</script>'},names)
+                self.assertNotEqual(present[start:start+17],attack[start:start+17])
+
+    def test_query_credentials_masked_without_reformatting_other_values(self):
+        result=prepare_request({'path':'/products/123','raw_query':'q=A%2fb&token=private-value&q=A+B','headers':{},'body':None})
+        self.assertEqual(result['raw_query'],'q=A%2fb&token=[REDACTED]&q=A+B')
+        no_type=prepare_request({'path':'/products','raw_body':' { "password":"private-value", "id":"actual-id" } ','headers':{}})
+        self.assertEqual(no_type['raw_body'],' { "password":"[REDACTED]", "id":"actual-id" } ')
+
+    def test_gateway_and_evidence_produce_the_same_raw_feature_vector(self):
+        import importlib.util
+        from types import SimpleNamespace
+        from starlette.datastructures import Headers
+        spec=importlib.util.spec_from_file_location('gateway_unit_fixture',ROOT.parent/'gateway/app.py')
+        gateway=importlib.util.module_from_spec(spec);spec.loader.exec_module(gateway)
+        raw=' { "productId":"1 OR 1=1", "email":"user@example.test", "password":"private-value" } '
+        query='q=A%2fb&q=A+B&token=private-value'
+        headers={'Content-Type':'application/json','Host':'127.0.0.1:18081','X-Request-ID':'original-request-id','X-Locale':'en'}
+        row={'method':'POST','path':'/products/123?'+query,'operation_path':'/products/{id}',
+            'request_target':'/api/shop/products/123?'+query,'raw_query':query,
+            'request_headers':headers,'request_body':json.loads(raw),'request_body_raw':raw}
+        request=SimpleNamespace(method='POST',headers=Headers(headers),url=SimpleNamespace(path='/api/shop/products/123'),
+            scope={'raw_path':b'/api/shop/products/123','query_string':query.encode()})
+        observed=gateway.model_request(request,raw.encode())
+        training=from_evidence(row)
+        self.assertEqual(training['raw_query'],observed['raw_query'])
+        self.assertEqual(training['raw_body'],observed['raw_body'])
+        self.assertEqual(features(training),features(observed))
 
     def test_document_candidates(self):
         """候選只能修改文件宣告的 header，且不能偽造 HTTP 或訓練核准。"""
@@ -70,7 +127,7 @@ class ModelTests(unittest.TestCase):
         from collections import defaultdict
         by_operation = defaultdict(list)
         for row in rows:
-            by_operation[(row["metadata"]["platform"], row["input"]["method"], row["input"]["path"])].append(row)
+            by_operation[(row["metadata"]["platform"], row["input"]["method"], row["metadata"]["operation_path"])].append(row)
         for detail in coverage:
             key = detail["platform"], detail["method"], detail["path"]
             planned = by_operation[key]
@@ -107,45 +164,17 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(result["valid_repetitions"], 30)
 
     def test_train_and_relocate(self):
-        """訓練後搬移模型，確認從其他工作目錄仍可推論。"""
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp = Path(tmp)
-            data = tmp / "data.csv"
-            with data.open("w", encoding="utf-8-sig", newline="") as f:
-                writer = csv.DictWriter(f, fieldnames=["完整紀錄JSON"])
-                writer.writeheader()
-                # 每個平台建立獨立 session，每組都有三類合成樣本。
-                for platform in ["bagisto", "shopware", "sylius"]:
-                    for session in range(12):
-                        for label, payload in [("normal", "shirt"), ("sqli", "' union select --"),
-                                               ("xss", '<script>alert(1)</script>')]:
-                            row = {"input": {"method": "GET", "query": {
-                                "q": payload, "nonce": f"{platform}-{session}-{label}"}},
-                                "annotation": {"label": label}, "metadata": {
-                                    "platform": platform, "session_group": f"{platform}-{session}",
-                                    "training_approved": True, "request_input_version": 2}}
-                            writer.writerow({"完整紀錄JSON": json.dumps(row)})
-            result = subprocess.run([sys.executable, str(ROOT / "train.py"), str(data),
-                                     "--output", str(tmp / "original")], capture_output=True, text=True)
-            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
-            # 搬到含中文與空白的目錄，並使用與程式不同的工作目錄。
-            report = json.loads((tmp / "original" / "report.json").read_text(encoding="utf-8"))
-            self.assertEqual(report["audit"]["group_overlap"], 0)
-            self.assertIn("majority_baseline", report)
-            self.assertTrue((tmp / "original" / "predictions.csv").exists())
-            self.assertTrue((tmp / "original" / "split.csv").exists())
-            self.assertTrue((tmp / "original" / "report.md").exists())
-            moved = tmp / "搬移 model"
-            moved.mkdir()
-            for name in ["features.py", "predict.py"]:
-                shutil.copy(ROOT / name, moved)
-            shutil.move(str(tmp / "original"), moved / "artifacts")
-            request = tmp / "request.json"
-            request.write_text('{"method":"GET","query":{"q":"shirt"}}')
-            result = subprocess.run([sys.executable, str(moved / "predict.py"), str(request)],
-                                    cwd=tmp, capture_output=True, text=True)
-            self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertIn(json.loads(result.stdout)["label"], ["normal", "sqli", "xss"])
+        from test_explicit_training import run_integration
+        run_integration(self)
+
+    def test_formal_training_rejects_uncaptured_raw_input(self):
+        from data_io import validate_rows
+        rows=[{'input':{},'metadata':{'platform':p,'session_group':p,'http_executed':True,
+              'training_approved':True,'request_input_version':3,
+              'raw_target_captured':False,'raw_body_captured':False}}
+              for p in ('bagisto','shopware')]
+        with self.assertRaisesRegex(ValueError,'原文'):
+            validate_rows(rows,'train')
 
 
 if __name__ == "__main__":

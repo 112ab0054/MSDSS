@@ -4,7 +4,8 @@ $manager = Join-Path $PSScriptRoot '../local-platforms/manage.ps1'
 # Do not stop an already-running platform at the end unless this wrapper started it.
 $running = @(docker ps --filter "label=com.docker.compose.project=msdss-phase1-$Platform" --format '{{.Names}}' 2>$null)
 if ($LASTEXITCODE -ne 0) { throw 'Docker 引擎尚未就緒，沒有啟動或停止任何服務' }
-$started = "msdss-phase1-$Platform-app-1" -notin $running
+$appService = if ($Platform -eq 'shopware') { 'shopware' } else { 'app' }
+$started = "msdss-phase1-$Platform-$appService-1" -notin $running
 try {
   if ($started) { & $manager -Platform $Platform -Action start }
   & python "$PSScriptRoot/collect.py" --platform $Platform --execute

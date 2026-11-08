@@ -34,7 +34,7 @@ def inspect(rows):
         'group_count': len(counts), 'largest_group': largest,
         'group_warning': '重複、家族與 session 連結可能造成大群組；不拆散來湊切分比例' if largest > len(rows) / 3 else None,
         'conflicting_label_fingerprints': collisions, 'training_ready': False,
-        'dedup_limitation': '近似形式只處理大小寫、空白與整數變化；語意相近案例仍需人工來源家族審查。',
+        'dedup_limitation': 'v3 不改寫大小寫、空白、整數或 ID；只計算完整輸入指紋，相關變體依來源家族與 session 綁定。歷史 metadata 可能仍含舊近似指紋。',
         'groups': [{'sample_id': r['sample_id'], 'group_id': g} for r, g in zip(rows, groups)], 'proposed_outer_folds': folds}
 
 

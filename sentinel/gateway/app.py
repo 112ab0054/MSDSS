@@ -42,28 +42,36 @@ def model_request(request, body):
     特徵程式使用；實際轉送仍保留重複項。敏感值在模型副本中遮蔽。
     JSON/form 支援欄位解析；其他格式只記錄格式，不分析檔案／二進位內容。
     """
-    from features import SENSITIVE, clean
+    from request_input import prepare_request
     headers = {}
     for key, value in request.headers.raw:
         name, value = key.decode("latin-1").lower(), value.decode("latin-1")
-        value = "[REDACTED]" if SENSITIVE.search(name) else value
         headers[name] = headers[name] + ", " + value if name in headers else value
     content_type = request.headers.get("content-type", "").split(";", 1)[0].lower()
     parsed = None
+    raw_body = ''
     if body:
-        text = body.decode("utf-8", errors="replace")
-        if content_type == "application/json" or content_type.endswith("+json"):
+        try:
+            text = body.decode('utf-8')
+            raw_body = text
+        except UnicodeDecodeError:
+            text = None
+            raw_body = None
+        if text is None:
+            parsed = {'unsupported_binary_bytes': len(body)}
+        elif content_type == "application/json" or content_type.endswith("+json"):
             try:
-                parsed = clean(json.loads(text))
+                parsed = json.loads(text)
             except ValueError:
                 parsed = text  # 畸形 JSON 也可能包含攻擊訊號，不默默當作空白。
         elif content_type == "application/x-www-form-urlencoded":
-            parsed = clean(parse_qs(text, keep_blank_values=True))
+            parsed = parse_qs(text, keep_blank_values=True)
         else:
-            parsed = {"unsupported_content_type": content_type, "body_bytes": len(body)}
-    return {"method": request.method, "path": request.url.path,
-            "query": clean(parse_qs(request.url.query, keep_blank_values=True)),
-            "headers": headers, "body": parsed}
+            parsed = text
+    return prepare_request({'method': request.method,
+        'path': request.scope.get('raw_path', request.url.path.encode('utf-8')).decode('latin-1'),
+        'raw_query': request.scope['query_string'].decode('latin-1'),
+        'headers': headers, 'body': parsed, 'raw_body': raw_body})
 
 
 @asynccontextmanager
@@ -78,7 +86,10 @@ async def lifespan(app):
     if model_dir:
         try:
             from predict import Predictor
-            app.state.predictor = Predictor(Path(model_dir))
+            candidate = Predictor(Path(model_dir))
+            if candidate.exploratory:
+                raise ValueError('候選試跑模型不可當作正式閘道模型')
+            app.state.predictor = candidate
         except Exception as error:
             # 只記錯誤類型，不記錄 Token、body 或可能包含敏感資訊的錯誤內容。
             log.warning("model_load_failed type=%s", type(error).__name__)

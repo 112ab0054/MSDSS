@@ -4,8 +4,11 @@ import json
 from pathlib import Path
 import re
 import urllib.parse
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'sentinel/model'))
+from request_input import from_evidence, INPUT_VERSION
 MANIFEST = ROOT / 'sentinel/analysis/api-extension/active-api-manifest.json'
 PRIVATE = re.compile(r'password|passwd|authorization|cookie|token|secret|api.?key|access.?key|storefront.?key|session.?id|recovery.?codes|backup.?codes|otpauth|qr.?code', re.I)
 IDENTIFIER = re.compile(r'(^id$|Id$|_id$|^ids$|^referencedId$)', re.I)
@@ -26,6 +29,7 @@ def manifest():
 
 
 def scrub(value, key=''):
+    """Historical v1/v2 reconstruction only; new v3 requests never call this."""
     if PRIVATE.search(key):
         return '[REDACTED]'
     if IDENTIFIER.search(key) and value is not None:
@@ -44,7 +48,9 @@ def scrub(value, key=''):
     return value
 
 
-def model_input(row, version=2):
+def model_input(row, version=3):
+    if version == INPUT_VERSION:
+        return from_evidence(row)
     url = urllib.parse.urlsplit(row['path'])
     query = urllib.parse.parse_qs(url.query, keep_blank_values=True, max_num_fields=1000)
     if version == 1:
@@ -73,11 +79,8 @@ def model_input(row, version=2):
 
 
 def near_fingerprint(request):
-    # Conservative literal-level approximation, not a claim of semantic deduplication.
-    text = json.dumps(request, ensure_ascii=False, sort_keys=True, separators=(',', ':')).lower()
-    text = re.sub(r'\b\d+\b', '#', text)
-    text = re.sub(r'\s+', ' ', text)
-    return sha(text)
+    # v3 preserves case, numbers and whitespace; semantic grouping uses source lineage.
+    return sha(request)
 
 
 def sample(platform, source, row, batch, label='normal', family=None, pair=None,
@@ -96,7 +99,10 @@ def sample(platform, source, row, batch, label='normal', family=None, pair=None,
                 'eligible_for_review': bool(eligibility and valid)},
             'metadata': {'platform': platform, 'versions': versions or {}, 'origin': kind,
                 'batch_id': batch, 'session_group': batch, 'family_id': family,
-                'request_input_version': 2,
+                'request_input_version': INPUT_VERSION, 'operation_path': row['operation_path'],
+                'raw_body_captured': row.get('request_body_raw') is not None,
+                'raw_target_captured': 'request_target' in row,
+                'http_executed': valid,
                 'pair_group': pair, 'source_evidence': source, 'request_id': row['request_id'],
                 'manifest_sha256': sha(MANIFEST.read_bytes()), 'source_contract_sha256': selected['sources'][platform]['sha256'],
                 'fingerprint': sha(request), 'near_fingerprint': near_fingerprint(request), 'http_status': row.get('status'),

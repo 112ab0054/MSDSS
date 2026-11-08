@@ -11,6 +11,8 @@ import urllib.parse
 import urllib.request
 import uuid
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'model'))
+from request_input import redact_target, redact_query, redact_body_text
 
 SENSITIVE = re.compile(r'password|passwd|authorization|cookie|token|secret|api.?key|access.?key|storefront.?key|session.?id|recovery.?codes|backup.?codes|otpauth|qr.?code', re.I)
 
@@ -97,7 +99,17 @@ class EvidenceClient:
 
     def redact(self, value):
         if isinstance(value, dict):
-            return {k: '[REDACTED]' if SENSITIVE.search(k) else self.redact(v) for k, v in value.items()}
+            result = {}
+            content_type = next((str(v) for k, v in value.get('request_headers', {}).items()
+                                 if k.lower() == 'content-type'), '') if isinstance(value.get('request_headers'), dict) else ''
+            for k, v in value.items():
+                if SENSITIVE.search(k): result[k] = '[REDACTED]'
+                elif isinstance(v, str) and k.lower() in {'path','request_target','referer','location'}:
+                    result[k] = self.redact(redact_target(v))
+                elif k == 'raw_query' and isinstance(v, str): result[k] = self.redact(redact_query(v))
+                elif k == 'request_body_raw' and isinstance(v, str): result[k] = self.redact(redact_body_text(v, content_type))
+                else: result[k] = self.redact(v)
+            return result
         if isinstance(value, list):
             return [self.redact(v) for v in value]
         if isinstance(value, str):
@@ -124,7 +136,11 @@ class EvidenceClient:
         self.remember(body)
         row = {'request_id': request_id, 'method': method, 'path': path,
                'operation_path': template or path, 'request_headers': headers,
-               'request_body': body, 'business_verified': False}
+               'request_body': body, 'business_verified': False,
+               'request_target': urllib.parse.urlsplit(self.base + path).path +
+                   ('?' + urllib.parse.urlsplit(self.base + path).query if '?' in path else ''),
+               'raw_query': urllib.parse.urlsplit(self.base + path).query,
+               'request_body_raw': data.decode('utf-8') if data is not None else ''}
         self.rows.append(row)
         request = urllib.request.Request(self.base + path, data=data, headers=headers, method=method)
         try:

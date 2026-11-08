@@ -4,12 +4,12 @@ import copy
 import csv
 import json
 from pathlib import Path
-import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "sentinel/dataset"))
 from core import model_input, sha, verify_evidence, evidence_digest_mode
+from request_input import INPUT_VERSION
 
 
 
@@ -36,12 +36,15 @@ def refresh(rows):
         meta["source_observed_sha256"] = sha(source_bytes)
         meta["source_digest_mode"] = evidence_digest_mode(source_bytes, meta["source_evidence_sha256"])
         request = next(r for r in source["requests"] if r.get("request_id") == meta["request_id"])
-        row["input"] = model_input(request, version=2)
-        meta.update({"request_input_version": 2, "training_approved": False,
+        row["input"] = model_input(request, version=INPUT_VERSION)
+        meta.update({"request_input_version": INPUT_VERSION, "training_approved": False,
+                     "operation_path": request['operation_path'],
+                     "raw_body_captured": request.get('request_body_raw') is not None,
+                     "raw_target_captured": 'request_target' in request,
                      "previous_sample_id": original["sample_id"],
                      "fingerprint": sha(row["input"]), "near_fingerprint": None,
                      "header_capture": request.get("header_capture", "historical_explicit_headers_only")})
-        row["sample_id"] = sha([original["sample_id"], "request-input-v2"])
+        row["sample_id"] = sha([original["sample_id"], "request-input-v3"])
         row["annotation"].update(review_status="pending_human_review", eligible_for_review=True)
         row["annotation"].pop("label", None)
         output.append(row)
@@ -62,36 +65,12 @@ def flatten(value, prefix=""):
 
 def documentation():
     """直接讀 62 操作人工參數表，包含 header/query/path/body。"""
-    result = {}
-    for platform in ["bagisto", "shopware", "sylius"]:
-        path = ROOT / f"sentinel/analysis/selected-api-contracts/{platform}/API_parameters.md"
-        current, body = None, False
-        for line in path.read_text(encoding="utf-8").splitlines():
-            if line.startswith("### 既有"):
-                current = None  # 文末補充不誤歸到最後一個 API。
-            match = re.fullmatch(r"`(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS) ([^`]+)`", line.strip())
-            if match:
-                current = (platform, *match.groups())
-                result.setdefault(current, {})
-                body = False
-            if line.startswith("### "):
-                body = False
-            if line.startswith("| 本文字段 |"):
-                body = True
-                continue
-            if not current or not line.startswith("|"):
-                continue
-            cells = [c.strip() for c in line.strip().strip("|").split("|")]
-            if cells[0] in {"header", "query", "path"} and len(cells) >= 5:
-                location, name, required, kind, values = cells[:5]
-            elif body and len(cells) >= 4 and cells[0] and not cells[0].startswith("-"):
-                location, name, required, kind, values = "body", *cells[:4]
-            else:
-                continue
-            if location == "header":
-                name = name.lower()
-            result[current][location, name.strip('`')] = {"required": required, "type": kind, "values": values}
-    return result
+    # 共用依表頭判斷位置的讀表器，避免 Body 欄名 query 被誤當成位置。
+    from build_small_dataset import read_documents
+    operations, _ = read_documents()
+    return {key: {(location, name.lower() if location == 'header' else name): spec
+                  for (location, name), spec in operation['fields'].items()}
+            for key, operation in operations.items()}
 
 
 def coverage(rows):
@@ -101,7 +80,7 @@ def coverage(rows):
     records = []
     for operation in manifest["operations"]:
         key = operation["platform"], operation["method"], operation["path"]
-        samples = [row for row in rows if (row["metadata"]["platform"], row["input"]["method"], row["input"]["path"]) == key]
+        samples = [row for row in rows if (row["metadata"]["platform"], row["input"]["method"], row['metadata'].get('operation_path', row['input']['path'])) == key]
         fields = dict(docs.get(key, {}))
         actual = []
         for row in samples:

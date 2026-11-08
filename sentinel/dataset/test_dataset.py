@@ -28,17 +28,20 @@ class DatasetTests(unittest.TestCase):
     def test_missing_http_evidence_never_validates(self):
         self.assertFalse(verify_evidence(fixture('unit-only')))
 
-    def test_credentials_and_resource_ids_excluded_from_model_input(self):
+    def test_credentials_redacted_but_other_original_values_preserved(self):
         row = {'method': 'POST', 'path': '/products?token=private-token&query=shirt', 'operation_path': '/products',
             'request_headers': {'Authorization': 'Bearer private-jwt', 'X-Request-ID': 'uuid123',
                 'sw-access-key': 'private-api-key', 'Content-Type': 'application/json'},
             'request_body': {'password': 'private-password', 'confirmPassword': 'confirm-private',
                 'productId': 'actual-product-id', 'email': 'test@example.test', 'firstName': "O'Connor"}}
         result = model_input(row)
-        for value in ('private-token', 'private-jwt', 'private-api-key', 'private-password', 'confirm-private', 'actual-product-id', 'test@example.test', 'uuid123'):
+        for value in ('private-token', 'private-jwt', 'private-api-key', 'private-password', 'confirm-private'):
             self.assertNotIn(value, str(result))
+        self.assertEqual(result['body']['productId'], 'actual-product-id')
+        self.assertEqual(result['body']['email'], 'test@example.test')
+        self.assertEqual(result['headers']['X-Request-ID'], 'uuid123')
         self.assertEqual(result['body']['firstName'], "O'Connor")
-        self.assertEqual(set(result), {'method', 'path', 'query', 'headers', 'body', 'path_parameters'})
+        self.assertEqual(set(result), {'method', 'path', 'raw_query', 'query', 'headers', 'body', 'raw_body', 'path_parameters'})
 
     def test_complete_request_and_legacy(self):
         from core import evidence_digest_mode, sha
@@ -49,8 +52,10 @@ class DatasetTests(unittest.TestCase):
                'request_body': {'nested': {'new_field': 'kept'}}}
         new = model_input(row)
         self.assertEqual(set(new['query']), {'order', 'page', 'per_page', 'type'})
-        self.assertEqual(new['headers']['x-custom'], '<svg onload="void(0)">')
-        self.assertEqual(new['headers']['cookie'], '[REDACTED]')
+        self.assertEqual(new['headers']['X-Custom'], '<svg onload="void(0)">')
+        self.assertEqual(new['headers']['Cookie'], '[REDACTED]')
+        self.assertEqual(new['path'], '/products/item-1')
+        self.assertEqual(new['raw_query'], 'order=desc&page=2&per_page=10&type=simple')
         self.assertEqual(new['path_parameters'], {'id': 'item-1'})
         self.assertEqual(new['body']['nested']['new_field'], 'kept')
         self.assertEqual(model_input(row, version=1)['headers'], {})
@@ -96,10 +101,10 @@ class DatasetTests(unittest.TestCase):
         b['annotation']['proposed_label'] = 'sqli'
         self.assertEqual(inspect([a, b])['conflicting_label_fingerprints'], ['same'])
 
-    def test_near_form_does_not_count_numeric_edits_as_independent(self):
+    def test_no_number_normalization_in_new_fingerprints(self):
         a = fixture('a')['input']; b = copy.deepcopy(a)
         a['query'] = {'query': ["' OR 1=1 -- "]};b['query'] = {'query': ["' OR 22=22 -- "]}
-        self.assertEqual(near_fingerprint(a), near_fingerprint(b))
+        self.assertNotEqual(near_fingerprint(a), near_fingerprint(b))
 
     def test_catalog_counts_partition_and_no_external_exfiltration(self):
         all_ids = set(); families = []

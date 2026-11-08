@@ -1,0 +1,621 @@
+﻿平台,集合,方法,API,位置,參數,必填,型別,候選中存在筆數,範例值JSON,值的來源與限制,填入狀態,實機已驗證,文件,行號
+bagisto,train,GET,/checkout-shipping-methods,header,X-STOREFRONT-KEY,必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,16
+bagisto,train,GET,/checkout-shipping-methods,header,X-Locale,選填,string,3,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,17
+bagisto,train,GET,/checkout-shipping-methods,header,X-Channel,選填,string,3,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,18
+bagisto,train,GET,/checkout-shipping-methods,header,X-Currency,選填,string,3,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,19
+bagisto,test,GET,/customer-addresses,query,sort,選填,string,5,"""id""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,38
+bagisto,test,GET,/customer-addresses,query,order,選填,string,5,"""asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,39
+bagisto,test,GET,/customer-addresses,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,40
+bagisto,test,GET,/customer-addresses,query,per_page,選填,integer,5,10,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,41
+bagisto,test,GET,/customer-addresses,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,42
+bagisto,test,GET,/customer-addresses,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,43
+bagisto,test,GET,/customer-addresses,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,44
+bagisto,test,GET,/customer-addresses,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,45
+bagisto,train,GET,/customer-orders,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,64
+bagisto,train,GET,/customer-orders,query,per_page,選填,integer,5,10,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,65
+bagisto,train,GET,/customer-orders,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,66
+bagisto,train,GET,/customer-orders,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,67
+bagisto,train,GET,/customer-orders,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,68
+bagisto,train,GET,/customer-orders,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,69
+bagisto,train,GET,/customer-profile,header,X-STOREFRONT-KEY,必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,88
+bagisto,train,GET,/customer-profile,header,X-Locale,選填,string,3,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,89
+bagisto,train,GET,/customer-profile,header,X-Channel,選填,string,3,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,90
+bagisto,train,GET,/customer-profile,header,X-Currency,選填,string,3,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,91
+bagisto,train,GET,/payment-methods,header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,675
+bagisto,train,GET,/payment-methods,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,676
+bagisto,train,GET,/payment-methods,query,per_page,選填,integer,5,10,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,677
+bagisto,train,GET,/payment-methods,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,678
+bagisto,train,GET,/payment-methods,header,X-Locale,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,679
+bagisto,train,GET,/payment-methods,header,X-Channel,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,680
+bagisto,train,GET,/payment-methods,header,X-Currency,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,681
+bagisto,train,GET,/products,query,query,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,134
+bagisto,train,GET,/products,query,suggest,選填,string,5,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,135
+bagisto,train,GET,/products,query,sort,選填,string,5,"""name-asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,136
+bagisto,train,GET,/products,query,order,選填,string,5,"""asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,137
+bagisto,train,GET,/products,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,138
+bagisto,train,GET,/products,query,per_page,選填,integer,5,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,139
+bagisto,train,GET,/products,query,type,選填,string,5,"""simple""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,140
+bagisto,train,GET,/products,query,category_id,選填,integer,5,2,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,141
+bagisto,train,GET,/products,query,price,選填,string,5,"""10,200""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,142
+bagisto,train,GET,/products,query,price_from,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,143
+bagisto,train,GET,/products,query,price_to,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,144
+bagisto,train,GET,/products,query,new,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,145
+bagisto,train,GET,/products,query,featured,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,146
+bagisto,train,GET,/products,query,filter,選填,object,5,"{""brand"": ""38"", ""color"": ""3""}",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,147
+bagisto,train,GET,/products,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,148
+bagisto,train,GET,/products,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,149
+bagisto,train,GET,/products,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,150
+bagisto,train,GET,/products,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,151
+bagisto,test,GET,/products/{id},path,id,必填,string,5,"""${LIVE:id}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,110
+bagisto,test,GET,/products/{id},header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,111
+bagisto,test,GET,/products/{id},header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,112
+bagisto,test,GET,/products/{id},header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,113
+bagisto,test,GET,/products/{id},header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,114
+bagisto,train,POST,/add-product-in-cart,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,170
+bagisto,train,POST,/add-product-in-cart,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,171
+bagisto,train,POST,/add-product-in-cart,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,172
+bagisto,train,POST,/add-product-in-cart,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,173
+bagisto,train,POST,/add-product-in-cart,body,productId,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,183
+bagisto,train,POST,/add-product-in-cart,body,quantity,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,184
+bagisto,train,POST,/add-product-in-cart,body,selectedConfigurableOption,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,185
+bagisto,train,POST,/add-product-in-cart,body,superAttribute,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,186
+bagisto,train,POST,/add-product-in-cart,body,qty,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,187
+bagisto,train,POST,/add-product-in-cart,body,bundleOptions,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,188
+bagisto,train,POST,/add-product-in-cart,body,bundleOptionQty,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,189
+bagisto,train,POST,/add-product-in-cart,body,links,選填,array,5,"[""${LIVE:links[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,190
+bagisto,train,POST,/add-product-in-cart,body,booking,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,191
+bagisto,train,POST,/add-product-in-cart,body,specialNote,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,192
+bagisto,train,POST,/add-product-in-cart,body,isBuyNow,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,193
+bagisto,train,POST,/cart,header,X-STOREFRONT-KEY,必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,214
+bagisto,train,POST,/cart,header,X-Locale,選填,string,3,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,215
+bagisto,train,POST,/cart,header,X-Channel,選填,string,3,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,216
+bagisto,train,POST,/cart,header,X-Currency,選填,string,3,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,217
+bagisto,train,POST,/cart-tokens,header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,749
+bagisto,train,POST,/cart-tokens,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,750
+bagisto,train,POST,/cart-tokens,header,X-Locale,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,751
+bagisto,train,POST,/cart-tokens,header,X-Channel,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,752
+bagisto,train,POST,/cart-tokens,header,X-Currency,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,753
+bagisto,train,POST,/cart-tokens,body,sessionId,選填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,764
+bagisto,train,POST,/cart-tokens,body,createNew,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,765
+bagisto,train,POST,/cart-tokens,body,password,送出登入本文時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,804
+bagisto,train,POST,/checkout-addresses,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,245
+bagisto,train,POST,/checkout-addresses,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,246
+bagisto,train,POST,/checkout-addresses,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,247
+bagisto,train,POST,/checkout-addresses,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,248
+bagisto,train,POST,/checkout-addresses,body,billingFirstName,必填,string,5,"""John""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,258
+bagisto,train,POST,/checkout-addresses,body,billingLastName,必填,string,5,"""Doe""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,259
+bagisto,train,POST,/checkout-addresses,body,billingEmail,必填,string,5,"""john@example.com""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,260
+bagisto,train,POST,/checkout-addresses,body,billingCompanyName,選填,string,5,"""""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,261
+bagisto,train,POST,/checkout-addresses,body,billingAddress,必填,string,5,"""123 Main St""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,262
+bagisto,train,POST,/checkout-addresses,body,billingCity,必填,string,5,"""Los Angeles""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,263
+bagisto,train,POST,/checkout-addresses,body,billingCountry,必填,string,5,"""US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,264
+bagisto,train,POST,/checkout-addresses,body,billingState,必填,string,5,"""CA""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,265
+bagisto,train,POST,/checkout-addresses,body,billingPostcode,必填,string,5,"""90001""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,266
+bagisto,train,POST,/checkout-addresses,body,billingPhoneNumber,必填,string,5,"""2125551234""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,267
+bagisto,train,POST,/checkout-addresses,body,useForShipping,選填,boolean,5,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,268
+bagisto,train,POST,/checkout-addresses,body,shippingFirstName,選填,string,5,"""Jane""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,269
+bagisto,train,POST,/checkout-addresses,body,shippingLastName,選填,string,5,"""Doe""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,270
+bagisto,train,POST,/checkout-addresses,body,shippingEmail,選填,string,5,"""jane@example.com""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,271
+bagisto,train,POST,/checkout-addresses,body,shippingCompanyName,選填,string,5,"""""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,272
+bagisto,train,POST,/checkout-addresses,body,shippingAddress,選填,string,5,"""456 Oak Ave""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,273
+bagisto,train,POST,/checkout-addresses,body,shippingCity,選填,string,5,"""San Francisco""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,274
+bagisto,train,POST,/checkout-addresses,body,shippingCountry,選填,string,5,"""US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,275
+bagisto,train,POST,/checkout-addresses,body,shippingState,選填,string,5,"""CA""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,276
+bagisto,train,POST,/checkout-addresses,body,shippingPostcode,選填,string,5,"""94102""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,277
+bagisto,train,POST,/checkout-addresses,body,shippingPhoneNumber,選填,string,5,"""4155559876""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,278
+bagisto,train,POST,/checkout-orders,header,X-STOREFRONT-KEY,必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,300
+bagisto,train,POST,/checkout-orders,header,X-Locale,選填,string,3,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,301
+bagisto,train,POST,/checkout-orders,header,X-Channel,選填,string,3,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,302
+bagisto,train,POST,/checkout-orders,header,X-Currency,選填,string,3,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,303
+bagisto,train,POST,/checkout-payment-methods,header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,704
+bagisto,train,POST,/checkout-payment-methods,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,705
+bagisto,train,POST,/checkout-payment-methods,header,X-Locale,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,706
+bagisto,train,POST,/checkout-payment-methods,header,X-Channel,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,707
+bagisto,train,POST,/checkout-payment-methods,header,X-Currency,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,708
+bagisto,train,POST,/checkout-payment-methods,body,paymentMethod,必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,719
+bagisto,train,POST,/checkout-payment-methods,body,paymentSuccessUrl,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,720
+bagisto,train,POST,/checkout-payment-methods,body,paymentFailureUrl,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,721
+bagisto,train,POST,/checkout-payment-methods,body,paymentCancelUrl,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,722
+bagisto,train,POST,/checkout-shipping-methods,header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,633
+bagisto,train,POST,/checkout-shipping-methods,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,634
+bagisto,train,POST,/checkout-shipping-methods,header,X-Locale,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,635
+bagisto,train,POST,/checkout-shipping-methods,header,X-Channel,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,636
+bagisto,train,POST,/checkout-shipping-methods,header,X-Currency,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,637
+bagisto,train,POST,/checkout-shipping-methods,body,shippingMethod,必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,648
+bagisto,train,POST,/customer-addresses,header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,580
+bagisto,train,POST,/customer-addresses,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,581
+bagisto,train,POST,/customer-addresses,header,X-Locale,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,582
+bagisto,train,POST,/customer-addresses,header,X-Channel,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,583
+bagisto,train,POST,/customer-addresses,header,X-Currency,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,584
+bagisto,train,POST,/customer-addresses,body,firstName,必填,string,5,"""Mei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,595
+bagisto,train,POST,/customer-addresses,body,lastName,必填,string,5,"""Chen""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,596
+bagisto,train,POST,/customer-addresses,body,companyName,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,597
+bagisto,train,POST,/customer-addresses,body,vatId,選填,string,5,"""${LIVE:vatId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,598
+bagisto,train,POST,/customer-addresses,body,email,必填,string,5,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,599
+bagisto,train,POST,/customer-addresses,body,phone,必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,600
+bagisto,train,POST,/customer-addresses,body,address1,必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,601
+bagisto,train,POST,/customer-addresses,body,address2,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,602
+bagisto,train,POST,/customer-addresses,body,city,必填,string,5,"""Taipei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,603
+bagisto,train,POST,/customer-addresses,body,state,必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,604
+bagisto,train,POST,/customer-addresses,body,postcode,必填,string,5,"""100""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,605
+bagisto,train,POST,/customer-addresses,body,country,必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,606
+bagisto,train,POST,/customer-addresses,body,defaultAddress,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,607
+bagisto,train,POST,/customer/login,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,331
+bagisto,train,POST,/customer/login,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,332
+bagisto,train,POST,/customer/login,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,333
+bagisto,train,POST,/customer/login,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,334
+bagisto,train,POST,/customer/login,body,email,必填,string,5,"""john@example.com""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,344
+bagisto,train,POST,/customer/login,body,password,必填,,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,345
+bagisto,test,POST,/customer/logout,header,X-STOREFRONT-KEY,必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,367
+bagisto,test,POST,/customer/logout,header,X-Locale,選填,string,3,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,368
+bagisto,test,POST,/customer/logout,header,X-Channel,選填,string,3,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,369
+bagisto,test,POST,/customer/logout,header,X-Currency,選填,string,3,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,370
+bagisto,train,POST,/customers,header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,525
+bagisto,train,POST,/customers,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,526
+bagisto,train,POST,/customers,header,X-Locale,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,527
+bagisto,train,POST,/customers,header,X-Channel,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,528
+bagisto,train,POST,/customers,header,X-Currency,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,529
+bagisto,train,POST,/customers,body,firstName,必填,string,5,"""Mei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,540
+bagisto,train,POST,/customers,body,lastName,必填,string,5,"""Chen""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,541
+bagisto,train,POST,/customers,body,email,必填,string,5,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,542
+bagisto,train,POST,/customers,body,password,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,543
+bagisto,train,POST,/customers,body,confirmPassword,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,544
+bagisto,train,POST,/customers,body,phone,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,545
+bagisto,train,POST,/customers,body,gender,選填,string,5,"""Male""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,546
+bagisto,train,POST,/customers,body,dateOfBirth,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,547
+bagisto,train,POST,/customers,body,status,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,548
+bagisto,train,POST,/customers,body,isVerified,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,549
+bagisto,train,POST,/customers,body,isSuspended,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,550
+bagisto,train,POST,/customers,body,subscribedToNewsLetter,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,551
+bagisto,train,POST,/customers,body,deviceToken,選填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,552
+bagisto,train,POST,/remove-cart-item,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,397
+bagisto,train,POST,/remove-cart-item,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,398
+bagisto,train,POST,/remove-cart-item,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,399
+bagisto,train,POST,/remove-cart-item,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,400
+bagisto,train,POST,/remove-cart-item,body,cartItemId,必填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,410
+bagisto,train,POST,/update-cart-item,header,X-STOREFRONT-KEY,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,431
+bagisto,train,POST,/update-cart-item,header,X-Locale,選填,string,5,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,432
+bagisto,train,POST,/update-cart-item,header,X-Channel,選填,string,5,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,433
+bagisto,train,POST,/update-cart-item,header,X-Currency,選填,string,5,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,434
+bagisto,train,POST,/update-cart-item,body,cartItemId,必填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,444
+bagisto,train,POST,/update-cart-item,body,quantity,必填,integer,5,3,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,445
+bagisto,test,PUT,/customer-addresses/{id},path,id,必填,string,7,"""${LIVE:id}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,466
+bagisto,test,PUT,/customer-addresses/{id},header,X-STOREFRONT-KEY,必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,467
+bagisto,test,PUT,/customer-addresses/{id},header,X-Locale,選填,string,7,"""en""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,468
+bagisto,test,PUT,/customer-addresses/{id},header,X-Channel,選填,string,7,"""default""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,469
+bagisto,test,PUT,/customer-addresses/{id},header,X-Currency,選填,string,7,"""USD""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,470
+bagisto,test,PUT,/customer-addresses/{id},body,firstName,選填,string,7,"""John""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,480
+bagisto,test,PUT,/customer-addresses/{id},body,lastName,選填,string,7,"""Doe""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,481
+bagisto,test,PUT,/customer-addresses/{id},body,companyName,選填,string,7,"""Acme Inc.""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,482
+bagisto,test,PUT,/customer-addresses/{id},body,vatId,選填,string,7,"""GB123456789""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,483
+bagisto,test,PUT,/customer-addresses/{id},body,email,選填,string,7,"""john@example.com""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,484
+bagisto,test,PUT,/customer-addresses/{id},body,phone,選填,string,7,"""1234567890""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,485
+bagisto,test,PUT,/customer-addresses/{id},body,address1,選填,string,7,"""456 Oak Ave""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,486
+bagisto,test,PUT,/customer-addresses/{id},body,address2,選填,string,7,"""Suite 100""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,487
+bagisto,test,PUT,/customer-addresses/{id},body,city,選填,string,7,"""Los Angeles""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,488
+bagisto,test,PUT,/customer-addresses/{id},body,state,選填,string,7,"""CA""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,489
+bagisto,test,PUT,/customer-addresses/{id},body,postcode,選填,string,7,"""90001""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,490
+bagisto,test,PUT,/customer-addresses/{id},body,country,選填,string,7,"""US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,491
+bagisto,test,PUT,/customer-addresses/{id},body,defaultAddress,選填,boolean,7,false,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md,492
+shopware,train,GET,/checkout/cart,header,sw-access-key,依認證組合,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,16
+shopware,train,GET,/checkout/cart,header,sw-language-id,選填,string,3,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,17
+shopware,train,GET,/checkout/cart,header,sw-context-source,選填,string,3,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,18
+shopware,train,GET,/context,header,sw-access-key,依認證組合,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,775
+shopware,train,GET,/context,header,sw-language-id,選填,string,3,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,776
+shopware,train,GET,/context,header,sw-context-source,選填,string,3,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,777
+shopware,test,GET,/payment-method,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,796
+shopware,test,GET,/payment-method,query,orderId,選填,string,5,"""${LIVE:orderId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,797
+shopware,test,GET,/payment-method,query,page,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,798
+shopware,test,GET,/payment-method,query,limit,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,799
+shopware,test,GET,/payment-method,query,term,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,800
+shopware,test,GET,/payment-method,query,filter[],選填,array,5,"[""${LIVE:filter[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,801
+shopware,test,GET,/payment-method,query,ids[],選填,array,5,"[""${LIVE:ids[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,802
+shopware,test,GET,/payment-method,query,sort[],選填,array,5,"[""${LIVE:sort[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,803
+shopware,test,GET,/payment-method,query,associations,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,804
+shopware,test,GET,/payment-method,query,total-count-mode,選填,string,5,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,805
+shopware,test,GET,/payment-method,query,query,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,806
+shopware,test,GET,/payment-method,query,post-filter[],選填,array,5,"[""${LIVE:post-filter[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,807
+shopware,test,GET,/payment-method,query,aggregations[],選填,array,5,"[""${LIVE:aggregations[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,808
+shopware,test,GET,/payment-method,query,fields[],選填,array,5,"[""${LIVE:fields[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,809
+shopware,test,GET,/payment-method,query,grouping[],選填,array,5,"[""${LIVE:grouping[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,810
+shopware,test,GET,/payment-method,query,includes,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,811
+shopware,test,GET,/payment-method,query,excludes,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,812
+shopware,test,GET,/payment-method,query,_criteria,選填,string,5,"""H4sIAAAAAAAAA6tWykpNzFGyqlbKz8lPTSxRslJKSi0pzSsFAGcQr7sHAAAA""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,813
+shopware,test,GET,/payment-method,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,814
+shopware,test,GET,/payment-method,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,815
+shopware,test,GET,/shipping-method,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,835
+shopware,test,GET,/shipping-method,query,orderId,選填,string,5,"""${LIVE:orderId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,836
+shopware,test,GET,/shipping-method,query,page,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,837
+shopware,test,GET,/shipping-method,query,limit,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,838
+shopware,test,GET,/shipping-method,query,term,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,839
+shopware,test,GET,/shipping-method,query,filter[],選填,array,5,"[""${LIVE:filter[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,840
+shopware,test,GET,/shipping-method,query,ids[],選填,array,5,"[""${LIVE:ids[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,841
+shopware,test,GET,/shipping-method,query,sort[],選填,array,5,"[""${LIVE:sort[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,842
+shopware,test,GET,/shipping-method,query,associations,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,843
+shopware,test,GET,/shipping-method,query,total-count-mode,選填,string,5,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,844
+shopware,test,GET,/shipping-method,query,query,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,845
+shopware,test,GET,/shipping-method,query,post-filter[],選填,array,5,"[""${LIVE:post-filter[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,846
+shopware,test,GET,/shipping-method,query,aggregations[],選填,array,5,"[""${LIVE:aggregations[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,847
+shopware,test,GET,/shipping-method,query,fields[],選填,array,5,"[""${LIVE:fields[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,848
+shopware,test,GET,/shipping-method,query,grouping[],選填,array,5,"[""${LIVE:grouping[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,849
+shopware,test,GET,/shipping-method,query,includes,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,850
+shopware,test,GET,/shipping-method,query,excludes,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,851
+shopware,test,GET,/shipping-method,query,_criteria,選填,string,5,"""H4sIAAAAAAAAA6tWykpNzFGyqlbKz8lPTSxRslJKSi0pzSsFAGcQr7sHAAAA""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,852
+shopware,test,GET,/shipping-method,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,853
+shopware,test,GET,/shipping-method,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,854
+shopware,train,PATCH,/checkout/cart/line-item,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,630
+shopware,train,PATCH,/checkout/cart/line-item,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,631
+shopware,train,PATCH,/checkout/cart/line-item,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,632
+shopware,train,PATCH,/checkout/cart/line-item,body,items,送出本文時必填,array,5,"[{""id"": ""MSDSS cotton"", ""quantity"": 1, ""type"": ""product"", ""referencedId"": ""${LIVE:items[].referencedId}"", ""label"": ""MSDSS cotton"", ""payload"": {}, ""stackable"": true, ""removable"": true, ""coverId"": ""${LIVE:items[].coverId}"", ""priceDefinition"": {""type"": ""MSDSS cotton"", ""price"": 1, ""percentage"": 1, ""quantity"": 1, ""isCalculated"": true, ""listPrice"": 1, ""taxRules"": [{""taxRate"": 1, ""percentage"": 1}]}}]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,642
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].id,每個品項必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,643
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].quantity,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,644
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].type,選填,依契約,5,"""product""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,645
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].referencedId,選填,string,5,"""${LIVE:items[].referencedId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,646
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].label,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,647
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].payload,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,648
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].stackable,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,649
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].removable,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,650
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].coverId,選填,string,5,"""${LIVE:items[].coverId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,651
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition,選填,object,5,"{""type"": ""MSDSS cotton"", ""price"": 1, ""percentage"": 1, ""quantity"": 1, ""isCalculated"": true, ""listPrice"": 1, ""taxRules"": [{""taxRate"": 1, ""percentage"": 1}]}",文件未展開物件；不編造其內部結構,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,652
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.type,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,653
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.price,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,654
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.percentage,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,655
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.quantity,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,656
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.isCalculated,選填,boolean,5,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,657
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.listPrice,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,658
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.taxRules,選填,array,5,"[{""taxRate"": 1, ""percentage"": 1}]",陣列成員待依實例／結構綁定,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,659
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.taxRules[].taxRate,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,660
+shopware,train,PATCH,/checkout/cart/line-item,body,items[].priceDefinition.taxRules[].percentage,選填,number,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,661
+shopware,train,PATCH,/context,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,682
+shopware,train,PATCH,/context,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,683
+shopware,train,PATCH,/context,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,684
+shopware,train,PATCH,/context,body,currencyId,選填,string,5,"""${LIVE:currencyId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,694
+shopware,train,PATCH,/context,body,languageId,選填,string,5,"""${LIVE:languageId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,695
+shopware,train,PATCH,/context,body,billingAddressId,選填,string,5,"""${LIVE:billingAddressId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,696
+shopware,train,PATCH,/context,body,shippingAddressId,選填,string,5,"""${LIVE:shippingAddressId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,697
+shopware,train,PATCH,/context,body,paymentMethodId,選填,string,5,"""${LIVE:paymentMethodId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,698
+shopware,train,PATCH,/context,body,shippingMethodId,選填,string,5,"""${LIVE:shippingMethodId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,699
+shopware,train,PATCH,/context,body,countryId,選填,string,5,"""${LIVE:countryId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,700
+shopware,train,PATCH,/context,body,countryStateId,選填,string,5,"""${LIVE:countryStateId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,701
+shopware,train,POST,/account/address,header,sw-access-key,依認證組合,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,37
+shopware,train,POST,/account/address,header,sw-context-token,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,38
+shopware,train,POST,/account/address,header,sw-language-id,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,39
+shopware,train,POST,/account/address,header,sw-context-source,選填,string,1,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,40
+shopware,train,POST,/account/address,body,countryId,必填,string,6,"""${LIVE:countryId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,50
+shopware,train,POST,/account/address,body,countryStateId,選填,string,6,"""${LIVE:countryStateId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,51
+shopware,train,POST,/account/address,body,salutationId,選填,string,6,"""${LIVE:salutationId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,52
+shopware,train,POST,/account/address,body,firstName,必填,string,6,"""Mei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,53
+shopware,train,POST,/account/address,body,lastName,必填,string,6,"""Chen""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,54
+shopware,train,POST,/account/address,body,zipcode,必填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,55
+shopware,train,POST,/account/address,body,city,必填,string,6,"""Taipei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,56
+shopware,train,POST,/account/address,body,accountType,選填,string,6,"""private""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,57
+shopware,train,POST,/account/address,body,company,選填,string,6,"""MSDSS Test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,58
+shopware,train,POST,/account/address,body,street,必填,string,6,"""1 Test Road""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,59
+shopware,train,POST,/account/address,body,department,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,60
+shopware,train,POST,/account/address,body,title,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,61
+shopware,train,POST,/account/address,body,phoneNumber,選填,string,6,"""0200000000""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,62
+shopware,train,POST,/account/address,body,additionalAddressLine1,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,63
+shopware,train,POST,/account/address,body,additionalAddressLine2,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,64
+shopware,train,POST,/account/address,body,customFields,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,65
+shopware,train,POST,/account/customer,header,sw-access-key,依認證組合,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,86
+shopware,train,POST,/account/customer,header,sw-context-token,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,87
+shopware,train,POST,/account/customer,header,sw-include-search-info,選填,string,6,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,88
+shopware,train,POST,/account/customer,header,sw-language-id,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,89
+shopware,train,POST,/account/customer,header,sw-context-source,選填,string,1,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,90
+shopware,train,POST,/account/customer,body,page,選填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,100
+shopware,train,POST,/account/customer,body,term,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,101
+shopware,train,POST,/account/customer,body,limit,選填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,102
+shopware,train,POST,/account/customer,body,filter,選填,array,6,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,103
+shopware,train,POST,/account/customer,body,ids,選填,array,6,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,104
+shopware,train,POST,/account/customer,body,query,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,105
+shopware,train,POST,/account/customer,body,associations,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,106
+shopware,train,POST,/account/customer,body,post-filter,選填,array,6,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,107
+shopware,train,POST,/account/customer,body,sort,選填,array,6,"[""${LIVE:sort[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,108
+shopware,train,POST,/account/customer,body,aggregations,選填,array,6,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,109
+shopware,train,POST,/account/customer,body,grouping,選填,array,6,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,110
+shopware,train,POST,/account/customer,body,total-count-mode,選填,string,6,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,111
+shopware,train,POST,/account/customer,body,includes,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,112
+shopware,train,POST,/account/customer,body,excludes,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,113
+shopware,train,POST,/account/list-address,header,sw-access-key,依認證組合,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,134
+shopware,train,POST,/account/list-address,header,sw-context-token,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,135
+shopware,train,POST,/account/list-address,header,sw-include-search-info,選填,string,6,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,136
+shopware,train,POST,/account/list-address,header,sw-language-id,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,137
+shopware,train,POST,/account/list-address,header,sw-context-source,選填,string,1,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,138
+shopware,train,POST,/account/list-address,body,page,選填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,148
+shopware,train,POST,/account/list-address,body,term,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,149
+shopware,train,POST,/account/list-address,body,limit,選填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,150
+shopware,train,POST,/account/list-address,body,filter,選填,array,6,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,151
+shopware,train,POST,/account/list-address,body,ids,選填,array,6,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,152
+shopware,train,POST,/account/list-address,body,query,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,153
+shopware,train,POST,/account/list-address,body,associations,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,154
+shopware,train,POST,/account/list-address,body,post-filter,選填,array,6,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,155
+shopware,train,POST,/account/list-address,body,sort,選填,array,6,"[""${LIVE:sort[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,156
+shopware,train,POST,/account/list-address,body,aggregations,選填,array,6,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,157
+shopware,train,POST,/account/list-address,body,fields,選填,array,6,"[""${LIVE:fields[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,158
+shopware,train,POST,/account/list-address,body,grouping,選填,array,6,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,159
+shopware,train,POST,/account/list-address,body,total-count-mode,選填,string,6,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,160
+shopware,train,POST,/account/list-address,body,includes,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,161
+shopware,train,POST,/account/list-address,body,excludes,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,162
+shopware,test,POST,/account/login,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,183
+shopware,test,POST,/account/login,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,184
+shopware,test,POST,/account/login,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,185
+shopware,test,POST,/account/login,body,email,分支成立時必填,string,5,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,195
+shopware,test,POST,/account/login,body,password,分支成立時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,196
+shopware,test,POST,/account/login,body,username,分支成立時必填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,197
+shopware,train,POST,/account/logout,header,sw-access-key,依認證組合,string,4,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,217
+shopware,train,POST,/account/logout,header,sw-context-token,依認證組合,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,218
+shopware,train,POST,/account/logout,header,sw-language-id,選填,string,4,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,219
+shopware,train,POST,/account/logout,header,sw-context-source,選填,string,1,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,220
+shopware,train,POST,/account/register,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,240
+shopware,train,POST,/account/register,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,241
+shopware,train,POST,/account/register,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,242
+shopware,train,POST,/account/register,body,email,必填,string,5,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,258
+shopware,train,POST,/account/register,body,billingAddress,帳單地址分支成立時必填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,259
+shopware,train,POST,/account/register,body,shippingAddress,配送地址分支成立時必填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,260
+shopware,train,POST,/account/register,body,firstName,配送地址分支成立時必填,string,5,"""Mei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,261
+shopware,train,POST,/account/register,body,lastName,配送地址分支成立時必填,string,5,"""Chen""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,262
+shopware,train,POST,/account/register,body,guest,訪客分支成立時必填,boolean,5,false,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,263
+shopware,train,POST,/account/register,body,password,分支成立時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,264
+shopware,train,POST,/account/register,body,accountType,選填,string,5,"""private""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,265
+shopware,train,POST,/account/register,body,company,選填,string,5,"""MSDSS Test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,266
+shopware,train,POST,/account/register,body,vatIds,選填,array,5,"[""${LIVE:vatIds[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,267
+shopware,test,POST,/checkout/cart/line-item,header,sw-access-key,依認證組合,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,319
+shopware,test,POST,/checkout/cart/line-item,header,sw-language-id,選填,string,3,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,320
+shopware,test,POST,/checkout/cart/line-item,header,sw-context-source,選填,string,3,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,321
+shopware,test,POST,/checkout/cart/line-item,body,items,必填,array,3,"[""${LIVE:items[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,331
+shopware,train,POST,/checkout/cart/line-item/delete,header,sw-access-key,依認證組合,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,287
+shopware,train,POST,/checkout/cart/line-item/delete,header,sw-language-id,選填,string,3,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,288
+shopware,train,POST,/checkout/cart/line-item/delete,header,sw-context-source,選填,string,3,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,289
+shopware,train,POST,/checkout/cart/line-item/delete,body,ids,必填,array,3,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,299
+shopware,train,POST,/checkout/order,header,sw-access-key,依認證組合,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,352
+shopware,train,POST,/checkout/order,header,sw-context-token,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,353
+shopware,train,POST,/checkout/order,header,sw-language-id,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,354
+shopware,train,POST,/checkout/order,header,sw-context-source,選填,string,1,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,355
+shopware,train,POST,/checkout/order,body,customerComment,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,365
+shopware,train,POST,/checkout/order,body,affiliateCode,選填,string,6,"""${LIVE:affiliateCode}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,366
+shopware,train,POST,/checkout/order,body,campaignCode,選填,string,6,"""${LIVE:campaignCode}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,367
+shopware,train,POST,/order,header,sw-access-key,依認證組合,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,722
+shopware,train,POST,/order,header,sw-context-token,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,723
+shopware,train,POST,/order,header,sw-include-search-info,選填,string,6,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,724
+shopware,train,POST,/order,header,sw-language-id,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,725
+shopware,train,POST,/order,header,sw-context-source,選填,string,1,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,726
+shopware,train,POST,/order,body,filter,選填,array,6,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,736
+shopware,train,POST,/order,body,email,選填,string,6,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,737
+shopware,train,POST,/order,body,zipcode,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,738
+shopware,train,POST,/order,body,login,選填,boolean,6,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,739
+shopware,train,POST,/order,body,checkPromotion,選填,boolean,6,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,740
+shopware,train,POST,/order,body,page,選填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,741
+shopware,train,POST,/order,body,term,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,742
+shopware,train,POST,/order,body,limit,選填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,743
+shopware,train,POST,/order,body,ids,選填,array,6,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,744
+shopware,train,POST,/order,body,query,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,745
+shopware,train,POST,/order,body,associations,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,746
+shopware,train,POST,/order,body,post-filter,選填,array,6,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,747
+shopware,train,POST,/order,body,sort,選填,array,6,"""ASC""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,748
+shopware,train,POST,/order,body,aggregations,選填,array,6,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,749
+shopware,train,POST,/order,body,grouping,選填,array,6,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,750
+shopware,train,POST,/order,body,total-count-mode,選填,string,6,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,751
+shopware,train,POST,/order,body,includes,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,752
+shopware,train,POST,/order,body,excludes,選填,object,6,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,753
+shopware,train,POST,/product,header,sw-access-key,依認證組合,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,509
+shopware,train,POST,/product,header,sw-include-search-info,選填,string,5,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,510
+shopware,train,POST,/product,header,sw-language-id,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,511
+shopware,train,POST,/product,header,sw-context-source,選填,string,5,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,512
+shopware,train,POST,/product,body,page,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,522
+shopware,train,POST,/product,body,term,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,523
+shopware,train,POST,/product,body,limit,選填,integer,5,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,524
+shopware,train,POST,/product,body,filter,選填,array,5,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,525
+shopware,train,POST,/product,body,ids,選填,array,5,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,526
+shopware,train,POST,/product,body,query,選填,string,5,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,527
+shopware,train,POST,/product,body,associations,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,528
+shopware,train,POST,/product,body,post-filter,選填,array,5,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,529
+shopware,train,POST,/product,body,sort,選填,array,5,"[""${LIVE:sort[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,530
+shopware,train,POST,/product,body,aggregations,選填,array,5,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,531
+shopware,train,POST,/product,body,fields,選填,array,5,"[""${LIVE:fields[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,532
+shopware,train,POST,/product,body,grouping,選填,array,5,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,533
+shopware,train,POST,/product,body,total-count-mode,選填,string,5,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,534
+shopware,train,POST,/product,body,includes,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,535
+shopware,train,POST,/product,body,excludes,選填,object,5,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,536
+shopware,train,POST,/product-listing/{categoryId},header,sw-access-key,依認證組合,string,9,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,389
+shopware,train,POST,/product-listing/{categoryId},path,categoryId,必填,string,9,"""${LIVE:categoryId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,390
+shopware,train,POST,/product-listing/{categoryId},query,p,選填,integer,9,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,391
+shopware,train,POST,/product-listing/{categoryId},header,sw-include-seo-urls,選填,boolean,9,"""true""",合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,392
+shopware,train,POST,/product-listing/{categoryId},header,sw-include-search-info,選填,string,9,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,393
+shopware,train,POST,/product-listing/{categoryId},header,sw-language-id,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,394
+shopware,train,POST,/product-listing/{categoryId},header,sw-context-source,選填,string,9,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,395
+shopware,train,POST,/product-listing/{categoryId},body,page,選填,integer,9,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,405
+shopware,train,POST,/product-listing/{categoryId},body,term,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,406
+shopware,train,POST,/product-listing/{categoryId},body,limit,選填,integer,9,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,407
+shopware,train,POST,/product-listing/{categoryId},body,filter,選填,array,9,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,408
+shopware,train,POST,/product-listing/{categoryId},body,ids,選填,array,9,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,409
+shopware,train,POST,/product-listing/{categoryId},body,query,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,410
+shopware,train,POST,/product-listing/{categoryId},body,associations,選填,object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,411
+shopware,train,POST,/product-listing/{categoryId},body,post-filter,選填,array,9,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,412
+shopware,train,POST,/product-listing/{categoryId},body,sort,選填,array,9,"[""${LIVE:sort[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,413
+shopware,train,POST,/product-listing/{categoryId},body,aggregations,選填,array,9,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,414
+shopware,train,POST,/product-listing/{categoryId},body,fields,選填,array,9,"[""${LIVE:fields[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,415
+shopware,train,POST,/product-listing/{categoryId},body,grouping,選填,array,9,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,416
+shopware,train,POST,/product-listing/{categoryId},body,total-count-mode,選填,string,9,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,417
+shopware,train,POST,/product-listing/{categoryId},body,includes,選填,object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,418
+shopware,train,POST,/product-listing/{categoryId},body,excludes,選填,object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,419
+shopware,train,POST,/product-listing/{categoryId},body,order,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,420
+shopware,train,POST,/product-listing/{categoryId},body,p,選填,integer,9,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,421
+shopware,train,POST,/product-listing/{categoryId},body,manufacturer,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,422
+shopware,train,POST,/product-listing/{categoryId},body,min-price,選填,integer,9,0,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,423
+shopware,train,POST,/product-listing/{categoryId},body,max-price,選填,integer,9,0,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,424
+shopware,train,POST,/product-listing/{categoryId},body,rating,選填,integer,9,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,425
+shopware,train,POST,/product-listing/{categoryId},body,shipping-free,選填,boolean,9,false,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,426
+shopware,train,POST,/product-listing/{categoryId},body,properties,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,427
+shopware,train,POST,/product-listing/{categoryId},body,manufacturer-filter,選填,boolean,9,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,428
+shopware,train,POST,/product-listing/{categoryId},body,price-filter,選填,boolean,9,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,429
+shopware,train,POST,/product-listing/{categoryId},body,rating-filter,選填,boolean,9,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,430
+shopware,train,POST,/product-listing/{categoryId},body,shipping-free-filter,選填,boolean,9,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,431
+shopware,train,POST,/product-listing/{categoryId},body,property-filter,選填,boolean,9,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,432
+shopware,train,POST,/product-listing/{categoryId},body,property-whitelist,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,433
+shopware,train,POST,/product-listing/{categoryId},body,reduce-aggregations,選填,object 或 object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,434
+shopware,train,POST,/product-listing/{categoryId},body,no-aggregations,選填,object 或 object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,435
+shopware,train,POST,/product-listing/{categoryId},body,only-aggregations,選填,object 或 object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,436
+shopware,train,POST,/product/{productId},header,sw-access-key,依認證組合,string,9,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,457
+shopware,train,POST,/product/{productId},path,productId,必填,string,9,"""${LIVE:productId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,458
+shopware,train,POST,/product/{productId},header,sw-include-seo-urls,選填,boolean,9,"""true""",合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,459
+shopware,train,POST,/product/{productId},header,sw-include-search-info,選填,string,9,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,460
+shopware,train,POST,/product/{productId},query,skipConfigurator,選填,boolean,9,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,461
+shopware,train,POST,/product/{productId},query,skipCmsPage,選填,boolean,9,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,462
+shopware,train,POST,/product/{productId},header,sw-language-id,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,463
+shopware,train,POST,/product/{productId},header,sw-context-source,選填,string,9,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,464
+shopware,train,POST,/product/{productId},body,slots,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,474
+shopware,train,POST,/product/{productId},body,page,選填,integer,9,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,475
+shopware,train,POST,/product/{productId},body,term,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,476
+shopware,train,POST,/product/{productId},body,limit,選填,integer,9,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,477
+shopware,train,POST,/product/{productId},body,filter,選填,array,9,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,478
+shopware,train,POST,/product/{productId},body,ids,選填,array,9,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,479
+shopware,train,POST,/product/{productId},body,query,選填,string,9,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,480
+shopware,train,POST,/product/{productId},body,associations,選填,object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,481
+shopware,train,POST,/product/{productId},body,post-filter,選填,array,9,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,482
+shopware,train,POST,/product/{productId},body,sort,選填,array,9,"[""${LIVE:sort[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,483
+shopware,train,POST,/product/{productId},body,aggregations,選填,array,9,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,484
+shopware,train,POST,/product/{productId},body,grouping,選填,array,9,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,485
+shopware,train,POST,/product/{productId},body,total-count-mode,選填,string,9,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,486
+shopware,train,POST,/product/{productId},body,includes,選填,object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,487
+shopware,train,POST,/product/{productId},body,excludes,選填,object,9,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,488
+shopware,train,POST,/search,header,sw-access-key,依認證組合,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,556
+shopware,train,POST,/search,query,p,選填,integer,7,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,557
+shopware,train,POST,/search,header,sw-include-seo-urls,選填,boolean,7,"""true""",合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,558
+shopware,train,POST,/search,header,sw-include-search-info,選填,string,7,"""0""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,559
+shopware,train,POST,/search,header,sw-language-id,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,560
+shopware,train,POST,/search,header,sw-context-source,選填,string,7,"""session""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,561
+shopware,train,POST,/search,body,search,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,571
+shopware,train,POST,/search,body,page,選填,integer,7,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,572
+shopware,train,POST,/search,body,term,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,573
+shopware,train,POST,/search,body,limit,選填,integer,7,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,574
+shopware,train,POST,/search,body,filter,選填,array,7,"[""${LIVE:filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,575
+shopware,train,POST,/search,body,ids,選填,array,7,"""${LIVE:ids}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,576
+shopware,train,POST,/search,body,query,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,577
+shopware,train,POST,/search,body,associations,選填,object,7,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,578
+shopware,train,POST,/search,body,post-filter,選填,array,7,"[""${LIVE:post-filter[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,579
+shopware,train,POST,/search,body,sort,選填,array,7,"[""${LIVE:sort[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,580
+shopware,train,POST,/search,body,aggregations,選填,array,7,"[""${LIVE:aggregations[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,581
+shopware,train,POST,/search,body,fields,選填,array,7,"[""${LIVE:fields[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,582
+shopware,train,POST,/search,body,grouping,選填,array,7,"[""${LIVE:grouping[]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,583
+shopware,train,POST,/search,body,total-count-mode,選填,string,7,"""none""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,584
+shopware,train,POST,/search,body,includes,選填,object,7,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,585
+shopware,train,POST,/search,body,excludes,選填,object,7,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,586
+shopware,train,POST,/search,body,order,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,587
+shopware,train,POST,/search,body,p,選填,integer,7,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,588
+shopware,train,POST,/search,body,manufacturer,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,589
+shopware,train,POST,/search,body,min-price,選填,integer,7,0,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,590
+shopware,train,POST,/search,body,max-price,選填,integer,7,0,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,591
+shopware,train,POST,/search,body,rating,選填,integer,7,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,592
+shopware,train,POST,/search,body,shipping-free,選填,boolean,7,false,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,593
+shopware,train,POST,/search,body,properties,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,594
+shopware,train,POST,/search,body,manufacturer-filter,選填,boolean,7,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,595
+shopware,train,POST,/search,body,price-filter,選填,boolean,7,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,596
+shopware,train,POST,/search,body,rating-filter,選填,boolean,7,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,597
+shopware,train,POST,/search,body,shipping-free-filter,選填,boolean,7,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,598
+shopware,train,POST,/search,body,property-filter,選填,boolean,7,true,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,599
+shopware,train,POST,/search,body,property-whitelist,選填,string,7,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,600
+shopware,train,POST,/search,body,reduce-aggregations,選填,object 或 object,7,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,601
+shopware,train,POST,/search,body,no-aggregations,選填,object 或 object,7,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,602
+shopware,train,POST,/search,body,only-aggregations,選填,object 或 object,7,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/shopware/API_parameters.md,603
+sylius,validation,DELETE,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},header,Authorization,採第 1 組認證時必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,559
+sylius,validation,DELETE,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},path,tokenValue,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,560
+sylius,validation,DELETE,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},path,orderItemId,必填,string,5,"""${LIVE:orderItemId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,561
+sylius,validation,DELETE,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},header,Accept-Language,選填,string,5,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,562
+sylius,validation,GET,/api/v2/shop/addresses,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,38
+sylius,validation,GET,/api/v2/shop/addresses,query,itemsPerPage,選填,integer,5,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,39
+sylius,validation,GET,/api/v2/shop/addresses,header,Accept-Language,選填,string,5,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,40
+sylius,validation,GET,/api/v2/shop/addresses/{id},path,id,必填,string,5,"""${LIVE:id}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,16
+sylius,validation,GET,/api/v2/shop/addresses/{id},header,Accept-Language,選填,string,5,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,17
+sylius,validation,GET,/api/v2/shop/orders,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,103
+sylius,validation,GET,/api/v2/shop/orders,query,itemsPerPage,選填,integer,5,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,104
+sylius,validation,GET,/api/v2/shop/orders,header,Accept-Language,選填,string,5,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,105
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue},path,tokenValue,必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,82
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue},header,Accept-Language,選填,string,3,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,83
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/items,path,tokenValue,必填,string,5,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,60
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/items,query,page,選填,integer,5,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,61
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/items,query,itemsPerPage,選填,integer,5,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,62
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/items,header,Accept-Language,選填,string,5,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,63
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,header,Authorization,採第 1 組認證時必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,700
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,path,tokenValue,必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,701
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,path,paymentId,必填,string,7,"""${LIVE:paymentId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,702
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,query,page,選填,integer,7,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,703
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,query,itemsPerPage,選填,integer,7,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,704
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods,header,Accept-Language,選填,string,7,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,705
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,header,Authorization,採第 1 組認證時必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,672
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,path,tokenValue,必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,673
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,path,shipmentId,必填,string,7,"""${LIVE:shipmentId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,674
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,query,page,選填,integer,7,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,675
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,query,itemsPerPage,選填,integer,7,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,676
+sylius,validation,GET,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods,header,Accept-Language,選填,string,7,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,677
+sylius,validation,GET,/api/v2/shop/payment-methods,header,Accept-Language,選填,string,3,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,125
+sylius,validation,GET,/api/v2/shop/products,query,page,選填,integer,6,1,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,166
+sylius,validation,GET,/api/v2/shop/products,query,itemsPerPage,選填,integer,6,30,文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,167
+sylius,validation,GET,/api/v2/shop/products,query,translations.name,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,168
+sylius,validation,GET,/api/v2/shop/products,query,productTaxons.taxon.code,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,169
+sylius,validation,GET,/api/v2/shop/products,query,productTaxons.taxon.code[],選填,array,6,"[""${LIVE:productTaxons.taxon.code[][]}""]",陣列成員待依實例／結構綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,170
+sylius,validation,GET,/api/v2/shop/products,query,order[code],選填,string,6,"""asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,171
+sylius,validation,GET,/api/v2/shop/products,query,order[createdAt],選填,string,6,"""asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,172
+sylius,validation,GET,/api/v2/shop/products,query,order[price],選填,string,6,"""asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,173
+sylius,validation,GET,/api/v2/shop/products,query,order[translation.name],選填,string,6,"""asc""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,174
+sylius,validation,GET,/api/v2/shop/products,query,localeCode for order[translation.name],選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,175
+sylius,validation,GET,/api/v2/shop/products,query,taxon,選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,176
+sylius,validation,GET,/api/v2/shop/products,query,association[typeCode],選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,177
+sylius,validation,GET,/api/v2/shop/products,query,association[ownerCode],選填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,178
+sylius,validation,GET,/api/v2/shop/products,query,imageFilter,選填,string,6,"""sylius_original""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,179
+sylius,validation,GET,/api/v2/shop/products,header,Accept-Language,選填,string,6,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,180
+sylius,validation,GET,/api/v2/shop/products/{code},path,code,必填,string,7,"""${LIVE:code}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,144
+sylius,validation,GET,/api/v2/shop/products/{code},query,imageFilter,選填,string,7,"""sylius_original""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,145
+sylius,validation,GET,/api/v2/shop/products/{code},header,Accept-Language,選填,string,7,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,146
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/complete,path,tokenValue,必填,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,199
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/complete,header,Accept-Language,選填,string,6,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,200
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/complete,body,notes,選填,"string,null",6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,210
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},header,Authorization,採第 1 組認證時必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,518
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},path,tokenValue,必填,string,7,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,519
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},path,orderItemId,必填,string,7,"""${LIVE:orderItemId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,520
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},header,Accept-Language,選填,string,7,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,521
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/items/{orderItemId},body,quantity,選填,integer,7,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,532
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/payments/{paymentId},header,Authorization,採第 1 組認證時必填,string,8,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,629
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/payments/{paymentId},path,tokenValue,必填,string,8,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,630
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/payments/{paymentId},path,paymentId,必填,string,8,"""${LIVE:paymentId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,631
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/payments/{paymentId},header,Accept-Language,選填,string,8,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,632
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/payments/{paymentId},body,paymentMethod,選填,string,8,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,643
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId},header,Authorization,採第 1 組認證時必填,string,8,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,586
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId},path,tokenValue,必填,string,8,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,587
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId},path,shipmentId,必填,string,8,"""${LIVE:shipmentId}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,588
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId},header,Accept-Language,選填,string,8,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,589
+sylius,validation,PATCH,/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId},body,shippingMethod,選填,string,8,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,600
+sylius,validation,POST,/api/v2/shop/addresses,header,Accept-Language,選填,string,6,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,232
+sylius,validation,POST,/api/v2/shop/addresses,body,firstName,必填,string,6,"""Mei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,257
+sylius,validation,POST,/api/v2/shop/addresses,body,lastName,必填,string,6,"""Chen""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,258
+sylius,validation,POST,/api/v2/shop/addresses,body,phoneNumber,選填,"string,null",6,"""0200000000""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,259
+sylius,validation,POST,/api/v2/shop/addresses,body,company,選填,"string,null",6,"""MSDSS Test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,260
+sylius,validation,POST,/api/v2/shop/addresses,body,countryCode,必填,string,6,"""${LIVE:countryCode}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,261
+sylius,validation,POST,/api/v2/shop/addresses,body,provinceCode,選填,"string,null",6,"""${LIVE:provinceCode}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,262
+sylius,validation,POST,/api/v2/shop/addresses,body,provinceName,選填,"string,null",6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,263
+sylius,validation,POST,/api/v2/shop/addresses,body,street,必填,string,6,"""1 Test Road""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,264
+sylius,validation,POST,/api/v2/shop/addresses,body,city,必填,string,6,"""Taipei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,265
+sylius,validation,POST,/api/v2/shop/addresses,body,postcode,必填,string,6,"""100""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,266
+sylius,validation,POST,/api/v2/shop/customers,header,Accept-Language,選填,string,6,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,318
+sylius,validation,POST,/api/v2/shop/customers,body,firstName,必填,string,6,"""Mei""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,338
+sylius,validation,POST,/api/v2/shop/customers,body,lastName,必填,string,6,"""Chen""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,339
+sylius,validation,POST,/api/v2/shop/customers,body,email,必填,string,6,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,340
+sylius,validation,POST,/api/v2/shop/customers,body,password,必填,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,341
+sylius,validation,POST,/api/v2/shop/customers,body,subscribedToNewsletter,選填,boolean,6,true,合成布林測試值,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,342
+sylius,validation,POST,/api/v2/shop/customers/token,body,email,選填,string,4,"""shop@example.com""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,296
+sylius,validation,POST,/api/v2/shop/customers/token,body,password,選填,string,4,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,297
+sylius,validation,POST,/api/v2/shop/orders,header,Authorization,採第 1 組認證時必填,string,3,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,414
+sylius,validation,POST,/api/v2/shop/orders,header,Accept-Language,選填,string,3,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,415
+sylius,validation,POST,/api/v2/shop/orders,body,（本文）,依來源契約,object,3,{},文件未展開物件；不編造其內部結構,結構待依實例補充,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,434
+sylius,validation,POST,/api/v2/shop/orders/{tokenValue}/items,path,tokenValue,必填,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,363
+sylius,validation,POST,/api/v2/shop/orders/{tokenValue}/items,header,Accept-Language,選填,string,6,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,364
+sylius,validation,POST,/api/v2/shop/orders/{tokenValue}/items,body,productVariant,必填,string,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,381
+sylius,validation,POST,/api/v2/shop/orders/{tokenValue}/items,body,quantity,必填,integer,6,1,合成數值；業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,382
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},header,Authorization,採第 1 組認證時必填,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,460
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},path,tokenValue,必填,string,6,"""[REDACTED]""",憑證遮蔽；執行前須由私有環境綁定,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,461
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},header,Accept-Language,選填,string,6,"""en_US""",文件列值（尚未實機驗證）,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,462
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},body,email,選填,string／null,6,"""customer@example.test""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,486
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},body,billingAddress,選填,依契約,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,487
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},body,billingAddress〈anyOf分支2〉,元素／分支格式,null,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,488
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},body,shippingAddress,選填,依契約,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,489
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},body,shippingAddress〈anyOf分支2〉,元素／分支格式,null,6,"""MSDSS cotton""",合成文字；格式／業務限制尚待確認,已填候選值；未實測,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,490
+sylius,validation,PUT,/api/v2/shop/orders/{tokenValue},body,couponCode,選填,string／null,6,"""${LIVE:couponCode}""",動態識別值待綁定，不是假造有效 ID,待綁定憑證／實例值,False,sentinel/analysis/selected-api-contracts/sylius/API_parameters.md,491

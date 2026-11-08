@@ -64,7 +64,8 @@ def preflight(platform, run):
         capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
     if result.returncode:
         raise RuntimeError('既有資源檢查未通過；沒有啟動服務或發送平台請求')
-    container = f'msdss-phase1-{platform}-app-1'
+    service = 'shopware' if platform == 'shopware' else 'app'
+    container = f'msdss-phase1-{platform}-{service}-1'
     result = subprocess.run(['docker', 'inspect', container], capture_output=True, text=True, timeout=20)
     if result.returncode:
         raise RuntimeError('本次獨立平台尚未啟動')
@@ -323,7 +324,8 @@ def main():
         'manifest_sha256': sha((ROOT / 'sentinel/analysis/api-extension/active-api-manifest.json').read_bytes()),
         'collector_sha256': sha(Path(__file__).read_bytes()), 'scenario_source_sha256': sha((HERE / 'scenarios.py').read_bytes()),
         'code_sha256': {p.name: sha(p.read_bytes()) for p in
-            [HERE / 'collect.py', HERE / 'core.py', HERE / 'scenarios.py', HERE / 'catalog_v2.py', LOCAL / 'http_evidence.py', LOCAL / ('run_' + platform + '.py')]},
+            [HERE / 'collect.py', HERE / 'core.py', HERE / 'scenarios.py', HERE / 'catalog_v2.py',
+             ROOT / 'sentinel/model/request_input.py', LOCAL / 'http_evidence.py', LOCAL / ('run_' + platform + '.py')]},
         'training_started': False, 'medusa_used': False}
     status_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False))

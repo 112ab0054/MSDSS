@@ -7,6 +7,22 @@ from http_evidence import EvidenceClient
 
 
 class EvidencePrivacyTests(unittest.TestCase):
+    def test_raw_query_and_json_credentials_redacted_without_normalizing_other_values(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'report.json'
+            c = EvidenceClient('unit-only', 'http://127.0.0.1:18081', output)
+            raw = ' { "productId":"1 OR 1=1", "isValid":true, "password" : "private-value" } '
+            c.rows.append({'path':'/products/123?q=A%2fb&token=private-value',
+                'request_target':'/api/shop/products/123?q=A%2fb&token=private-value',
+                'raw_query':'q=A%2fb&token=private-value','request_headers':{'Content-Type':'application/json'},
+                'request_body_raw':raw})
+            c.save('unit_fixture_not_platform_evidence')
+            saved = json.loads(output.read_text(encoding='utf-8'))['requests'][0]
+            self.assertNotIn('private-value', str(saved))
+            self.assertEqual(saved['raw_query'],'q=A%2fb&token=[REDACTED]')
+            self.assertEqual(saved['request_body_raw'],raw.replace('"private-value"','"[REDACTED]"'))
+            self.assertIn('/products/123',saved['request_target'])
+
     def test_mfa_enrollment_and_recovery_material_is_masked(self):
         c = EvidenceClient('medusa', 'http://127.0.0.1:18084', Path('unused.json'))
         data = {'secret': 'BASE32ENROLLMENTSECRET', 'otpauth_url': 'otpauth://totp/test?secret=BASE32ENROLLMENTSECRET',

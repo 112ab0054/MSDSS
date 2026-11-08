@@ -23,12 +23,12 @@ $env:GATEWAY_MODEL_DIR='C:\你的模型資料夾'
 python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 8080 --no-access-log
 ```
 
-GATEWAY_MODEL_DIR 不設或載入失敗時僅轉送。必須使用與 features.py VERSION=3 相容的模型，勿沿用先前版本。沒有附已正式訓練完成的模型。預設不保存請求本文與憑證；關閉 access log 避免 query 中敏感資訊進入一般日誌。
+GATEWAY_MODEL_DIR 不設或載入失敗時僅轉送。必須使用 features VERSION=4、request_input_version=3 的模型，勿沿用舊版。訓練與閘道共用 request_input.py，不替換普通 ID、email、Host 或追蹤 ID，只遮蔽憑證；使用觀測的 raw path/query/UTF-8 body。文件 header 順序由模型 metadata 載入。目前沒有正式模型，也沒有接入商城。關閉 access log 避免 query 中敏感資訊進一般日誌。
 
 ## 下一個 Codex 接續事項
 
 1. 啟動測試 Medusa，先測健康檢查、登入 Cookie、商品搜尋、購物車，確認原始本文、重複 query/header、Set-Cookie、gzip、重新導向正常轉送。
-2. 接入正式審核後的模型；核對閘道輸入與訓練前處理一致。現在沒有依 API 契約提取 path_parameters，實際 path 直接進特徵，須補齊與訓練端的路由正規化。
+2. 接入正式審核後的 v3 模型；使用共用原值處理與原始 path，不再將路由模板／正規化 path 送給模型。仍須完成 Medusa 真實端到端驗證。
 3. multipart、檔案、二進位本文目前只產生不支援格式標記；不能宣稱已檢測內容。補完整解析、大小／深度限制、串流、WebSocket/SSE。
 4. 模型放入獨立 worker，增加有界佇列、硬性逾時、過載時略過分析及指標。目前模型卡住仍可能拖慢請求，不是完整容錯閘道。
 5. 驗證 Host 改寫、公開 URL、CORS、Cookie domain/path、代理信任設定；目前不偽造 Forwarded/X-Forwarded-*。

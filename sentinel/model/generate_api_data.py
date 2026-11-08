@@ -87,11 +87,13 @@ def generate(reference):
     contracts = load_active_contracts()
     with reference.open(encoding="utf-8-sig", newline="") as f:
         originals = [json.loads(row["完整紀錄JSON"]) for row in csv.DictReader(f)]
+    from real_requests import refresh
+    originals = refresh(originals)  # Recover observed raw values; never mutate the historical reference.
     bases = {}
     for row in originals:
         request, meta = row["input"], row["metadata"]
         if row["annotation"].get("proposed_label") == "normal":
-            bases.setdefault((meta["platform"], request["method"], request["path"]), row)
+            bases.setdefault((meta["platform"], request["method"], meta.get('operation_path', request['path'])), row)
     documents = {platform: ROOT / f"sentinel/analysis/selected-api-contracts/{platform}/API_parameters.md"
                  for platform in {key[0] for key in contracts}}
     tables = {platform: documented_headers(path) for platform, path in documents.items()}
@@ -137,6 +139,7 @@ def generate(reference):
             # 沿用實際基底 session，所有變體不能拆開湊訓練／測試。
             session = (original or {}).get("metadata", {}).get("session_group", "planned:" + digest(key))
             meta = {"platform": platform, "origin": "generated_api_header_plan",
+                    'operation_path': path, 'request_input_version': 3,
                     "session_group": session, "pair_group": digest([key, sorted(headers)]),
                     "family_id": family, "template_id": template,
                     "scenario_kind": kind, "target_location": "header", "target_parameter": target,
@@ -193,7 +196,7 @@ def main():
         writer.writeheader()
         for row in rows:
             writer.writerow({"平台": row["metadata"]["platform"], "HTTP方法": row["input"]["method"],
-                "API路徑": row["input"]["path"], "目標header": row["metadata"]["target_parameter"],
+                "API路徑": row["metadata"]["operation_path"], "目標header": row["metadata"]["target_parameter"],
                 "候選類別": row["annotation"]["proposed_label"],
                 "情境": row["metadata"]["scenario_kind"],
                 "存在header": ", ".join(row["metadata"]["present_documented_headers"]),
@@ -205,7 +208,7 @@ def main():
         writer.writerow(["平台", "方法", "API", "header", "必填", "條件認證", "敏感", "可輸入值數",
                          "可選有無組合數", "有放候選數", "沒放候選數", "文件列出", "契約參數列出"])
         for detail in coverage:
-            operation_rows = [r for r in rows if (r["metadata"]["platform"], r["input"]["method"], r["input"]["path"])
+            operation_rows = [r for r in rows if (r["metadata"]["platform"], r["input"]["method"], r["metadata"]["operation_path"])
                               == (detail["platform"], detail["method"], detail["path"])]
             for name, spec in detail["headers"].items():
                 present = sum(name in r["input"]["headers"] for r in operation_rows)

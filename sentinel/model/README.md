@@ -1,91 +1,85 @@
-# XGBoost 基準模型
+# XGBoost：Colab 訓練與可搬移推論
 
-以 Bagisto、Shopware 訓練，Sylius 作最終測試；同一 session、正常對照配對與重複群不可跨集合。允許相同攻擊家族，這不是未知家族實驗。訓練側另外保留獨立 validation 做 early stopping，測試平台不參與選模型。
+程式使用明確的 train/test/validation 三份 CSV，不重新分割。**目前 small-api-v2 是未實機採集的候選，正式訓練會停止；這不是路徑錯誤，不可修改旗標繞過。** 沒有正式模型或真實效果分數。
 
-需要 Python 3.11–3.13，建議 3.12。以下指令在儲存庫根目錄執行，Windows 與 Linux 均適用：
+## 資料與評估規則
 
-```sh
-python -m venv .venv
-```
+- train/test：Bagisto＋Shopware；validation：僅 Sylius＋外部 payload。Medusa 不參與。
+- 預定小版本 252/84/84，各集合三類等量；程式不強迫固定筆數，會核對平台、三類、來源和集合隔離。
+- session、正常／攻擊配對、來源證據、家族及重複群不可跨集合。發現衝突直接停止，不重新洗牌。
+- 事前固定 CPU、150 棵樹、深度 3、learning_rate=0.05、seed=42。沒有以 test 或獨立 validation 做 early stopping 或選參數；如果以後要調參，只能在 train 內另做分組驗證。
+- 正式輸入須為審核工具輸出，包含審核人、理由、候選 SHA、v3 原文、真實 session、明確 HTTP 已執行旗標；核對實際證據 SHA、request ID、狀態和請求內容。
+- `--allow-candidates` 只供已送出但尚未核准資料／單元合成測試；**仍拒絕 http_executed=false 的計畫**。試跑套件帶 exploratory 標記，正式閘道拒絕載入。
 
-Windows 使用 `.venv\Scripts\python`，Linux 使用 `.venv/bin/python`；或啟用虛擬環境後，執行：
+## 在 Colab 操作
 
-```sh
-python -m pip install -r sentinel/model/requirements.txt
-python sentinel/model/train.py candidates.csv --test-platform sylius
-python sentinel/model/predict.py request.json
-```
+1. 開啟 [Colab_訓練.ipynb](Colab_訓練.ipynb)，上傳至 Colab。
+2. 第一個程式格上傳 [colab_upload.zip](colab_upload.zip)。這個目前隨附候選資料，只能檢查解壓、安裝與資料保護；尚不能獲得正式成績。
+3. 完成真實採集、人工審核與三集合分配後，重新打包已核准 CSV 和遮蔽證據，再執行訓練。不要改候選旗標冒充已採集。
+4. Notebook 分開顯示 test 與 validation 報告，可畫混淆矩陣、ROC、PR 圖，最後下載結果 ZIP。
 
-輸入支援候選 CSV（`完整紀錄JSON` 欄位）與正式審核工具匯出的 JSONL。正式訓練僅接受 metadata.training_approved 為 JSON true 的資料；人工審核後請將最終標籤寫入 annotation.label（未提供時使用 proposed_label）。不要為了跑程式而批次核准候選。
-
-目前 260 筆皆未審核，正式訓練會停止。只想檢查流程可使用 `--allow-candidates --output scratch-model`，結果不代表正式模型。即使試跑，缺少獨立三類資料時仍會停止，需補採獨立 session，不能強行拆列。
-
-預設輸出至程式旁的 artifacts，可用 --output 改位置。包含 model.json、metadata.json 與 report.json。報告有各類 precision/recall/F1、Macro-F1 與混淆矩陣（順序 normal、sqli、xss）。
-
-## 搬到 Linux 推論
-
-複製 `features.py`、`predict.py`、`requirements.txt` 與整個 `artifacts/` 資料夾到任意位置。在 Linux 重新建立虛擬環境並安裝依賴；不要複製 Windows 的 .venv。推論預設由 `__file__` 找模型，不依賴目前工作目錄，也不保存訓練 CSV 的絕對路徑。指定其他模型使用 `--model /path/to/artifacts`。
-
-request.json 範例：
-
-```json
-{"method":"GET","path":"/products","query":{"q":["shirt"]},"headers":{},"body":null}
-```
-
-輸出為 label 與三類機率；機率尚未校準。
-
-## 範圍與驗證
-
-這是精簡的數值特徵基準：method、Content-Type、一般 header 與 query/body 的長度、特殊字元、少量 SQL/XSS 詞法訊號，保留原文與一次 URL 解碼兩組特徵。沒有 TF-IDF、OpenAPI 契約或完整攻擊語意解析，不能當正式防護。平台、回應、session、路徑識別碼與認證 header 實值不進模型；JSON/form body 的常見憑證欄位排除，非 JSON/form 的原始字串 body 也保留字元訊號（不是完整內容解析器）。只支援解析後的 query dict、JSON/form body；送入不同格式前應擴充特徵並增加 VERSION、重新訓練。
+重新打包（在專案根目錄；output 必須是新檔名）：
 
 ```sh
-python -m unittest discover -s sentinel/model -p test_model.py
+python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v2 --output colab_upload_new.zip
 ```
 
-合成資料測試驗證分組、憑證欄位排除、訓練及模型搬移後推論，不代表真實偵測效果。Linux 可執行性已測；Windows 實機需另外驗證。
-
-## 評估證據
-
-詳細指標與正式驗收建議見 [EVALUATION.md](EVALUATION.md)。每次訓練會輸出 report.md、report.json、predictions.csv、split.csv，包含準確率、各類 Precision／Recall／F1、Macro-F1、混淆矩陣、誤報／漏報率、ROC-AUC、Average Precision、最多類別基準、群組區間狀態及可追溯紀錄。每次實驗請指定新的輸出目錄，避免覆蓋舊結果；若該目錄已存在，必須是空的。
-
-
-## API 文件導向的 header 候選
+正式審核資料須加入證據根目錄：
 
 ```sh
-python sentinel/model/generate_api_data.py --output header-plan-001
+python sentinel/model/prepare_colab.py --data-dir PATH_TO_APPROVED_SPLITS --evidence-root PATH_TO_EVIDENCE_ROOT --output colab_approved.zip
 ```
 
-預設路徑由程式位置解析，相容 Windows／Linux。讀取現行 active-api-manifest 與修正後契約，先驗來源 SHA；以歷史正常請求保留 method、path、query、body，針對所有文件 header 建立存在／省略計畫，對非憑證 header 加入 SQLi／XSS 候選。每筆附契約與人工參數文件 SHA、基底樣本 ID、模板與配對 ID。沒有自行添加 API 文件未宣告的自訂 header。
+每份 CSV 至少有 `完整紀錄JSON` 欄位，其值是完整審核輸出的 JSON；保留 audit、input、label、sample_id。證據根目錄下保留 source_evidence 的相對子目錄，例如 sentinel/dataset/evidence。只打包被引用的已遮蔽 reports/evidence，絕不打包 .runtime、密碼設定、三個平台或整份專案。
 
-現行結果見 [62 操作候選表](generated-header-plan-62/candidates.csv)、[逐 API-header 核對表](generated-header-plan-62/header-coverage.csv) 與 [覆蓋明細](generated-header-plan-62/coverage.json)。先前版本移至 history/，不再作為現行覆蓋清單。
+訓練套件包含 header-schema.json，直接保存三份人工 API 文件的 12 種 header 名稱和來源 SHA，Colab 不需連回原電腦或讀取 API 文件。更新 API 文件後應重新打包。
 
-正式採用 Bagisto 21、Shopware 20、Sylius 21，共 62 操作；Shopware GET /checkout/gateway 與 Sylius GET /api/v2/shop/products-by-slug/{slug} 已移除。62 操作均有歷史正常請求基底，涵蓋 194 組 API-header，405 種可選有／無組合。每個文件 enum／已知值逐一變化，其餘值固定，不作 enum 值的完整笛卡兒積。必填／條件認證各自省略也有候選，與攻擊意圖分開；實際認證 OR／AND 關係仍須遵循契約。
+## 本機執行相同程式
 
-共 2,944 個計畫：405 組可選有無、300 組文件值、47 組必填／認證缺失、2192 組攻擊意圖。候選 normal 共 752，SQLi 與 XSS 各 1096；這是計畫數，不是獨立訓練樣本數，相同 payload 換 API 不算新家族。
-
-缺少實際 header 值時以 `${LIVE:header-name}` 明列待綁定需求，不杜撰有效語言 ID／憑證。此次聚焦 header 變化，沒有重做全部 query/body 情境。
-
-所有候選均 http_executed=false、training_approved=false；沒有發送 HTTP、沒有新建有效 session、沒有宣稱正常對照有效或攻擊成功。即使 --allow-candidates 也會拒絕這些採集計畫。需由本機平台採集器先注入當次憑證、解析動態 ID、送出請求、保留證據，再人工審核。
-
-請求輸入已改為 v2：dataset/core.py 新採集保留所有擷取到的 header、全部 query/body 與 path_parameters，憑證遮蔽、追蹤 ID 正規化。舊白名單僅用於 v1 歷史對帳，不是新訓練的選欄規則。HTTP 客戶端新增最終送出層 header 觀測，包含 Cookie、User-Agent、Host、Content-Length 等自動標頭；保存時仍遮蔽敏感值。舊採集器也取消任意 30 筆正常流程上限，保留所有已驗證正常操作。
-
-特徵版本為 3，共 140 維，處理完整 query、body、path 與一般 header 的字元／詞法訊號；不是只取 query 或 firstName。純文字與畸形 JSON 不再被默默丟棄。憑證只保留結構，Host／URL authority 不進詞法特徵；不支援同名重複 header、完整 multipart/二進位本文或檔案內容解析，不能宣稱完整 WAF 能力。字元特徵不是原文逐字學習，也不保證所有不同請求都有不同向量。舊模型不可沿用。
-
-相同 template_id 會跨平台綁定，避免這批少量固定模板同時進入訓練與測試。正式採集須先配置不同集合的獨立模板與 session，不能直接將此規劃表拿來隨機切分。
-
-
-## 以真實請求為訓練來源
+Python 3.11–3.13，建議 3.12。Windows 和 Ubuntu 均使用獨立環境安裝 requirements.txt。以下指令在程式所在資料夾執行：
 
 ```sh
-python sentinel/model/real_requests.py sentinel/dataset/reference/normal-candidates.csv --output refreshed-requests
+python -m pip install -r requirements.txt
+python train.py --data-dir PATH_TO_APPROVED_SPLITS --evidence-root PATH_TO_EVIDENCE_ROOT --output NEW_RUN_DIRECTORY
 ```
 
-工具逐筆核對 HTTP 證據、原 SHA、request ID、輸入與回應狀態後，重新輸出完整請求候選與 parameter-coverage.csv；不發送新請求、不自動核准。Windows CRLF／Linux LF 差異只在重建換行後完整 SHA 等於原紀錄時接受，記錄重建方式與目前位元組 SHA，不更改預期 SHA。
+可用 `--trees 150` 明確宣告樹數，必須在看保留資料成績前決定。CLI 路徑來自參數；模型預設位置由 predict.py 本身定位，沒有 C 槽、/content 或原 repository 的固定依賴。輸出拒絕覆蓋非空實驗目錄。
 
-本次結果在 [完整參數覆蓋表](real-request-reference-v2/parameter-coverage.csv) 與 [完整請求候選](real-request-reference-v2/candidates.csv)。195 筆為同一批歷史正常請求重新匯出，不是新增樣本；並非使用者上傳 260 筆的完整替代。歷史 HTTP 客戶端未保存自動 header 的部分不能憑空補回，新採集才會完整觀測。
+## 輸出數據
 
-覆蓋表分 header/query/path/body，列出文件規則、存在／省略筆數、不同觀測值數，連文件沒有列但實際出現的欄位也保留。存在不等於已測完 enum、邊界或業務效果。例如 Bagisto /products 的 order/page/type 仍缺實測，per_page 也未具完整值域覆蓋；不得宣稱已具有泛化能力。
+根目錄有 summary.md、experiment.json、split.csv、inference.zip。test/ 與 validation/ 各有：
 
-正式訓練須使用完整請求 v2 的人工審核結果；可直接將 export_reviewed.py 匯出的 JSONL 傳給 train.py。改前處理後審核不得自動沿用。新舊訓練統一由 features.py 重算特徵，不使用匯出檔附帶的舊 numeric_features。
+- report.md／report.json：整體、逐類與逐平台成績。
+- metrics.csv：Accuracy、Balanced accuracy、Macro Precision／Recall／F1、Weighted／Micro-F1、MCC、Kappa、Log loss、Brier、正常誤報率、攻擊偵測召回率及漏報率。
+- per-class.csv：各類 Precision、Recall、F1、樣本數、Specificity、FPR、FNR。
+- confusion_matrix.csv：實際筆數；confusion_matrix_normalized.csv：逐列比例，列為真實、欄為預測。
+- curves.csv：逐類 one-vs-rest ROC／PR 曲線座標和門檻；逐類 ROC-AUC、Average Precision 在 report.json。
+- predictions.csv：樣本 ID、群組、真實／預測類別和三類機率，不輸出完整請求。
+- 永遠猜訓練多數類的比較基準、特徵相同的跨集合數、群組隔離、資料／程式 SHA、版本、訓練時間、median/p95 單筆推論延遲。
+- 95% 群組 bootstrap 區間；少於 20 個獨立群組不報，不能把 140 組配對當成 140 次獨立購物流程。
 
-既有 collect.py 的攻擊執行流程仍主要限搜尋／地址姓名，不能用它宣稱全部參數攻擊情境已採集。本次修正輸入、完整流程保存與覆蓋查核；缺少的真實參數變化仍需在已啟動的三平台上重新採集。目前雲端沒有這三平台的容器、.runtime 設定或 PowerShell 7，尚未進行新的三平台採集，沒有訓練新版正式模型。
+Colab 圖表格在有 Matplotlib 時另存 PNG；沒有繪圖套件仍能輸出全部 CSV/JSON。機率未校準；AP 不等於梯形積分 PR-AUC。高分只描述指定資料，不能宣稱平台存在漏洞或模型保證防禦成功。
+
+## 搬到 Windows／Ubuntu 推論
+
+解壓 inference.zip，整個資料夾一起搬。裡面有 model.json、metadata.json、predict.py、features.py、request_input.py、requirements-inference.txt、bundle-manifest.json、自我檢查樣本及說明。不使用 pickle/joblib，也不依賴 API 文件或訓練資料。
+
+在解壓目錄執行：
+
+```sh
+python -m pip install -r requirements-inference.txt
+python predict.py --self-test
+python predict.py request.json
+```
+
+從其他資料夾也可指定 predict.py 的完整路徑；未指定 --model 時會尋找程式旁的模型。若呼叫主專案的 predict.py，需用 --model 指向整個推論套件，且當前程式必須與套件內版本一致。
+
+載入時核對套件 SHA、程式實際載入內容、輸入／特徵／類別版本、Header 順序及模型維度。自我檢查以三類代表請求比對訓練環境機率（容許浮點誤差 1e-6）。requirements-inference.txt 依真正訓練版本產生，Windows／Ubuntu 使用 CPU，不需要原 Colab GPU。
+
+**跨系統相容性必須在各系統執行 self-test 才算驗證。** 本機測試結果另見 PORTABILITY_CHECK.md，不把目錄名稱模擬或上游格式保證當成 Ubuntu／Colab 的實測。
+
+## 原始輸入與歷史紀錄
+
+request_input_version=3 保留一般 ID、Email、大小寫、空白和編碼，只遮蔽密碼、Token、Cookie、Key 等憑證；不做字串正規化。特徵 VERSION=4，278 維統計基準，全部輸入位置參與；這不是原文字元語意模型。SENSITIVE 欄位不使用值或真實長度。
+
+舊 195 筆正常證據、small-api-v1/v2 不覆寫、不自動核准；歷史未記錄的 raw bytes 不補造。先前 260 筆與 Sylius 分數來源不明，不作研究證據。舊命令的 --test-platform 與單檔自動分割流程已移除。

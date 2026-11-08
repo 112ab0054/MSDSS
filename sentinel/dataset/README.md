@@ -1,8 +1,22 @@
 # XGBoost 資料集試產
 
+## 最新：小規模 v2，比例與參數補全
+
+[small-api-v2](small-api-v2/README.md) 為目前候選版本：train/test/validation=252/84/84，共 420 筆（60/20/20），各集合三類等量。train/test 使用 Bagisto＋Shopware，validation 僅 Sylius 結合 httpParamsDataset，Medusa 排除。比例是小規模配置，不是研究有效性的充分條件；平台隔離、同來源分組與避免洩漏仍須維持。
+
+三份文件的 620 位置保持覆蓋。原 43 個物件依語義補結構，部分其實是旗標或整個合法空本文；正常識別值改用已對帳的歷史證據，train/test 使用不同歷史流程來源。82 個憑證位置安全遮蔽不是遺漏；仍有 6 個條件商品種子、1 個自訂欄位定義、2 個選填關聯 null 的實機接受方式待確認。無 `${LIVE:...}` 佔位不代表實例現在可用，所有候選未核准訓練。見 [完成與待辦紀錄](small-api-v2/完成紀錄.md)。下方 v1 紀錄保留對照。
+
+## 2026-11-09：小規模三集合候選
+
+目前新版本見 [small-api-v1](small-api-v1/README.md)：train 165、test 38（Bagisto＋Shopware）、validation 118（Sylius＋固定版本 httpParamsDataset），共 321 筆候選，完全排除 Medusa。CSV 各自包含 Header、Query、Path、Body，並有逐欄覆蓋表。三份文件共 620 個參數位置皆出現在候選中；397 個已填合成／文件列值、180 個仍待憑證／實例值綁定、43 個物件結構待補。不能把欄位存在當成業務有效或實測成功。
+
+舊讀表器曾把 Body 的 `query` 欄位誤認為 URL Query，已改為依表頭分辨，三份 API 文件原文不變。Docker 引擎檢查未連線成功，因此此次沒有平台 HTTP 證據，沒有正式訓練；本版本全部 `training_approved=false`。既有 CSV／JSONL 不覆寫，新候選來源、分割、未解問題見該目錄 README 與 provenance.json。
+
 ## 完整請求輸入更新
 
-新採集使用 request_input_version=2，保留全部觀測 header、query、body、path 參數；敏感值遮蔽，追蹤 ID 正規化。舊 v1 白名單只用來還原歷史證據。正常流程不再限制最多 30 筆。HTTP 客戶端在送出層擷取自動加入的 header；歷史檔案未保存的值不能補造。
+2026-11-09 使用者確認：主專案改為 Documents/GitHub/MSDSS，只修改必要程式，不搬入 Downloads 的執行環境／資料。新採集使用 request_input_version=3，保留原始 ID、email、path、大小寫、空白、編碼及所有觀測 header；只遮蔽憑證。raw_query／raw_body 與解析欄位分開保存；舊 v1/v2 只用於歷史證據對帳。歷史未擷取的原文不能補造。header 依三份 API 文件共 12 種不同名稱各自建立特徵，但不是 header-only 研究。
+
+既有 CSV／JSONL、舊情境數與 v2 匯出目錄保持原狀；新候選另存 small-api-v1，不重新核准舊資料。先前 260 筆與 Sylius 評估來源不明，不作目前統計或有效評估。新格式、278 維特徵及重採要求見模型 README。下方 65 種輸入與舊正規化敘述是當時版本結果，不代表 v3。
 
 完整參數覆蓋及舊資料重新匯出見 [模型說明](../model/README.md)。下方試產筆數與選定搜尋／地址欄位的敘述為原試產設計，不代表目前已覆蓋所有 API 參數。擴大輸入欄位不等於補齊訓練資料或完成泛化驗證。
 
