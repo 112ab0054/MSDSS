@@ -45,6 +45,32 @@ class CompletedDatasetTests(unittest.TestCase):
             self.assertFalse(families[a] & families[b])
         self.assertEqual(len(set.union(*operations.values())), 62)
 
+    def test_natural_identity_and_control_references(self):
+        """姓名／信箱不再使用固定測試字樣，且原始本文與對照 ID 同步更新。"""
+        import re
+        def inspect(value):
+            if isinstance(value, dict):
+                for key, child in value.items():
+                    field = key.lower().replace('_', '')
+                    if field == 'firstname': self.assertNotEqual(child, 'MSDSS')
+                    if field == 'lastname': self.assertNotEqual(child, 'Test')
+                    if field in {'email', 'username'} and isinstance(child, str):
+                        self.assertFalse(re.fullmatch(r'(phase1-[0-9a-f]+|customer)@example\.test', child, re.I))
+                    inspect(child)
+            elif isinstance(value, list):
+                for child in value: inspect(child)
+        for rows in self.sets.values():
+            by_id = {r['sample_id']: r for r in rows}
+            for row in rows:
+                inspect(row['input']['body'])
+                inspect(row['input']['query'])
+                if row['input']['raw_body']:
+                    self.assertEqual(json.loads(row['input']['raw_body']), row['input']['body'])
+                control = row['metadata'].get('control_sample_id')
+                if control:
+                    self.assertIn(control, by_id)
+                    self.assertEqual(row['metadata']['pair_group'], by_id[control]['metadata']['pair_group'])
+
     def test_schemas_replace_empty_objects_and_pseudo_body_field(self):
         baselines = [r for rows in self.sets.values() for r in rows if r['metadata']['variant'] == 'document_baseline']
         for row in baselines:

@@ -1,10 +1,10 @@
 {
   "checked_at": "2026-11-09T02:55:14.540022+08:00",
   "tests": {
-    "dataset": 30,
+    "dataset": 31,
     "model": 18,
     "privacy": 8,
-    "total_passed": 56
+    "total_passed": 57
   },
   "reproducibility": {
     "different_python_hash_seed": 153,
@@ -26,12 +26,13 @@
   },
   "csv_sha256": {
     "external-payloads.csv": "2ce05c74c9f3b0579d71b552a49f69b85ff2a8b840771ae22d94500b250172f0",
-    "field-coverage.csv": "2dc791f762e7a519eb99ce062935a28c2468cf8cc81b8781d9d210af81616879",
-    "test.csv": "18c159537561668f6ee4d823588fc231d0a0d726673cfe95c5151d5f249d4b7b",
-    "train.csv": "6c9481cac08267f75a1dd9d152a043c21b25da2aeca61908d4613fd41c0764ca",
-    "validation.csv": "587a46f25dc5aab5f2b856221cb938371ee2d30a296f9804c4a2e37ac2305c1f"
+    "field-coverage.csv": "48650502eaef192da0f2382bae7aed7c4f4d51ea20344e478084d29450b20393",
+    "test.csv": "6689547e4c0886b6de187bc2170de53e660fd84c686b9383054724ad62febf49",
+    "train.csv": "c9be468e43a17973631f6446c759f54350afae162e5d9e0bf1bc5db7718bdfa3",
+    "validation.csv": "921427ed67e85213ec672647456189edfaba8b7d6dc8325a3b7b5256d80b4f33"
   },
   "source_reconciliation": "source-reconciliation.json",
   "source_snapshot_rebuilt_against_current_documents": true,
-  "http_execution_scope": "This file describes the unchanged 420 planned rows; separate live attempts are in ../live-small-api-v2/."
+  "http_execution_scope": "This file describes the unchanged 420 planned rows; separate live attempts are in ../live-small-api-v2/.",
+  "identity_revision": "identity-revision.json"
 }

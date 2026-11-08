@@ -1,6 +1,6 @@
 {
   "source_reconciliation_completed": true,
-  "original_420_csv_modified": false,
+  "original_420_csv_modified": true,
   "formal_training_started": false,
   "baseline_flows": {
     "bagisto": "sentinel/local-platforms/reports/bagisto-91b4ce087a474bf6b625d14d71c3dde8.json",
@@ -123,5 +123,7 @@
       "not_verified": []
     }
   },
-  "source_document_hash_policy": "LF-normalized API-document bytes; request inputs unchanged"
+  "source_document_hash_policy": "LF-normalized API-document bytes; request inputs unchanged",
+  "candidate_identity_revision": "synthetic_people_v1_requires_new_http_capture",
+  "note_after_identity_revision": "Live evidence remains an unchanged historical result for pre-rename inputs; new candidate IDs retain previous_sample_id only for lineage, not proof of execution."
 }

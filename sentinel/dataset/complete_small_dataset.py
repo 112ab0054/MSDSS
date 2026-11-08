@@ -294,6 +294,8 @@ def export(output):
     resolver = Completion()
     notes = complete(rows, operations, resolver)
     rows = rebalance(rows, operations, external, catalog)
+    from identities import apply_identities
+    rows = apply_identities(rows)
     fields = []
     for key, operation in sorted(operations.items()):
         samples = [r for r in rows if (r['metadata']['platform'], r['input']['method'], r['metadata']['operation_path']) == key]
@@ -306,6 +308,9 @@ def export(output):
             if not values:
                 raise ValueError(f'平衡取樣遺漏文件欄位 {key} {location}/{name}')
             note = notes.get((key, location, name), '互斥 header 的獨立候選')
+            if name.split('.')[-1].lower().replace('_', '') in {'firstname', 'lastname', 'email', 'username'}:
+                note = '自然人名樣式的合成資料，信箱使用保留網域；非歷史身份實值，待實機確認'
+
             example = values[0]
             status = ('憑證安全遮蔽' if SENSITIVE.search(name) else '整個空本文是合法結構' if name == '（本文）'
                       else '條件商品種子待建立；結構已填' if '商品型別' in note
@@ -342,6 +347,7 @@ def export(output):
         'live_binding_markers_remaining': sum('${LIVE:' in json.dumps(r['input']) for r in rows),
         'http_executed': 0, 'training_approved': 0, 'medusa_included': False,
         'parameter_document_sha256': hashes, 'historical_evidence_sha256': resolver.evidence,
+        'identity_revision': {'policy': 'synthetic_people_v1', 'reserved_email_domains': True, 'new_http_requests': 0},
         'historical_session_sources': {f'{s}/{p}': source for (s, p), source in resolver.session_sources.items()},
         'external_source': provenance}
     (output / 'provenance.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -352,6 +358,7 @@ def export(output):
         'Medusa 不納入。來源及切分欄位只在 metadata，不作模型輸入。\n\n'
         '物件已依三份文件、原始 schema 與既有正常 HTTP 證據補形狀／值。憑證仍遮蔽，正常 ID 是歷史證據原值，'
         '不能推定目前仍有效。複合商品的結構範例不代表屬性／組合／預約種子已建立。全部候選未新送出、未核准訓練。\n\n'
+        '姓名與 email 使用穩定合成人物及保留網域，並非歷史身份實值；攻擊 payload 保留。\n\n'
         '欄位細節見 field-coverage.csv，待辦與規格差異另見完成紀錄.md；舊 small-api-v1 保留供對照。\n\n'
         '```json\n' + json.dumps(summary, ensure_ascii=False, indent=2) + '\n```\n', encoding='utf-8')
     return summary

@@ -71,5 +71,10 @@
       "cmdi",
       "path-traversal"
     ]
+  },
+  "identity_revision": {
+    "policy": "synthetic_people_v1",
+    "reserved_email_domains": true,
+    "new_http_requests": 0
   }
 }

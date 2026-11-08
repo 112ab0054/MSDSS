@@ -82,6 +82,11 @@ train/test 只用 Bagisto＋Shopware，操作及本地攻擊家族不跨集合�
       "cmdi",
       "path-traversal"
     ]
+  },
+  "identity_revision": {
+    "policy": "synthetic_people_v1",
+    "reserved_email_domains": true,
+    "new_http_requests": 0
   }
 }
 ```
@@ -89,3 +94,7 @@ train/test 只用 Bagisto＋Shopware，操作及本地攻擊家族不跨集合�
 ## 來源對帳更新
 
 以目前文件重新執行完整產生器；三份資料、欄位表、外部 payload 與授權均與既有內容一致（CSV 僅換行差異），未改資料、標籤或分割。此次來源紀錄改指向可重現的新建置，舊紀錄保存在 history/source-reconciliation-before；原 Bagisto 文件未找回，不能聲稱原始文字差異已查明。詳見 source-reconciliation.json。資料仍未實機採集、未核准。
+
+## 合成人物資料更新
+
+姓名改為 Emily Chen、Daniel Lin 等自然人名樣式；email 使用人名加保留網域。同一歷史流程維持一致人物；攻擊 payload、類別與集合不變，原始本文／query、樣本 ID 與對照引用同步重建。這些身份值是合成資料，不是歷史實測身份，舊 HTTP 證據不能證明改名後請求已送出。更動摘要見 identity-revision.json；來源對帳紀錄描述的是本次改名前的版本。
