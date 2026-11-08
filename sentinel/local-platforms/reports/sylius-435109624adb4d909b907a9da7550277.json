@@ -1,0 +1,4408 @@
+{
+  "platform": "sylius",
+  "recorded_at": "2026-11-08T20:00:35.802849+00:00",
+  "outcome": "passed",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "run_sylius.py": "7823e68a48db26b27b349d1dd16ec7f5894c8baf1c1cc819d509233a72bf59b1"
+  },
+  "requests": [
+    {
+      "request_id": "6783c461-1c6c-4ed0-9ce0-21d650b8010f",
+      "method": "GET",
+      "path": "/api/v2/shop/products?itemsPerPage=30",
+      "operation_path": "/api/v2/shop/products",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "6783c461-1c6c-4ed0-9ce0-21d650b8010f",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/products?itemsPerPage=30",
+      "raw_query": "itemsPerPage=30",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Product",
+        "@id": "/api/v2/shop/products",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 87,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/73",
+              "/api/v2/shop/product-taxons/74"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+            "averageRating": 4,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap/images/97",
+                "@type": "ProductImage",
+                "id": 97,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7f/42/d48a32cf1f3a57723e90d8cfef54.webp"
+              }
+            ],
+            "id": 37,
+            "code": "Adventurous_Aurora_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-02 17:29:36",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Est eligendi enim facilis saepe. Vitae aut id dolorem.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/4"
+              }
+            ],
+            "name": "Adventurous Aurora Cap",
+            "description": "Dolores impedit quasi dolorem eaque in et vel. Quod quidem est quisquam voluptatem autem provident omnis.\n\nAmet reprehenderit voluptatem quis officiis quos dolores. Tenetur quis facilis quia nihil nihil. Assumenda quaerat non dolores qui. Esse quos eum asperiores quis.\n\nNesciunt magni accusamus quod magni. Eos unde et voluptatum incidunt qui officia necessitatibus. Ut vel rem fugiat. Molestiae sit occaecati eos aliquid accusamus dolores.",
+            "slug": "adventurous-aurora-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 744,
+              "originalPrice": 744,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Apollo_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/29",
+              "/api/v2/shop/product-taxons/30"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Apollo_T_Shirt/images/46",
+                "@type": "ProductImage",
+                "id": 46,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/dd/1b/e4f8d0dc9ba42654a1afebcab4ac.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Apollo_T_Shirt/images/47",
+                "@type": "ProductImage",
+                "id": 47,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c6/9b/03c64c4693b1c6472dc6b8d7a0dc.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Apollo_T_Shirt/images/48",
+                "@type": "ProductImage",
+                "id": 48,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/d5/82/17768e9d6c4836844e3e0ce20b85.webp"
+              }
+            ],
+            "id": 15,
+            "code": "Apollo_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-05 21:14:11",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Natus harum id similique sit sit quod laudantium. Porro eos quo minima nobis commodi commodi aut. Nihil nulla atque quos et voluptatem velit eos saepe.",
+            "reviews": [],
+            "name": "Apollo T-Shirt",
+            "description": "Ea placeat saepe necessitatibus omnis. Dignissimos nulla consequatur voluptates provident quod minus. Accusamus sit dolorem vel sed eveniet rerum vel dolorum.\n\nFacilis voluptatem voluptatem qui et totam vitae. Et et eligendi sit rerum laborum et eius aspernatur. Ut enim dolorem explicabo sunt molestiae. Quasi nihil maiores quia ducimus commodi aspernatur.\n\nConsequatur repellendus fuga ipsum et. Voluptates iure quo doloribus vitae aut voluptatem. Cumque nemo ullam delectus dolor doloremque facere.",
+            "slug": "apollo-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Apollo_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 7964,
+              "originalPrice": 7964,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/43",
+              "/api/v2/shop/product-taxons/44"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt/images/67",
+                "@type": "ProductImage",
+                "id": 67,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c7/46/2af572d9e051a7d23cbc27f7a599.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt/images/68",
+                "@type": "ProductImage",
+                "id": 68,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/40/1d/7191ede808e7df3041384ebb608c.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Aurora_Surge_T_Shirt/images/69",
+                "@type": "ProductImage",
+                "id": 69,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/43/30/e2cd9d455fcf80907354c4619680.webp"
+              }
+            ],
+            "id": 22,
+            "code": "Aurora_Surge_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 07:16:21",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Sed qui voluptas ipsa architecto atque enim rerum. Illum qui alias et fugit cum perspiciatis. Et quam excepturi minus dolorum dolores. Sint natus harum porro beatae id voluptas tempora.",
+            "reviews": [],
+            "name": "Aurora Surge T-Shirt",
+            "description": "Ex natus quia nisi delectus et et impedit. Consequatur unde dolorem facere est est. Reiciendis sit laborum praesentium beatae sequi dolor blanditiis. Fugiat consectetur reprehenderit alias sunt sit sed velit.\n\nUt iusto quis commodi magni tempora. Dolor sed voluptatem veritatis sequi qui eos est dolorem. Dolorem ipsum error voluptas provident. Cumque eveniet omnis laboriosam debitis. Eligendi numquam iste rem ducimus.\n\nRerum quas est eius a omnis voluptas possimus. Aliquid quidem dignissimos aut esse nesciunt aliquid. Repudiandae eos maiores numquam voluptas sit. Commodi facilis dolor quia aut similique quia.",
+            "slug": "aurora-surge-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Aurora_Surge_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 6158,
+              "originalPrice": 6158,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Azure_Dream_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/100",
+              "/api/v2/shop/product-taxons/101"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Azure_Dream_Jeans/images/121",
+                "@type": "ProductImage",
+                "id": 121,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/be/69/2c118a7ea9af43958e6d34c9612f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Azure_Dream_Jeans/images/122",
+                "@type": "ProductImage",
+                "id": 122,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/68/75/f53e7673a45c6a59608cf0ee236e.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Azure_Dream_Jeans/images/123",
+                "@type": "ProductImage",
+                "id": 123,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/42/c8/cbfdfe7d2bfe29c448a8fe65b02c.webp"
+              }
+            ],
+            "id": 59,
+            "code": "Azure_Dream_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 02:08:48",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Eaque quod nihil necessitatibus autem. Vero ut qui sapiente libero. Ut aut ut dignissimos ad et vero. Sit a minima doloribus hic molestias doloremque quasi.",
+            "reviews": [],
+            "name": "Azure Dream Jeans",
+            "description": "Ut dignissimos quo reprehenderit suscipit veritatis qui molestias. Vero maiores excepturi qui repellendus. Mollitia nihil commodi commodi officia dolorem vel.\n\nNon quia possimus unde dolore nam. Architecto sed autem dolores dolorem. Voluptas dolorem adipisci qui molestiae asperiores beatae.\n\nVoluptatum nihil temporibus non. Et maxime qui sint ex voluptatem. Est beatae expedita nesciunt ex. Sunt voluptatum rerum illo laborum exercitationem.",
+            "slug": "azure-dream-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Azure_Dream_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 5226,
+              "originalPrice": 5226,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Beach_Bonfire_Beauty",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/90"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Beach_Bonfire_Beauty/images/110",
+                "@type": "ProductImage",
+                "id": 110,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/0c/12/2bcfcfbb81d12fdb2ca8f303d36f.webp"
+              }
+            ],
+            "id": 50,
+            "code": "Beach_Bonfire_Beauty",
+            "variants": [
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-0",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-1",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-2",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-3",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-4",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-5",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-6",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-7",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-8",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-9",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-10",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-11",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-12",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-13",
+              "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 22:24:50",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Eius maiores quo est vel quam. Eius praesentium molestiae occaecati qui est. Iusto voluptas autem aliquid officia impedit. Rerum dolor a sunt id.",
+            "reviews": [],
+            "name": "Beach Bonfire Beauty",
+            "description": "Iure laborum dolores voluptas consequuntur voluptatum in est. Temporibus quia enim rerum sed. Minima dolores in voluptas maxime molestias ut.\n\nExcepturi non sunt culpa quaerat temporibus. Dolorem mollitia labore ipsum ullam tenetur sunt. Labore nihil consequatur ut velit eaque expedita. Minus quos sint quasi voluptas ullam.\n\nOdio voluptate nobis impedit. Eum qui et porro praesentium delectus ut. Reprehenderit quisquam molestiae eligendi occaecati eaque maxime quia. Nesciunt dicta voluptas maxime voluptatem repellat est.",
+            "slug": "beach-bonfire-beauty",
+            "defaultVariant": "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Beach_Bonfire_Beauty-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 4376,
+              "originalPrice": 4376,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/134",
+              "/api/v2/shop/product-taxons/135"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans/images/172",
+                "@type": "ProductImage",
+                "id": 172,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/bc/13/365c0036a5ee3147721cf034d4fd.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans/images/173",
+                "@type": "ProductImage",
+                "id": 173,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/d8/fc/0b675b7ce22736f2cbffdea7d468.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Beachside_Bliss_Jeans/images/174",
+                "@type": "ProductImage",
+                "id": 174,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/6b/fb/33a76c90740a2456246e5f6b26c8.webp"
+              }
+            ],
+            "id": 76,
+            "code": "Beachside_Bliss_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 03:11:31",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Ut deleniti et aut velit. Est quia qui quo dolorum. Voluptatem ea dolorem iure illo deserunt iure laudantium.",
+            "reviews": [],
+            "name": "Beachside Bliss Jeans",
+            "description": "Ut et aut incidunt. Sint recusandae et in molestiae repellendus.\n\nSequi qui quo dolorem quia. Aliquam officiis soluta et ut commodi architecto necessitatibus. Magni porro dolorem et quo est possimus. Sed quos est nostrum omnis libero in. Nesciunt est iure tempore aut quidem ut.\n\nNon saepe sint maxime tempora mollitia et. Ducimus eaque illum est corporis eos voluptatem vel iure. Nostrum rerum recusandae expedita voluptatibus provident.",
+            "slug": "beachside-bliss-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Beachside_Bliss_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 6560,
+              "originalPrice": 6560,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Beachside_Twilight_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/154",
+              "/api/v2/shop/product-taxons/155"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Beachside_Twilight_Jeans/images/202",
+                "@type": "ProductImage",
+                "id": 202,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7c/1f/f9477074a55b3dfb2e506c397720.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Beachside_Twilight_Jeans/images/203",
+                "@type": "ProductImage",
+                "id": 203,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/d6/1a/1fc0420528756decf3a077812cdd.webp"
+              }
+            ],
+            "id": 86,
+            "code": "Beachside_Twilight_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-02 12:03:40",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Qui laborum eveniet perspiciatis modi vitae soluta. Quas nisi est illo sunt numquam. Ut mollitia qui ipsam quia minus doloribus. Nihil at at debitis dolores aut labore voluptas.",
+            "reviews": [],
+            "name": "Beachside Twilight Jeans",
+            "description": "Veritatis est veritatis praesentium rerum. Aut totam alias voluptas velit perspiciatis reprehenderit nam rerum. Exercitationem nisi dolor molestiae aut.\n\nPlaceat repellendus qui consequatur veritatis id. Qui debitis officiis quia error quae quidem. Sint dolores est architecto est enim.\n\nHarum autem sed laboriosam omnis debitis dolorem quia. Porro qui aperiam explicabo consequatur consequatur. Sit rem voluptatem ut officiis aut rerum.",
+            "slug": "beachside-twilight-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Beachside_Twilight_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 2993,
+              "originalPrice": 2993,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Blissful_Breeze_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/49",
+              "/api/v2/shop/product-taxons/50"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Blissful_Breeze_Cap/images/74",
+                "@type": "ProductImage",
+                "id": 74,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/ff/d3/455b3bacfd7a1e1d3ab159abf641.webp"
+              }
+            ],
+            "id": 25,
+            "code": "Blissful_Breeze_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Blissful_Breeze_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-05 06:57:25",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Nihil dicta id rerum nihil velit dolorem. Incidunt excepturi libero ut excepturi quas ut autem.",
+            "reviews": [],
+            "name": "Blissful Breeze Cap",
+            "description": "Illo aut tenetur officia. Vel debitis a aut aut. Est officia sed quia dicta dolorum. Suscipit praesentium aliquam rerum.\n\nEt quos rerum eius debitis sint sit qui. Facilis culpa possimus eveniet non veritatis. Rerum molestiae rerum aliquam illum corrupti repellendus. Nihil iste est doloremque.\n\nNisi ipsum mollitia adipisci voluptatem dolorem voluptate quis. Doloremque est quis tenetur odio reprehenderit. Animi dolore velit sint quos.",
+            "slug": "blissful-breeze-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Blissful_Breeze_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Blissful_Breeze_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 9550,
+              "originalPrice": 9550,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Boho_Beach_Breeze",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/82"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Boho_Beach_Breeze/images/102",
+                "@type": "ProductImage",
+                "id": 102,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/c8/0d/1bbb5fdf2db90a09f22946cc984a.webp"
+              }
+            ],
+            "id": 42,
+            "code": "Boho_Beach_Breeze",
+            "variants": [
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-0",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-1",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-2",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-3",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-4",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-5",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-6",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-7",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-8",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-9",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-10",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-11",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-12",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-13",
+              "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-02 04:38:26",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Corrupti est unde quam consequatur qui. Ipsam velit et eos saepe iure perferendis. Odio sunt fugit animi cum eligendi explicabo pariatur.",
+            "reviews": [],
+            "name": "Boho Beach Breeze",
+            "description": "Fugit ea unde dolore consequatur voluptatem. Culpa molestiae et magnam blanditiis minus voluptatem quod. Illum voluptatum repellat dolorem ea. Esse esse nihil reiciendis voluptatem.\n\nEius odio pariatur molestiae. Eaque non minus in velit ducimus. Reprehenderit aut enim quasi qui quia explicabo. Sed cum odit vitae quo.\n\nLaboriosam voluptatem totam qui maiores error eos. Molestiae vel iste eaque libero sit. Et temporibus est molestiae voluptatem et qui. Autem corrupti sunt a et est voluptas doloremque.",
+            "slug": "boho-beach-breeze",
+            "defaultVariant": "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Boho_Beach_Breeze-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 4545,
+              "originalPrice": 4545,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Bold_Beach_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/69",
+              "/api/v2/shop/product-taxons/70"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Bold_Beach_Cap/images/94",
+                "@type": "ProductImage",
+                "id": 94,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/dd/e7/b059110e9466f9023731dda88188.webp"
+              }
+            ],
+            "id": 35,
+            "code": "Bold_Beach_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Bold_Beach_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-04 15:10:36",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Explicabo cupiditate et deserunt tempora soluta provident. Nam repellendus debitis quis.",
+            "reviews": [],
+            "name": "Bold Beach Cap",
+            "description": "Occaecati dolor fugit nemo iusto eum provident eius. Molestiae magni fuga recusandae libero.\n\nIn dolore officiis voluptas ea ducimus perspiciatis vitae. Officiis libero rerum dicta facilis.\n\nDucimus numquam aut modi. Ut omnis architecto omnis debitis accusamus et quo. Aut nihil est repellendus nam. Harum et adipisci id accusantium quae.",
+            "slug": "bold-beach-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Bold_Beach_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Bold_Beach_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 1250,
+              "originalPrice": 1250,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Casual_Coastal_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/67",
+              "/api/v2/shop/product-taxons/68"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Casual_Coastal_Cap/images/93",
+                "@type": "ProductImage",
+                "id": 93,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/e7/18/c2b17b0c6af2eafa07b3a7fa1ff5.webp"
+              }
+            ],
+            "id": 34,
+            "code": "Casual_Coastal_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Casual_Coastal_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-01 20:33:59",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Eveniet magni accusamus aperiam officia est nostrum. Labore eum quis neque. Facilis ipsum nam numquam deserunt omnis. Quasi dolorem nulla ea id voluptate id blanditiis.",
+            "reviews": [],
+            "name": "Casual Coastal Cap",
+            "description": "Qui nostrum doloremque veniam sint. Sit quos in eos ut. Et earum rerum similique. Dicta nulla et inventore est.\n\nInventore nam aut rerum ipsam et impedit. Omnis quasi consequatur sed quas porro cum qui.\n\nFacilis nihil voluptatem voluptates voluptatem possimus est aut. Officia deserunt dolores nobis eveniet nam similique. Qui et officiis aliquam expedita dolor. Iste quia sed labore dolorum sit quis amet.",
+            "slug": "casual-coastal-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Casual_Coastal_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Casual_Coastal_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 5869,
+              "originalPrice": 5869,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/5",
+              "/api/v2/shop/product-taxons/6"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/7",
+                "@type": "ProductImage",
+                "id": 7,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/03/c4/f6219998312cb8e835fe7880c290.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/8",
+                "@type": "ProductImage",
+                "id": 8,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/e5/99/428a0777127099a8ba6505339139.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/9",
+                "@type": "ProductImage",
+                "id": 9,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/31/b8/f39a8be7baa068b394df820f03cd.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Celestial_Harmony_T_Shirt/images/10",
+                "@type": "ProductImage",
+                "id": 10,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/3c/ee/46b5cbd9d3a44861be87d38c5311.webp"
+              }
+            ],
+            "id": 3,
+            "code": "Celestial_Harmony_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-05 15:20:38",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Consequatur qui sed numquam sunt. Non dicta ad facere ut. Blanditiis tenetur at maxime qui dignissimos repudiandae. Consequatur labore rem et ipsum.",
+            "reviews": [],
+            "name": "Celestial Harmony T-Shirt",
+            "description": "Consectetur iusto harum eaque qui quia molestiae. Autem aut id itaque. Repellendus rerum blanditiis reiciendis magni et.\n\nEt voluptatibus illo voluptas et minus voluptas sed expedita. Enim sit accusantium perferendis ea molestias reprehenderit molestiae omnis. Sit quia quas libero vel id aut qui.\n\nExpedita non ut doloribus tenetur iusto reiciendis aut molestiae. Non culpa qui eius consequatur natus expedita ea. Ut dolores reiciendis perspiciatis dolor odit. Ea nam commodi eos. Eveniet qui porro rerum debitis eum.",
+            "slug": "celestial-harmony-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Celestial_Harmony_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 2823,
+              "originalPrice": 2823,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Classic_Coastal_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/57",
+              "/api/v2/shop/product-taxons/58"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Classic_Coastal_Cap/images/80",
+                "@type": "ProductImage",
+                "id": 80,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/39/cb/dc2147fc9d3bea5af14fb7abb869.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Classic_Coastal_Cap/images/81",
+                "@type": "ProductImage",
+                "id": 81,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/47/3f/5b3fa92223bcbdd84eec2e58493f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Classic_Coastal_Cap/images/82",
+                "@type": "ProductImage",
+                "id": 82,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/fd/d9/03be002410169ebda32fe5db9115.webp"
+              }
+            ],
+            "id": 29,
+            "code": "Classic_Coastal_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Classic_Coastal_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-05 16:30:47",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Sit aspernatur accusamus sit. Explicabo iste assumenda molestiae quis. Doloremque libero repellendus iure deleniti in.",
+            "reviews": [],
+            "name": "Classic Coastal Cap",
+            "description": "Nostrum provident quae ut dolores voluptate cumque possimus. Quo qui in cupiditate aut dolor quisquam ea. Voluptatem exercitationem exercitationem enim.\n\nVoluptatem eos explicabo sed ut voluptate non nesciunt et. Corrupti autem ullam et esse. Repellat et aspernatur aliquam voluptate. Corrupti consequatur dolores praesentium a excepturi dicta.\n\nSimilique earum ut est dolorum. Maxime doloremque autem qui eum dolores. Aut voluptate quam aut ut soluta.",
+            "slug": "classic-coastal-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Classic_Coastal_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Classic_Coastal_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 9728,
+              "originalPrice": 9728,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Classic_Summer_Elegance",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/87"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Classic_Summer_Elegance/images/107",
+                "@type": "ProductImage",
+                "id": 107,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7c/b6/f0b09f4edf4b96336db0564dd083.webp"
+              }
+            ],
+            "id": 47,
+            "code": "Classic_Summer_Elegance",
+            "variants": [
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-0",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-1",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-2",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-3",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-4",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-5",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-6",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-7",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-8",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-9",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-10",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-11",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-12",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-13",
+              "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 11:26:34",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Consequatur a esse facere ducimus sint harum accusantium est. Sunt est est mollitia vero repellat assumenda libero. Quo voluptate corporis sit exercitationem sit. Provident autem sint amet pariatur et libero. Quibusdam quas debitis suscipit omnis esse quisquam qui iusto.",
+            "reviews": [],
+            "name": "Classic Summer Elegance",
+            "description": "Fugit officia vero quo tempora accusamus aut. Corporis deserunt iusto minima ea sunt voluptatum. Nisi vero nobis dolorem numquam magnam. Ut sunt neque quis occaecati voluptas.\n\nSit voluptatibus dignissimos quia earum omnis. Maxime esse placeat facere laborum id ut totam.\n\nAut dolore aut sit quia omnis molestias. Velit suscipit doloribus nisi at adipisci laborum. Odit ducimus dolore tempore vel occaecati repudiandae deleniti ut. Quia dolores consequatur rerum quo enim.",
+            "slug": "classic-summer-elegance",
+            "defaultVariant": "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Classic_Summer_Elegance-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 1852,
+              "originalPrice": 1852,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/106",
+              "/api/v2/shop/product-taxons/107"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans/images/130",
+                "@type": "ProductImage",
+                "id": 130,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/4e/50/a9db567d8b1afff299eab51d35c7.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans/images/131",
+                "@type": "ProductImage",
+                "id": 131,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/98/d9/8e07127471274cee92981cd79aab.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Coastal_Bliss_Jeans/images/132",
+                "@type": "ProductImage",
+                "id": 132,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/9d/ce/b681c8762e7e36e6471f7fd65493.webp"
+              }
+            ],
+            "id": 62,
+            "code": "Coastal_Bliss_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-03 04:07:58",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Doloremque non et tempore neque. Aliquid eos eligendi officia maxime placeat itaque hic. Assumenda pariatur rerum quis ea neque.",
+            "reviews": [],
+            "name": "Coastal Bliss Jeans",
+            "description": "Et et dicta velit et. Veniam architecto repellendus aut voluptate delectus in earum. Dignissimos similique autem ipsum fugiat eligendi. Ut vero inventore maxime eveniet.\n\nUt fugiat et ut at. Consequatur optio ut qui sunt culpa. A perferendis voluptatem voluptatem dolorum quis dignissimos ut aliquam. Quas voluptas nihil repudiandae doloribus tempora. Odio ab reiciendis et sit consequatur.\n\nEarum excepturi odit aut rerum quasi dolores odio quod. Quas est est doloremque. Voluptatum ut mollitia iusto earum iusto. Fugit architecto at sit itaque.",
+            "slug": "coastal-bliss-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Coastal_Bliss_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 5825,
+              "originalPrice": 5825,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/27",
+              "/api/v2/shop/product-taxons/28"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt/images/43",
+                "@type": "ProductImage",
+                "id": 43,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/b9/11/cce601c8f5fa0fe33508a6ce817b.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt/images/44",
+                "@type": "ProductImage",
+                "id": 44,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/67/4d/37393c0a5d0ea512f264e8b2b785.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Comet_Pulse_T_Shirt/images/45",
+                "@type": "ProductImage",
+                "id": 45,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/fd/c0/601aa427c2e7ace1d1439b33a512.webp"
+              }
+            ],
+            "id": 14,
+            "code": "Comet_Pulse_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-05 12:38:38",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Aut labore at odit laborum. Et minus qui optio dolorum dolor sed. Corrupti laboriosam est expedita. Vero commodi ad doloribus.",
+            "reviews": [],
+            "name": "Comet Pulse T-Shirt",
+            "description": "Vero et tenetur aliquid id dolor. Consequatur blanditiis suscipit neque molestiae. Corrupti atque reiciendis ducimus assumenda nemo id.\n\nEst voluptas quia quae illum totam labore sint quo. Eum soluta vel sit cumque vel fugiat. Harum ducimus est sunt soluta dicta. Sit qui doloremque tenetur ducimus perferendis dicta illum. Similique velit eaque ipsam consequuntur placeat fugiat.\n\nNulla laborum magni in quibusdam illum. Molestias autem omnis facere fugit hic velit reprehenderit. Voluptatum vel quidem et architecto qui atque. Recusandae possimus fugit voluptatem iusto et soluta.",
+            "slug": "comet-pulse-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Comet_Pulse_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 4956,
+              "originalPrice": 4956,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Cool_Breeze_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/138",
+              "/api/v2/shop/product-taxons/139"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_jeans",
+            "averageRating": 2,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Cool_Breeze_Jeans/images/178",
+                "@type": "ProductImage",
+                "id": 178,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/de/30/0eb175ea99b190f8c623582f3792.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cool_Breeze_Jeans/images/179",
+                "@type": "ProductImage",
+                "id": 179,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/84/3b/d3775cbae017b49ef71b9478f21f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cool_Breeze_Jeans/images/180",
+                "@type": "ProductImage",
+                "id": 180,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/44/d9/4a5ae34e6a988790db1593cfd1fa.webp"
+              }
+            ],
+            "id": 78,
+            "code": "Cool_Breeze_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 13:05:31",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Quis qui voluptas aperiam error. Similique aut est in repellendus itaque. Autem reprehenderit esse voluptatum et. Praesentium molestias dolores temporibus at facilis.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/25"
+              }
+            ],
+            "name": "Cool Breeze Jeans",
+            "description": "Et aut nihil asperiores sed mollitia eius. Beatae molestias aut voluptatem aut ipsam. Distinctio harum tenetur omnis autem.\n\nOfficiis impedit facilis est consequatur esse. Voluptatibus veritatis quia et aut ratione in. Dolore quia id facere quas nesciunt laudantium omnis voluptas.\n\nDolores aut nihil atque in voluptatem omnis est dolorem. Non voluptates tenetur similique pariatur similique animi. Nisi aliquam earum recusandae adipisci accusantium. Vel qui est rem ratione.",
+            "slug": "cool-breeze-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Cool_Breeze_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 4368,
+              "originalPrice": 4368,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Coral_Reef_Chic",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/97"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Coral_Reef_Chic/images/117",
+                "@type": "ProductImage",
+                "id": 117,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/85/f8/ca9f29b543f453a30a3455fabab5.webp"
+              }
+            ],
+            "id": 57,
+            "code": "Coral_Reef_Chic",
+            "variants": [
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-0",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-1",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-2",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-3",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-4",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-5",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-6",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-7",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-8",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-9",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-10",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-11",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-12",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-13",
+              "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 23:42:59",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "At ipsum fugit omnis nisi animi. Et minima non expedita dolore et modi voluptates. Qui voluptatem corrupti id vitae fuga sed expedita. Nostrum eaque earum molestias libero.",
+            "reviews": [],
+            "name": "Coral Reef Chic",
+            "description": "Facilis hic repellendus molestiae fugit nobis eum. Ullam illo vel iste quae necessitatibus libero. Rerum sint et suscipit nam.\n\nCorrupti accusamus aliquid reprehenderit a distinctio. Molestiae dolor doloribus alias consequatur voluptatibus. Unde repudiandae dolores eos qui modi cumque. Quia quia dicta sit fugit nihil non.\n\nLabore reprehenderit voluptatem culpa facere fuga. Ut voluptas corrupti amet soluta. Voluptatem odit qui ut itaque possimus ut beatae.",
+            "slug": "coral-reef-chic",
+            "defaultVariant": "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Coral_Reef_Chic-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 6556,
+              "originalPrice": 6556,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/35",
+              "/api/v2/shop/product-taxons/36"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 5,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt/images/55",
+                "@type": "ProductImage",
+                "id": 55,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/fa/3c/636d0e115d460a6e96f9662b008f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt/images/56",
+                "@type": "ProductImage",
+                "id": 56,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/73/7f/206c0a4d02612693871c7a290fdf.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Cosmic_Drift_T_Shirt/images/57",
+                "@type": "ProductImage",
+                "id": 57,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/86/7d/05c7562635f3d741282604fc9297.webp"
+              }
+            ],
+            "id": 18,
+            "code": "Cosmic_Drift_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 21:29:49",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Voluptatem incidunt est officia aut. Ipsum sed voluptatem porro at labore. Et consequatur delectus id vel. Nobis alias fuga dolor et magni qui reprehenderit id.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/22"
+              }
+            ],
+            "name": "Cosmic Drift T-Shirt",
+            "description": "Porro ut voluptatem tempora quo. Magni omnis rerum eos ut. Magnam velit qui doloribus nihil architecto. Quidem a est et aliquam id ex magnam. Est quasi cum dolorem.\n\nIure eum dolorum odio debitis iste aut. Voluptas unde est distinctio ad rerum illo nisi. In animi aliquid consectetur distinctio provident.\n\nIure vel dolores sed et. Dolor sit quo error dolores illo in inventore. Dignissimos aut reprehenderit tenetur atque.",
+            "slug": "cosmic-drift-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Cosmic_Drift_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 2541,
+              "originalPrice": 2541,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Denim_Daydream",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/86"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 2,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Denim_Daydream/images/106",
+                "@type": "ProductImage",
+                "id": 106,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/8c/61/897219da2ddcfbfa9329e649848c.webp"
+              }
+            ],
+            "id": 46,
+            "code": "Denim_Daydream",
+            "variants": [
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-0",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-1",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-2",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-3",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-4",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-5",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-6",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-7",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-8",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-9",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-10",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-11",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-12",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-13",
+              "/api/v2/shop/product-variants/Denim_Daydream-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-02 03:13:54",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Sunt excepturi qui quae a consequatur maxime rerum. Vel voluptatem perferendis accusantium perferendis qui culpa aut. Sapiente velit molestiae ab libero. Nobis et quo beatae eum non.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/13"
+              }
+            ],
+            "name": "Denim Daydream",
+            "description": "Distinctio excepturi corrupti consequatur magni voluptatem quia velit debitis. Repellendus voluptas asperiores aliquid reprehenderit adipisci asperiores cumque. Sed ratione dolores minima. Officiis voluptatem iste quia quos error natus dolorem.\n\nQuis enim laboriosam consectetur ut voluptate est. Ut nobis nemo et doloremque similique consequuntur deleniti. Dolores ut aut quos eius eaque et officiis consequatur.\n\nTemporibus temporibus sequi doloribus voluptatem eaque veniam inventore. Enim quas molestiae minima et ut. Quia optio voluptates et voluptatem molestiae et quis. Impedit numquam ut aut repudiandae error.",
+            "slug": "denim-daydream",
+            "defaultVariant": "/api/v2/shop/product-variants/Denim_Daydream-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Denim_Daydream-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 7839,
+              "originalPrice": 7839,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/59",
+              "/api/v2/shop/product-taxons/60"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap/images/83",
+                "@type": "ProductImage",
+                "id": 83,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/39/a3/3636d642137ec228ce0497f0cfa9.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap/images/84",
+                "@type": "ProductImage",
+                "id": 84,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/eb/1b/f3dc9b6e0cd4fcb20acb91d80d62.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Dynamic_Dawn_Cap/images/85",
+                "@type": "ProductImage",
+                "id": 85,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/aa/a1/8fa8c967d32e36c3616f48e3db3c.webp"
+              }
+            ],
+            "id": 30,
+            "code": "Dynamic_Dawn_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Dynamic_Dawn_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-03 17:44:50",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Repudiandae cupiditate accusantium eius qui non. Dignissimos voluptatum veritatis modi ut quis quaerat. Eum quia sit officiis nam vero. Quasi autem rerum est magnam qui quasi et.",
+            "reviews": [],
+            "name": "Dynamic Dawn Cap",
+            "description": "Aliquid culpa beatae dolor unde atque rerum. Deleniti explicabo repellendus occaecati officiis. Vitae sed sunt est voluptate nam quam qui quibusdam.\n\nIste autem ea porro perspiciatis consequatur. Culpa excepturi non consequatur rem. Autem sint tenetur aut.\n\nRepellendus esse dolorem maiores neque. Nulla consectetur sunt dolor unde. Eius itaque nobis doloribus et.",
+            "slug": "dynamic-dawn-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Dynamic_Dawn_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Dynamic_Dawn_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 5402,
+              "originalPrice": 5402,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Elegant_Escape_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/55",
+              "/api/v2/shop/product-taxons/56"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Elegant_Escape_Cap/images/77",
+                "@type": "ProductImage",
+                "id": 77,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/a3/3e/08ff1dcf1ffb35aab5dc5cfe3cf6.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Elegant_Escape_Cap/images/78",
+                "@type": "ProductImage",
+                "id": 78,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/e6/f8/0cdc45b161c28b315725112bf857.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Elegant_Escape_Cap/images/79",
+                "@type": "ProductImage",
+                "id": 79,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/79/57/8a5a4ea1c81e2b58340d8e6df004.webp"
+              }
+            ],
+            "id": 28,
+            "code": "Elegant_Escape_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Elegant_Escape_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-05 10:01:07",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Et est aut ut vero libero. Nulla atque est consectetur quisquam corrupti. Sunt dolore ipsum omnis sit nihil eos.",
+            "reviews": [],
+            "name": "Elegant Escape Cap",
+            "description": "Non voluptate ducimus et ut at aut consectetur consequatur. Rerum vero deleniti illum praesentium cum. Facere deserunt nihil repudiandae est. Omnis voluptas et pariatur doloremque qui nostrum et.\n\nSoluta error quidem nesciunt ut sint dolorem. Est eum doloremque quidem esse eum. Est aut debitis fugit et. Cumque doloribus tempora suscipit ut.\n\nIncidunt porro perferendis ipsam aut dolore qui. Sequi nemo veniam dolorum laborum adipisci occaecati. Reprehenderit sit est accusantium provident.",
+            "slug": "elegant-escape-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Elegant_Escape_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Elegant_Escape_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 2540,
+              "originalPrice": 2540,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/1",
+              "/api/v2/shop/product-taxons/2"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/1",
+                "@type": "ProductImage",
+                "id": 1,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/38/74/f61278ddf4326884326fd8178c79.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/2",
+                "@type": "ProductImage",
+                "id": 2,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/90/7d/de5c81c529e45ab3c002cabbfa68.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/3",
+                "@type": "ProductImage",
+                "id": 3,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/dc/90/d3bc91604410a6a4a88ca60401e4.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Ethereal_Drift_T_Shirt/images/4",
+                "@type": "ProductImage",
+                "id": 4,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/1e/43/a38c3ef9708eac1160848e4d3be9.webp"
+              }
+            ],
+            "id": 1,
+            "code": "Ethereal_Drift_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 10:10:16",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Ut non sed dolorem nobis. Dolore minus dicta est. Maxime doloremque laborum iure deleniti.",
+            "reviews": [],
+            "name": "Ethereal Drift T-Shirt",
+            "description": "Soluta eum fugit dolor aut ut explicabo dolores. Ut itaque rerum quibusdam dolorum earum. Eos ut quo ipsa qui aut est. Aut ea consequatur sit fuga. Consequuntur officia eos expedita doloremque quibusdam autem.\n\nProvident dolor et natus omnis ab autem. Debitis voluptatem natus consequatur laboriosam sint. Maiores in vitae sed molestias aut et sit. Velit doloribus voluptas aliquam eaque est. Tempore molestiae voluptatibus enim dolorem accusantium.\n\nEa eius et officiis explicabo. Sed provident unde soluta ex repudiandae. Occaecati qui architecto sit rem quod rem. Quia odio consequatur ipsum est voluptate quas id. Rerum deserunt numquam vel perspiciatis.",
+            "slug": "ethereal-drift-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Ethereal_Drift_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 4199,
+              "originalPrice": 4199,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Evening_Star_Gown",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/85"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Evening_Star_Gown/images/105",
+                "@type": "ProductImage",
+                "id": 105,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/a1/8f/0bfab9b475bd59a1eef61eb373bc.webp"
+              }
+            ],
+            "id": 45,
+            "code": "Evening_Star_Gown",
+            "variants": [
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-0",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-1",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-2",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-3",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-4",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-5",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-6",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-7",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-8",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-9",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-10",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-11",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-12",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-13",
+              "/api/v2/shop/product-variants/Evening_Star_Gown-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-06 08:06:30",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Assumenda quidem aut architecto deleniti ratione consequatur aut. Quo quas expedita deleniti dolor eum accusantium. Voluptatibus dolor dolore rerum et ab temporibus sunt.",
+            "reviews": [],
+            "name": "Evening Star Gown",
+            "description": "Reiciendis aspernatur qui nihil aut dolorem saepe. Quibusdam doloribus optio laborum est ab. Dignissimos sit mollitia aut id omnis quibusdam. Voluptatem consequatur quisquam voluptas quis praesentium.\n\nVeritatis quaerat officia modi praesentium provident ad est. Aut molestias ipsum ut natus eum magni. Et et quod tempora reprehenderit itaque nostrum.\n\nNihil nihil ex explicabo doloribus magnam ut. Aut molestiae sed quia sit labore. Quo sint qui dolorem rerum enim aut. Magni suscipit amet distinctio ab neque.",
+            "slug": "evening-star-gown",
+            "defaultVariant": "/api/v2/shop/product-variants/Evening_Star_Gown-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Evening_Star_Gown-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 9725,
+              "originalPrice": 9725,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Festival_Ruffle_Wrap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/83"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 5,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Festival_Ruffle_Wrap/images/103",
+                "@type": "ProductImage",
+                "id": 103,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/f6/e0/781b751b17dbb5538f728da08f08.webp"
+              }
+            ],
+            "id": 43,
+            "code": "Festival_Ruffle_Wrap",
+            "variants": [
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-0",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-1",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-2",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-3",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-4",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-5",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-6",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-7",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-8",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-9",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-10",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-11",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-12",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-13",
+              "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-06 21:38:34",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Et illo qui repellat. Ut aut placeat adipisci sed. Rerum possimus culpa dolor autem et in. Nam aut natus cupiditate dolores est. Quasi aut numquam porro vitae.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/27"
+              }
+            ],
+            "name": "Festival Ruffle Wrap",
+            "description": "Deleniti id voluptatem optio sint quos nobis. Architecto nostrum illum aut dolores. Qui inventore enim sunt quos odit commodi dolorum.\n\nIllum accusantium facilis enim recusandae et. Sint facere cum aspernatur ullam velit aliquid ut. Sunt dignissimos voluptatem accusantium eius voluptas.\n\nIure voluptatem et odit facilis amet nam vel. Iure error soluta aut in laboriosam dignissimos pariatur. Aut id nobis eligendi consequuntur voluptas animi enim.",
+            "slug": "festival-ruffle-wrap",
+            "defaultVariant": "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Festival_Ruffle_Wrap-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 4193,
+              "originalPrice": 4193,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Floral_Garden_Party",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/84"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/dresses",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Floral_Garden_Party/images/104",
+                "@type": "ProductImage",
+                "id": 104,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/6e/fd/ffbb8779c5092a3a4ded2d51f3a5.webp"
+              }
+            ],
+            "id": 44,
+            "code": "Floral_Garden_Party",
+            "variants": [
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-0",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-1",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-2",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-3",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-4",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-5",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-6",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-7",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-8",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-9",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-10",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-11",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-12",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-13",
+              "/api/v2/shop/product-variants/Floral_Garden_Party-variant-14"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/dress_size",
+              "/api/v2/shop/product-options/dress_height"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-06 15:34:17",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Enim et dolorem ipsa quas. Quos est voluptatem ab praesentium exercitationem velit. Voluptatem illum natus eum quia dolores et.",
+            "reviews": [],
+            "name": "Floral Garden Party",
+            "description": "Ipsa ea nobis exercitationem temporibus iure recusandae. Praesentium ducimus rem laboriosam error. Aperiam saepe quia rerum. Totam nihil vel nisi quis.\n\nAccusamus asperiores nostrum et quae. Error nemo et ducimus eos sint. Temporibus ullam neque omnis voluptatem molestias laborum. Doloribus voluptas suscipit et odit et. Vitae beatae magni facere ut qui in maxime.\n\nCupiditate at modi omnis saepe aut ut. Architecto voluptatem quae et sit.",
+            "slug": "floral-garden-party",
+            "defaultVariant": "/api/v2/shop/product-variants/Floral_Garden_Party-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Floral_Garden_Party-variant-0",
+              "@type": "ProductVariant",
+              "name": "S Petite",
+              "inStock": true,
+              "price": 3454,
+              "originalPrice": 3454,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/15",
+              "/api/v2/shop/product-taxons/16"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/womens_t_shirts",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt/images/25",
+                "@type": "ProductImage",
+                "id": 25,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/94/d4/f18e03bae96392334e77ec2ebfcd.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt/images/26",
+                "@type": "ProductImage",
+                "id": 26,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/90/cc/49d90759b8095e05f1d1725a94f7.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Breeze_T_Shirt/images/27",
+                "@type": "ProductImage",
+                "id": 27,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/4d/0d/ea7ee6f9304ec0bc7db57d7886b3.webp"
+              }
+            ],
+            "id": 8,
+            "code": "Galactic_Breeze_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-04 08:25:00",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Dolorem optio in quasi tenetur placeat. Magnam neque amet voluptate quo voluptate. Similique voluptatem praesentium veniam. Quia laudantium aut quis.",
+            "reviews": [],
+            "name": "Galactic Breeze T-Shirt",
+            "description": "Temporibus non est provident. Consectetur nam ex mollitia non non voluptatem voluptate. Molestiae expedita suscipit quaerat at vel et.\n\nLaborum in eveniet aut explicabo. Ut fugit iste sed ipsam et incidunt. Et et est consequatur inventore asperiores omnis quod.\n\nMolestiae aut aut molestiae modi quidem corporis. Sapiente non dolore illum expedita iure eum maiores. Voluptas et non velit et.",
+            "slug": "galactic-breeze-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Galactic_Breeze_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 7419,
+              "originalPrice": 7419,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/39",
+              "/api/v2/shop/product-taxons/40"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_t_shirts",
+            "averageRating": 2,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt/images/61",
+                "@type": "ProductImage",
+                "id": 61,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/f8/8c/5fe756deeb3504d5092b8187a38f.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt/images/62",
+                "@type": "ProductImage",
+                "id": 62,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/81/bd/a3e1fdfd45f874616b439b3ba3e9.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Galactic_Pulse_T_Shirt/images/63",
+                "@type": "ProductImage",
+                "id": 63,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/08/53/1695c472f94641c63e70d2e317e5.webp"
+              }
+            ],
+            "id": 20,
+            "code": "Galactic_Pulse_T_Shirt",
+            "variants": [
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-0",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-1",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-2",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-3",
+              "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/t_shirt_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-07 02:18:18",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Perspiciatis voluptas minus quasi placeat. Praesentium autem vel qui est animi quas modi. In explicabo consectetur eos et non odio aliquid. Molestias dolores omnis quis voluptatem nemo.",
+            "reviews": [
+              {
+                "@type": "ProductReview",
+                "@id": "/api/v2/shop/product-reviews/9"
+              }
+            ],
+            "name": "Galactic Pulse T-Shirt",
+            "description": "Repudiandae ducimus illum ut consequatur nostrum magnam. Minima inventore aut dolore rerum consequatur. Esse repellendus labore soluta sint.\n\nTempora voluptas sunt facilis. Molestiae quae eos et et. Et quo est qui velit quia dolor. Omnis delectus porro quaerat maxime aut aut quidem reprehenderit.\n\nSoluta voluptatem rerum voluptate mollitia cum inventore perferendis. Iusto laudantium repudiandae quos sit. In asperiores adipisci qui necessitatibus quia laudantium quasi.",
+            "slug": "galactic-pulse-t-shirt",
+            "defaultVariant": "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Galactic_Pulse_T_Shirt-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 6759,
+              "originalPrice": 6759,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Golden_Horizon_Jeans",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/102",
+              "/api/v2/shop/product-taxons/103"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/mens_jeans",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Golden_Horizon_Jeans/images/124",
+                "@type": "ProductImage",
+                "id": 124,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/70/54/a9f74df4cd1f76bea1f079c58890.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Golden_Horizon_Jeans/images/125",
+                "@type": "ProductImage",
+                "id": 125,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/69/34/b6ddf5e6c2c133c8d4a045f120ee.webp"
+              },
+              {
+                "@id": "/api/v2/shop/products/Golden_Horizon_Jeans/images/126",
+                "@type": "ProductImage",
+                "id": 126,
+                "type": null,
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7b/01/81071fb1fe64f2115acde6449fc4.webp"
+              }
+            ],
+            "id": 60,
+            "code": "Golden_Horizon_Jeans",
+            "variants": [
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-0",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-1",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-2",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-3",
+              "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-4"
+            ],
+            "options": [
+              "/api/v2/shop/product-options/jeans_size"
+            ],
+            "associations": [],
+            "createdAt": "2026-11-08 19:00:03",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Corporis excepturi porro iusto voluptas voluptas. Accusamus ut odit aut quia id repellendus. Nobis rerum quasi itaque. Aut sint harum fuga eaque sit.",
+            "reviews": [],
+            "name": "Golden Horizon Jeans",
+            "description": "Recusandae ex perferendis voluptatem ipsa. Ab et dignissimos et perspiciatis sed illum quia ipsum. Architecto blanditiis impedit ratione aut labore corporis odit.\n\nIllum ipsa est ex eaque est dolorem. Tenetur aliquam doloremque delectus. Dolorum temporibus labore autem sed illum.\n\nDolore beatae eos eaque eveniet minima voluptas nemo. Excepturi non harum harum ut quia hic culpa. Non voluptatibus minus aliquam repellendus error at.",
+            "slug": "golden-horizon-jeans",
+            "defaultVariant": "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Golden_Horizon_Jeans-variant-0",
+              "@type": "ProductVariant",
+              "name": "S",
+              "inStock": true,
+              "price": 5617,
+              "originalPrice": 5617,
+              "lowestPriceBeforeDiscount": null
+            }
+          },
+          {
+            "@id": "/api/v2/shop/products/Harmonious_Horizon_Cap",
+            "@type": "Product",
+            "productTaxons": [
+              "/api/v2/shop/product-taxons/77",
+              "/api/v2/shop/product-taxons/78"
+            ],
+            "mainTaxon": "/api/v2/shop/taxons/simple_caps",
+            "averageRating": 0,
+            "images": [
+              {
+                "@id": "/api/v2/shop/products/Harmonious_Horizon_Cap/images/99",
+                "@type": "ProductImage",
+                "id": 99,
+                "type": "main",
+                "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/80/c0/630c4b3b82df9aa8b9b52b5ef6de.webp"
+              }
+            ],
+            "id": 39,
+            "code": "Harmonious_Horizon_Cap",
+            "variants": [
+              "/api/v2/shop/product-variants/Harmonious_Horizon_Cap-variant-0"
+            ],
+            "options": [],
+            "associations": [],
+            "createdAt": "2026-11-03 07:56:01",
+            "updatedAt": "2026-11-08 19:58:54",
+            "shortDescription": "Qui nulla assumenda consequatur suscipit iste. Id quis et ab quibusdam reprehenderit qui mollitia. Animi eligendi officia impedit fugiat qui omnis voluptatibus cumque. Reprehenderit eos dolores qui consequatur eum molestiae quod rem.",
+            "reviews": [],
+            "name": "Harmonious Horizon Cap",
+            "description": "Repellat neque enim ratione odio maxime explicabo eaque. Quidem sequi consectetur non ea et distinctio. Qui ea illum neque nostrum ab sunt.\n\nRatione sint nemo dolore nulla. Aliquid nostrum sint sit ut quod. Nulla laborum quisquam quod dolorum numquam ut.\n\nMinima nisi quisquam molestiae ex ducimus reprehenderit cupiditate. Harum illum illum est hic rerum. Qui et inventore tempore maiores aliquam nihil accusamus expedita. Omnis illo nisi expedita.",
+            "slug": "harmonious-horizon-cap",
+            "defaultVariant": "/api/v2/shop/product-variants/Harmonious_Horizon_Cap-variant-0",
+            "defaultVariantData": {
+              "@id": "/api/v2/shop/product-variants/Harmonious_Horizon_Cap-variant-0",
+              "@type": "ProductVariant",
+              "name": "",
+              "inStock": true,
+              "price": 5240,
+              "originalPrice": 5240,
+              "lowestPriceBeforeDiscount": null
+            }
+          }
+        ],
+        "hydra:view": {
+          "@id": "/api/v2/shop/products?itemsPerPage=30&page=1",
+          "@type": "hydra:PartialCollectionView",
+          "hydra:first": "/api/v2/shop/products?itemsPerPage=30&page=1",
+          "hydra:last": "/api/v2/shop/products?itemsPerPage=30&page=3",
+          "hydra:next": "/api/v2/shop/products?itemsPerPage=30&page=2"
+        },
+        "hydra:search": {
+          "@type": "hydra:IriTemplate",
+          "hydra:template": "/api/v2/shop/products{?translations.name,productTaxons.taxon.code,productTaxons.taxon.code[],order[code],order[createdAt],order[price],order[translation.name],localeCode for order[translation.name],taxon,association[typeCode],association[ownerCode]}",
+          "hydra:variableRepresentation": "BasicRepresentation",
+          "hydra:mapping": [
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "translations.name",
+              "property": "translations.name",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "productTaxons.taxon.code",
+              "property": "productTaxons.taxon.code",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "productTaxons.taxon.code[]",
+              "property": "productTaxons.taxon.code",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[code]",
+              "property": "code",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[createdAt]",
+              "property": "createdAt",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[price]",
+              "property": "price",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "order[translation.name]",
+              "property": "translation",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "localeCode for order[translation.name]",
+              "property": "localeCode",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "taxon",
+              "property": null,
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "association[typeCode]",
+              "property": "association",
+              "required": false
+            },
+            {
+              "@type": "IriTemplateMapping",
+              "variable": "association[ownerCode]",
+              "property": "association",
+              "required": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request_id": "5b0df055-ca1f-4286-93d1-40f5bede334f",
+      "method": "GET",
+      "path": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+      "operation_path": "/api/v2/shop/products/{code}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "5b0df055-ca1f-4286-93d1-40f5bede334f",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Product",
+        "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+        "@type": "Product",
+        "productTaxons": [
+          "/api/v2/shop/product-taxons/73",
+          "/api/v2/shop/product-taxons/74"
+        ],
+        "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+        "averageRating": 4,
+        "images": [
+          {
+            "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap/images/97",
+            "@type": "ProductImage",
+            "id": 97,
+            "type": "main",
+            "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7f/42/d48a32cf1f3a57723e90d8cfef54.webp"
+          }
+        ],
+        "id": 37,
+        "code": "Adventurous_Aurora_Cap",
+        "variants": [
+          "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0"
+        ],
+        "options": [],
+        "associations": [],
+        "createdAt": "2026-11-02 17:29:36",
+        "updatedAt": "2026-11-08 19:58:54",
+        "shortDescription": "Est eligendi enim facilis saepe. Vitae aut id dolorem.",
+        "reviews": [
+          {
+            "@type": "ProductReview",
+            "@id": "/api/v2/shop/product-reviews/4"
+          }
+        ],
+        "name": "Adventurous Aurora Cap",
+        "description": "Dolores impedit quasi dolorem eaque in et vel. Quod quidem est quisquam voluptatem autem provident omnis.\n\nAmet reprehenderit voluptatem quis officiis quos dolores. Tenetur quis facilis quia nihil nihil. Assumenda quaerat non dolores qui. Esse quos eum asperiores quis.\n\nNesciunt magni accusamus quod magni. Eos unde et voluptatum incidunt qui officia necessitatibus. Ut vel rem fugiat. Molestiae sit occaecati eos aliquid accusamus dolores.",
+        "slug": "adventurous-aurora-cap",
+        "defaultVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+        "defaultVariantData": {
+          "@context": "/api/v2/contexts/ProductVariant",
+          "@id": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+          "@type": "ProductVariant",
+          "name": "",
+          "inStock": true,
+          "price": 744,
+          "originalPrice": 744,
+          "lowestPriceBeforeDiscount": null
+        }
+      }
+    },
+    {
+      "request_id": "d23c84b9-e78f-4cf7-9569-e40a97238de8",
+      "method": "GET",
+      "path": "/api/v2/shop/products-by-slug/adventurous-aurora-cap",
+      "operation_path": "/api/v2/shop/products-by-slug/{slug}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "d23c84b9-e78f-4cf7-9569-e40a97238de8",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/products-by-slug/adventurous-aurora-cap",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 301,
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Location": "/api/v2/shop/products/Adventurous_Aurora_Cap"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      }
+    },
+    {
+      "request_id": "45165bd9-9252-416b-9b6b-99a00c52cc07",
+      "method": "GET",
+      "path": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+      "operation_path": "/api/v2/shop/products/{code}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "45165bd9-9252-416b-9b6b-99a00c52cc07",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Product",
+        "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap",
+        "@type": "Product",
+        "productTaxons": [
+          "/api/v2/shop/product-taxons/73",
+          "/api/v2/shop/product-taxons/74"
+        ],
+        "mainTaxon": "/api/v2/shop/taxons/caps_with_pompons",
+        "averageRating": 4,
+        "images": [
+          {
+            "@id": "/api/v2/shop/products/Adventurous_Aurora_Cap/images/97",
+            "@type": "ProductImage",
+            "id": 97,
+            "type": "main",
+            "path": "http://127.0.0.1:18083/media/cache/resolve/sylius_original/7f/42/d48a32cf1f3a57723e90d8cfef54.webp"
+          }
+        ],
+        "id": 37,
+        "code": "Adventurous_Aurora_Cap",
+        "variants": [
+          "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0"
+        ],
+        "options": [],
+        "associations": [],
+        "createdAt": "2026-11-02 17:29:36",
+        "updatedAt": "2026-11-08 19:58:54",
+        "shortDescription": "Est eligendi enim facilis saepe. Vitae aut id dolorem.",
+        "reviews": [
+          {
+            "@type": "ProductReview",
+            "@id": "/api/v2/shop/product-reviews/4"
+          }
+        ],
+        "name": "Adventurous Aurora Cap",
+        "description": "Dolores impedit quasi dolorem eaque in et vel. Quod quidem est quisquam voluptatem autem provident omnis.\n\nAmet reprehenderit voluptatem quis officiis quos dolores. Tenetur quis facilis quia nihil nihil. Assumenda quaerat non dolores qui. Esse quos eum asperiores quis.\n\nNesciunt magni accusamus quod magni. Eos unde et voluptatum incidunt qui officia necessitatibus. Ut vel rem fugiat. Molestiae sit occaecati eos aliquid accusamus dolores.",
+        "slug": "adventurous-aurora-cap",
+        "defaultVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+        "defaultVariantData": {
+          "@context": "/api/v2/contexts/ProductVariant",
+          "@id": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+          "@type": "ProductVariant",
+          "name": "",
+          "inStock": true,
+          "price": 744,
+          "originalPrice": 744,
+          "lowestPriceBeforeDiscount": null
+        }
+      }
+    },
+    {
+      "request_id": "e5b14406-d85f-45e6-8b27-496aa9ff15da",
+      "method": "POST",
+      "path": "/api/v2/shop/customers",
+      "operation_path": "/api/v2/shop/customers",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "159",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "e5b14406-d85f-45e6-8b27-496aa9ff15da",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"firstName\": \"MSDSS\", \"lastName\": \"Test\", \"email\": \"phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 204,
+      "response_headers": {},
+      "response_body": null
+    },
+    {
+      "request_id": "6cda263b-721c-40ba-8905-fbbb2a299c4c",
+      "method": "POST",
+      "path": "/api/v2/shop/customers/token",
+      "operation_path": "/api/v2/shop/customers/token",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "117",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "6cda263b-721c-40ba-8905-fbbb2a299c4c",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/customers/token",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "token": "[REDACTED]",
+        "customer": "/api/v2/shop/customers/22"
+      }
+    },
+    {
+      "request_id": "43743ddf-a19a-443a-b7f2-74eae4a87423",
+      "method": "POST",
+      "path": "/api/v2/shop/addresses",
+      "operation_path": "/api/v2/shop/addresses",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "137",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "43743ddf-a19a-443a-b7f2-74eae4a87423",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "countryCode": "US",
+        "street": "Phase One Street 12",
+        "city": "New York",
+        "postcode": "10001"
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/addresses",
+      "raw_query": "",
+      "request_body_raw": "{\"firstName\": \"MSDSS\", \"lastName\": \"Test\", \"countryCode\": \"US\", \"street\": \"Phase One Street 12\", \"city\": \"New York\", \"postcode\": \"10001\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/ld+json",
+        "Location": "/api/v2/shop/addresses/71"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Address",
+        "@id": "/api/v2/shop/addresses/71",
+        "@type": "Address",
+        "id": 71,
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "phoneNumber": null,
+        "company": null,
+        "countryCode": "US",
+        "provinceCode": null,
+        "provinceName": null,
+        "street": "Phase One Street 12",
+        "city": "New York",
+        "postcode": "10001"
+      }
+    },
+    {
+      "request_id": "af80b889-0b11-4261-b1f8-67f8ac839435",
+      "method": "GET",
+      "path": "/api/v2/shop/addresses/71",
+      "operation_path": "/api/v2/shop/addresses/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "af80b889-0b11-4261-b1f8-67f8ac839435",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/addresses/71",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Address",
+        "@id": "/api/v2/shop/addresses/71",
+        "@type": "Address",
+        "id": 71,
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "phoneNumber": null,
+        "company": null,
+        "countryCode": "US",
+        "provinceCode": null,
+        "provinceName": null,
+        "street": "Phase One Street 12",
+        "city": "New York",
+        "postcode": "10001"
+      }
+    },
+    {
+      "request_id": "1e7a651f-ba70-4dc6-b66f-6f415392676b",
+      "method": "GET",
+      "path": "/api/v2/shop/addresses",
+      "operation_path": "/api/v2/shop/addresses",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "1e7a651f-ba70-4dc6-b66f-6f415392676b",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/addresses",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Address",
+        "@id": "/api/v2/shop/addresses",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 1,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/addresses/71",
+            "@type": "Address",
+            "id": 71,
+            "firstName": "MSDSS",
+            "lastName": "Test",
+            "phoneNumber": null,
+            "company": null,
+            "countryCode": "US",
+            "provinceCode": null,
+            "provinceName": null,
+            "street": "Phase One Street 12",
+            "city": "New York",
+            "postcode": "10001"
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "8637a04c-89a2-4776-b183-e100316174bb",
+      "method": "POST",
+      "path": "/api/v2/shop/orders",
+      "operation_path": "/api/v2/shop/orders",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "2",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "8637a04c-89a2-4776-b183-e100316174bb",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {},
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders",
+      "raw_query": "",
+      "request_body_raw": "{}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/ld+json",
+        "Location": "/api/v2/shop/orders/[REDACTED]"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [],
+        "shipments": [],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [],
+        "itemsTotal": 0,
+        "total": 0,
+        "state": "cart",
+        "itemsSubtotal": 0,
+        "taxTotal": 0,
+        "shippingTaxTotal": 0,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 0,
+        "shippingTotal": 0,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "eeb72350-11e4-4378-9bb6-76911d22bacf",
+      "method": "POST",
+      "path": "/api/v2/shop/orders/[REDACTED]/items",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/items",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "99",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "eeb72350-11e4-4378-9bb6-76911d22bacf",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "productVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+        "quantity": 1
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/items",
+      "raw_query": "",
+      "request_body_raw": "{\"productVariant\": \"/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0\", \"quantity\": 1}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/ld+json",
+        "Location": "/api/v2/shop/orders/[REDACTED]"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/21",
+            "@type": "Payment",
+            "id": 21,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/21",
+            "@type": "Shipment",
+            "id": 21,
+            "method": "/api/v2/shop/shipping-methods/ups"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/57",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 57,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1018,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 274,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 274,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "43b663bb-a717-408a-8d81-747c75645857",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "43b663bb-a717-408a-8d81-747c75645857",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/21",
+            "@type": "Payment",
+            "id": 21,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/21",
+            "@type": "Shipment",
+            "id": 21,
+            "method": "/api/v2/shop/shipping-methods/ups"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/57",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 57,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1018,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 274,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 274,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "7201111b-f146-4884-871d-0b23c3f9a566",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]/items",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/items",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "7201111b-f146-4884-871d-0b23c3f9a566",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/items",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/OrderItem",
+        "@id": "/api/v2/shop/orders/[REDACTED]/items",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 1,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/57",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 57,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "a6f1ceda-ba4d-4220-9419-79d49968689f",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/[REDACTED]/items/57",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "15",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "a6f1ceda-ba4d-4220-9419-79d49968689f",
+        "Content-Type": "application/merge-patch+json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "quantity": 2
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/items/57",
+      "raw_query": "",
+      "request_body_raw": "{\"quantity\": 2}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/21",
+            "@type": "Payment",
+            "id": 21,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/21",
+            "@type": "Shipment",
+            "id": 21,
+            "method": "/api/v2/shop/shipping-methods/ups"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/57",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 57,
+            "quantity": 2,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 1488,
+            "discountedUnitPrice": 744,
+            "subtotal": 1488
+          }
+        ],
+        "itemsTotal": 1488,
+        "total": 1762,
+        "state": "cart",
+        "itemsSubtotal": 1488,
+        "taxTotal": 248,
+        "shippingTaxTotal": 274,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 248,
+        "shippingTotal": 274,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "4a74b57a-383b-4227-87b5-582186c05c96",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "4a74b57a-383b-4227-87b5-582186c05c96",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/21",
+            "@type": "Payment",
+            "id": 21,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/21",
+            "@type": "Shipment",
+            "id": 21,
+            "method": "/api/v2/shop/shipping-methods/ups"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/57",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 57,
+            "quantity": 2,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 1488,
+            "discountedUnitPrice": 744,
+            "subtotal": 1488
+          }
+        ],
+        "itemsTotal": 1488,
+        "total": 1762,
+        "state": "cart",
+        "itemsSubtotal": 1488,
+        "taxTotal": 248,
+        "shippingTaxTotal": 274,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 248,
+        "shippingTotal": 274,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "f01195dc-05c2-4718-8133-3f0e19108ec8",
+      "method": "DELETE",
+      "path": "/api/v2/shop/orders/[REDACTED]/items/57",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/items/{orderItemId}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "f01195dc-05c2-4718-8133-3f0e19108ec8",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/items/57",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 204,
+      "response_headers": {},
+      "response_body": null
+    },
+    {
+      "request_id": "5179d0ff-66e4-4e72-869f-2f2a13bcbb83",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "5179d0ff-66e4-4e72-869f-2f2a13bcbb83",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [],
+        "shipments": [],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [],
+        "itemsTotal": 0,
+        "total": 0,
+        "state": "cart",
+        "itemsSubtotal": 0,
+        "taxTotal": 0,
+        "shippingTaxTotal": 0,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 0,
+        "shippingTotal": 0,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "07f27d22-5494-4226-a112-d1078b949c39",
+      "method": "POST",
+      "path": "/api/v2/shop/orders/[REDACTED]/items",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/items",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "99",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "07f27d22-5494-4226-a112-d1078b949c39",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "productVariant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+        "quantity": 1
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/items",
+      "raw_query": "",
+      "request_body_raw": "{\"productVariant\": \"/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0\", \"quantity\": 1}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/ld+json",
+        "Location": "/api/v2/shop/orders/[REDACTED]"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/ups"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1018,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 274,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 274,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "74fbcf53-4b03-4c2a-b56b-8d9daad60a84",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "74fbcf53-4b03-4c2a-b56b-8d9daad60a84",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": null,
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/ups"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "cart",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1018,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 274,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 274,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "b45e3c69-35b1-4df5-97fc-f4e964a3e0bb",
+      "method": "PUT",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "380",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "b45e3c69-35b1-4df5-97fc-f4e964a3e0bb",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test",
+        "billingAddress": {
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "countryCode": "US",
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "shippingAddress": {
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "countryCode": "US",
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        }
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test\", \"billingAddress\": {\"firstName\": \"MSDSS\", \"lastName\": \"Test\", \"countryCode\": \"US\", \"street\": \"Phase One Street 12\", \"city\": \"New York\", \"postcode\": \"10001\"}, \"shippingAddress\": {\"firstName\": \"MSDSS\", \"lastName\": \"Test\", \"countryCode\": \"US\", \"street\": \"Phase One Street 12\", \"city\": \"New York\", \"postcode\": \"10001\"}}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "addressed",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "20f8ab16-ee78-4de0-9374-393337843173",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "20f8ab16-ee78-4de0-9374-393337843173",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "addressed",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "db0aa4be-f656-4d33-bb23-d7b41c0c2c42",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]/shipments/22/methods",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}/methods",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "db0aa4be-f656-4d33-bb23-d7b41c0c2c42",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/shipments/22/methods",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/ShippingMethod",
+        "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22/methods",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 1,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/shipping-methods/fedex",
+            "@type": "ShippingMethod",
+            "id": 3,
+            "code": "fedex",
+            "position": 2,
+            "name": "FedEx",
+            "description": "Et possimus explicabo unde aut id modi.",
+            "price": 503
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "1da5b870-0471-4836-abdd-e513ce954d90",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/shipments/{shipmentId}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "57",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "1da5b870-0471-4836-abdd-e513ce954d90",
+        "Content-Type": "application/merge-patch+json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "shippingMethod": "/api/v2/shop/shipping-methods/fedex"
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+      "raw_query": "",
+      "request_body_raw": "{\"shippingMethod\": \"/api/v2/shop/shipping-methods/fedex\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "shipping_selected",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "795ad45c-db37-47e7-96f1-1893b63c1962",
+      "method": "GET",
+      "path": "/api/v2/shop/payment-methods",
+      "operation_path": "/api/v2/shop/payment-methods",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "795ad45c-db37-47e7-96f1-1893b63c1962",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/payment-methods",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/PaymentMethod",
+        "@id": "/api/v2/shop/payment-methods",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 1,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/payment-methods/bank_transfer",
+            "@type": "PaymentMethod",
+            "id": 2,
+            "code": "bank_transfer",
+            "position": 1,
+            "name": "Bank transfer",
+            "description": "Tenetur id culpa est qui rerum distinctio nihil.",
+            "instructions": null
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "4d4a1b6c-f407-4c8c-92b2-1843320dc3f3",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "4d4a1b6c-f407-4c8c-92b2-1843320dc3f3",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "shipping_selected",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "3d986d99-0283-4079-b21b-72ccda5fe9df",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]/payments/22/methods",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}/methods",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "3d986d99-0283-4079-b21b-72ccda5fe9df",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/payments/22/methods",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/PaymentMethod",
+        "@id": "/api/v2/shop/orders/[REDACTED]/payments/22/methods",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 1,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/payment-methods/bank_transfer",
+            "@type": "PaymentMethod",
+            "id": 2,
+            "code": "bank_transfer",
+            "position": 1,
+            "name": "Bank transfer",
+            "description": "Tenetur id culpa est qui rerum distinctio nihil.",
+            "instructions": null
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "77308872-1d83-4371-84ad-1a301c6e5895",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/[REDACTED]/payments/22",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/payments/{paymentId}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "63",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "77308872-1d83-4371-84ad-1a301c6e5895",
+        "Content-Type": "application/merge-patch+json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "paymentMethod": "/api/v2/shop/payment-methods/bank_transfer"
+      },
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/payments/22",
+      "raw_query": "",
+      "request_body_raw": "{\"paymentMethod\": \"/api/v2/shop/payment-methods/bank_transfer\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "payment_selected",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "05745bd1-bf58-48a8-8d33-9eca47ce643c",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "05745bd1-bf58-48a8-8d33-9eca47ce643c",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "payment_selected",
+        "paymentState": "cart",
+        "shippingState": "cart",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": null,
+        "number": null,
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "cart",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "5868702c-f8f7-4729-b33d-493d78046b57",
+      "method": "PATCH",
+      "path": "/api/v2/shop/orders/[REDACTED]/complete",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}/complete",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "2",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "5868702c-f8f7-4729-b33d-493d78046b57",
+        "Content-Type": "application/merge-patch+json",
+        "Connection": "close"
+      },
+      "request_body": {},
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]/complete",
+      "raw_query": "",
+      "request_body_raw": "{}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "completed",
+        "paymentState": "awaiting_payment",
+        "shippingState": "ready",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": "2026-11-08 20:00:35",
+        "number": "000000021",
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "new",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "e5fb5cc4-284e-48e3-a074-cb760adb43ee",
+      "method": "GET",
+      "path": "/api/v2/shop/orders/[REDACTED]",
+      "operation_path": "/api/v2/shop/orders/{tokenValue}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "e5fb5cc4-284e-48e3-a074-cb760adb43ee",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders/[REDACTED]",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders/[REDACTED]",
+        "@type": "Order",
+        "customer": {
+          "@id": "/api/v2/shop/customers/22",
+          "@type": "Customer",
+          "email": "phase1-6a5a1fc3f16840278c92f09d565c7a70@example.test"
+        },
+        "channel": "/api/v2/shop/channels/FASHION_WEB",
+        "shippingAddress": {
+          "@id": "/api/v2/shop/addresses/73",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "billingAddress": {
+          "@id": "/api/v2/shop/addresses/72",
+          "@type": "Address",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "phoneNumber": null,
+          "company": null,
+          "countryCode": "US",
+          "provinceCode": null,
+          "provinceName": null,
+          "street": "Phase One Street 12",
+          "city": "New York",
+          "postcode": "10001"
+        },
+        "payments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/payments/22",
+            "@type": "Payment",
+            "id": 22,
+            "method": "/api/v2/shop/payment-methods/bank_transfer"
+          }
+        ],
+        "shipments": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/shipments/22",
+            "@type": "Shipment",
+            "id": 22,
+            "method": "/api/v2/shop/shipping-methods/fedex"
+          }
+        ],
+        "currencyCode": "USD",
+        "localeCode": "en_US",
+        "promotionCoupon": null,
+        "checkoutState": "completed",
+        "paymentState": "awaiting_payment",
+        "shippingState": "ready",
+        "tokenValue": "[REDACTED]",
+        "checkoutCompletedAt": "2026-11-08 20:00:35",
+        "number": "000000021",
+        "items": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]/items/58",
+            "@type": "OrderItem",
+            "variant": "/api/v2/shop/product-variants/Adventurous_Aurora_Cap-variant-0",
+            "productName": "Adventurous Aurora Cap",
+            "variantName": "",
+            "id": 58,
+            "quantity": 1,
+            "unitPrice": 744,
+            "originalUnitPrice": 744,
+            "total": 744,
+            "discountedUnitPrice": 744,
+            "subtotal": 744
+          }
+        ],
+        "itemsTotal": 744,
+        "total": 1247,
+        "state": "new",
+        "itemsSubtotal": 744,
+        "taxTotal": 124,
+        "shippingTaxTotal": 503,
+        "taxExcludedTotal": 0,
+        "taxIncludedTotal": 124,
+        "shippingTotal": 503,
+        "orderPromotionTotal": 0,
+        "shippingPromotionTotal": 0
+      }
+    },
+    {
+      "request_id": "64d03922-ea4e-44e7-b6dc-15ae32e58522",
+      "method": "GET",
+      "path": "/api/v2/shop/orders",
+      "operation_path": "/api/v2/shop/orders",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "64d03922-ea4e-44e7-b6dc-15ae32e58522",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/v2/shop/orders",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/ld+json"
+      },
+      "response_body": {
+        "@context": "/api/v2/contexts/Order",
+        "@id": "/api/v2/shop/orders",
+        "@type": "hydra:Collection",
+        "hydra:totalItems": 1,
+        "hydra:member": [
+          {
+            "@id": "/api/v2/shop/orders/[REDACTED]",
+            "@type": "Order",
+            "channel": "/api/v2/shop/channels/FASHION_WEB",
+            "tokenValue": "[REDACTED]",
+            "checkoutCompletedAt": "2026-11-08 20:00:35",
+            "number": "000000021",
+            "itemsTotal": 744,
+            "state": "new",
+            "itemsSubtotal": 744
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "商品列表含可選商品與 variant",
+      "passed": true,
+      "request_ids": [
+        "6783c461-1c6c-4ed0-9ce0-21d650b8010f"
+      ]
+    },
+    {
+      "description": "商品詳情與列表代碼一致",
+      "passed": true,
+      "request_ids": [
+        "5b0df055-ca1f-4286-93d1-40f5bede334f"
+      ]
+    },
+    {
+      "description": "由 slug 及本機 canonical 商品路徑查詢到同一商品",
+      "passed": true,
+      "request_ids": [
+        "d23c84b9-e78f-4cf7-9569-e40a97238de8",
+        "45165bd9-9252-416b-9b6b-99a00c52cc07"
+      ]
+    },
+    {
+      "description": "帶 JWT 新增地址後重新讀回核對內容",
+      "passed": true,
+      "request_ids": [
+        "e5b14406-d85f-45e6-8b27-496aa9ff15da",
+        "6cda263b-721c-40ba-8905-fbbb2a299c4c",
+        "43743ddf-a19a-443a-b7f2-74eae4a87423",
+        "af80b889-0b11-4261-b1f8-67f8ac839435"
+      ]
+    },
+    {
+      "description": "顧客地址清單含新增地址",
+      "passed": true,
+      "request_ids": [
+        "1e7a651f-ba70-4dc6-b66f-6f415392676b"
+      ]
+    },
+    {
+      "description": "建立空的 cart 並取得動態 tokenValue",
+      "passed": true,
+      "request_ids": [
+        "8637a04c-89a2-4776-b183-e100316174bb"
+      ]
+    },
+    {
+      "description": "重新讀取確認加購數量 1",
+      "passed": true,
+      "request_ids": [
+        "eeb72350-11e4-4378-9bb6-76911d22bacf",
+        "43b663bb-a717-408a-8d81-747c75645857"
+      ]
+    },
+    {
+      "description": "購物車品項清單一致",
+      "passed": true,
+      "request_ids": [
+        "7201111b-f146-4884-871d-0b23c3f9a566"
+      ]
+    },
+    {
+      "description": "重新讀取確認數量改為 2",
+      "passed": true,
+      "request_ids": [
+        "a6f1ceda-ba4d-4220-9419-79d49968689f",
+        "4a74b57a-383b-4227-87b5-582186c05c96"
+      ]
+    },
+    {
+      "description": "重新讀取確認移除後購物車為空",
+      "passed": true,
+      "request_ids": [
+        "f01195dc-05c2-4718-8133-3f0e19108ec8",
+        "5179d0ff-66e4-4e72-869f-2f2a13bcbb83"
+      ]
+    },
+    {
+      "description": "重新加入結帳商品",
+      "passed": true,
+      "request_ids": [
+        "07f27d22-5494-4226-a112-d1078b949c39",
+        "74fbcf53-4b03-4c2a-b56b-8d9daad60a84"
+      ]
+    },
+    {
+      "description": "重新讀取確認訂單 email 與帳單／配送地址",
+      "passed": true,
+      "request_ids": [
+        "b45e3c69-35b1-4df5-97fc-f4e964a3e0bb",
+        "20f8ab16-ee78-4de0-9374-393337843173"
+      ]
+    },
+    {
+      "description": "從該 shipment 可用方式取得配送 IRI 與 code",
+      "passed": true,
+      "request_ids": [
+        "db0aa4be-f656-4d33-bb23-d7b41c0c2c42"
+      ]
+    },
+    {
+      "description": "付款列表含資料庫核對為 offline 的方式",
+      "passed": true,
+      "request_ids": [
+        "795ad45c-db37-47e7-96f1-1893b63c1962"
+      ]
+    },
+    {
+      "description": "只選用可用且已核對為 offline 的付款 IRI",
+      "passed": true,
+      "request_ids": [
+        "3d986d99-0283-4079-b21b-72ccda5fe9df"
+      ]
+    },
+    {
+      "description": "重新讀取確認配送與離線付款方式已保存",
+      "passed": true,
+      "request_ids": [
+        "1da5b870-0471-4836-abdd-e513ce954d90",
+        "77308872-1d83-4371-84ad-1a301c6e5895",
+        "05745bd1-bf58-48a8-8d33-9eca47ce643c"
+      ]
+    },
+    {
+      "description": "重新查單確認 new／completed、訂單編號、數量、地址與配送付款選項",
+      "passed": true,
+      "request_ids": [
+        "5868702c-f8f7-4729-b33d-493d78046b57",
+        "e5fb5cc4-284e-48e3-a074-cb760adb43ee"
+      ]
+    },
+    {
+      "description": "登入會員訂單清單包含新訂單",
+      "passed": true,
+      "request_ids": [
+        "64d03922-ea4e-44e7-b6dc-15ae32e58522"
+      ]
+    }
+  ],
+  "error": null
+}

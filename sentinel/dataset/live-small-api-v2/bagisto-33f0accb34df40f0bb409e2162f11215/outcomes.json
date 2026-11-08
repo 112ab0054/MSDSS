@@ -1,0 +1,17 @@
+[
+  {
+    "planned_sample_id": "6b12839f4415c0693206b330ba0882bc610a0b52c21b678293444ea86e747644",
+    "http_executed": true,
+    "http_status": 404
+  },
+  {
+    "planned_sample_id": "9cbbbb3bc1898feae8ec8a6ef30f5bc4f17a18cef11c60b489b5652cee3e80f5",
+    "http_executed": true,
+    "http_status": 404
+  },
+  {
+    "planned_sample_id": "25bef4ea46a7fc61c699b116bc7532b3681098e984bd749f151e57aa4fa5c1af",
+    "http_executed": true,
+    "http_status": 404
+  }
+]

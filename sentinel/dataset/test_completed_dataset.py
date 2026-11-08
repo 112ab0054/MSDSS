@@ -73,7 +73,7 @@ class CompletedDatasetTests(unittest.TestCase):
 
     def test_source_documents_and_historical_evidence_match_saved_hashes(self):
         for path, expected in self.summary['parameter_document_sha256'].items():
-            self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected)
+            self.assertEqual(hashlib.sha256((ROOT / path).read_bytes().replace(b'\r\n', b'\n')).hexdigest(), expected)
         # Historical digest modes may differ: the builder verifies these through refresh/verify_evidence.
         self.assertEqual(len(self.summary['historical_evidence_sha256']), 5)
         self.assertTrue(all((ROOT / p).is_file() for p in self.summary['historical_evidence_sha256']))

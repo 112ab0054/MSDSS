@@ -1,0 +1,17 @@
+[
+  {
+    "planned_sample_id": "c2051d635d74174099e3638ec5c484d907c92eeebe349e636f301c7441eb2b7d",
+    "http_executed": false,
+    "reason": "缺少當次 header 憑證：Cookie"
+  },
+  {
+    "planned_sample_id": "d43a74865d7e56bf0aa673959fc1954c32abaddf4d1c3f7f739ea2f37f506a0d",
+    "http_executed": false,
+    "reason": "缺少當次 header 憑證：Cookie"
+  },
+  {
+    "planned_sample_id": "bf22cceb1e062fd0a0cbec5d64aae5c0092952cb5797cb517c7f28f35af617e0",
+    "http_executed": false,
+    "reason": "缺少當次 header 憑證：Cookie"
+  }
+]

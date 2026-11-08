@@ -1,0 +1,17 @@
+[
+  {
+    "planned_sample_id": "9882beb5800de8dcd66ed95c6abb7595e28d187f38b7ad93ca76c165199e3709",
+    "http_executed": false,
+    "reason": "缺少當次動態欄位：post-filter[].value"
+  },
+  {
+    "planned_sample_id": "e3285bebda1ac8dcf90c7ed78262008e80962b287ec723b253e8870718702207",
+    "http_executed": false,
+    "reason": "缺少當次動態欄位：post-filter[].value"
+  },
+  {
+    "planned_sample_id": "943db48205568b86287d70d0ff4643d1584c29e34cf1acfe4514824d7b837980",
+    "http_executed": false,
+    "reason": "缺少當次動態欄位：post-filter[].value"
+  }
+]

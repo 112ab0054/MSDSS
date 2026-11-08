@@ -52,7 +52,7 @@ train/test 只用 Bagisto＋Shopware，操作及本地攻擊家族不跨集合�
   "training_approved": 0,
   "medusa_included": false,
   "parameter_document_sha256": {
-    "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "aec73657e07b82a0bfa32016655665b5a2aed457c85af784b625c2bde07968a9",
+    "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "783a8da3b6a93ae2fb0215260373e7e541998a642e16af5a6acde10a6a44758d",
     "sentinel/analysis/selected-api-contracts/shopware/API_parameters.md": "af6f3cadbf1e229c7db01bf12d7e43612e95bf74ef0381017bd2fdc42ca520f5",
     "sentinel/analysis/selected-api-contracts/sylius/API_parameters.md": "09684354ddaec52ec4f77c0a0bbcc5d1847ed6cb0f697e8df2ba2dac05dd2179"
   },
@@ -85,3 +85,7 @@ train/test 只用 Bagisto＋Shopware，操作及本地攻擊家族不跨集合�
   }
 }
 ```
+
+## 來源對帳更新
+
+以目前文件重新執行完整產生器；三份資料、欄位表、外部 payload 與授權均與既有內容一致（CSV 僅換行差異），未改資料、標籤或分割。此次來源紀錄改指向可重現的新建置，舊紀錄保存在 history/source-reconciliation-before；原 Bagisto 文件未找回，不能聲稱原始文字差異已查明。詳見 source-reconciliation.json。資料仍未實機採集、未核准。

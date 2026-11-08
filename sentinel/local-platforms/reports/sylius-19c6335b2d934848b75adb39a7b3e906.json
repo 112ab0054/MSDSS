@@ -1,0 +1,41 @@
+{
+  "platform": "sylius",
+  "recorded_at": "2026-11-08T19:59:36.351542+00:00",
+  "outcome": "failed",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "run_sylius.py": "7823e68a48db26b27b349d1dd16ec7f5894c8baf1c1cc819d509233a72bf59b1"
+  },
+  "requests": [
+    {
+      "request_id": "2d1da99c-aae3-4416-abc6-d114f762e6f0",
+      "method": "GET",
+      "path": "/api/v2/shop/products?itemsPerPage=30",
+      "operation_path": "/api/v2/shop/products",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18083",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/ld+json",
+        "X-Request-Id": "2d1da99c-aae3-4416-abc6-d114f762e6f0",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/api/v2/shop/products?itemsPerPage=30",
+      "raw_query": "itemsPerPage=30",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      }
+    }
+  ],
+  "checks": [],
+  "error": "HTTP 404：詳見已遮蔽的證據"
+}

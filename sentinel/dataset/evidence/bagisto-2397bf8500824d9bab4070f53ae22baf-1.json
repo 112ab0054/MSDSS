@@ -1,0 +1,48 @@
+{
+  "platform": "bagisto",
+  "recorded_at": "2026-11-08T20:03:46.160240+00:00",
+  "outcome": "candidate_http_captured",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "collect_small_v2.py": "39befdcf062f2b4b111504194a4e7957e34ef458cb5bca09d62ab73c156804ca"
+  },
+  "requests": [
+    {
+      "request_id": "61dbc594-c2eb-4658-96bc-a5edc0ab4d9d",
+      "method": "GET",
+      "path": "/products?query=%27+AND+SLEEP%280%29%3D0+--+&suggest=0&sort=name-asc&order=asc&page=1&per_page=50&type=simple&category_id=1&price=10%2C200&price_from=1&price_to=1&new=True&featured=True&filter%5Bbrand%5D=38&filter%5Bcolor%5D=3",
+      "operation_path": "/products",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "X-Storefront-Key": "[REDACTED]",
+        "Accept": "application/json",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "61dbc594-c2eb-4658-96bc-a5edc0ab4d9d",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/api/shop/products?query=%27+AND+SLEEP%280%29%3D0+--+&suggest=0&sort=name-asc&order=asc&page=1&per_page=50&type=simple&category_id=1&price=10%2C200&price_from=1&price_to=1&new=True&featured=True&filter%5Bbrand%5D=38&filter%5Bcolor%5D=3",
+      "raw_query": "query=%27+AND+SLEEP%280%29%3D0+--+&suggest=0&sort=name-asc&order=asc&page=1&per_page=50&type=simple&category_id=1&price=10%2C200&price_from=1&price_to=1&new=True&featured=True&filter%5Bbrand%5D=38&filter%5Bcolor%5D=3",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 500,
+      "response_headers": {
+        "Content-Type": "application/problem+json"
+      },
+      "response_body": {
+        "type": "/errors/500",
+        "title": "An error occurred",
+        "status": 500,
+        "detail": "SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sku' in WHERE is ambiguous (Connection: mysql, Host: db, Port: 3306, Database: msdss_bagisto, SQL: select count(distinct `products`.`id`) as aggregate from `products` left join `product_attribute_values` as `pav_name_locale` on `products`.`id` = `pav_name_locale`.`product_id` and `pav_name_locale`.`attribute_id` = 2 left join `product_attribute_values` as `pav_name_fallback` on `products`.`id` = `pav_name_fallback`.`product_id` and `pav_name_fallback`.`attribute_id` = 2 and `pav_name_fallback`.`locale` is null and `pav_name_fallback`.`channel` is null left join `product_flat` on `products`.`id` = `product_flat`.`product_id` left join `products` as `variants` on COALESCE(variants.parent_id, variants.id) = `products`.`id` left join `product_attribute_values` as `pav_suggest_product` on `products`.`id` = `pav_suggest_product`.`product_id` and `pav_suggest_product`.`attribute_id` in (select `id` from `attributes` where `code` = suggest) left join `product_attribute_values` as `pav_suggest_variant` on `variants`.`id` = `pav_suggest_variant`.`product_id` and `pav_suggest_variant`.`attribute_id` in (select `id` from `attributes` where `code` = suggest) left join `product_attribute_values` as `pav_brand_product` on `products`.`id` = `pav_brand_product`.`product_id` and `pav_brand_product`.`attribute_id` in (select `id` from `attributes` where `code` = brand) left join `product_attribute_values` as `pav_brand_variant` on `variants`.`id` = `pav_brand_variant`.`product_id` and `pav_brand_variant`.`attribute_id` in (select `id` from `attributes` where `code` = brand) left join `product_attribute_values` as `pav_color_product` on `products`.`id` = `pav_color_product`.`product_id` and `pav_color_product`.`attribute_id` in (select `id` from `attributes` where `code` = color) left join `product_attribute_values` as `pav_color_variant` on `variants`.`id` = `pav_color_variant`.`product_id` and `pav_color_variant`.`attribute_id` in (select `id` from `attributes` where `code` = color) where exists (select * from `product_attribute_values` where `products`.`id` = `product_attribute_values`.`product_id` and `attribute_id` = 8 and `boolean_value` = 1) and exists (select * from `product_attribute_values` where `products`.`id` = `product_attribute_values`.`product_id` and `attribute_id` = 7 and `boolean_value` = 1) and (`sku` like %' AND SLEEP(0)=0 --% or exists (select * from `product_attribute_values` where `products`.`id` = `product_attribute_values`.`product_id` and `attribute_id` = 2 and `text_value` like %' AND SLEEP(0)=0 --%)) and `type` = simple and `product_flat`.`new` = 1 and `product_flat`.`featured` = 1 and exists (select * from `categories` inner join `product_categories` on `categories`.`id` = `product_categories`.`category_id` where `products`.`id` = `product_categories`.`product_id` and `id` = 1) and exists (select * from `product_attribute_values` where `products`.`id` = `product_attribute_values`.`product_id` and `attribute_id` = 11 and `float_value` between 10 and 200) and (((`pav_suggest_product`.`text_value` = 0) and (`pav_brand_product`.`integer_value` = 38) and (`pav_color_product`.`integer_value` = 3)) or ((`pav_suggest_variant`.`text_value` = 0) and (`pav_brand_variant`.`integer_value` = 38) and (`pav_color_variant`.`integer_value` = 3))))"
+      }
+    }
+  ],
+  "checks": [],
+  "error": null
+}

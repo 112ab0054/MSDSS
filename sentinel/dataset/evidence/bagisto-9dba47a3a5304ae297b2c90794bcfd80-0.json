@@ -1,0 +1,47 @@
+{
+  "platform": "bagisto",
+  "recorded_at": "2026-11-08T19:46:35.962270+00:00",
+  "outcome": "candidate_blocked",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "collect_small_v2.py": "21eb6c2d2d764f44ebb6dda1427cf5c711a16de1f901622d8eb11b07ffef5210"
+  },
+  "requests": [
+    {
+      "request_id": "07ac7a8a-12c2-4011-bf2f-084493acf6d9",
+      "method": "GET",
+      "path": "/products?query=MSDSS&per_page=50",
+      "operation_path": "/products",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "07ac7a8a-12c2-4011-bf2f-084493acf6d9",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/api/shop/products?query=MSDSS&per_page=50",
+      "raw_query": "query=MSDSS&per_page=50",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 429,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "message": "Rate limit exceeded",
+        "error": "rate_limit_exceeded",
+        "retry_after": 805
+      }
+    }
+  ],
+  "checks": [],
+  "error": "動態綁定／種子／正常前置流程未通過；不得當成成功"
+}

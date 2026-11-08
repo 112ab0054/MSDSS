@@ -1,0 +1,13 @@
+{
+  "platform": "bagisto",
+  "recorded_at": "2026-11-08T19:45:12.657793+00:00",
+  "outcome": "candidate_blocked",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "8ee173fc57700a991a226aef14aef4c303168c076fedb1cc216a91d9ca9ec5a1",
+    "collect_small_v2.py": "d6e50d815221e0efb239292d1ba72f7526139c85349fdc14e683ac30a4c8a39b"
+  },
+  "requests": [],
+  "checks": [],
+  "error": "動態綁定／種子／正常前置流程未通過；不得當成成功"
+}

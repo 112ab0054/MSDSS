@@ -83,3 +83,26 @@ python predict.py request.json
 request_input_version=3 保留一般 ID、Email、大小寫、空白和編碼，只遮蔽密碼、Token、Cookie、Key 等憑證；不做字串正規化。特徵 VERSION=4，278 維統計基準，全部輸入位置參與；這不是原文字元語意模型。SENSITIVE 欄位不使用值或真實長度。
 
 舊 195 筆正常證據、small-api-v1/v2 不覆寫、不自動核准；歷史未記錄的 raw bytes 不補造。先前 260 筆與 Sylius 分數來源不明，不作研究證據。舊命令的 --test-platform 與單檔自動分割流程已移除。
+
+
+## small-api-v2 訓練前檢查（本次更新）
+
+先檢查，不訓練；若資格不符回傳退出碼 2，列出所有集合的問題：
+
+```sh
+python sentinel/model/train.py --check-only --evidence-root .
+```
+
+未指定 --data-dir 時，預設由程式位置找 sentinel/dataset/small-api-v2，不依賴 Windows 磁碟機字母。原始碼專案中使用上方指令；Colab 解壓縮套件後，Notebook 會明確指定 data、evidence 的所在位置。
+
+完成實機採集與人工審核後，再執行：
+
+```sh
+python sentinel/model/train.py --data-dir sentinel/dataset/small-api-v2 --evidence-root . --output runs/experiment-001
+```
+
+目前儲存庫內的 420 筆仍是未送出計畫，上述正式命令應停止；--allow-candidates 也不允許未送出計畫。Bagisto 來源快照已經由完整重建與資料逐檔比對對帳；原紀錄保留在 small-api-v2/history，詳見 source-reconciliation.json。候選仍須實機採集與審核。
+
+Colab Notebook 已加入前置檢查；prepare_colab.py 同時打包 preflight.py 與原始 provenance.json。test 與獨立 validation 的成績仍各自輸出，不用於選參數。套件內的 self-test.json 改從 train 取樣，不帶入保留測試資料。
+
+模型輸出仍含 Accuracy、各類 Precision/Recall/F1、Macro/Weighted/Micro-F1、混淆矩陣、誤報／漏報、ROC/PR 曲線資料、MCC、Kappa、Log loss、Brier score 與基準比較。可搬移性測試在 Linux 的中文／空白路徑執行；尚未宣稱在 Colab、Windows 或 Ubuntu 各自完成實機訓練／推論驗收。

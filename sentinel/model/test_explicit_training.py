@@ -67,6 +67,18 @@ def run_integration(test):
 
 
 class ExplicitTests(unittest.TestCase):
+    def test_preflight_blocks_unexecuted_v2_without_training(self):
+        # 直接檢查目前真實候選檔，不修改任何旗標或製造研究成績。
+        data = HERE.parent / 'dataset/small-api-v2'
+        result = subprocess.run([sys.executable, str(HERE / 'train.py'), '--data-dir', str(data),
+                                 '--check-only'], capture_output=True, text=True, encoding='utf-8')
+        self.assertEqual(result.returncode, 2, result.stderr)
+        report = json.loads(result.stdout)
+        self.assertFalse(report['ready'])
+        self.assertEqual(report['splits']['train']['rows'], 252)
+        self.assertEqual(report['splits']['validation']['http_executed'], 0)
+        self.assertTrue(any('未送出' in message for message in report['errors']))
+
     def test_malformed_credentials_are_redacted(self):
         for key in ('access_key','sessionId','pass\\u0077ord'):
             raw='{"'+key+'":"fixture-private-value",'

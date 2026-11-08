@@ -36,7 +36,7 @@ def read_documents():
     operations, hashes = {}, {}
     for platform in PLATFORMS:
         file = ROOT / f'sentinel/analysis/selected-api-contracts/{platform}/API_parameters.md'
-        hashes[file.relative_to(ROOT).as_posix()] = sha(file.read_bytes())
+        hashes[file.relative_to(ROOT).as_posix()] = sha(file.read_bytes().replace(b'\r\n', b'\n'))
         current, mode = None, None
         for number, line in enumerate(file.read_text(encoding='utf-8-sig').splitlines(), 1):
             match = re.fullmatch(r'`(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS) ([^`]+)`', line.strip())

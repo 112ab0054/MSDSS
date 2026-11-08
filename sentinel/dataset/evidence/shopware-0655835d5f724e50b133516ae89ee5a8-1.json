@@ -1,0 +1,13 @@
+{
+  "platform": "shopware",
+  "recorded_at": "2026-11-08T19:53:23.331278+00:00",
+  "outcome": "candidate_blocked",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "collect_small_v2.py": "acbc44ca1e804f0304a4a1ddaadfbc3568d5bebf2ef359fc64cbd35a97a20b57"
+  },
+  "requests": [],
+  "checks": [],
+  "error": "動態綁定／種子／正常前置流程未通過；不得當成成功"
+}

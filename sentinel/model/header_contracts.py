@@ -8,7 +8,9 @@ def documented_headers():
     names, sources = set(), {}
     for platform in ('bagisto', 'shopware', 'sylius'):
         path = root / f'sentinel/analysis/selected-api-contracts/{platform}/API_parameters.md'
-        raw = path.read_bytes()
+        # 文件指紋統一換行，避免 Git 在 Windows checkout CRLF 後誤判來源變更。
+        # 這只處理 API 說明文件，不修改任何請求輸入。
+        raw = path.read_bytes().replace(b'\r\n', b'\n')
         sources[path.relative_to(root).as_posix()] = hashlib.sha256(raw).hexdigest()
         for line in raw.decode('utf-8-sig').splitlines():
             if line.startswith('| header |'):

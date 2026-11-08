@@ -1,0 +1,8 @@
+[
+  {
+    "planned_sample_id": "9cbbbb3bc1898feae8ec8a6ef30f5bc4f17a18cef11c60b489b5652cee3e80f5",
+    "http_executed": false,
+    "reason": "正常前置流程未通過",
+    "stop_platform": true
+  }
+]

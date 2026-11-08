@@ -1,4 +1,4 @@
-"""Explicit train/test/independent-validation workflow, portable Colab entry point."""
+"""固定 train/test/獨立 validation 的 XGBoost 訓練與可搬移模型輸出。"""
 import argparse
 import csv
 import hashlib
@@ -12,7 +12,7 @@ import zipfile
 import numpy as np
 from sklearn.dummy import DummyClassifier
 from xgboost import XGBClassifier
-from data_io import read_rows, validate_rows
+from preflight import inspect_dataset
 from evaluate import save_evaluation
 from features import features, LABELS, VERSION
 from request_input import INPUT_VERSION
@@ -23,34 +23,33 @@ HERE = Path(__file__).resolve().parent
 
 def run(group_function):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data-dir', type=Path, required=True, help='包含 train.csv、test.csv、validation.csv')
-    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v2', help='預設 small-api-v2；Colab 請指定解壓縮後的 data 目錄')
+    parser.add_argument('--output', type=Path, help='訓練輸出新目錄；--check-only 不需要')
+    parser.add_argument('--check-only', action='store_true', help='只列出資料資格與分組問題，不訓練、不產生成績')
     parser.add_argument('--evidence-root', type=Path)
     parser.add_argument('--header-config', type=Path, default=HERE / 'header-schema.json')
     parser.add_argument('--allow-candidates', action='store_true', help='只供已送出但未核准資料／單元測試試跑')
     parser.add_argument('--trees', type=int, default=150, help='事先固定樹數；不使用 test/validation 選樹數')
     args = parser.parse_args()
-    output = args.output.resolve()
-    if output.exists() and any(output.iterdir()):
+    if not args.check_only and args.output is None:
+        parser.error('訓練需要 --output；只檢查請加 --check-only')
+    output = args.output.resolve() if args.output else None
+    if output and output.exists() and any(output.iterdir()):
         raise ValueError('輸出已有檔案；請使用新實驗目錄')
     if not 1 <= args.trees <= 1000:
         raise ValueError('trees 必須介於 1 與 1000')
     paths = {s: args.data_dir / (s + '.csv') for s in ('train', 'test', 'validation')}
-    sets = {s: read_rows(p) for s, p in paths.items()}
-    for s, rows in sets.items():
-        validate_rows(rows, s, args.allow_candidates, args.evidence_root)
-    all_rows, indices = [], {}
-    for s, rows in sets.items():
-        indices[s] = np.arange(len(all_rows), len(all_rows) + len(rows))
-        all_rows.extend(rows)
-    ids = [r.get('sample_id') for r in all_rows]
-    if any(not sid for sid in ids) or len(set(ids)) != len(ids):
-        raise ValueError('樣本 ID 缺失或跨集合重複')
-    group = group_function(all_rows)
-    for a, b in [('train', 'test'), ('train', 'validation'), ('test', 'validation')]:
-        if set(group[indices[a]]) & set(group[indices[b]]):
-            raise ValueError(f'{a}/{b} 有來源／session／配對／家族／重複群交集；不重新洗牌')
     schema = json.loads(args.header_config.read_text(encoding='utf-8-sig'))
+    # 固定三份 CSV：不重新切分，也不偷偷把獨立驗證資料加回訓練。
+    sets, all_rows, indices, group, readiness = inspect_dataset(
+        args.data_dir, group_function, args.allow_candidates, args.evidence_root, schema)
+    if args.check_only:
+        print(json.dumps(readiness, ensure_ascii=False, indent=2))
+        if not readiness['ready']:
+            raise SystemExit(2)
+        return
+    if not readiness['ready']:
+        raise SystemExit('訓練前檢查未通過：\n- ' + '\n- '.join(readiness['errors']))
     names = schema['header_names']
     if names != sorted(set(names)) or any(n != n.lower() for n in names):
         raise ValueError('header schema 順序或名稱不合法')
@@ -61,7 +60,7 @@ def run(group_function):
             raise ValueError(f'{s} 必須包含 normal/sqli/xss 三類')
         x[s] = np.asarray([features(r['input'], names) for r in rows], dtype=np.float32)
         y[s] = np.asarray([LABELS.index(label) for label in labels])
-    # Fixed, predeclared CPU parameters: neither held-out set selects hyperparameters.
+    # 事先固定 CPU 參數；test 與獨立 validation 都不參與選樹數或門檻。
     model = XGBClassifier(n_estimators=args.trees, max_depth=3, learning_rate=0.05,
                           objective='multi:softprob', num_class=3, eval_metric='mlogloss',
                           tree_method='hist', device='cpu', n_jobs=2, random_state=42)
@@ -82,12 +81,13 @@ def run(group_function):
     (bundle / 'metadata.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding='utf-8')
     for name in ('features.py', 'request_input.py', 'predict.py'):
         shutil.copyfile(HERE / name, bundle / name)
-    # Match actual training versions rather than promising forward/backward compatibility.
+    # 記錄訓練時套件版本；到 Windows／Ubuntu 重新安裝，不複製 Colab 虛擬環境。
     (bundle / 'requirements-inference.txt').write_text('\n'.join(
         f'{name}=={packages[name]}' for name in ('numpy', 'scikit-learn', 'xgboost')) + '\n', encoding='utf-8')
+    # 可搬移性自測只取訓練樣本，避免將測試資料打包到部署端。
     probes = []
     for label in LABELS:
-        row = next(r for r in sets['test'] if r['annotation'].get('label', r['annotation'].get('proposed_label')) == label)
+        row = next(r for r in sets['train'] if r['annotation'].get('label', r['annotation'].get('proposed_label')) == label)
         req = row['input']
         from request_input import prepare_request
         sanitized = prepare_request(req)
@@ -112,8 +112,8 @@ def run(group_function):
              'identical_feature_vectors_shared': overlap,
              'data_sha256': {s: hashlib.sha256(p.read_bytes()).hexdigest() for s, p in paths.items()},
              'source_sha256': {n: hashlib.sha256((HERE / n).read_bytes()).hexdigest()
-                               for n in ('train.py', 'training.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py')},
-             'seed': 42, 'platform': platform.system()}
+                               for n in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py')},
+             'seed': 42, 'platform': platform.system(), 'readiness': readiness}
     (output / 'experiment.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding='utf-8')
     with (output / 'split.csv').open('w', encoding='utf-8-sig', newline='') as f:
         writer = csv.writer(f)

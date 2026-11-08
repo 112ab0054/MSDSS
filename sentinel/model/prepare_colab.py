@@ -14,7 +14,7 @@ def package(data_dir, output, evidence_root=None):
     if output.exists():
         raise ValueError('套件已存在，請使用新的輸出檔名')
     files = {}
-    for name in ('train.py', 'training.py', 'data_io.py', 'evaluate.py', 'features.py',
+    for name in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py',
                  'request_input.py', 'predict.py', 'requirements.txt'):
         files['model/' + name] = (HERE / name).read_bytes()
     names, hashes = documented_headers()
@@ -29,6 +29,9 @@ def package(data_dir, output, evidence_root=None):
                 check_evidence(row, evidence_root)
                 relative = PurePosixPath(row['metadata']['source_evidence'].replace('\\', '/'))
                 files['evidence/' + str(relative)] = evidence_root.joinpath(*relative.parts).read_bytes()
+    provenance = data_dir / 'provenance.json'
+    if provenance.is_file():
+        files['data/provenance.json'] = provenance.read_bytes()
     files['package-manifest.json'] = json.dumps({n: hashlib.sha256(b).hexdigest() for n,b in files.items()}, indent=2).encode()
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as z:

@@ -1,0 +1,599 @@
+{
+  "platform": "bagisto",
+  "recorded_at": "2026-11-08T19:43:22.483008+00:00",
+  "outcome": "candidate_http_captured",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "8ee173fc57700a991a226aef14aef4c303168c076fedb1cc216a91d9ca9ec5a1",
+    "collect_small_v2.py": "dc282d9f29bf607f518b9f802a17d75e9a8051afee83975494f83593161eb946"
+  },
+  "requests": [
+    {
+      "request_id": "dcdea93f-3655-47b8-a623-fb1199e026b0",
+      "method": "GET",
+      "path": "/products?query=MSDSS&per_page=50",
+      "operation_path": "/products",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "dcdea93f-3655-47b8-a623-fb1199e026b0",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/shop/products?query=MSDSS&per_page=50",
+      "raw_query": "query=MSDSS&per_page=50",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": [
+        {
+          "id": 1,
+          "sku": "MSDSS-PHASE1-SIMPLE",
+          "type": "simple",
+          "bookingType": null,
+          "name": "MSDSS Phase One Product",
+          "urlKey": "msdss-phase1-simple",
+          "status": true,
+          "shortDescription": "Local normal-shopping verification product",
+          "price": 25,
+          "specialPrice": null,
+          "new": false,
+          "featured": false,
+          "minimumPrice": 25,
+          "maximumPrice": 25,
+          "formattedPrice": "$25.00",
+          "formattedSpecialPrice": null,
+          "formattedMinimumPrice": "$25.00",
+          "formattedMaximumPrice": "$25.00",
+          "isInWishlist": 0,
+          "isInCompare": 0,
+          "baseImageUrl": null
+        },
+        {
+          "id": 2,
+          "sku": "MSDSS-PHASE1-SUPPORT",
+          "type": "simple",
+          "bookingType": null,
+          "name": "MSDSS Support Product",
+          "urlKey": "msdss-phase1-support",
+          "status": true,
+          "shortDescription": "Local normal-shopping verification product",
+          "price": 25,
+          "specialPrice": null,
+          "new": false,
+          "featured": false,
+          "minimumPrice": 25,
+          "maximumPrice": 25,
+          "formattedPrice": "$25.00",
+          "formattedSpecialPrice": null,
+          "formattedMinimumPrice": "$25.00",
+          "formattedMaximumPrice": "$25.00",
+          "isInWishlist": 0,
+          "isInCompare": 0,
+          "baseImageUrl": null
+        }
+      ]
+    },
+    {
+      "request_id": "47aa044c-032c-4b6e-a97f-993325d2af58",
+      "method": "GET",
+      "path": "/products/1",
+      "operation_path": "/products/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "47aa044c-032c-4b6e-a97f-993325d2af58",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/shop/products/1",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "id": 1,
+        "sku": "MSDSS-PHASE1-SIMPLE",
+        "type": "simple",
+        "name": "MSDSS Phase One Product",
+        "urlKey": "msdss-phase1-simple",
+        "status": true,
+        "description": "Local normal-shopping verification product",
+        "shortDescription": "Local normal-shopping verification product",
+        "price": 25,
+        "specialPrice": null,
+        "new": false,
+        "featured": false,
+        "minimumPrice": 25,
+        "maximumPrice": 25,
+        "formattedPrice": "$25.00",
+        "formattedSpecialPrice": null,
+        "formattedMinimumPrice": "$25.00",
+        "formattedMaximumPrice": "$25.00",
+        "baseImageUrl": null,
+        "createdAt": "2026-11-09T01:12:48+05:30",
+        "updatedAt": "2026-11-09T01:12:48+05:30",
+        "isSaleable": true,
+        "isInWishlist": 0,
+        "isInCompare": 0,
+        "color": null,
+        "size": null,
+        "brand": null,
+        "categories": [
+          {
+            "id": 1,
+            "code": null,
+            "name": "Root",
+            "slug": "root",
+            "urlPath": null
+          }
+        ],
+        "channels": [
+          {
+            "id": 1,
+            "code": "default",
+            "hostname": "127.0.0.1",
+            "currencyCode": "USD",
+            "localeCode": "en"
+          }
+        ],
+        "attributeFamily": {
+          "id": 1,
+          "code": "default",
+          "name": "Default"
+        },
+        "images": [],
+        "videos": [],
+        "superAttributes": [],
+        "variants": [],
+        "bookingProducts": [],
+        "bundleOptions": [],
+        "groupedProducts": [],
+        "downloadableLinks": [],
+        "downloadableSamples": [],
+        "customizableOptions": [],
+        "relatedProducts": [],
+        "upSells": [],
+        "crossSells": []
+      }
+    },
+    {
+      "request_id": "08596291-8a4b-4c7a-9582-864685cf9caf",
+      "method": "POST",
+      "path": "/cart-tokens",
+      "operation_path": "/cart-tokens",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "19",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "08596291-8a4b-4c7a-9582-864685cf9caf",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "createNew": true
+      },
+      "business_verified": true,
+      "request_target": "/api/shop/cart-tokens",
+      "raw_query": "",
+      "request_body_raw": "{\"createNew\": true}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "id": 7,
+        "cartToken": "[REDACTED]",
+        "customerId": null,
+        "channelId": 1,
+        "itemsCount": 0,
+        "items": [],
+        "subtotal": 0,
+        "baseSubtotal": 0,
+        "discountAmount": 0,
+        "baseDiscountAmount": 0,
+        "taxAmount": 0,
+        "baseTaxAmount": 0,
+        "shippingAmount": 0,
+        "baseShippingAmount": 0,
+        "grandTotal": 0,
+        "baseGrandTotal": 0,
+        "formattedSubtotal": "$0.00",
+        "formattedDiscountAmount": "$0.00",
+        "formattedTaxAmount": "$0.00",
+        "formattedShippingAmount": "$0.00",
+        "formattedGrandTotal": "$0.00",
+        "couponCode": null,
+        "success": true,
+        "message": "New guest cart created with unique session token",
+        "carts": null,
+        "sessionToken": "[REDACTED]",
+        "isGuest": true,
+        "itemsQty": 0,
+        "subTotalInclTax": 0,
+        "baseSubTotalInclTax": 0,
+        "formattedSubTotalInclTax": "$0.00",
+        "taxTotal": 0,
+        "formattedTaxTotal": "$0.00",
+        "shippingAmountInclTax": 0,
+        "baseShippingAmountInclTax": 0,
+        "formattedShippingAmountInclTax": "$0.00",
+        "billingAddress": null,
+        "shippingAddress": null,
+        "appliedTaxes": [],
+        "haveStockableItems": false,
+        "paymentMethod": null,
+        "paymentMethodTitle": null,
+        "selectedShippingRate": null,
+        "selectedShippingRateTitle": null,
+        "paymentRedirectUrl": null,
+        "orderId": null,
+        "redirectUri": null,
+        "redirect": false,
+        "redirectUrl": null,
+        "orderIncrementId": null
+      }
+    },
+    {
+      "request_id": "9feda553-8423-4bd8-b228-613c8b34ed28",
+      "method": "POST",
+      "path": "/customers",
+      "operation_path": "/customers",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "218",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "9feda553-8423-4bd8-b228-613c8b34ed28",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "email": "phase1-8171c4aa601144fe941c78b3e5c4033c@example.test",
+        "password": "[REDACTED]",
+        "confirmPassword": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/api/shop/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"firstName\": \"MSDSS\", \"lastName\": \"Test\", \"email\": \"phase1-8171c4aa601144fe941c78b3e5c4033c@example.test\", \"password\": \"[REDACTED]\", \"confirmPassword\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Location": "/api/shop/customers/4"
+      },
+      "response_body": {
+        "id": 4,
+        "firstName": "MSDSS",
+        "lastName": "Test",
+        "gender": null,
+        "dateOfBirth": null,
+        "email": "phase1-8171c4aa601144fe941c78b3e5c4033c@example.test",
+        "phone": null,
+        "status": 1,
+        "apiToken": "[REDACTED]",
+        "customerGroupId": 2,
+        "channelId": 1,
+        "subscribedToNewsLetter": false,
+        "isVerified": 1,
+        "isSuspended": 0,
+        "token": "[REDACTED]",
+        "rememberToken": "[REDACTED]",
+        "name": "MSDSS Test"
+      }
+    },
+    {
+      "request_id": "72704221-b31a-4712-ab29-d46e298a2c99",
+      "method": "POST",
+      "path": "/customer/login",
+      "operation_path": "/customer/login",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "117",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "X-Request-Id": "72704221-b31a-4712-ab29-d46e298a2c99",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "phase1-8171c4aa601144fe941c78b3e5c4033c@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/api/shop/customer/login",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"phase1-8171c4aa601144fe941c78b3e5c4033c@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Location": "/api/.well-known/genid/0a5860e97847fc118c98"
+      },
+      "response_body": {
+        "id": 4,
+        "_id": 4,
+        "apiToken": "[REDACTED]",
+        "token": "[REDACTED]",
+        "message": "You have logged in successfully",
+        "success": true
+      }
+    },
+    {
+      "request_id": "46117cf1-ed7a-4987-aa21-4040a50020b8",
+      "method": "GET",
+      "path": "/customer-profile",
+      "operation_path": "/customer-profile",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "46117cf1-ed7a-4987-aa21-4040a50020b8",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/api/shop/customer-profile",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": [
+        {
+          "id": "4",
+          "firstName": "MSDSS",
+          "lastName": "Test",
+          "email": "phase1-8171c4aa601144fe941c78b3e5c4033c@example.test",
+          "phone": null,
+          "gender": null,
+          "dateOfBirth": null,
+          "status": "1",
+          "subscribedToNewsLetter": false,
+          "isVerified": "1",
+          "isSuspended": "0",
+          "image": null,
+          "password": "[REDACTED]",
+          "confirmPassword": "[REDACTED]",
+          "success": null,
+          "message": null
+        }
+      ]
+    },
+    {
+      "request_id": "70e56c03-f3ba-424e-9a8b-539b01417a22",
+      "method": "POST",
+      "path": "/add-product-in-cart",
+      "operation_path": "/add-product-in-cart",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "31",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "70e56c03-f3ba-424e-9a8b-539b01417a22",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "productId": 1,
+        "quantity": 1
+      },
+      "business_verified": false,
+      "request_target": "/api/shop/add-product-in-cart",
+      "raw_query": "",
+      "request_body_raw": "{\"productId\": 1, \"quantity\": 1}",
+      "header_capture": "http_client_sent_headers",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "id": 8,
+        "cartToken": "[REDACTED]",
+        "customerId": 4,
+        "channelId": 1,
+        "itemsCount": 1,
+        "items": [
+          {
+            "id": 6,
+            "cartId": 8,
+            "productId": 1,
+            "name": "MSDSS Phase One Product",
+            "sku": "MSDSS-PHASE1-SIMPLE",
+            "quantity": 1,
+            "price": 25,
+            "basePrice": 25,
+            "total": 25,
+            "baseTotal": 25,
+            "discountAmount": 0,
+            "baseDiscountAmount": 0,
+            "taxAmount": 0,
+            "baseTaxAmount": 0,
+            "options": null,
+            "type": "simple",
+            "formattedPrice": "$25.00",
+            "formattedTotal": "$25.00",
+            "priceInclTax": 25,
+            "basePriceInclTax": 25,
+            "formattedPriceInclTax": "$25.00",
+            "totalInclTax": 25,
+            "baseTotalInclTax": 25,
+            "formattedTotalInclTax": "$25.00",
+            "baseImage": "{\"small_image_url\":\"http:\\/\\/127.0.0.1:18081\\/themes\\/shop\\/default\\/build\\/assets\\/small-product-placeholder-CMT26fOX.webp\",\"medium_image_url\":\"http:\\/\\/127.0.0.1:18081\\/themes\\/shop\\/default\\/build\\/assets\\/medium-product-placeholder-INODB-G2.webp\",\"large_image_url\":\"http:\\/\\/127.0.0.1:18081\\/themes\\/shop\\/default\\/build\\/assets\\/large-product-placeholder-B9xoAuKQ.webp\",\"original_image_url\":\"http:\\/\\/127.0.0.1:18081\\/themes\\/shop\\/default\\/build\\/assets\\/large-product-placeholder-B9xoAuKQ.webp\",\"alt\":\"MSDSS Phase One Product\"}",
+            "productUrlKey": "msdss-phase1-simple",
+            "canChangeQty": true
+          }
+        ],
+        "subtotal": 25,
+        "baseSubtotal": 25,
+        "discountAmount": 0,
+        "baseDiscountAmount": 0,
+        "taxAmount": 0,
+        "baseTaxAmount": 0,
+        "shippingAmount": 0,
+        "baseShippingAmount": 0,
+        "grandTotal": 25,
+        "baseGrandTotal": 25,
+        "formattedSubtotal": "$25.00",
+        "formattedDiscountAmount": "$0.00",
+        "formattedTaxAmount": "$0.00",
+        "formattedShippingAmount": "$0.00",
+        "formattedGrandTotal": "$25.00",
+        "couponCode": null,
+        "success": true,
+        "message": "Product added to cart successfully",
+        "carts": null,
+        "sessionToken": "[REDACTED]",
+        "isGuest": false,
+        "itemsQty": 1,
+        "subTotalInclTax": 25,
+        "baseSubTotalInclTax": 25,
+        "formattedSubTotalInclTax": "$25.00",
+        "taxTotal": 0,
+        "formattedTaxTotal": "$0.00",
+        "shippingAmountInclTax": 0,
+        "baseShippingAmountInclTax": 0,
+        "formattedShippingAmountInclTax": "$0.00",
+        "billingAddress": null,
+        "shippingAddress": null,
+        "appliedTaxes": {
+          " (0%)": "$0.00"
+        },
+        "haveStockableItems": true,
+        "paymentMethod": null,
+        "paymentMethodTitle": null,
+        "selectedShippingRate": null,
+        "selectedShippingRateTitle": null,
+        "paymentRedirectUrl": null,
+        "orderId": null,
+        "redirectUri": null,
+        "redirect": false,
+        "redirectUrl": null,
+        "orderIncrementId": null
+      }
+    },
+    {
+      "request_id": "5d84e2a7-fa46-49ae-a195-cc56259ee73c",
+      "method": "POST",
+      "path": "/cart",
+      "operation_path": "/cart",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "2",
+        "Host": "127.0.0.1:18081",
+        "User-Agent": "Python-urllib/3.12",
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "X-Storefront-Key": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "x onmouseover=void(0)",
+        "X-Currency": "USD",
+        "X-Request-Id": "5d84e2a7-fa46-49ae-a195-cc56259ee73c",
+        "Connection": "close"
+      },
+      "request_body": {},
+      "business_verified": false,
+      "request_target": "/api/shop/cart",
+      "raw_query": "",
+      "request_body_raw": "{}",
+      "header_capture": "http_client_sent_headers",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "application/json"
+      },
+      "response_body": {
+        "type": "/errors/404",
+        "title": "Not Found",
+        "status": 404,
+        "detail": "Cart not found"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "列表找到本次正常流程專用商品",
+      "passed": true,
+      "request_ids": [
+        "dcdea93f-3655-47b8-a623-fb1199e026b0"
+      ]
+    },
+    {
+      "description": "讀回商品詳情核對 ID 與 SKU",
+      "passed": true,
+      "request_ids": [
+        "47aa044c-032c-4b6e-a97f-993325d2af58"
+      ]
+    },
+    {
+      "description": "建立空的獨立訪客購物車並取得 token",
+      "passed": true,
+      "request_ids": [
+        "08596291-8a4b-4c7a-9582-864685cf9caf"
+      ]
+    },
+    {
+      "description": "註冊登入後以 bearer 讀回同一會員",
+      "passed": true,
+      "request_ids": [
+        "9feda553-8423-4bd8-b228-613c8b34ed28",
+        "72704221-b31a-4712-ab29-d46e298a2c99",
+        "46117cf1-ed7a-4987-aa21-4040a50020b8"
+      ]
+    }
+  ],
+  "error": null
+}

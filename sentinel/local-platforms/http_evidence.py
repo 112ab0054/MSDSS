@@ -155,7 +155,7 @@ class EvidenceClient:
             row['status'] = response.status
             # Only safe, relevant headers; never dump server headers wholesale.
             row['response_headers'] = {key: response.headers[key] for key in
-                ('Content-Type', 'sw-context-token', 'Location') if key in response.headers}
+                ('Content-Type', 'sw-context-token', 'Location', 'Retry-After') if key in response.headers}
             self.remember(row['response_headers'])
             raw = response.read(2 * 1024 * 1024 + 1)
             if len(raw) > 2 * 1024 * 1024:
