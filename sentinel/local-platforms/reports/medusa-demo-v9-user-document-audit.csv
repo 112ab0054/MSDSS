@@ -1,0 +1,33 @@
+﻿method,api,prior_status,runtime_status,document_heading,document_line,selected_sample_is_negative_probe,confirmed_explanation
+POST,/auth/customer/emailpass/verification/confirm,unavailable_feature,unavailable_feature,01. 確認電子郵件驗證,7,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+POST,/auth/customer/{auth_provider}/callback,blocked_prerequisite,blocked_prerequisite,04. 完成第三方登入回呼驗證,42,True,文件用途是第三方回呼；auth_provider欄位例emailpass不能當作該provider支援callback。現只配置emailpass，原生回應明確未實作callback。
+POST,/auth/customer/{auth_provider}/reset-password,blocked_prerequisite,partial_pass,06. 要求產生重設密碼 token,66,False,文件此操作是要求產生token並發事件，不是寄信本身。已依identifier呼叫201；因回應故意不透露帳號是否存在、尚無事件獨立證據，列部分成功，不能說缺郵件就是參數錯。
+POST,/auth/customer/{auth_provider}/update,blocked_prerequisite,blocked_prerequisite,07. 使用 token 重設密碼,79,True,文件明確要求重設密碼token。上次僅password且用了普通登入JWT；本次補email＋password仍401。缺合法reset token是關鍵，不把登入JWT冒充重設JWT。
+POST,/auth/mfa/challenges/{id}/verify,blocked_prerequisite,blocked_prerequisite,08. 驗證登入時的 MFA 挑戰,93,True,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。
+POST,/auth/mfa/factors,blocked_prerequisite,blocked_prerequisite,10. 開始綁定 MFA 因子,116,False,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。
+DELETE,/auth/mfa/factors/{id},blocked_prerequisite,blocked_prerequisite,11. 停用 MFA 因子,131,True,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。
+POST,/auth/mfa/factors/{id}/verify,blocked_prerequisite,blocked_prerequisite,12. 確認並啟用 MFA 因子,145,True,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。
+POST,/auth/mfa/recovery-codes,blocked_prerequisite,blocked_prerequisite,13. 重新產生 MFA 恢復碼,158,True,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。
+POST,/auth/session,blocked_prerequisite,passed,14. 建立 Cookie 登入工作階段,170,False,手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。
+DELETE,/auth/session,blocked_prerequisite,passed,15. 結束 Cookie 登入工作階段,180,False,手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。
+POST,/auth/verification/confirm,blocked_prerequisite,blocked_prerequisite,17. 確認通用驗證碼,200,True,文件必填code，實際沒有通知接收途徑取得原生code；先前省略code的400不是正向驗收。現只有feed通知、src/subscribers空，未配置email發送／取碼。
+POST,/store/carts/{id}/gift-cards,unavailable_feature,unavailable_feature,24. 套用禮物卡,353,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+DELETE,/store/carts/{id}/gift-cards,unavailable_feature,unavailable_feature,25. 移除禮物卡,368,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+POST,/store/carts/{id}/promotions,partial_pass,partial_pass,29. 套用優惠碼,436,False,文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。
+DELETE,/store/carts/{id}/promotions,partial_pass,partial_pass,30. 移除優惠碼,452,False,文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。
+POST,/store/carts/{id}/store-credits,unavailable_feature,unavailable_feature,32. 使用商店抵用額度,487,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+GET,/store/collections/{id},blocked_prerequisite,blocked_prerequisite,35. 取得單一商品集合,542,True,文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。
+GET,/store/gift-cards/{idOrCode},unavailable_feature,unavailable_feature,46. 查詢禮物卡,759,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+GET,/store/locales,unavailable_feature,unavailable_feature,47. 列出支援語系,773,False,不是缺路由：原生標示自2.12.3存在、以translation feature flag控制；實際translation module disable=true。屬目前功能設定，不是必須升級或補locale參數。
+POST,/store/orders/{id}/transfer/accept,blocked_prerequisite,passed,50. 接受訂單歸戶轉移,823,False,依文件送本次真實訂單ID與平台產生的token後已成功，接受／拒絕後查雙方訂單歸屬及confirmed／declined狀態。token唯讀取自己訂單資料列，沒有偽造；郵件送達未驗證。
+POST,/store/orders/{id}/transfer/decline,blocked_prerequisite,passed,52. 拒絕訂單歸戶轉移,854,False,依文件送本次真實訂單ID與平台產生的token後已成功，接受／拒絕後查雙方訂單歸屬及confirmed／declined狀態。token唯讀取自己訂單資料列，沒有偽造；郵件送達未驗證。
+POST,/store/payment-collections/{id}/payment-sessions/{session_id},unavailable_feature,unavailable_feature,原77文件未列,,False,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+GET,/store/product-tags/{id},blocked_prerequisite,blocked_prerequisite,62. 取得單一商品標籤,1049,True,文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。
+GET,/store/product-types/{id},blocked_prerequisite,blocked_prerequisite,64. 取得單一商品類型,1088,True,文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。
+GET,/store/return-reasons/{id},blocked_prerequisite,blocked_prerequisite,71. 取得單一退貨原因,1241,True,文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。
+POST,/store/returns,blocked_prerequisite,blocked_prerequisite,72. 建立退貨要求,1255,False,文件必填order_id、items.id／quantity、return_shipping.option_id有送；實例fulfilled_quantity=0且沒有可用退貨配送選項。原生400證明業務前置不足，不是任填品項ID可解決。
+POST,/store/search,unavailable_feature,unavailable_feature,原77文件未列,,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+POST,/store/shipping-options/{id}/calculate,failed_runtime,blocked_prerequisite,74. 計算配送選項價格,1300,False,文件cart_id必填、data選填，先前已有真實cart／option ID。實際provider=manual_manual、price_type=flat；原生canCalculate=false且calculatePrice明確拋錯。500保留，改列需支援動態計價provider的前置不足。
+GET,/store/store-credit-accounts,unavailable_feature,unavailable_feature,75. 列出自己的商店額度帳戶,1317,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+POST,/store/store-credit-accounts/claim,unavailable_feature,unavailable_feature,76. 認領商店額度帳戶,1340,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+GET,/store/store-credit-accounts/{id},unavailable_feature,unavailable_feature,77. 取得自己的額度帳戶,1355,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。

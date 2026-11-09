@@ -1,7 +1,7 @@
 # 已接入的 XGBoost 模型與推論說明
 
 
-最新Medusa狀態：79項均有HTTP紀錄且清單runtime_status已同步，not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。含負向探查，不代表79個正常流程全成功。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+最新Medusa狀態（依原文件復核後）：79項均有HTTP紀錄，not_run=0；51成功、3部分成功、14前置不足、11版本／功能差異。Cookie成功限真正HTTPS；移轉接受／拒絕使用原生token、通知送達未測。配送500保留，但已證實manual不支援動態計價，改列前置不足。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
 
 目前模型為使用者上傳的Colab v9（results_download (6).zip），四份資料SHA與small-api-v9一致，特徵v6／2402維，沒有另行調參或改權重。舊v7完整套件已保存在../model/history/model-v7-before-colab-v9。下方v5／v6／v7探針為歷史，當前真實Medusa結果見[教授展示驗證](../analysis/Medusa教授展示驗證v9.md)。
 已核對原 `bundle-manifest.json`，只保留其中列出的檔案與清單本身，不攜帶 Python 3.13 的 `__pycache__`、全部訓練／測試請求或其他評估產物。
@@ -85,3 +85,5 @@ python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 808
 新模型完整manifest及三類探針自測通過，16項gateway測試通過。真實Medusa2.21.0的58筆正常流程請求與7筆唯讀搜尋探針，全部有UUID對應的實際gateway分數。正常流程36項斷言通過並建立未扣款的離線測試訂單，但58筆正常意圖有3筆誤判；Cookie及2個缺少路由另列限制，不能說79個API全成功。
 
 目前79操作狀態：42成功、6前置不足、2版本／功能差異、29未測。獨立展示API入口18085連現有真實Medusa9100，原Mirage／storefront未改線。已測資料與分數見教授展示驗證；不要把舊v6正常20探針當成v9整站零誤報。
+
+最新[依原API文件逐項復核32項](../analysis/Medusa依原API文件逐項復核.md)，包含原文件快照、參數檢查、設定／資料庫／原生實作證據與HTTPS補測。未修改原API文件或模型。

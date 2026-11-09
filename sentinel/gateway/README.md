@@ -1,7 +1,7 @@
 # Medusa Gateway
 
 
-最新Medusa狀態：79項均有HTTP紀錄且清單runtime_status已同步，not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。含負向探查，不代表79個正常流程全成功。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+最新Medusa狀態（依原文件復核後）：79項均有HTTP紀錄，not_run=0；51成功、3部分成功、14前置不足、11版本／功能差異。Cookie成功限真正HTTPS；移轉接受／拒絕使用原生token、通知送達未測。配送500保留，但已證實manual不支援動態計價，改列前置不足。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
 
 流程：網站 → gateway → XGBoost 分析副本 → 原始請求轉送 Medusa → 回傳後端結果。
 
@@ -117,3 +117,5 @@ python -m unittest discover -s sentinel/gateway -p 'test_*.py'
 使用者Colab v9模型已取代專案舊權重；明確入口http://127.0.0.1:18085，連到真實Medusa2.21.0 http://127.0.0.1:9100。沒有把原Mirage網站切流。主要購物建單36項斷言通過，正常意圖58筆有3筆誤判，仍只告警。79項API狀態與版本／Cookie限制及重跑方式見[教授展示驗證](../analysis/Medusa教授展示驗證v9.md)。
 
 gateway推論日誌新增request_id，僅允許UUID格式，其他內容記unavailable；不改請求／特徵或回傳資料，用於將實際線上分數與遮蔽HTTP證據比對。
+
+最新[依原API文件逐項復核32項](../analysis/Medusa依原API文件逐項復核.md)，包含原文件快照、參數檢查、設定／資料庫／原生實作證據與HTTPS補測。未修改原API文件或模型。

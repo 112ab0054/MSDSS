@@ -1,0 +1,16 @@
+{
+  "source": "actual HTTPS gateway log, request UUID matched",
+  "scores": [
+    {
+      "request_id": "74133585-802c-4c7a-bcd8-23bd2a82a79e",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.832771897315979,
+        "sqli": 0.028407176956534386,
+        "xss": 0.13882091641426086
+      }
+    }
+  ]
+}

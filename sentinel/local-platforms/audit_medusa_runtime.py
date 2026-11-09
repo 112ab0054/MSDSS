@@ -24,18 +24,27 @@ def json_sha256(data):
     return hashlib.sha256(json.dumps(data, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
 
 
-def classify(operation, matches, native_present):
+def classify(operation, matches, native_present, environment=None):
+    environment = environment or {}
     if not matches: return 'not_run', '沒有本次展示站證據'
     successful = [r for r in matches if 200 <= r.get('status', 0) < 300 and r.get('business_verified') and not r.get('route_probe_only')]
     if successful:
         if operation['path'].endswith('/promotions'):
             return 'partial_pass', '合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除'
         return 'passed', '真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過'
+    if operation['path'].endswith('/reset-password') and any(r.get('document_request_validated') and r.get('status') == 201 for r in matches):
+        return 'partial_pass', '依手寫文件送已存在測試帳號identifier並回201；未取得token事件的獨立觀測證據，沒有把郵件投遞當成此API的必填參數'
     if not native_present and all(r.get('status') == 404 for r in matches):
         return 'unavailable_feature', '本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功'
     if all(r.get('status') == 404 for r in matches) and not any(r.get('route_probe_only') for r in matches):
+        if operation['path'] == '/store/locales' and environment.get('translation_module_disabled'):
+            return 'unavailable_feature', '路由自2.12.3已存在；實際translation module disable=true，功能未啟用造成404，非版本缺少此路由'
         return 'unavailable_feature', '安裝套件有路由但展示站實際404，功能未掛載／啟用原因尚未定位，不能只歸因版本'
     if any(r.get('status', 0) >= 500 for r in matches):
+        provider = environment.get('manual_fulfillment', {})
+        option = environment.get('tested_shipping_option', {})
+        if operation['path'] == '/store/shipping-options/{id}/calculate' and option.get('provider_id') == 'manual_manual' and provider.get('can_calculate_false') and provider.get('calculate_price_explicit_error'):
+            return 'blocked_prerequisite', '文件必填cart_id與真實option ID已送；實際使用flat／manual_manual，原生canCalculate=false且calculatePrice明確拋錯。HTTP500保留，正向驗收需支援動態計價的提供者，不是缺data參數'
         return 'failed_runtime', '使用真實車與配送ID計價回500；目前manual提供者，根因仍待定位，不算通過'
     explanations = [r.get('precondition_limitation') or r.get('test_case_limitation') for r in matches]
     explanations = list(dict.fromkeys(x for x in explanations if x))
@@ -51,27 +60,40 @@ def audit(sync_inventory=False):
     native = json.loads(route_path.read_text(encoding='utf-8'))
     methods = {(m, normalize(o['path'])) for o in native for m in o['methods']}
     sources = ['medusa-demo-v9-flow.json', 'medusa-demo-v9-remaining.json', 'medusa-demo-v9-remaining-followups.json']
+    for name in ['medusa-demo-v9-document-input-checks.json', 'medusa-demo-v9-native-token-transfers.json', 'medusa-demo-v9-reset-event-check.json']:
+        if (REPORTS / name).is_file(): sources.append(name)
+    environment_path = REPORTS / 'medusa-demo-v9-document-environment-proof.json'
+    environment = json.loads(environment_path.read_text(encoding='utf-8')) if environment_path.is_file() else {}
+    document_path = REPORTS / 'medusa-demo-v9-user-document-audit.json'
+    document_reviews = {}
+    if document_path.is_file():
+        document_reviews = {(o['method'], o['path']): o for o in json.loads(document_path.read_text(encoding='utf-8'))['operations']}
     scores = {}
-    for name in ['medusa-demo-v9-gateway-scores.json', 'medusa-demo-v9-remaining-gateway-scores.json', 'medusa-demo-v9-followup-gateway-scores.json']:
+    score_files = ['medusa-demo-v9-gateway-scores.json', 'medusa-demo-v9-remaining-gateway-scores.json', 'medusa-demo-v9-followup-gateway-scores.json']
+    for name in ['medusa-demo-v9-document-check-gateway-scores.json', 'medusa-demo-v9-reset-gateway-scores.json']:
+        if (REPORTS / name).is_file(): score_files.append(name)
+    for name in score_files:
         for row in json.loads((REPORTS / name).read_text(encoding='utf-8'))['scores']: scores[row['request_id']] = row
-    requests = []; predictions = []; checks = []; source_hashes = {}; latest = ''
+    requests = []; predictions = []; checks = []; source_hashes = {}; latest = ''; targets = set()
     for name in sources:
         raw = (REPORTS / name).read_bytes(); data = json.loads(raw); source_hashes[name] = json_sha256(data)
         latest = max(latest, data['recorded_at']); checks.extend(data['checks'])
+        targets.add(data.get('verification_target', 'http://127.0.0.1:18085'))
         for row in data['requests']:
-            r = dict(row, runtime_evidence_file='sentinel/local-platforms/reports/' + name)
+            r = dict(row, runtime_evidence_file='sentinel/local-platforms/reports/' + name,
+                     runtime_verification_target=data.get('verification_target', 'http://127.0.0.1:18085'))
             requests.append(r)
             score = scores.get(r['request_id'])
             if score is None: raise ValueError('HTTP沒有實際gateway分數，不能用離線重算補造')
             predictions.append({'source': name, 'request_id': r['request_id'], 'method': r['method'], 'api': r['operation_path'],
-                'status': r['status'], 'role': 'negative_route_probe' if r.get('route_probe_only') else 'normal_intent_or_precondition',
+                'status': r['status'], 'role': 'negative_auth_control' if r.get('negative_control') else 'negative_route_probe' if r.get('route_probe_only') else 'normal_intent_or_precondition',
                 'business_verified': r['business_verified'], 'label': score['label'], **{k + '_score': v for k, v in score['probabilities'].items()}})
     operations = []; table = []
     for old in inventory['operations']:
         key = old['method'], old['path']
         matching = [r for r in requests if (r['method'], r['operation_path']) == key]
         present = (old['method'], normalize(old['path'])) in methods
-        status, reason = classify(old, matching, present)
+        status, reason = classify(old, matching, present, environment)
         op = dict(old, runtime_status=status, runtime_reason=reason, runtime_application_version='2.21.0',
                   runtime_http_attempted=bool(matching), runtime_http_statuses=sorted({r['status'] for r in matching}),
                   runtime_request_count=len(matching), runtime_business_verified=status == 'passed',
@@ -80,6 +102,18 @@ def audit(sync_inventory=False):
                   runtime_evidence_files=sorted({r['runtime_evidence_file'] for r in matching}),
                   runtime_request_ids=[r['request_id'] for r in matching],
                   runtime_coverage_limitations=sorted({r['coverage_limitation'] for r in matching if r.get('coverage_limitation')}))
+        op['runtime_success_targets'] = sorted({r['runtime_verification_target'] for r in matching if r.get('business_verified') and 200 <= r.get('status', 0) < 300 and not r.get('route_probe_only')})
+        if old['path'] == '/auth/session' and status == 'passed':
+            op['runtime_coverage_limitations'].append('成功範圍為真正HTTPS與自動Secure Cookie；原HTTP18085依然不能視為Cookie成功')
+        if old['path'] in ('/store/locales', '/store/shipping-options/{id}/calculate') and environment:
+            op['runtime_evidence_files'].append('sentinel/local-platforms/reports/' + environment_path.name)
+        if old['path'] in ('/store/orders/{id}/transfer/accept', '/store/orders/{id}/transfer/decline') and status == 'passed':
+            op['runtime_evidence_files'].append('sentinel/local-platforms/reports/medusa-demo-v9-native-token-provenance.json')
+        if key in document_reviews:
+            review = document_reviews[key]
+            op['runtime_user_document_reference'] = review['user_document']
+            op['runtime_document_review_note'] = review['confirmed_explanation']
+            op['runtime_evidence_files'].append('sentinel/local-platforms/reports/' + document_path.name)
         if op['path'] in ('/store/orders/{id}/transfer/request', '/store/orders/{id}/transfer/cancel'):
             state_path = REPORTS / 'medusa-demo-v9-transfer-state.json'
             state = json.loads(state_path.read_text(encoding='utf-8'))
@@ -94,6 +128,7 @@ def audit(sync_inventory=False):
     assert {(o['method'], o['path']) for o in operations} == before
     counts = dict(Counter(o['runtime_status'] for o in operations))
     summary = {'target': 'http://127.0.0.1:18085', 'upstream': 'http://127.0.0.1:9100', 'application_version': '2.21.0',
+               'verified_targets': sorted(targets),
                'model_sha256': hashlib.sha256((ROOT / 'sentinel/gateway/model/model.json').read_bytes()).hexdigest(),
                'checked_at': latest, 'operations': 79, 'http_attempted_operations': sum(o['runtime_http_attempted'] for o in operations),
                'not_run': counts.get('not_run', 0), 'status_counts': counts, 'http_requests': len(requests),
@@ -101,6 +136,7 @@ def audit(sync_inventory=False):
                'business_assertions_failed': sum(not c['passed'] for c in checks), 'source_sha256': source_hashes,
                'source_sha256_format': 'parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged',
                'native_route_sha256': json_sha256(native),
+               'document_environment_proof_sha256': json_sha256(environment) if environment else None,
                'scope': 'HTTP coverage includes explicit negative probes; not79 successful normal workflows; Medusa not training data'}
     result = {'runtime_verification': summary, 'operations': operations}
     (REPORTS / 'medusa-demo-v9-runtime-status.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

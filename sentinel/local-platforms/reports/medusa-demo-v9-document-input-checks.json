@@ -1,0 +1,358 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T12:38:51.292341+00:00",
+  "outcome": "passed_with_documented_reset_token_precondition",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "run_medusa_document_checks.py": "7905ee8a703e112c59d8e317e286b9f8cbd8186f9add907ce85d9cd91b3c4e5a"
+  },
+  "requests": [
+    {
+      "request_id": "2f768639-1fb8-40b6-adf4-81a400f26c33",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/register",
+      "operation_path": "/auth/customer/{auth_provider}/register",
+      "request_headers": {
+        "Content-length": "119",
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "2f768639-1fb8-40b6-adf4-81a400f26c33",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass/register",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"document-c3b9c3a3aaaf4223aac015443ca605b2@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "8a687c96-1147-4379-a696-baf7fbaa6f6a",
+      "method": "POST",
+      "path": "/store/customers",
+      "operation_path": "/store/customers",
+      "request_headers": {
+        "Content-length": "67",
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "8a687c96-1147-4379-a696-baf7fbaa6f6a",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test"
+      },
+      "business_verified": false,
+      "request_target": "/store/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"document-c3b9c3a3aaaf4223aac015443ca605b2@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M70531A87GHW6JDM60SJJR7T",
+          "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T12:38:50.441Z",
+          "updated_at": "2026-11-09T12:38:50.441Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "331785f6-1771-4590-8791-f2e65a5d1393",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Content-length": "119",
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "331785f6-1771-4590-8791-f2e65a5d1393",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"document-c3b9c3a3aaaf4223aac015443ca605b2@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "747c0737-11ad-4240-a2cb-c6fa5859e0c2",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "747c0737-11ad-4240-a2cb-c6fa5859e0c2"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M70531A87GHW6JDM60SJJR7T",
+          "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T12:38:50.441Z",
+          "updated_at": "2026-11-09T12:38:50.441Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "f5251f09-c1b7-420e-a33c-bcb431dd6eb9",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/update",
+      "operation_path": "/auth/customer/{auth_provider}/update",
+      "request_headers": {
+        "Content-length": "119",
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "f5251f09-c1b7-420e-a33c-bcb431dd6eb9",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass/update",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"document-c3b9c3a3aaaf4223aac015443ca605b2@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "type": "unauthorized",
+        "message": "Invalid token"
+      },
+      "document_input_check": "本次補齊文件的email與password；仍用一般登入JWT做負向對照，不冒充合法重設token",
+      "precondition_limitation": "依文件需reset-password通知token，與一般登入JWT不同；補email後仍401 Invalid token",
+      "negative_control": true
+    },
+    {
+      "request_id": "e7292eb1-4664-4572-88a4-4cd8beb33952",
+      "method": "POST",
+      "path": "/auth/session",
+      "operation_path": "/auth/session",
+      "request_headers": {
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "e7292eb1-4664-4572-88a4-4cd8beb33952"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/auth/session",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "user": {
+          "actor_id": "cus_01M70531A87GHW6JDM60SJJR7T",
+          "actor_type": "customer",
+          "auth_identity_id": "authid_01M705316H120Z9Q6RX69TFPRX",
+          "auth_provider": "emailpass",
+          "mfa_enabled": false,
+          "mfa_challenge_completed_at": null,
+          "app_metadata": {
+            "customer_id": "cus_01M70531A87GHW6JDM60SJJR7T"
+          },
+          "user_metadata": {},
+          "iat": 1794227930,
+          "exp": 1794314330
+        }
+      },
+      "verification_transport": "https; trusted local certificate; proxy header derived from actual TLS scope"
+    },
+    {
+      "request_id": "53c07c0e-b005-4d83-a6bb-bfd328c2d8b1",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Cookie": "[REDACTED]",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "53c07c0e-b005-4d83-a6bb-bfd328c2d8b1"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M70531A87GHW6JDM60SJJR7T",
+          "email": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T12:38:50.441Z",
+          "updated_at": "2026-11-09T12:38:50.441Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "14b5d1f2-4787-42e2-9a45-dbeaade20ab4",
+      "method": "DELETE",
+      "path": "/auth/session",
+      "operation_path": "/auth/session",
+      "request_headers": {
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Cookie": "[REDACTED]",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "14b5d1f2-4787-42e2-9a45-dbeaade20ab4"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/auth/session",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "success": true
+      },
+      "verification_transport": "https; actual Secure Cookie sent by CookieJar; no manually fabricated session"
+    },
+    {
+      "request_id": "49f7341b-33ed-4065-b754-00d275905410",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "49f7341b-33ed-4065-b754-00d275905410"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "message": "Unauthorized"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "先確認文件要求的一般登入JWT有效",
+      "passed": true,
+      "request_ids": [
+        "747c0737-11ad-4240-a2cb-c6fa5859e0c2"
+      ]
+    },
+    {
+      "description": "真正HTTPS、驗證憑證、取得Secure Cookie後，移除Bearer仍讀回同一顧客",
+      "passed": true,
+      "request_ids": [
+        "e7292eb1-4664-4572-88a4-4cd8beb33952",
+        "53c07c0e-b005-4d83-a6bb-bfd328c2d8b1"
+      ]
+    },
+    {
+      "description": "真正Cookie session刪除後，Cookie已清除且同一HTTPS連線再查本人被拒絕",
+      "passed": true,
+      "request_ids": [
+        "14b5d1f2-4787-42e2-9a45-dbeaade20ab4",
+        "49f7341b-33ed-4065-b754-00d275905410"
+      ]
+    }
+  ],
+  "error": null,
+  "verification_target": "https://127.0.0.1:18443",
+  "tls_certificate_verification": true
+}

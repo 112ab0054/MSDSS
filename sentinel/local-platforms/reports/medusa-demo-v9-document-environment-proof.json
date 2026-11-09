@@ -1,0 +1,57 @@
+{
+  "application_version": "2.21.0",
+  "node_env": "production",
+  "effective_session_cookie_security": {
+    "sameSite": "lax",
+    "secure": true
+  },
+  "session_source_sha256": "bb6d6c3c155bdfc044cef4e129c567c9946aeec3ee69ba5a77c9c24ceb651a97",
+  "session_source_reason": "production/staging default Secure=true, sameSite=lax; cookieOptions overrides applied",
+  "translation_module_disabled": true,
+  "translation_explicit_flag": null,
+  "auth_provider_ids": [
+    "emailpass"
+  ],
+  "mfa_encryption_key_configured": false,
+  "notification_providers": [
+    {
+      "id": "local",
+      "channels": [
+        "feed"
+      ]
+    }
+  ],
+  "project_subscriber_files": [],
+  "manual_fulfillment": {
+    "source_sha256": "b0884bee63304b2b099526fb2b6cc7dc0d553150c968b1133f914276049071ba",
+    "can_calculate_false": true,
+    "calculate_price_explicit_error": true,
+    "snippets": [
+      "    async calculatePrice(optionData, data, context) {\n        throw new Error(\"Manual fulfillment does not support price calculation\");\n    }\n    async canCalculate() {",
+      "    async canCalculate() {\n        return false;\n    }\n    async validateOption(data) {"
+    ]
+  },
+  "database_non_deleted_counts": {
+    "promotion": 0,
+    "product_collection": 0,
+    "product_tag": 0,
+    "product_type": 0,
+    "return_reason": 0
+  },
+  "read_only_inspection": true,
+  "user_document_snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+  "user_document_sha256": "5da9819f744aae3f04ddefa283bf464f84c05972444ed431b104b7b617d44031",
+  "tested_shipping_option": {
+    "id": "so_01M2WT6S2P2HBWBHCX21K0Q8K0",
+    "provider_id": "manual_manual",
+    "price_type": "flat",
+    "amount": 10
+  },
+  "tested_return_item_quantities": [
+    {
+      "quantity": 1,
+      "fulfilled_quantity": 0,
+      "return_requested_quantity": 0
+    }
+  ]
+}

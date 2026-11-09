@@ -64,3 +64,10 @@
 上次只記獨立表，沒有更新medusa-holdout-inventory.json的79個not_run，本次已逐項同步。79操作都有實際HTTP紀錄，含明確負向探查；47成功、2部分成功（促銷空陣列分支）、18前置不足、11版本／功能差異、1實測失敗（配送calculate500），not_run=0。合計172HTTP都有實際gateway分數，82項已執行斷言通過。
 
 MFA400明確缺encryption key；Cookie200但沒有Set-Cookie，移除Bearer仍401；通知token無法取得所以不捏造確認；退貨訂單未履約400；空目錄用未發行ID做明確負向探查，不當正常成功。退貨原因明細200空物件也不列通過。兩個自己的顧客移轉申請與取消已用API、兩方訂單清單及唯讀DB的soft-delete記錄確認。沒有改既有服務／DB設定、Mirage或模型，不用Medusa重訓。最新MD、CSV、JSON及主manifest狀態一致，規格版本2.22.x與實際2.21.0分開保留。詳見[補測紀錄](Medusa剩餘API補測與runtime同步.md)。
+
+
+## 依原API文件重新確認32項
+
+找到Downloads原手寫77API文件，GitHub工作副本缺檔，新增逐位元原文快照，不改既有文件。原32項非成功操作逐一對照文件參數、原生2.21.0、安全設定、唯讀DB與實測。Cookie用正確真正HTTPS／憑證驗證／自動Secure Cookie已通，HTTP仍不通；移轉接受／拒絕以平台原生token及雙方清單／DB狀態驗證，通知未測。locales確定translation disable=true，非版本缺route；manual canCalculate=false且calculatePrice明確拋錯，所以500保留但分類為需支援計價provider。reset請求依文件送identifier回201，事件未獨立觀測，改部分成功，不把郵件當此API必填；update補email＋password仍需真正reset token。促銷及四種目錄資料庫0筆、退貨fulfilled_quantity=0已確認。
+
+最新51成功、3部分成功、14前置不足、11版本／功能差異，not_run=0；251HTTP與分數匹配、129斷言通過。模型與訓練資料未改，也未改既有Medusa設定／DB結構／Mirage。具體32項與原文行數見[原文件復核](Medusa依原API文件逐項復核.md)。

@@ -1,0 +1,31 @@
+{
+  "scope": "only own newly-created test order; SELECT only; native tokens never published",
+  "proofs": [
+    {
+      "action": "decline",
+      "order_id": "order_01M705CT4Y26PQ2DKTAZHQNW5D",
+      "receiver_id": "cus_01M705D8XTX6E2DTMRWA4SS0JD",
+      "state": {
+        "id": "ordch_01M705DCGNWVNGRP30TR2SRGJ2",
+        "status": "declined",
+        "deleted_at": null
+      },
+      "read_only": true,
+      "native_issued_value_used": true,
+      "notification_delivery_verified": false
+    },
+    {
+      "action": "accept",
+      "order_id": "order_01M705CT4Y26PQ2DKTAZHQNW5D",
+      "receiver_id": "cus_01M705D8XTX6E2DTMRWA4SS0JD",
+      "state": {
+        "id": "ordch_01M705DYVCXBKG0608F22MX08S",
+        "status": "confirmed",
+        "deleted_at": null
+      },
+      "read_only": true,
+      "native_issued_value_used": true,
+      "notification_delivery_verified": false
+    }
+  ]
+}

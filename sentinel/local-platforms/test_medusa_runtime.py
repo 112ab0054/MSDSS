@@ -43,5 +43,30 @@ class RuntimeStatusTests(unittest.TestCase):
         with self.assertRaises(ValueError): collect('', evidence)
         with self.assertRaises(ValueError): collect(line + '\n' + line.replace('label=normal', 'label=sqli'), evidence)
 
+    def test_known_provider_and_disabled_translation_have_verified_reasons(self):
+        proof = {'manual_fulfillment': {'can_calculate_false': True, 'calculate_price_explicit_error': True},
+                 'tested_shipping_option': {'provider_id': 'manual_manual'}, 'translation_module_disabled': True}
+        self.assertEqual(classify({'path': '/store/shipping-options/{id}/calculate'}, [{'status': 500}], True, proof)[0], 'blocked_prerequisite')
+        status, reason = classify({'path': '/store/locales'}, [{'status': 404}], True, proof)
+        self.assertEqual(status, 'unavailable_feature'); self.assertIn('disable=true', reason)
+
+    def test_user_document_review_has_all_original32_and_byte_identity(self):
+        root = Path(__file__).resolve().parents[2]
+        proof = json.loads((root / 'sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json').read_text(encoding='utf-8'))
+        self.assertEqual(proof['reviewed_operations'], 32)
+        self.assertEqual(proof['parsed_user_document_operations'], 77)
+        import hashlib
+        self.assertEqual(hashlib.sha256((root / 'sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md').read_bytes()).hexdigest(), proof['user_document_sha256'])
+
+    def test_tls_scheme_header_cannot_be_spoofed_by_client(self):
+        import asyncio
+        from unittest.mock import patch
+        from tls_demo_gateway import TransportScheme
+        seen = []
+        async def fake(scope, receive, send): seen.append(scope)
+        with patch('tls_demo_gateway.gateway', fake):
+            asyncio.run(TransportScheme()({'type': 'http', 'scheme': 'https', 'headers': [(b'x-forwarded-proto', b'http')]}, None, None))
+        self.assertEqual(dict(seen[0]['headers'])[b'x-forwarded-proto'], b'https')
+
 
 if __name__ == '__main__': unittest.main()

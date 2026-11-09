@@ -1,0 +1,1763 @@
+{
+  "baseline_commit": "6c2454f",
+  "reviewed_operations": 32,
+  "parsed_user_document_operations": 77,
+  "user_document_sha256": "5da9819f744aae3f04ddefa283bf464f84c05972444ed431b104b7b617d44031",
+  "original_document_modified": false,
+  "source_note": "原件在Downloads/MSDSS；GitHub工作副本缺檔，獨立快照逐位元相同；不修改原API文件",
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/auth/customer/emailpass/verification/confirm",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 7,
+        "heading": "01. 確認電子郵件驗證",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "token",
+          "requirement": "必填",
+          "meaning": "寄送到電子郵件的驗證 token",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "7bfac44b-e3dd-4938-ab76-5faea18fa96d",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/callback",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 42,
+        "heading": "04. 完成第三方登入回呼驗證",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "auth_provider",
+          "requirement": "必填",
+          "meaning": "認證提供者識別碼，例如 emailpass",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Query",
+          "name": "code、state、error 等",
+          "requirement": "依第三方實際回傳，不是全部同時必填",
+          "meaning": "將第三方返回的查詢參數傳入此 API，讓後端驗證認證流程",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "dd66869d-a43e-4498-92f4-255a097a3fe7",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件用途是第三方回呼；auth_provider欄位例emailpass不能當作該provider支援callback。現只配置emailpass，原生回應明確未實作callback。",
+      "runtime_reason": "目前只配置emailpass，沒有第三方OAuth提供者／授權回呼資料"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/reset-password",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "partial_pass",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 66,
+        "heading": "06. 要求產生重設密碼 token",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "auth_provider",
+          "requirement": "必填",
+          "meaning": "認證提供者識別碼，例如 emailpass",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "identifier",
+          "requirement": "必填",
+          "meaning": "帳號在認證提供者中的識別值；emailpass 通常是 email",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "metadata",
+          "requirement": "選填／依業務條件",
+          "meaning": "自訂鍵值資料；不等於任意指令",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "74133585-802c-4c7a-bcd8-23bd2a82a79e",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-reset-event-check.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件此操作是要求產生token並發事件，不是寄信本身。已依identifier呼叫201；因回應故意不透露帳號是否存在、尚無事件獨立證據，列部分成功，不能說缺郵件就是參數錯。",
+      "runtime_reason": "依手寫文件送已存在測試帳號identifier並回201；未取得token事件的獨立觀測證據，沒有把郵件投遞當成此API的必填參數"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/customer/{auth_provider}/update",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 79,
+        "heading": "07. 使用 token 重設密碼",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "auth_provider",
+          "requirement": "必填",
+          "meaning": "認證提供者識別碼，例如 emailpass",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "Authorization",
+          "requirement": "必填",
+          "meaning": "Bearer 後接重設密碼 token",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "email",
+          "requirement": "使用 emailpass 時依提供者要求",
+          "meaning": "電子郵件帳號",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "password",
+          "requirement": "使用 emailpass 時依提供者要求",
+          "meaning": "登入密碼，或 update 時要設定的新密碼；不送入模型與一般日誌",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "f5251f09-c1b7-420e-a33c-bcb431dd6eb9",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件明確要求重設密碼token。上次僅password且用了普通登入JWT；本次補email＋password仍401。缺合法reset token是關鍵，不把登入JWT冒充重設JWT。",
+      "runtime_reason": "登入JWT不等於reset-password郵件token；缺少合法重設token，未捏造或自行簽發；依文件需reset-password通知token，與一般登入JWT不同；補email後仍401 Invalid token"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/challenges/{id}/verify",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 93,
+        "heading": "08. 驗證登入時的 MFA 挑戰",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "MFA 挑戰識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "method",
+          "requirement": "必填",
+          "meaning": "MFA 驗證方式；不是 HTTP method",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "必填",
+          "meaning": "此驗證流程要求的驗證碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "60172d97-e56d-440d-ae67-9b12f284f117",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/factors",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 116,
+        "heading": "10. 開始綁定 MFA 因子",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "provider",
+          "requirement": "必填",
+          "meaning": "MFA 提供者識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "label",
+          "requirement": "選填／依業務條件",
+          "meaning": "MFA 因子等資源的顯示標籤",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "issuer",
+          "requirement": "選填／依業務條件",
+          "meaning": "驗證器顯示的簽發者名稱",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "metadata",
+          "requirement": "選填／依業務條件",
+          "meaning": "自訂鍵值資料；不等於任意指令",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "e9f66785-d1ae-4c1c-b45e-b9158d5ef5e7",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。",
+      "runtime_reason": "MFA註冊失敗：MFA encryption key is required to use MFA methods"
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/mfa/factors/{id}",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 131,
+        "heading": "11. 停用 MFA 因子",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "MFA 因子識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "method",
+          "requirement": "選填／依業務條件",
+          "meaning": "MFA 驗證方式；不是 HTTP method",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "選填／依業務條件",
+          "meaning": "此驗證流程要求的驗證碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "35b56c6a-d008-4882-8dca-0da5bb11c57a",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/factors/{id}/verify",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 145,
+        "heading": "12. 確認並啟用 MFA 因子",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "MFA 因子識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "必填",
+          "meaning": "此驗證流程要求的驗證碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "f3f93201-2ab8-4c5a-9257-bf66943bd282",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/mfa/recovery-codes",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 158,
+        "heading": "13. 重新產生 MFA 恢復碼",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "count",
+          "requirement": "選填／依業務條件",
+          "meaning": "要產生的 MFA 恢復碼數量；描述要求 1～50，省略時用提供者設定",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "07e0160c-c141-4a04-b571-5e8de847f2b1",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/session",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 170,
+        "heading": "14. 建立 Cookie 登入工作階段",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Authorization",
+          "requirement": "必填",
+          "meaning": "Bearer 後接先前登入取得的 JWT，用來建立 Cookie Session",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "f248620c-3630-44bd-b39f-afc71e6a38d1",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/session",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 180,
+        "heading": "15. 結束 Cookie 登入工作階段",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Cookie",
+          "name": "connect.sid",
+          "requirement": "依部署的工作階段設定",
+          "meaning": "要結束的登入工作階段識別值",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "368a0e01-2804-46f8-8b2b-9fa6f8da2a10",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/verification/confirm",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 200,
+        "heading": "17. 確認通用驗證碼",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "必填",
+          "meaning": "此驗證流程要求的驗證碼",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "code_provider",
+          "requirement": "選填／依業務條件",
+          "meaning": "產生與驗證代碼的提供者",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "b64d74ec-ca9e-4fce-ae4c-4da099c40e19",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件必填code，實際沒有通知接收途徑取得原生code；先前省略code的400不是正向驗收。現只有feed通知、src/subscribers空，未配置email發送／取碼。",
+      "runtime_reason": "未配置驗證通知取碼途徑，沒有真實code；本次僅驗證缺參數會被拒絕"
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/gift-cards",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 353,
+        "heading": "24. 套用禮物卡",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "購物車識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "必填",
+          "meaning": "要套用或移除的禮物卡代碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "c524ec36-8f82-4e5d-b195-7ff8479186ed",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "DELETE",
+      "path": "/store/carts/{id}/gift-cards",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 368,
+        "heading": "25. 移除禮物卡",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "購物車識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "必填",
+          "meaning": "要套用或移除的禮物卡代碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "3eee0982-78e9-4c81-b5eb-6cadc3857bba",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/promotions",
+      "prior_runtime_status": "partial_pass",
+      "runtime_status": "partial_pass",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 436,
+        "heading": "29. 套用優惠碼",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "購物車識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "promo_codes",
+          "requirement": "必填",
+          "meaning": "優惠碼字串陣列",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "7b078077-168a-46e1-b2ba-900bf4416bee",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。",
+      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除"
+    },
+    {
+      "method": "DELETE",
+      "path": "/store/carts/{id}/promotions",
+      "prior_runtime_status": "partial_pass",
+      "runtime_status": "partial_pass",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 452,
+        "heading": "30. 移除優惠碼",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "購物車識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "promo_codes",
+          "requirement": "必填",
+          "meaning": "優惠碼字串陣列",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "81abf1e5-57c2-46a7-9737-32cb436bdb01",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。",
+      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除"
+    },
+    {
+      "method": "POST",
+      "path": "/store/carts/{id}/store-credits",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 487,
+        "heading": "32. 使用商店抵用額度",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "購物車識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "amount",
+          "requirement": "必填",
+          "meaning": "金額；需核對幣別與模組的精度",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "dcda4d40-48dc-4c11-af98-5c117c946a32",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "GET",
+      "path": "/store/collections/{id}",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 542,
+        "heading": "35. 取得單一商品集合",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "商品集合識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "f8c5e26f-f5af-4d80-bf10-ce231880a8e2",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+    },
+    {
+      "method": "GET",
+      "path": "/store/gift-cards/{idOrCode}",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 759,
+        "heading": "46. 查詢禮物卡",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "idOrCode",
+          "requirement": "必填",
+          "meaning": "禮物卡 ID 或兌換代碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "92f4386f-0ba6-4a88-a0c8-b79c3ce1db52",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "GET",
+      "path": "/store/locales",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 773,
+        "heading": "47. 列出支援語系",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "020fdcd4-bf7e-4d81-9c26-8a646d3110ef",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "不是缺路由：原生標示自2.12.3存在、以translation feature flag控制；實際translation module disable=true。屬目前功能設定，不是必須升級或補locale參數。",
+      "runtime_reason": "路由自2.12.3已存在；實際translation module disable=true，功能未啟用造成404，非版本缺少此路由"
+    },
+    {
+      "method": "POST",
+      "path": "/store/orders/{id}/transfer/accept",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 823,
+        "heading": "50. 接受訂單歸戶轉移",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "訂單識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "token",
+          "requirement": "必填",
+          "meaning": "訂單轉移流程產生的確認 token",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "4ce82f1d-4d26-4d54-a040-1ecad04e7acd",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件送本次真實訂單ID與平台產生的token後已成功，接受／拒絕後查雙方訂單歸屬及confirmed／declined狀態。token唯讀取自己訂單資料列，沒有偽造；郵件送達未驗證。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
+    },
+    {
+      "method": "POST",
+      "path": "/store/orders/{id}/transfer/decline",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 854,
+        "heading": "52. 拒絕訂單歸戶轉移",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "訂單識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "token",
+          "requirement": "必填",
+          "meaning": "訂單轉移流程產生的確認 token",
+          "present_in_selected_sample": true
+        }
+      ],
+      "selected_request_id": "707cda02-d3a5-460a-9218-eaff480a1147",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "依文件送本次真實訂單ID與平台產生的token後已成功，接受／拒絕後查雙方訂單歸屬及confirmed／declined狀態。token唯讀取自己訂單資料列，沒有偽造；郵件送達未驗證。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
+    },
+    {
+      "method": "POST",
+      "path": "/store/payment-collections/{id}/payment-sessions/{session_id}",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": null,
+        "heading": null,
+        "in_original_77": false
+      },
+      "parameter_checks": [],
+      "selected_request_id": "d147e4b9-05f0-4e6d-9ff9-aecf652c77ae",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "document_difference": "不在原77文件；只在新79操作清單／bundled2.22.3規格。不可假稱已按舊文件驗證此操作。"
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-tags/{id}",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1049,
+        "heading": "62. 取得單一商品標籤",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "商品標籤識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "9c9aa1d3-502b-4940-a886-2d4139c12ea7",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+    },
+    {
+      "method": "GET",
+      "path": "/store/product-types/{id}",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1088,
+        "heading": "64. 取得單一商品類型",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "商品類型識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "7290c271-6caf-4d04-8852-9b22be9ef593",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+    },
+    {
+      "method": "GET",
+      "path": "/store/return-reasons/{id}",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1241,
+        "heading": "71. 取得單一退貨原因",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "退貨原因識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "77f32ebd-e4e6-49bf-b25f-e1f1df8b3573",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+    },
+    {
+      "method": "POST",
+      "path": "/store/returns",
+      "prior_runtime_status": "blocked_prerequisite",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1255,
+        "heading": "72. 建立退貨要求",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "order_id",
+          "requirement": "必填",
+          "meaning": "訂單識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "items",
+          "requirement": "必填",
+          "meaning": "品項陣列；結構依目前操作",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "items[].id",
+          "requirement": "填寫此物件時必填",
+          "meaning": "資源識別碼；意義由目前 API 決定",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "items[].quantity",
+          "requirement": "填寫此物件時必填",
+          "meaning": "數量",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "items[].reason_id",
+          "requirement": "選填／依業務條件",
+          "meaning": "退貨原因識別碼",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "items[].note",
+          "requirement": "選填／依業務條件",
+          "meaning": "備註文字",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "return_shipping",
+          "requirement": "必填",
+          "meaning": "退貨配送資料",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "return_shipping.option_id",
+          "requirement": "填寫此物件時必填",
+          "meaning": "配送選項識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "return_shipping.price",
+          "requirement": "選填／依業務條件",
+          "meaning": "退貨配送價格；單位與精度依模組確認",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "note",
+          "requirement": "選填／依業務條件",
+          "meaning": "備註文字",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "receive_now",
+          "requirement": "選填／依業務條件",
+          "meaning": "是否要求立即標記收貨；需核對部署權限與行為",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "location_id",
+          "requirement": "選填／依業務條件",
+          "meaning": "庫存／收退貨據點識別碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "e78019f6-d61c-4c07-9fb7-d19142facdaa",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件必填order_id、items.id／quantity、return_shipping.option_id有送；實例fulfilled_quantity=0且沒有可用退貨配送選項。原生400證明業務前置不足，不是任填品項ID可解決。",
+      "runtime_reason": "本次測試訂單尚未履約／缺退貨配送條件，回應為前置拒絕；未修改後台履約或假裝退貨成功"
+    },
+    {
+      "method": "POST",
+      "path": "/store/search",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": null,
+        "heading": null,
+        "in_original_77": false
+      },
+      "parameter_checks": [],
+      "selected_request_id": "4b2591a2-b9a8-4e86-92eb-ad551ac4b196",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "document_difference": "不在原77文件；只在新79操作清單／bundled2.22.3規格。不可假稱已按舊文件驗證此操作。"
+    },
+    {
+      "method": "POST",
+      "path": "/store/shipping-options/{id}/calculate",
+      "prior_runtime_status": "failed_runtime",
+      "runtime_status": "blocked_prerequisite",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1300,
+        "heading": "74. 計算配送選項價格",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "配送選項識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "cart_id",
+          "requirement": "必填",
+          "meaning": "購物車識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Body",
+          "name": "data",
+          "requirement": "選填／依業務條件",
+          "meaning": "提供者需要的結構化自訂資料",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "33ab0a78-cb31-453d-a398-57f38b39231b",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": false,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件cart_id必填、data選填，先前已有真實cart／option ID。實際provider=manual_manual、price_type=flat；原生canCalculate=false且calculatePrice明確拋錯。500保留，改列需支援動態計價provider的前置不足。",
+      "runtime_reason": "文件必填cart_id與真實option ID已送；實際使用flat／manual_manual，原生canCalculate=false且calculatePrice明確拋錯。HTTP500保留，正向驗收需支援動態計價的提供者，不是缺data參數"
+    },
+    {
+      "method": "GET",
+      "path": "/store/store-credit-accounts",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1317,
+        "heading": "75. 列出自己的商店額度帳戶",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "currency_code",
+          "requirement": "選填",
+          "meaning": "幣別代碼",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "created_at",
+          "requirement": "選填",
+          "meaning": "建立時間篩選",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "updated_at",
+          "requirement": "選填",
+          "meaning": "更新時間篩選",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "limit",
+          "requirement": "選填",
+          "meaning": "每次最多回傳的筆數",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "offset",
+          "requirement": "選填",
+          "meaning": "略過前面多少筆",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "order",
+          "requirement": "選填",
+          "meaning": "排序欄位，前綴 - 通常代表降冪",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "fields",
+          "requirement": "選填",
+          "meaning": "選取回應欄位或展開關聯，並非 SQL 欄位任意查詢",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "$and",
+          "requirement": "選填",
+          "meaning": "同時符合條件",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "$or",
+          "requirement": "選填",
+          "meaning": "符合任一條件",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "with_deleted",
+          "requirement": "選填",
+          "meaning": "是否要求包含刪除資料；是否可用須核對部署",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Header",
+          "name": "Authorization 或 Cookie：connect.sid",
+          "requirement": "認證擇一",
+          "meaning": "有效顧客 JWT 或登入工作階段；POST /store/customers 依描述使用註冊 token",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "dbb13050-f6cc-4cc5-90ab-a01a322dfe2d",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "POST",
+      "path": "/store/store-credit-accounts/claim",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1340,
+        "heading": "76. 認領商店額度帳戶",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Header",
+          "name": "Content-Type",
+          "requirement": "使用 JSON 本文時",
+          "meaning": "application/json",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Header",
+          "name": "Authorization 或 Cookie：connect.sid",
+          "requirement": "認證擇一",
+          "meaning": "有效顧客 JWT 或登入工作階段；POST /store/customers 依描述使用註冊 token",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Body",
+          "name": "code",
+          "requirement": "必填",
+          "meaning": "要認領的商店額度帳戶代碼",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "bddc7836-5457-48b5-a3ff-fd104e19eb55",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    },
+    {
+      "method": "GET",
+      "path": "/store/store-credit-accounts/{id}",
+      "prior_runtime_status": "unavailable_feature",
+      "runtime_status": "unavailable_feature",
+      "user_document": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": 1355,
+        "heading": "77. 取得自己的額度帳戶",
+        "in_original_77": true
+      },
+      "parameter_checks": [
+        {
+          "location": "Path",
+          "name": "id",
+          "requirement": "必填",
+          "meaning": "商店額度帳戶識別碼",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-publishable-api-key",
+          "requirement": "必填",
+          "meaning": "Store API 公開金鑰，用來限定銷售渠道；不等於顧客登入",
+          "present_in_selected_sample": true
+        },
+        {
+          "location": "Header",
+          "name": "x-medusa-locale",
+          "requirement": "選填",
+          "meaning": "語系標頭",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Query",
+          "name": "locale",
+          "requirement": "選填",
+          "meaning": "語系標記，例如 zh-TW",
+          "present_in_selected_sample": false
+        },
+        {
+          "location": "Header",
+          "name": "Authorization 或 Cookie：connect.sid",
+          "requirement": "認證擇一",
+          "meaning": "有效顧客 JWT 或登入工作階段；POST /store/customers 依描述使用註冊 token",
+          "present_in_selected_sample": false
+        }
+      ],
+      "selected_request_id": "87b653a2-f99f-41ec-af34-4ab961d517b1",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_case_is_negative_probe": true,
+      "parameter_presence_is_not_business_success": true,
+      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功"
+    }
+  ]
+}

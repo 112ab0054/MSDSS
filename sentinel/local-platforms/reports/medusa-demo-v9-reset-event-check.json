@@ -1,0 +1,47 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T12:47:53.913629+00:00",
+  "outcome": "partial_pass_request_accepted_event_unobserved",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "63de56f9dc6656d165320ea73be04bbac7619650e4229f209d3cd11e248ab9be"
+  },
+  "requests": [
+    {
+      "request_id": "74133585-802c-4c7a-bcd8-23bd2a82a79e",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/reset-password",
+      "operation_path": "/auth/customer/{auth_provider}/reset-password",
+      "request_headers": {
+        "Content-length": "72",
+        "Host": "127.0.0.1:18443",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "74133585-802c-4c7a-bcd8-23bd2a82a79e",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "identifier": "document-c3b9c3a3aaaf4223aac015443ca605b2@example.test"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass/reset-password",
+      "raw_query": "",
+      "request_body_raw": "{\"identifier\": \"document-c3b9c3a3aaaf4223aac015443ca605b2@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      },
+      "document_request_validated": true,
+      "coverage_limitation": "依手寫文件送已存在自己帳號的identifier並回201；未觀測到token事件，沒有把缺郵件當成此請求參數錯誤，也未宣稱重設密碼完成"
+    }
+  ],
+  "checks": [],
+  "error": null,
+  "verification_target": "https://127.0.0.1:18443",
+  "tls_certificate_verification": true
+}

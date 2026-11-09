@@ -6,6 +6,7 @@ import http.client
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -196,7 +197,15 @@ class EvidenceClient:
         result = {'platform': self.platform, 'recorded_at': dt.datetime.now(dt.timezone.utc).isoformat(),
                   'outcome': outcome, 'training_data': False, 'code_sha256': self.code_sha256, 'requests': self.rows,
                   'checks': self.checks, 'error': error}
+        result.update(getattr(self, 'evidence_metadata', {}))
         self.output.parent.mkdir(parents=True, exist_ok=True)
         temp = self.output.with_suffix('.tmp')
         temp.write_text(json.dumps(self.redact(result), ensure_ascii=False, indent=2), encoding='utf-8')
-        temp.replace(self.output)
+        # Windows掃描程式可能短暫持有剛寫出的檔案；只重試本次原子替換，不丟棄證據。
+        for attempt in range(5):
+            try:
+                temp.replace(self.output)
+                break
+            except PermissionError:
+                if attempt == 4: raise
+                time.sleep(0.05 * (attempt + 1))

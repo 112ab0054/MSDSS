@@ -1,0 +1,9 @@
+{
+  "request_id": "74133585-802c-4c7a-bcd8-23bd2a82a79e",
+  "event_name": "auth.password_reset",
+  "time_window_start": "2026-11-09T12:47:53.277470+00:00",
+  "observed_event_count": 0,
+  "subscriber_counts": [],
+  "raw_payload_published": false,
+  "notification_delivery_verified": false
+}

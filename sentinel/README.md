@@ -1,7 +1,7 @@
 # Sentinel
 
 
-最新Medusa狀態：79項均有HTTP紀錄且清單runtime_status已同步，not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。含負向探查，不代表79個正常流程全成功。[最新逐項補測](analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+最新Medusa狀態（依原文件復核後）：79項均有HTTP紀錄，not_run=0；51成功、3部分成功、14前置不足、11版本／功能差異。Cookie成功限真正HTTPS；移轉接受／拒絕使用原生token、通知送達未測。配送500保留，但已證實manual不支援動態計價，改列前置不足。[最新逐項補測](analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
 
 
 最新模型：已接收使用者Colab v9輸出，更新gateway完整推論套件與inference-v9.zip；原v7套件保留。真實Medusa正常購物與離線建單完成，58筆正常意圖有3筆誤判，79操作中42項成功，其他狀態另列。[教授展示驗證與啟動方式](analysis/Medusa教授展示驗證v9.md)。下文「gateway仍v7／尚未重訓」為之前資料修正階段的歷史紀錄。
@@ -40,3 +40,5 @@ Medusa 現行規格為 79 操作；舊 77 操作參數文件保留，差異見 [
 當前v8用實機確認的英文／德文ID修正語言多樣性，Colab套件已更新；gateway模型仍為v7，需重新訓練後再替換。詳見[語言查核](analysis/Shopware語言ID查核.md)。
 
 當前v9按原API文件、Bagisto／Sylius資料庫選項與參數含意多樣化，未部署應用或宣稱整批HTTP已執行；詳見[參數語義紀錄](analysis/參數語義與資料多樣性v9.md)。Colab已改v9，需重訓；gateway仍v7。
+
+最新[依原API文件逐項復核32項](analysis/Medusa依原API文件逐項復核.md)，包含原文件快照、參數檢查、設定／資料庫／原生實作證據與HTTPS補測。未修改原API文件或模型。

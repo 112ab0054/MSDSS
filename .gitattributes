@@ -12,3 +12,5 @@ sentinel/dataset/**/*.csv -text whitespace=cr-at-eol
 sentinel/model/_skeleton_html_v1.py -text
 sentinel/model/_skeleton_markupbase_v1.py -text
 sentinel/model/SKELETON-PYTHON-LICENSE.txt -text whitespace=-blank-at-eol,cr-at-eol
+# User API reference is a frozen byte-identical source snapshot.
+sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md -text whitespace=cr-at-eol

@@ -25,9 +25,9 @@
 | 應用套件版本 | backend/package.json 固定 2.22.4 |
 | Store／Admin 規格 | backend/static/openapi；info.version 保留上游 2.22.3 |
 | Store 規格範圍 | 79 操作、69 路徑，包含 /auth 與 /store |
-| 人工參數文件 | [Medusa_77_API_填寫參數.md](Medusa_77_API_填寫參數.md) 保留作舊版參考，不能當作現行完整清單 |
+| 人工參數文件 | [Medusa_77_API_填寫參數原文快照](sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md) 保留作舊版參考，不能當作現行完整清單 |
 | 版本與舊部署描述 | [Medusa 文件狀態](MSDSS_部署核對紀錄.md) |
-| 現行待測清單 | [79 操作索引](sentinel/analysis/api-extension/medusa-holdout-inventory.json)，非已通過結果 |
+| 現行採用與實測清單 | [79 操作索引](sentinel/analysis/api-extension/medusa-holdout-inventory.json)，含逐項runtime狀態、實際版本與負向探查標記；不是全部成功 |
 
 模型、特徵、詞彙表、類別順序、門檻及套件版本固定後，才測 Medusa；Medusa 不參與訓練或門檻選擇。若用 Medusa 調整，另列調適版並保留直接移植結果。
 
@@ -36,3 +36,5 @@
 攻擊標籤來自審核過的情境，不由 HTTP status、規則或模型預測反推。憑證實值、密碼、Cookie、Authorization 與 API key 不進模型或一般資料集；response 僅供核對，不作推論特徵。
 
 API 參數文件保留現有格式；後續只對明確指定問題做局部修訂並比較差異。不要執行歷史重建工具覆蓋目前人工修訂內容。歷史快照的通過結果不自動適用於現在的文件，見 [歷史紀錄](sentinel/analysis/history/README.md)。
+
+目前9100展示站實際2.21.0，與工作區應用2.22.4分開。已依原77文件復核32項，Cookie成功範圍為本機HTTPS；最新結果與具體原因見[原文件復核](sentinel/analysis/Medusa依原API文件逐項復核.md)。原文件快照逐位元保留，未改參數或說明。
