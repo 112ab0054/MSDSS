@@ -26,6 +26,8 @@ def groups(rows):
     這樣 preflight 能阻止同群資料落入不同集合，不會只檢查相鄰兩筆。
     SHA-256 比對只找完全相同的 input；改一個非敏感值就可能不同，不能取代近似去重。
 
+    v4 額外依 skeleton_group_id 合併；family_id 可共享，preflight 重算骨架，不只信任標記。
+
     新版 v3 規則（evaluation_protocol=document-v3-seen-families-heldout-templates）：
     這類樣本不使用 family_id 合併，因為一般 test 刻意考「見過家族、沒見過模板」。
     source_template_group、pair_group、session、完全重複等關聯仍保留，不能靠換 session 洗掉模板交集。
@@ -55,8 +57,8 @@ def groups(rows):
         family = (meta.get("payload") or {}).get("family")
         if family:
             meta = {**meta, "family_id": family}
-        fields=["session_group", "pair_group", "fingerprint", "near_fingerprint", "template_id", "family_id", "historical_source_report", "source_evidence", "source_template_group"]
-        if meta.get('evaluation_protocol') == 'document-v3-seen-families-heldout-templates':
+        fields=["session_group", "pair_group", "fingerprint", "near_fingerprint", "template_id", "family_id", "historical_source_report", "source_evidence", "source_template_group", "skeleton_group_id"]
+        if meta.get('evaluation_protocol') in ('document-v3-seen-families-heldout-templates','document-v4-skeleton-disjoint'):
             # v3 一般 test 是已見家族的新模板，所以只解除 family_id，其他來源／模板／session 關聯仍保留。
             fields.remove('family_id')  # 已見家族實驗仍保留模板與 session 分組。
         # 比較 (欄位名, 值)，避免 session A 和 family A 只是字串一樣就誤合併。

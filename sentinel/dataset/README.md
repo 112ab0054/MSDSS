@@ -1,12 +1,16 @@
 # XGBoost 資料集試產
 
-## 最新：文件導向 v3
+## 最新：骨架分組 v4
+
+[small-api-v4](small-api-v4/README.md) 為目前離線版本，筆數450/150/150＋challenge96與特徵v5不變。先按全域骨架／近似原文合併，再整群分集合；Sylius外部驗證獨立，Medusa排除。所有620位置保留、原始輸入不正規化，骨架分析只作輔助 metadata。舊v3保留比較；其97.33%不能代表新切分效果。見 [實作與限制](../analysis/skeleton-split-v4.md)。
+
+## 歷史：文件導向 v3
 
 [small-api-v3](small-api-v3/README.md) 為新離線候選：450/150/150主實驗，加96筆未見語境challenge，共846筆。三類等量、四位置配平、62API／620文件位置保留；Sylius只作外部驗證，Medusa不納入。一般test共享已見家族但模板不重複，challenge保留未見編碼／語境；舊v2及下方歷史紀錄不覆寫。v5特徵2402維，原文不正規化。
 
 2026-11-09 CSV 顯示更新：現行 small-api-v2 的 train/test/validation 已移除「實際送出」「可正式訓練」兩欄；完整紀錄 JSON、請求、標籤、集合與內部 HTTP 證據檢查不變。舊歷史檔保留原狀。
 
-## 最新：小規模 v2，比例與參數補全
+## 歷史：小規模 v2，比例與參數補全
 
 [small-api-v2](small-api-v2/README.md) 為目前候選版本：train/test/validation=252/84/84，共 420 筆（60/20/20），各集合三類等量。train/test 使用 Bagisto＋Shopware，validation 僅 Sylius 結合 httpParamsDataset，Medusa 排除。比例是小規模配置，不是研究有效性的充分條件；平台隔離、同來源分組與避免洩漏仍須維持。
 

@@ -60,7 +60,7 @@ def run(group_function):
     檢查通過不是 normal 內容正確或模型有效的保證。沒有重新切分、沒有用 HTTP 狀態碼當特徵，
     也沒有依 test/validation 分數修改樹數、機率門檻或挑掉難題。
 
-    新版模式與資料：預設 data-dir 改為 small-api-v3，增加 --mode live/offline。
+    新版模式與資料：預設 data-dir 改為 small-api-v4，增加 --mode live/offline。
     live 是預設模式，要求實測證據；offline 允許生成請求，但保留配對與原文格式檢查。
     offline 的輸出一律 exploratory=True、platform_http_verified=False，不能用其分數冒充 HTTP 實測。
     --allow-candidates 是原本的較寬條件試跑開關，與 --mode 不同，不能把兩者當成同一選項。
@@ -72,7 +72,7 @@ def run(group_function):
     """
     # 路徑交給 pathlib；資料、輸出與證據根目錄分開設定，搬到其他 OS 不依賴原電腦磁碟機。
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v3', help='預設 small-api-v3；Colab 請指定解壓縮後的 data 目錄')
+    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v4', help='預設 small-api-v4；Colab 請指定解壓縮後的 data 目錄')
     parser.add_argument('--output', type=Path, help='訓練輸出新目錄；--check-only 不需要')
     parser.add_argument('--check-only', action='store_true', help='只列出資料資格與分組問題，不訓練、不產生成績')
     parser.add_argument('--evidence-root', type=Path)
@@ -174,10 +174,12 @@ def run(group_function):
                for a, b in itertools.combinations(sets,2)}
     audit = {**meta, 'counts': counts, 'group_overlap': 0,
              'independent_groups': {s: len(set(group[indices[s]])) for s in sets},
+             'attack_skeleton_groups': {s:readiness['splits'][s]['attack_skeleton_groups'] for s in sets},
+             'evaluation_protocols': sorted({r['metadata'].get('evaluation_protocol','legacy') for r in all_rows}),
              'identical_feature_vectors_shared': overlap,
              'data_sha256': {s: hashlib.sha256(p.read_bytes()).hexdigest() for s, p in paths.items()},
              'source_sha256': {n: hashlib.sha256((HERE / n).read_bytes()).hexdigest()
-                               for n in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py')},
+                               for n in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py', 'skeletons.py')},
              'seed': 42, 'platform': platform.system(), 'readiness': readiness}
     (output / 'experiment.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding='utf-8')
     with (output / 'split.csv').open('w', encoding='utf-8-sig', newline='') as f:

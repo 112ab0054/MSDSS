@@ -176,10 +176,14 @@ def case_pools(external_values):
     return pools
 
 
-def build(output):
+def build(output, *, selected_cases=None, selected_external=None, protocol=PROTOCOL, version=3):
     if output.exists():raise ValueError('輸出已存在，不能覆寫基準')
     ops,hashes=read_documents();reference=read_reference();assignment=allocate(ops)
-    ext,external_values,ext_source=external_pools(reference);cases=case_pools(external_values)
+    if selected_external is None:
+        ext,external_values,ext_source=external_pools(reference)
+    else:
+        ext,external_values,ext_source=selected_external
+    cases=case_pools(external_values) if selected_cases is None else selected_cases
     bases=[r for r in reference if r['metadata']['variant'] in ('document_baseline','exclusive_session_cookie_alternative')]
     assert {(r['metadata']['platform'],r['input']['method'],r['metadata']['operation_path']) for r in bases}==set(ops)
     candidates=defaultdict(list);seen_controls=set()
@@ -229,10 +233,10 @@ def build(output):
         locstats[split]=dict(counts)
         for candidate,loc in selected:
             key=candidate['key'];target=(loc,candidate['targets'][loc][use[split,key,loc]%len(candidate['targets'][loc])]);use[split,key,loc]+=1
-            normal_req=candidate['request'];pair=sha(['v3',split,normal_req]);normal_id=sha([pair,'normal',normal_req])
+            normal_req=candidate['request'];pair=sha(['v'+str(version),split,normal_req]);normal_id=sha([pair,'normal',normal_req])
             reference_path=candidate['base']['metadata']['historical_source_report']
-            common={'platform':key[0],'operation_path':key[2],'split':split,'evaluation_protocol':PROTOCOL,
-                    'origin':'document-v3-offline','request_input_version':3,'http_executed':False,
+            common={'platform':key[0],'operation_path':key[2],'split':split,'evaluation_protocol':protocol,
+                    'origin':f'document-v{version}-offline','request_input_version':3,'http_executed':False,
                     'raw_target_captured':False,'raw_body_captured':False,'session_group':None,
                     'source_evidence':None,'historical_value_reference':reference_path,'source_template_group':sha(key),
                     'pair_group':pair,'schema_validity':'not_validated','business_verified':False,
@@ -256,6 +260,8 @@ def build(output):
                 metadata={**common,'target_location':loc,'target_parameter':target[1],'payload':chosen,
                           'template_id':sha([label,chosen['template']]),'control_sample_id':normal_id,
                           'value_may_violate_document_constraints':True}
+                if chosen.get('skeleton_group_id'):
+                    metadata.update({k:chosen[k] for k in ('skeleton_group_id','skeleton_signature','skeleton_rule_version')})
                 rows.append({'sample_id':sha([pair,label,req]),'input':req,
                              'annotation':{'proposed_label':label,'label_basis':'payload source/intent; context may be invalid or rejected; no exploit success claim'},'metadata':metadata})
                 used_requests.add(sha(req))
@@ -295,7 +301,7 @@ def build(output):
     write_csv(output/'external-payloads.csv',[{'class':label,**p} for label,pool in ext.items() for p in pool])
     license_text=(ROOT/'sentinel/dataset/small-api-v2/HTTPPARAMS-LICENSE.txt').read_text(encoding='utf-8')
     (output/'HTTPPARAMS-LICENSE.txt').write_text(license_text,encoding='utf-8')
-    summary={'evaluation_protocol':PROTOCOL,'main_ratio':'60:20:20','extra_challenge_is_not_part_of_ratio':True,
+    summary={'evaluation_protocol':protocol,'main_ratio':'60:20:20','extra_challenge_is_not_part_of_ratio':True,
              'splits':stats,'parameter_document_sha256':hashes,'document_fields':len(coverage),'api_operations':len(ops),
              'external_source':ext_source,'http_executed':0,'medusa_included':False,
              'source_generators_sha256':{n:sha((Path(__file__).with_name(n)).read_bytes()) for n in ['build_xss_v3.py','build_small_dataset.py']},

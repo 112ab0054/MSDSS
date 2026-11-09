@@ -1,4 +1,4 @@
-"""打包當前訓練程式、v3 集合、可選 challenge、來源說明及遮蔽證據供 Colab 使用。"""
+"""打包當前訓練程式、骨架分組 v4 集合、可選 challenge、來源說明及遮蔽證據供 Colab 使用。"""
 import argparse
 import hashlib
 import json
@@ -25,7 +25,7 @@ def package(data_dir, output, evidence_root=None):
     此函式不掃描整個專案、不攜帶 .env，也不把人工審核加入條件。
 
     新版若有 challenge.csv 也一併打入 data/，Notebook 可用同一模型獨立評估它。
-    field-coverage.csv、external-payloads.csv、HTTPPARAMS-LICENSE.txt、README.md 存在時保留，
+    skeleton-catalog.csv、field-coverage.csv、external-payloads.csv、HTTPPARAMS-LICENSE.txt、README.md 存在時保留，
     分別提供欄位覆蓋、外部攻擊來源、授權與資料限制，不把它們當成模型特徵。
     執行時收進當前 .py；本次重註解後應重新打包，舊 dataset.zip 內程式不會自動更新。
     """
@@ -34,7 +34,7 @@ def package(data_dir, output, evidence_root=None):
     # key 是 ZIP 內相對路徑，value 是 bytes；只列必要檔案，不遞迴打包私有設定或虛擬環境。
     files = {}
     for name in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py',
-                 'request_input.py', 'predict.py', 'requirements.txt'):
+                 'request_input.py', 'skeletons.py', 'predict.py', 'requirements.txt'):
         files['model/' + name] = (HERE / name).read_bytes()
     names, hashes = documented_headers()
     files['model/header-schema.json'] = json.dumps({'header_names': names, 'document_sha256': hashes}, indent=2).encode()
@@ -55,7 +55,7 @@ def package(data_dir, output, evidence_root=None):
     provenance = data_dir / 'provenance.json'
     if provenance.is_file():
         files['data/provenance.json'] = provenance.read_bytes()
-    for name in ('field-coverage.csv','external-payloads.csv','HTTPPARAMS-LICENSE.txt','README.md'):
+    for name in ('skeleton-catalog.csv','field-coverage.csv','external-payloads.csv','HTTPPARAMS-LICENSE.txt','README.md'):
         if (data_dir/name).is_file():files['data/'+name]=(data_dir/name).read_bytes()
     # 外層清單核對上傳檔案；不同於訓練後 inference/ 的 bundle-manifest.json。
     files['package-manifest.json'] = json.dumps({n: hashlib.sha256(b).hexdigest() for n,b in files.items()}, indent=2).encode()

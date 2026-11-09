@@ -29,6 +29,9 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
     5. 模板、配對、來源及 session 的關聯仍由 groups 檢查，不因允許見過家族而全部解除。
     這不等於已自動辨識所有語意相近模板，也不保證 validation 家族一律與 train 不同。
 
+    v4 改用 skeletons.audit_dataset 重算完整目錄與實際原文，禁止跨集合骨架；家族可共享。
+    骨架分析只產生輔助分組，不改寫模型輸入，不是完整語意等價證明。
+
     文件核對容許 LF/CRLF 差異；找不到文件標 not_available，目前不因此一律報錯。
     資料列宣稱使用 v3 協議卻缺 provenance 時會報錯，不能只改模式字串繞過規則。
     offline 的 warnings 會明確說明沒有完成平台 HTTP，group 數也不是購物流程數。
@@ -49,6 +52,7 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
                 'http_executed': sum(r['metadata'].get('http_executed') is True for r in rows),
                 'observed_sessions': len({r['metadata']['session_group'] for r in rows if r['metadata'].get('session_group')}),
                 'pair_groups': len({r['metadata']['pair_group'] for r in rows if r['metadata'].get('pair_group')}),
+                'attack_skeleton_groups': {label:len({r['metadata'].get('skeleton_group_id') for r in rows if r['annotation'].get('label',r['annotation'].get('proposed_label'))==label and r['metadata'].get('skeleton_group_id')}) for label in ('sqli','xss')},
                 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             }
             if set(labels) != set(LABELS):
@@ -101,6 +105,9 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
                 # 比較各集合 payload 的完整原文，避免只是換 API/session 就把同一句攻擊當新考題。
                 values=lambda s:{r['metadata']['payload']['value'] for r in sets[s] if r['metadata'].get('payload')}
                 if values(left)&values(right):errors.append(f'{left}/{right} 攻擊原文重複')
+        elif saved.get('evaluation_protocol') == 'document-v4-skeleton-disjoint':
+            from skeletons import audit_dataset
+            errors.extend(audit_dataset(data_dir,sets,saved))
         elif any(r['metadata'].get('evaluation_protocol')=='document-v3-seen-families-heldout-templates' for r in all_rows):
             errors.append('v3 實驗規則必須附上對應 provenance.json')
         for name, expected in saved.get('parameter_document_sha256', {}).items():
@@ -124,6 +131,8 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
                 snapshots[name] = 'not_available'
     if not provenance.exists() and any(r['metadata'].get('evaluation_protocol')=='document-v3-seen-families-heldout-templates' for r in all_rows):
         errors.append('v3 實驗規則必須附上對應 provenance.json')
+    if any(r['metadata'].get('evaluation_protocol')=='document-v4-skeleton-disjoint' for r in all_rows) and (not provenance.exists() or saved.get('evaluation_protocol')!='document-v4-skeleton-disjoint'):
+        errors.append('v4 骨架實驗必須附上對應 provenance.json')
     report = {'ready': not errors, 'mode': 'offline' if offline else 'live', 'exploratory': bool(exploratory or offline), 'splits': summary,
               'document_snapshots': snapshots, 'errors': errors,
               'warnings': ['離線生成資料：可評估分類器，但沒有完成平台 HTTP 實機驗證。群組數是相依關聯的合併結果，不等於真實購物流程數。'] if offline else [],
