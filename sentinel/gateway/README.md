@@ -1,38 +1,104 @@
-# Medusa 閘道骨架／交接
+# Medusa Gateway
 
-此版只告警，不封鎖、不修改 API 文件、不使用回應推導攻擊標籤。尚未接入商城設定，尚未用 Medusa 完成端到端測試。
+流程：網站 → gateway → XGBoost 分析副本 → 原始請求轉送 Medusa → 回傳後端結果。
 
-使用 Python 3.12，在虛擬環境安裝本目錄 requirements.txt；要呼叫模型，再安裝 ../model/requirements.txt。
+主程式只有 [app.py](app.py)。所有請求照常轉送 Medusa，只有清單內的 [79 個操作](../analysis/api-extension/medusa-holdout-inventory.json) 送進模型偵測。
+這份清單是偵測範圍，不是 API 存取白名單；其他 API 不會因此被 gateway 拒絕。
+目前為觀察模式：模型判為 SQLi/XSS 也照常轉送，避免誤判直接封鎖 demo 操作。
+
+## 安裝與啟動
+
+在專案根目錄執行，建議 Python 3.12：
 
 ```sh
 python -m pip install -r sentinel/gateway/requirements.txt
+# 要使用模型時再安裝：
 python -m pip install -r sentinel/model/requirements.txt
 ```
 
-Linux：
+Linux／macOS：
+
 ```sh
 export MEDUSA_UPSTREAM=http://127.0.0.1:9000
-export GATEWAY_MODEL_DIR=/你的模型資料夾
+export GATEWAY_MODEL_DIR=/你的模型輸出目錄/inference
 python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 8080 --no-access-log
 ```
 
-PowerShell：
+Windows PowerShell：
+
 ```powershell
 $env:MEDUSA_UPSTREAM='http://127.0.0.1:9000'
-$env:GATEWAY_MODEL_DIR='C:\你的模型資料夾'
+$env:GATEWAY_MODEL_DIR='C:\你的模型輸出目錄\inference'
 python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 8080 --no-access-log
 ```
 
-GATEWAY_MODEL_DIR 不設或載入失敗時僅轉送。必須使用 features VERSION=4、request_input_version=3 的模型，勿沿用舊版。訓練與閘道共用 request_input.py，不替換普通 ID、email、Host 或追蹤 ID，只遮蔽憑證；使用觀測的 raw path/query/UTF-8 body。文件 header 順序由模型 metadata 載入。目前沒有正式模型，也沒有接入商城。關閉 access log 避免 query 中敏感資訊進一般日誌。
+`GATEWAY_MODEL_DIR` 指向完整解壓後的 `inference` 目錄，不是 model.json 或 ZIP。
+使用同版特徵 v5、請求格式 v3 的完整套件；不要把單獨修改過的程式混入舊 manifest。
+啟動會載入一次模型並執行套件自測，檢查失敗則只轉送。未設定模型也可先測轉送。
+離線模型可做 demo 分析，預測日誌保留 `mode=offline`、`exploratory=True`；自測通過不代表準確率或平台實測通過。
 
-## 下一個 Codex 接續事項
+## 79 個操作的偵測範圍
 
-1. 啟動測試 Medusa，先測健康檢查、登入 Cookie、商品搜尋、購物車，確認原始本文、重複 query/header、Set-Cookie、gzip、重新導向正常轉送。
-2. 接入正式審核後的 v3 模型；使用共用原值處理與原始 path，不再將路由模板／正規化 path 送給模型。仍須完成 Medusa 真實端到端驗證。
-3. multipart、檔案、二進位本文目前只產生不支援格式標記；不能宣稱已檢測內容。補完整解析、大小／深度限制、串流、WebSocket/SSE。
-4. 模型放入獨立 worker，增加有界佇列、硬性逾時、過載時略過分析及指標。目前模型卡住仍可能拖慢請求，不是完整容錯閘道。
-5. 驗證 Host 改寫、公開 URL、CORS、Cookie domain/path、代理信任設定；目前不偽造 Forwarded/X-Forwarded-*。
-6. 增加測試與依賴鎖定；只記錄去識別化結果，模型錯誤不得把憑證印出。
-7. 驗證未知路由也會分析並轉送，包括 404；不要求 79 個 API 都業務成功才擷取請求。
+依「HTTP 方法＋路徑模板」判斷，從既有 `sentinel/analysis/api-extension/medusa-holdout-inventory.json` 讀取。
+部署時保留清單的相對位置；缺檔或不符 79 個不重複操作時拒絕啟動，避免默默使用錯誤範圍。
 
-這只是可接續的開發骨架，未宣稱正式環境可用。使用者優先要求 Demo 正常操作，因此預設維持只告警。這批新增檔案尚未提交／推送。
+| 請求例子 | 模型偵測 | 轉送 Medusa |
+|---|---|---|
+| `GET /store/products?page=2` | 是 | 是 |
+| `GET /store/products/product_123` | 是，符合 `{id}` | 是 |
+| `POST /store/products` | 否，方法不在選用操作內 | 是 |
+| `GET /admin/users`、未知路徑 | 否 | 是 |
+| `OPTIONS /store/products` | 否 | 是 |
+
+query 不影響 API 身分；header、query、body 不額外限制欄位。
+以原始路徑比對模板，轉送也保留原始 bytes；`{id}` 中的 `%2F` 或編碼攻擊仍進入偵測，不先解碼成多段而漏掉分析。
+真正額外的路徑段或不在清單內的方法略過模型，仍交給 Medusa。
+表中的「偵測：是」表示符合範圍；還需成功載入模型，忙碌或逾時時可能略過／未即時完成，詳見下方說明。
+後端的認證、路由與業務規則照常生效：若 Medusa 回 401/404 等狀態，就原樣回傳，不是 gateway 的清單限制。
+本版沒有額外的健康檢查 API，模型是否載入可查看啟動日誌。
+
+## 網站如何接入
+
+保持 Medusa 在原本的埠，例如 9000，將 storefront 的後端位址指向 gateway：
+
+```dotenv
+MEDUSA_BACKEND_URL=http://127.0.0.1:8080
+NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://127.0.0.1:8080
+```
+
+```text
+網站 → gateway → 選定 79 操作：模型偵測後轉送 → Medusa
+               → 其他 API：略過偵測直接轉送 → Medusa
+```
+
+修改後重啟／重新建置 storefront，讓伺服器端與瀏覽器端呼叫都經過 gateway。
+目前尚未替你修改 storefront 環境設定；請依實際部署填入位址。
+瀏覽器須能存取該主機；Docker 內的 `127.0.0.1` 只指容器本身，須換成可連通的服務名稱。
+CORS 預檢 OPTIONS 會轉送 Medusa，公開網域、CORS 與 Cookie Domain 仍須配合實際網站設定。
+
+## 程式如何處理請求
+
+- `model_request`：保存 method、原始 path/query、所有觀測 header 與本文。JSON/form 解析成副本，畸形 JSON 保留文字；共用訓練端規則遮蔽憑證。
+- `analyze`：在執行緒中建立副本並推論，只記類別、來源模式及探索性標記；錯誤只記類型，不記密碼、Cookie 或原始內容。
+- `proxy`：只對選定操作呼叫模型，所有請求都用原始 bytes 轉送，保留重複 header；Host/Content-Length 由 HTTPX 重建，逐段連線 header 移除。
+- 直接建立上游 Request，不合併共用 client 的 CookieJar，避免不同使用者串用登入 Cookie；後端的多個 Set-Cookie 原樣交回各自瀏覽器。
+- 回應逐塊轉送原始 bytes，不先解壓 gzip；後端的 401/404/422/500、Location 等照實保留，不自動追蹤重新導向。上游逾時回 504，連線失敗回 502。
+
+模型分析預設最多等 **0.2 秒**，可用 `GATEWAY_ANALYSIS_TIMEOUT` 設定有限正數秒數。
+超時只停止等待，不會強制殺掉執行緒；同程序最多一個背景分析，尚未結束時的新請求略過分析並記警告，不堆進推論佇列。
+這表示過載時部分請求沒有分類結果，不能把轉送筆數當成模型分析筆數。
+
+## 測試與限制
+
+```sh
+python -m unittest discover -s sentinel/gateway -p 'test_*.py'
+```
+
+測試以模擬上游及假模型驗證：79 個操作會分析、其他路徑／方法只轉送不分析、編碼攻擊 ID 仍進入偵測、原文與憑證副本、Cookie 隔離、重複 Set-Cookie、gzip、302、4xx/5xx、推論失敗／超時、form、畸形 JSON、二進位標記與模型載入狀態。
+另有本機 TCP 上游測試，確認真正 HTTPX 傳輸保留原始路徑／query、gzip 與 Cookie 隔離。
+這 11 項是 gateway 的轉送與容錯測試，不是 Medusa 的 79 個業務成功證據，也不是 XGBoost 的真實成效評估。
+
+請求本文目前整段讀入記憶體，尚無大小限制；multipart／二進位檔案未做完整內容分析。
+回應為 HTTP 串流，但尚未完成 SSE 的長連線驗證；不支援 WebSocket。
+推論執行緒卡死時後續分析會持續略過，需重啟服務恢復，關閉程序也可能等候該執行緒。
+尚未宣稱可直接用於正式環境。上面的啟動命令關閉一般 access log，避免 query 中的憑證進入網址日誌；預測結果仍會輸出。
