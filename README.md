@@ -1,6 +1,9 @@
 # MSDSS
 
-目前建立 Medusa 電商 API 與官方 Next.js 商城前台的實驗環境，尚未加入 XGBoost、攻擊偵測或欺敵功能。
+專案包含 Medusa 電商 API、官方 Next.js 商城前台，以及 XGBoost 觀察模式 gateway。
+目前 Compose 設定讓商城透過 gateway 存取 Medusa，選用的 79 個操作會嘗試送模型分析；
+判為攻擊仍轉送，不自動封鎖。Docker 設定不代表遠端已更新，部署及回復步驟見
+[gateway 部署文件](sentinel/gateway/DEPLOY.md)。
 
 ## 服務入口
 
@@ -17,9 +20,9 @@
 
 ## 架構與版本
 
-四個容器：Medusa 2.22.4、PostgreSQL 16、Redis 7、Next.js 16.4.5 商城前台。Medusa 同時執行 API、管理介面及背景工作，適用單機實驗環境。
+五個容器：Medusa 2.22.4、PostgreSQL 16、Redis 7、Next.js 16.4.5 商城前台與 XGBoost gateway。Medusa 同時執行 API、管理介面及背景工作，適用單機實驗環境。
 
-商城使用 3000 埠，Medusa API 與管理後台使用 8000 埠。PostgreSQL 與 Redis 沒有對外發布連接埠。
+商城使用 3000 埠，gateway 使用 8000 埠並轉送 API 與管理後台；Medusa 只使用 Docker 內部 9000 埠。PostgreSQL 與 Redis 沒有對外發布連接埠。
 資料庫、Redis 與上傳檔案使用獨立 Docker volumes，重啟容器不會清除資料。
 
 `backend/src/scripts/seed.ts` 使用官方 starter 示範資料，包括商品、庫存、地區與銷售管道。
@@ -42,7 +45,8 @@ OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的
    docker-compose run --rm medusa npm run migrate
    docker-compose run --rm medusa npm run seed
    docker-compose run --rm medusa npx medusa user -e YOUR_ADMIN_EMAIL -p YOUR_ADMIN_PASSWORD
-   docker-compose up -d medusa
+   docker-compose build gateway
+   docker-compose up -d medusa gateway
    ```
 
 3. 在管理後台的 Settings > Publishable API Keys 取得已連結 Default Sales Channel 的 publishable key，填入 `.env` 的 `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`。
@@ -50,12 +54,12 @@ OpenAPI 取自 Medusa `v2.22.4` tag 的 bundled specifications；上游文件的
 
    ```sh
    docker-compose build storefront
-   docker-compose up -d storefront
+   docker-compose up -d gateway storefront
    ```
 
 商城的顧客帳號與管理員帳號分開。顧客在商城的 Account > Join us 自行註冊。
 新環境部署後，可在管理後台的商店設定加入支援語系 `en-GB`。啟用 Translation Module 的既有環境須先執行 `npm run migrate`；未啟用該功能時 `/store/locales` 會回傳 404。
-前台伺服器透過 Docker 內部網址 `http://medusa:9000` 呼叫 API；需要由瀏覽器發出的請求使用公開 API 網址。
+前台伺服器透過 Docker 內部網址 `http://gateway:8080` 呼叫 API；需要由瀏覽器發出的請求使用公開 API 網址，也由 gateway 接收。
 `NEXT_PUBLIC_*` 變數會在建置時寫入前台，因此變更公開網址或 publishable key 後需重新 build 前台。
 
 只在第一次初始化資料庫時執行 seed；不要每次部署都重複灌入示範資料。

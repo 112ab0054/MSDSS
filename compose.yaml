@@ -37,8 +37,9 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    ports:
-      - "${MEDUSA_PORT:-8000}:9000"
+    # Medusa 保留在 Docker 內部；原本對外的 8000 改由 gateway 接收。
+    expose:
+      - "9000"
     environment:
       NODE_ENV: production
       PUBLIC_URL: ${PUBLIC_URL}
@@ -61,6 +62,37 @@ services:
       retries: 10
       start_period: 90s
 
+  gateway:
+    build:
+      context: .
+      dockerfile: sentinel/gateway/Dockerfile
+    image: msdss-gateway:v6
+    restart: unless-stopped
+    depends_on:
+      medusa:
+        condition: service_healthy
+    ports:
+      - "${MEDUSA_PORT:-8000}:8080"
+    environment:
+      MEDUSA_UPSTREAM: http://medusa:9000
+      GATEWAY_MODEL_DIR: /app/sentinel/gateway/model
+      GATEWAY_ANALYSIS_TIMEOUT: "0.2"
+    # 單一 worker 與既有推論工作上限一致；模型告警只觀察，仍轉送 Medusa。
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
   storefront:
     build:
       context: ./storefront
@@ -72,13 +104,14 @@ services:
     image: msdss-storefront:1.0.3
     restart: unless-stopped
     depends_on:
-      medusa:
+      gateway:
         condition: service_healthy
     ports:
       - "${STOREFRONT_PORT:-3000}:8000"
     environment:
       NODE_ENV: production
-      MEDUSA_BACKEND_URL: http://medusa:9000
+      # SSR 與 server actions 也經 gateway，避免只偵測瀏覽器直接發出的請求。
+      MEDUSA_BACKEND_URL: http://gateway:8080
       NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${PUBLIC_URL}
       NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY}
       NEXT_PUBLIC_BASE_URL: ${STOREFRONT_URL:-http://localhost:3000}

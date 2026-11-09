@@ -1,0 +1,32 @@
+{
+  "remote_deployed": false,
+  "remote_blockers": [
+    "No SSH credential or account/project directory configured",
+    "Managed network returned Domain forbidden for 161.33.154.211"
+  ],
+  "image_id": "sha256:a7188f348316dc601dbdfd1aab55315977c39069867f4e9044a57ffba578165d",
+  "image_platform": "linux/amd64",
+  "container_user": "10001:10001",
+  "model_sha256": "248b222b9569eb5722afdcde5937480da52021d5d6d62efa4bd1c6d98a9bf4a0",
+  "compose_validation": "passed: public 8000 maps to gateway; storefront SSR routes to gateway; Medusa has no published ports",
+  "gateway_regression_tests": 11,
+  "regression_result": "passed",
+  "docker_model_ready": true,
+  "missing_model_startup_rejected": true,
+  "upstream": "isolated real Medusa 2.22.4 in cloud workspace, not remote server",
+  "health_status": 200,
+  "business_outcome": "passed",
+  "request_count": 58,
+  "business_checks": 39,
+  "business_checks_passed": 39,
+  "prediction_log_count": 58,
+  "busy_warning_count": 0,
+  "timeout_warning_count": 0,
+  "prediction_failure_count": 0,
+  "mode": "observation; offline exploratory model; no blocking",
+  "limitations": [
+    "No remote host deployment or remote verification",
+    "No full frontend browser test",
+    "Container flow is an integration rehearsal, not a new independent model benchmark"
+  ]
+}

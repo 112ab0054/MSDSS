@@ -1,0 +1,19 @@
+# Dockerfile 專用白名單，避免傳送私人檔案及龐大資料集到建置端。
+**
+!sentinel/
+!sentinel/model/
+!sentinel/model/requirements.txt
+!sentinel/model/predict.py
+!sentinel/model/features.py
+!sentinel/model/request_input.py
+!sentinel/gateway/
+!sentinel/gateway/Dockerfile
+!sentinel/gateway/requirements.txt
+!sentinel/gateway/app.py
+!sentinel/gateway/docker_start.py
+!sentinel/gateway/model/
+!sentinel/gateway/model/*
+sentinel/gateway/model/__pycache__/
+!sentinel/analysis/
+!sentinel/analysis/api-extension/
+!sentinel/analysis/api-extension/medusa-holdout-inventory.json
