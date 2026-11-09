@@ -1,0 +1,70 @@
+{
+  "scope": "local demo fixtures; secret values omitted; full outputs ignored in .runtime",
+  "runs": [
+    {
+      "mode": "reset",
+      "run_id": "1645ac1092",
+      "method": "installed Medusa native services/workflows; no SQL writes",
+      "notification_delivery_verified": false,
+      "native_secret_issued": true,
+      "scope": "native workflow fixture; not evidence that HTTP reset event was received or email delivered"
+    },
+    {
+      "mode": "return_shipping",
+      "run_id": "1a830760b9",
+      "method": "installed Medusa native services/workflows; no SQL writes",
+      "notification_delivery_verified": false,
+      "shipping_option": {
+        "id": "so_01M707CC2Z0J227C9WDEB3D7X2",
+        "provider_id": "manual_manual",
+        "price_type": "flat"
+      }
+    },
+    {
+      "mode": "catalog",
+      "run_id": "6812de144c",
+      "method": "installed Medusa native services/workflows; no SQL writes",
+      "notification_delivery_verified": false,
+      "collection": {
+        "id": "pcol_01M707620943QME6QA583MXECZ",
+        "title": "MSDSS demo collection 6812de144c"
+      },
+      "tag": {
+        "id": "ptag_01M707620XMWGWZ2QJZM7SN0Q8",
+        "value": "MSDSS demo tag 6812de144c"
+      },
+      "type": {
+        "id": "ptyp_01M707621HG1N6ZGNXJYC9GR6H",
+        "value": "MSDSS demo type 6812de144c"
+      },
+      "reason": {
+        "id": "rr_01M707621ZEZ4WY8XEZ1BQMDVT",
+        "value": "msdss-demo-6812de144c",
+        "label": "MSDSS demo wrong size 6812de144c"
+      },
+      "promotion": {
+        "id": "promo_01M707622JM47Q3PF12TWKXRDA",
+        "code": "MSDSSDEMO6812DE144C"
+      }
+    },
+    {
+      "mode": "fulfill",
+      "run_id": "a41a57f277",
+      "method": "installed Medusa native services/workflows; no SQL writes",
+      "notification_delivery_verified": false,
+      "fulfillment": {
+        "id": "ful_01M707BZP6DT2Z7VTNJRZ6118C",
+        "provider_id": "manual_manual"
+      },
+      "own_order_id": "order_01M707A2RKQEP84XTE8SC8033E"
+    },
+    {
+      "mode": "verification",
+      "run_id": "a6a1159ad2",
+      "method": "installed Medusa native services/workflows; no SQL writes",
+      "notification_delivery_verified": false,
+      "native_secret_issued": true,
+      "scope": "native auth service issued code for own identity; no email delivery claim"
+    }
+  ]
+}

@@ -88,6 +88,9 @@ def main():
         sample = (positive or matches)[-1]
         params = [dict(p, present_in_selected_sample=present(sample, p)) for p in doc['parameters']] if doc else []
         note = explanation(before['path'], env)
+        if op['runtime_status'] == 'passed' and 'fixture-checks.json' in sample['evidence_file']:
+            note = '已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。'
+            if sample.get('coverage_limitation'): note += ' ' + sample['coverage_limitation']
         item = {'method': key[0], 'path': key[1], 'prior_runtime_status': before['runtime_status'],
             'runtime_status': op['runtime_status'], 'user_document': {'snapshot': SNAPSHOT.relative_to(ROOT).as_posix(),
                 'line': doc['line'] if doc else None, 'heading': doc['heading'] if doc else None,

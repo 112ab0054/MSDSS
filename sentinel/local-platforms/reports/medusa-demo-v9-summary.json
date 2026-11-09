@@ -10,9 +10,9 @@
   "business_checks_passed": 36,
   "api_status_counts": {
     "版本／功能差異": 11,
-    "成功": 51,
-    "前置條件不足": 14,
-    "部分成功": 3
+    "成功": 60,
+    "前置條件不足": 7,
+    "部分成功": 1
   },
   "normal_intent_flow_predictions": {
     "normal": 55,
@@ -64,22 +64,23 @@
     "application_version": "2.21.0",
     "verified_targets": [
       "http://127.0.0.1:18085",
-      "https://127.0.0.1:18443"
+      "https://127.0.0.1:18443",
+      "https://127.0.0.1:18444"
     ],
     "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
-    "checked_at": "2026-11-09T12:47:53.913629+00:00",
+    "checked_at": "2026-11-09T13:19:59.194113+00:00",
     "operations": 79,
     "http_attempted_operations": 79,
     "not_run": 0,
     "status_counts": {
       "unavailable_feature": 11,
-      "passed": 51,
-      "blocked_prerequisite": 14,
-      "partial_pass": 3
+      "passed": 60,
+      "blocked_prerequisite": 7,
+      "partial_pass": 1
     },
-    "http_requests": 251,
-    "actual_gateway_prediction_matches": 251,
-    "business_assertions_passed": 129,
+    "http_requests": 339,
+    "actual_gateway_prediction_matches": 339,
+    "business_assertions_passed": 184,
     "business_assertions_failed": 0,
     "source_sha256": {
       "medusa-demo-v9-flow.json": "0e50cfbf6e2779e8bf827dbf39a9a196791bed7b07029719041bcfc3fa28caea",
@@ -87,7 +88,9 @@
       "medusa-demo-v9-remaining-followups.json": "c66ef884bbb9993db494de6d4ad7db31006adb0ae36c4f72a3e70f273d0f162d",
       "medusa-demo-v9-document-input-checks.json": "40032e6882221390c40ee0f6b3587f3384d5536b2fd6db9fb2fd7835bb0a6b1d",
       "medusa-demo-v9-native-token-transfers.json": "6b1ead630c4c79b20a3384593403ad8413e6c4aa9c4c55ae465e691fd9402f66",
-      "medusa-demo-v9-reset-event-check.json": "0ace442bf6d5dcf0ffb0477ab2d0f163ac2f9a56d095c916dd9c0f382367b2c3"
+      "medusa-demo-v9-reset-event-check.json": "0ace442bf6d5dcf0ffb0477ab2d0f163ac2f9a56d095c916dd9c0f382367b2c3",
+      "medusa-demo-v9-fixture-checks.json": "487c5ac2abd7f963b171570d43e167571b8126c7e4f32a4f2a17b8e42a9bfea6",
+      "medusa-demo-v9-verification-fixture-checks.json": "1232f7380b1288107692e6b62f73f3028ca23e175ddb68a67a72cbe8c850a945"
     },
     "source_sha256_format": "parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged",
     "native_route_sha256": "049ca4b8e66ffbaa573edb655e4c1836d7a0540894f9a4a36c1c28dd35cf5301",

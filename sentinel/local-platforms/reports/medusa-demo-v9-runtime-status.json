@@ -5,22 +5,23 @@
     "application_version": "2.21.0",
     "verified_targets": [
       "http://127.0.0.1:18085",
-      "https://127.0.0.1:18443"
+      "https://127.0.0.1:18443",
+      "https://127.0.0.1:18444"
     ],
     "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
-    "checked_at": "2026-11-09T12:47:53.913629+00:00",
+    "checked_at": "2026-11-09T13:19:59.194113+00:00",
     "operations": 79,
     "http_attempted_operations": 79,
     "not_run": 0,
     "status_counts": {
       "unavailable_feature": 11,
-      "passed": 51,
-      "blocked_prerequisite": 14,
-      "partial_pass": 3
+      "passed": 60,
+      "blocked_prerequisite": 7,
+      "partial_pass": 1
     },
-    "http_requests": 251,
-    "actual_gateway_prediction_matches": 251,
-    "business_assertions_passed": 129,
+    "http_requests": 339,
+    "actual_gateway_prediction_matches": 339,
+    "business_assertions_passed": 184,
     "business_assertions_failed": 0,
     "source_sha256": {
       "medusa-demo-v9-flow.json": "0e50cfbf6e2779e8bf827dbf39a9a196791bed7b07029719041bcfc3fa28caea",
@@ -28,7 +29,9 @@
       "medusa-demo-v9-remaining-followups.json": "c66ef884bbb9993db494de6d4ad7db31006adb0ae36c4f72a3e70f273d0f162d",
       "medusa-demo-v9-document-input-checks.json": "40032e6882221390c40ee0f6b3587f3384d5536b2fd6db9fb2fd7835bb0a6b1d",
       "medusa-demo-v9-native-token-transfers.json": "6b1ead630c4c79b20a3384593403ad8413e6c4aa9c4c55ae465e691fd9402f66",
-      "medusa-demo-v9-reset-event-check.json": "0ace442bf6d5dcf0ffb0477ab2d0f163ac2f9a56d095c916dd9c0f382367b2c3"
+      "medusa-demo-v9-reset-event-check.json": "0ace442bf6d5dcf0ffb0477ab2d0f163ac2f9a56d095c916dd9c0f382367b2c3",
+      "medusa-demo-v9-fixture-checks.json": "487c5ac2abd7f963b171570d43e167571b8126c7e4f32a4f2a17b8e42a9bfea6",
+      "medusa-demo-v9-verification-fixture-checks.json": "1232f7380b1288107692e6b62f73f3028ca23e175ddb68a67a72cbe8c850a945"
     },
     "source_sha256_format": "parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged",
     "native_route_sha256": "049ca4b8e66ffbaa573edb655e4c1836d7a0540894f9a4a36c1c28dd35cf5301",
@@ -50,7 +53,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -78,25 +81,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "91869464-d70e-460c-8f05-b61cd255d1c7",
         "5c0c5262-4dc4-490f-b7c0-ade46c851ba9",
-        "0f2f6a48-b3ac-4a4c-ae8d-1aac23cbe1e8"
+        "0f2f6a48-b3ac-4a4c-ae8d-1aac23cbe1e8",
+        "2f80b206-c5fd-4e94-9f95-8b0ace60d752"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -107,19 +114,23 @@
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
-        200
+        200,
+        401
       ],
-      "runtime_request_count": 7,
+      "runtime_request_count": 11,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-verification-fixture-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "f64f6460-cdcc-4d04-ae76-885146d649cf",
@@ -128,12 +139,17 @@
         "c423453e-3f01-400b-bb64-1ba42311cf3f",
         "331785f6-1771-4590-8791-f2e65a5d1393",
         "92a8ea7f-c40c-4e1c-a53b-62da0843e907",
-        "462edab2-c82f-414e-966a-fdbcaf1f5fd2"
+        "462edab2-c82f-414e-966a-fdbcaf1f5fd2",
+        "47d9a824-5bed-4afb-91bf-b6194ee9c06a",
+        "d4db9915-fc34-4d81-ad84-6673cec30441",
+        "d9018961-a745-46a8-a74c-42b32fd1c08f",
+        "84d02edf-fb86-4a8a-808b-f76c9da554de"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -150,7 +166,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -178,17 +194,20 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 7,
+      "runtime_request_count": 10,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-verification-fixture-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "09d72600-c25b-4aae-b60c-6bc3405dbe14",
@@ -197,12 +216,16 @@
         "8b4a9b21-9e18-43b3-8f08-d4f0b8228336",
         "2f768639-1fb8-40b6-adf4-81a400f26c33",
         "49091c6b-5bde-4517-ac46-8480dbf244f3",
-        "a2930e3d-e3c3-4b38-a267-eae37d85363e"
+        "a2930e3d-e3c3-4b38-a267-eae37d85363e",
+        "0deb0434-e0dd-419c-a650-a4afe6d3ff7f",
+        "def5450f-aff9-414e-ada8-3fde82f2a4e1",
+        "0d3e467e-eec6-43dd-921d-1c3ebc00c27c"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -219,7 +242,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-reset-event-check.json",
@@ -244,36 +267,44 @@
     {
       "method": "POST",
       "path": "/auth/customer/{auth_provider}/update",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "登入JWT不等於reset-password郵件token；缺少合法重設token，未捏造或自行簽發；依文件需reset-password通知token，與一般登入JWT不同；補email後仍401 Invalid token",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
+        200,
         401
       ],
-      "runtime_request_count": 2,
-      "runtime_business_verified": false,
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
         "0ab33441-fc3a-460c-a959-9bc1d6368e08",
-        "f5251f09-c1b7-420e-a33c-bcb431dd6eb9"
+        "f5251f09-c1b7-420e-a33c-bcb431dd6eb9",
+        "ac499d94-f79f-4506-98fb-6eda87f3ab5b"
       ],
-      "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_coverage_limitations": [
+        "native workflow fixture; not evidence that HTTP reset event was received or email delivered"
+      ],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 79,
         "heading": "07. 使用 token 重設密碼",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件明確要求重設密碼token。上次僅password且用了普通登入JWT；本次補email＋password仍401。缺合法reset token是關鍵，不把登入JWT冒充重設JWT。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。 native workflow fixture; not evidence that HTTP reset event was received or email delivered"
     },
     {
       "method": "POST",
@@ -289,7 +320,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -321,7 +352,7 @@
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
       ],
@@ -347,7 +378,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -379,7 +410,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -411,7 +442,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -443,7 +474,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -471,17 +502,19 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 5,
+      "runtime_request_count": 6,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
@@ -489,13 +522,15 @@
         "487a2083-d8ac-4790-bb82-7bdd35729ad2",
         "39f2e17c-1106-42bc-aea1-e8754e91c6ec",
         "e7292eb1-4664-4572-88a4-4cd8beb33952",
-        "f248620c-3630-44bd-b39f-afc71e6a38d1"
+        "f248620c-3630-44bd-b39f-afc71e6a38d1",
+        "6a14d706-792c-4423-83a2-6e2ae05601cd"
       ],
       "runtime_coverage_limitations": [
         "成功範圍為真正HTTPS與自動Secure Cookie；原HTTP18085依然不能視為Cookie成功"
       ],
       "runtime_success_targets": [
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
@@ -503,7 +538,7 @@
         "heading": "14. 建立 Cookie 登入工作階段",
         "in_original_77": true
       },
-      "runtime_document_review_note": "手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "DELETE",
@@ -516,17 +551,19 @@
         200,
         401
       ],
-      "runtime_request_count": 5,
+      "runtime_request_count": 6,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
@@ -534,13 +571,15 @@
         "15f8a094-250a-42d5-869d-e37f55107d7d",
         "dcd095fa-2688-4c2d-b73a-07945f4ec768",
         "14b5d1f2-4787-42e2-9a45-dbeaade20ab4",
-        "368a0e01-2804-46f8-8b2b-9fa6f8da2a10"
+        "368a0e01-2804-46f8-8b2b-9fa6f8da2a10",
+        "f5d82404-1433-4845-b364-645a3f07cae7"
       ],
       "runtime_coverage_limitations": [
         "成功範圍為真正HTTPS與自動Secure Cookie；原HTTP18085依然不能視為Cookie成功"
       ],
       "runtime_success_targets": [
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
@@ -548,7 +587,7 @@
         "heading": "15. 結束 Cookie 登入工作階段",
         "in_original_77": true
       },
-      "runtime_document_review_note": "手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "POST",
@@ -560,58 +599,71 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "8fb9786b-d546-4ffd-b25a-dbf906e18025",
         "e8477353-1932-4794-abd1-9a5183ca88e5",
-        "4c8616e3-5134-4df8-a5e5-4f384aaa5cec"
+        "4c8616e3-5134-4df8-a5e5-4f384aaa5cec",
+        "10c0b90d-ba27-42e8-bb00-8cb1cc7fe008"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
       "method": "POST",
       "path": "/auth/verification/confirm",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "未配置驗證通知取碼途徑，沒有真實code；本次僅驗證缺參數會被拒絕",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
+        200,
         400
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": true,
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-verification-fixture-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "b64d74ec-ca9e-4fce-ae4c-4da099c40e19"
+        "b64d74ec-ca9e-4fce-ae4c-4da099c40e19",
+        "74b533c4-35b7-4590-be9d-6ead197c8e68",
+        "d08d2d88-2846-4c47-b282-c433386c54b6"
       ],
-      "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_coverage_limitations": [
+        "native auth service issued code for own identity; no email delivery claim"
+      ],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 200,
         "heading": "17. 確認通用驗證碼",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件必填code，實際沒有通知接收途徑取得原生code；先前省略code的400不是正向驗收。現只有feed通知、src/subscribers空，未配置email發送／取碼。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。 native auth service issued code for own identity; no email delivery claim"
     },
     {
       "method": "POST",
@@ -623,20 +675,24 @@
       "runtime_http_statuses": [
         201
       ],
-      "runtime_request_count": 1,
+      "runtime_request_count": 2,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-verification-fixture-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
-        "171da7c5-d659-4a7f-9e92-ef6b9b7da503"
+        "171da7c5-d659-4a7f-9e92-ef6b9b7da503",
+        "8ce76eac-dba3-4887-aed6-6af10d6c4915"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
-        "http://127.0.0.1:18085"
+        "http://127.0.0.1:18085",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -649,26 +705,31 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 6,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "43764d40-cb50-45b9-bbdc-a47e6cc68e7b",
         "0687e8ab-dc60-4de0-a4b1-e0d3b9df4976",
         "4ac9f1bf-7c94-4bd6-9854-4c4ceea96356",
-        "710eeb88-640a-4c8a-a925-b23f48add599"
+        "710eeb88-640a-4c8a-a925-b23f48add599",
+        "3a6e9ea1-0e81-470a-ad4f-d15128868c21",
+        "2ceddf8e-4bfb-4edc-ac20-af11d0539a79"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -681,15 +742,17 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 21,
+      "runtime_request_count": 30,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "7319b0c3-2da2-4a6b-935d-20c1628dc01b",
@@ -712,12 +775,22 @@
         "2d24ac29-48c0-4cee-8210-e7ecd6a5a863",
         "be28cbb8-e182-4208-85da-1dfeb50edca4",
         "45f14043-422b-438d-9326-b672369c522b",
-        "6ef50049-0af5-4f2d-b8c1-18122bf41dc1"
+        "6ef50049-0af5-4f2d-b8c1-18122bf41dc1",
+        "47628ab7-e281-40d3-95e8-248a31aee163",
+        "111b53b5-7834-48db-a169-96bd7ab2e698",
+        "f667a2c3-950c-41e9-9788-79fbae62e54f",
+        "fb8db39b-0534-447d-bd24-2493d88ea6f9",
+        "28a5200b-2c97-4abf-a265-f39df5f95da9",
+        "fb42b44a-07c2-48ba-8846-8afcead0fd81",
+        "0a68faca-433a-44ea-9291-ac667f8aca03",
+        "d0958dd2-9001-40e1-9907-9ee9ae45d650",
+        "35821cdb-93d7-4e2f-ac7f-22c053e36e92"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -730,25 +803,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "3e42a761-d203-40dc-9d3c-c53567766fb3",
         "17abf1a7-433b-42d4-a9c6-60d0240ad4d1",
-        "2ac4b74b-bbd2-48e2-b040-396574ae5ae8"
+        "2ac4b74b-bbd2-48e2-b040-396574ae5ae8",
+        "0fc259dc-17fd-44f1-848f-ed6636ebed86"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -761,25 +838,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "7dd873ba-49f7-4c00-98fb-9453dd05fb05",
         "4d4232ec-5ef3-489c-8a3b-c0df7dae48f0",
-        "2d148a6c-8440-4ab2-bfb6-04179de08afe"
+        "2d148a6c-8440-4ab2-bfb6-04179de08afe",
+        "db6e1b02-37e6-4bce-b167-151c8b646680"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -792,25 +873,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "af1d423b-f23c-4766-a9ff-e6e874362c86",
         "03420629-5c98-42b4-8777-065ca3d1fb57",
-        "2a005e30-710c-4424-91a5-c6982a000989"
+        "2a005e30-710c-4424-91a5-c6982a000989",
+        "2cf3aefd-fde7-406c-ac59-ea0a4442c24c"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -827,7 +912,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -859,7 +944,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -887,15 +972,17 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 6,
+      "runtime_request_count": 9,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "3cf9975a-36c6-446e-8386-f37c0097e950",
@@ -903,12 +990,16 @@
         "07ccf086-cdbf-4f6a-ab92-458a5ccac3d7",
         "9468040c-8eb4-4080-ae61-4659afaf8f91",
         "0f9e5a1c-ff76-47a4-82dc-bdf6585f7392",
-        "4c85d38a-9d95-463a-ae97-cf39f2704e2f"
+        "4c85d38a-9d95-463a-ae97-cf39f2704e2f",
+        "6e05c26d-13df-4b7f-a10d-7d0e049c1ed9",
+        "7bf368a4-cc9d-4775-a0b7-48fdf01426c7",
+        "37cf14e2-08ad-43b3-9394-6ccb56a3709b"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -921,25 +1012,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "b2a9750f-634a-4c25-99b4-9eb324ebaf24",
         "f8a79d36-4943-4679-8ba6-2ba51d05f3c4",
-        "2ecb33ec-7698-4caa-bdaf-02a5a6621745"
+        "2ecb33ec-7698-4caa-bdaf-02a5a6621745",
+        "b1a380a6-0ba7-49bc-a3da-e282f9b065fa"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -952,54 +1047,62 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "9629bf5f-00e0-4f71-8bbe-2851ef80acec",
         "56beef79-da25-43e6-a016-b38b122c748d",
-        "9f1bbdca-554b-4b61-b8cb-c16fc783e571"
+        "9f1bbdca-554b-4b61-b8cb-c16fc783e571",
+        "04c9ae4e-cfe5-47a9-b97a-87c141b68796"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/promotions",
-      "runtime_status": "partial_pass",
-      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "7b078077-168a-46e1-b2ba-900bf4416bee"
+        "7b078077-168a-46e1-b2ba-900bf4416bee",
+        "620c9314-39d8-4378-9c6e-5ebaabd4a6a0"
       ],
       "runtime_coverage_limitations": [
         "只驗證清除促銷的合法分支；沒有有效折扣代碼，未驗證有折扣分支"
       ],
       "runtime_success_targets": [
-        "http://127.0.0.1:18085"
+        "http://127.0.0.1:18085",
+        "https://127.0.0.1:18444"
       ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
@@ -1007,35 +1110,39 @@
         "heading": "29. 套用優惠碼",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "DELETE",
       "path": "/store/carts/{id}/promotions",
-      "runtime_status": "partial_pass",
-      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "81abf1e5-57c2-46a7-9737-32cb436bdb01"
+        "81abf1e5-57c2-46a7-9737-32cb436bdb01",
+        "17dba2be-4f10-4f28-b66d-c713c1725a1f"
       ],
       "runtime_coverage_limitations": [
         "沒有已套用折扣可移除，只驗證合法空陣列分支"
       ],
       "runtime_success_targets": [
-        "http://127.0.0.1:18085"
+        "http://127.0.0.1:18085",
+        "https://127.0.0.1:18444"
       ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
@@ -1043,7 +1150,7 @@
         "heading": "30. 移除優惠碼",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "POST",
@@ -1055,25 +1162,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "df9c6998-e005-4848-83de-20ff93aa5a9d",
         "42d84e83-c10f-41e7-9ad0-3b9306f2a326",
-        "a56ac4e7-1399-4263-b8c2-9599dc27dbd2"
+        "a56ac4e7-1399-4263-b8c2-9599dc27dbd2",
+        "8d268525-6036-459f-b276-6de12c5eaab1"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1090,7 +1201,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -1122,7 +1233,7 @@
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
       ],
@@ -1144,59 +1255,70 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 5,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "32aa3009-d2e6-4d72-bc0d-bd56dc591120",
         "02acd616-c144-4285-8f49-58bc4afcf11b",
         "406f709c-5dfa-4e30-aea7-c8a42a7346a2",
-        "79b050f6-e9a4-4005-b890-9ff8f18ec01c"
+        "79b050f6-e9a4-4005-b890-9ff8f18ec01c",
+        "1d4f2ccd-712d-4b32-b53d-1a89de25eac5"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
       "method": "GET",
       "path": "/store/collections/{id}",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
+        200,
         404
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": true,
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "f8c5e26f-f5af-4d80-bf10-ce231880a8e2"
+        "f8c5e26f-f5af-4d80-bf10-ce231880a8e2",
+        "7cb2f4fa-603e-4eff-8cf1-51e76bae73e8",
+        "3d64fb36-42d2-41ce-941d-ef05a46a0b14"
       ],
       "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 542,
         "heading": "35. 取得單一商品集合",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "GET",
@@ -1208,25 +1330,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "505eda3a-20e5-4d43-82ca-b52ba13271d0",
         "6c5a1fe9-0bf0-4f41-991d-56d06c81dbb0",
-        "b9e781e1-5b9c-45ce-abef-894dc9f0319e"
+        "b9e781e1-5b9c-45ce-abef-894dc9f0319e",
+        "9f20af45-e646-4d8a-a6ff-1c6c5273e6ee"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1239,25 +1365,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "3b8bf18c-9a76-4120-a492-999edb494f15",
         "225d53ca-f0d4-4a72-b0b9-1d4061c5ede8",
-        "4f09ad50-1d28-43e5-984e-b7c13c887e17"
+        "4f09ad50-1d28-43e5-984e-b7c13c887e17",
+        "9a718c4d-f521-4315-b4d7-60abb7dfe5d7"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1270,17 +1400,20 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 7,
+      "runtime_request_count": 10,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-verification-fixture-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "7c1b29cd-c0e4-47e8-aef7-e1f7837cd5a3",
@@ -1289,12 +1422,16 @@
         "8570daae-0d74-4650-bea6-db1c44321acf",
         "8a687c96-1147-4379-a696-baf7fbaa6f6a",
         "ceebbc09-0343-4a40-bd1d-36f5a33d55dd",
-        "2d74473f-f06b-471d-bc87-97b7ee8dc9d5"
+        "2d74473f-f06b-471d-bc87-97b7ee8dc9d5",
+        "69c7f7cc-0798-4dd9-829e-a5df1ddda816",
+        "53173cfe-7044-4e8d-8496-b3ab88d869e4",
+        "1e10f65f-7a9a-44cb-b02e-65b5e4d4dee5"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1308,17 +1445,19 @@
         200,
         401
       ],
-      "runtime_request_count": 19,
+      "runtime_request_count": 25,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "d121af09-0fa6-4550-8c42-560632a28b52",
@@ -1339,12 +1478,19 @@
         "71c1e316-1df1-40ad-892a-6d20b7956b14",
         "edfe8ace-a574-49c2-9fa2-52eec6207c95",
         "ea2708ee-a7c9-4d47-9634-f392667ad857",
-        "73886919-3199-4b42-9297-8dc0ad273a7b"
+        "73886919-3199-4b42-9297-8dc0ad273a7b",
+        "f4be7cc2-0821-4e2d-93e3-3571d0d7d3f8",
+        "121074e2-6b64-4ee1-aae9-636e331d6560",
+        "d90b0de8-1389-44fe-945a-8b448c1f8601",
+        "6f5d70d3-b451-4e69-84b9-ccf4674a7df6",
+        "45ed4e50-9680-4b95-8e7e-3dd30f30df79",
+        "cd32a497-40a7-4c43-a98e-56942212c281"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1357,25 +1503,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "b2c55ea8-8fb7-4227-a29c-5d5ea6e1596b",
         "a61319d0-1c4a-47ad-873f-aaf08c40d300",
-        "00b8b7ec-bec1-4f9e-b143-c4190735ca1b"
+        "00b8b7ec-bec1-4f9e-b143-c4190735ca1b",
+        "4aedfe68-2296-4066-9452-d59a4fb9b6a6"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1388,15 +1538,17 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 6,
+      "runtime_request_count": 8,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "63d18323-98c9-4ea1-9290-b9d534f6b88a",
@@ -1404,12 +1556,15 @@
         "dd44c180-f859-49a0-82ac-000ef34bd422",
         "64637f9e-17b8-48f2-9bc5-8ed7c554e509",
         "7c757927-3740-42b7-b545-9855af53175a",
-        "82017315-f4d0-4164-b1ca-72290bbcaeb2"
+        "82017315-f4d0-4164-b1ca-72290bbcaeb2",
+        "9d2f98c8-224e-4759-bc6f-b31541c08f12",
+        "74bf6edb-26e6-4be2-9083-bcbc38cdbd71"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1422,25 +1577,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "e21b9b28-cd90-452b-85cd-a8bbdb585eaa",
         "64e7cdd8-d1f2-4526-a382-f7b27ec698ad",
-        "827428f4-ca29-4172-912a-caca9a859a32"
+        "827428f4-ca29-4172-912a-caca9a859a32",
+        "01f4285e-5870-4b56-b4fb-72af9d868f55"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1453,25 +1612,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "565e1baa-915c-41fa-ba95-52f5cb9fdb14",
         "e1577716-aa79-481d-9496-f9ea71e4a297",
-        "c92d76c4-fbe7-448d-980f-7aff7471ef49"
+        "c92d76c4-fbe7-448d-980f-7aff7471ef49",
+        "9f7da0d3-7613-467b-9f06-3087c37f158b"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1484,25 +1647,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "7ccf7832-3bc5-4fec-a351-e568be674c09",
         "69254678-8427-4b59-93f9-da6f02bc8aa9",
-        "2e3c3378-fa5b-435b-b8da-1254eb568200"
+        "2e3c3378-fa5b-435b-b8da-1254eb568200",
+        "f7c3cb17-4750-4d4d-a6c2-6dd113dd634b"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1515,25 +1682,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "f8ccb7c4-98a4-4db8-8ef5-596c8a751d9c",
         "7c9c4381-2815-4bc6-913c-914c45635133",
-        "8c61759f-4db4-4643-85da-7614ce981639"
+        "8c61759f-4db4-4643-85da-7614ce981639",
+        "c921b883-c186-4d3a-b668-d027d9996a5a"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1550,7 +1721,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -1578,12 +1749,13 @@
       "runtime_http_statuses": [
         404
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": false,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
@@ -1593,7 +1765,8 @@
       "runtime_request_ids": [
         "7bd0b673-a5a0-4618-a289-bca6594b59a0",
         "ca9281d2-c162-4231-9254-8c052fc8273a",
-        "020fdcd4-bf7e-4d81-9c26-8a646d3110ef"
+        "020fdcd4-bf7e-4d81-9c26-8a646d3110ef",
+        "10f447e7-e66a-4946-8039-7a662839612a"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [],
@@ -1615,15 +1788,17 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 11,
+      "runtime_request_count": 12,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "40c905c3-87cc-4349-aaaf-3cd9f38e0a7b",
@@ -1636,12 +1811,14 @@
         "8efa680a-0172-40c6-8ce1-30fb65d63161",
         "f4eec899-98fd-4913-9195-d08d14deab63",
         "c2f70b39-34bb-455a-825b-b3a167bf1117",
-        "272466d9-ed3d-406d-853a-16a23402685b"
+        "272466d9-ed3d-406d-853a-16a23402685b",
+        "3e7203aa-b022-4b29-9cb1-0d32f313c7ce"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1654,25 +1831,31 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 6,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "662e7714-7aa6-4a51-bafd-da7ae65e1eb1",
         "6650d666-2e6b-4144-9111-6d64d1918bac",
-        "984713f3-6481-4ab4-b3f6-b351d228e228"
+        "984713f3-6481-4ab4-b3f6-b351d228e228",
+        "683a8271-6bda-45b9-adac-f47f60b8d823",
+        "ff975113-1b30-42e6-889c-72d399e9c185",
+        "34e59b8d-8e1c-4e56-b193-4a29ffaf000c"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1690,7 +1873,7 @@
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
@@ -1729,7 +1912,7 @@
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-transfer-state.json"
@@ -1758,7 +1941,7 @@
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
@@ -1797,7 +1980,7 @@
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
@@ -1826,25 +2009,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "612bc700-035e-41b4-a3ef-21469f2ce2db",
         "97ef42b4-f75b-4148-8f80-40aa472ac623",
-        "1534cea6-76a3-4de4-a020-32b62e6c9916"
+        "1534cea6-76a3-4de4-a020-32b62e6c9916",
+        "a4925ad3-7ba0-43b1-9152-1bf29bfdb7b7"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1857,25 +2044,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "8bc066f0-82f7-4e9d-806e-c93b44fda6d8",
         "12f837c0-deef-499b-8bb0-d35fa1c25d97",
-        "8b05449a-1459-433d-a639-6f789bb1e646"
+        "8b05449a-1459-433d-a639-6f789bb1e646",
+        "7ef7d408-cc18-4a11-870f-dbb515962c52"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1888,12 +2079,13 @@
       "runtime_http_statuses": [
         404
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": false,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
@@ -1902,7 +2094,8 @@
       "runtime_request_ids": [
         "c22d53b0-46b7-42f2-bae5-3764efefe5e3",
         "faeceabe-03f6-409a-a0c7-7e895c18cc36",
-        "d147e4b9-05f0-4e6d-9ff9-aecf652c77ae"
+        "d147e4b9-05f0-4e6d-9ff9-aecf652c77ae",
+        "3532544c-7b0b-4ce1-b249-9ebdf7857002"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [],
@@ -1924,25 +2117,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "75c44b0f-8969-4b70-b159-507f3fdea037",
         "27a8ba11-52af-4e66-8c79-362d3a9d601a",
-        "701eec5d-a83a-4c26-96e5-56baa1449483"
+        "701eec5d-a83a-4c26-96e5-56baa1449483",
+        "1e76f700-1940-40a9-89d3-e16c8059f7ae"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1955,25 +2152,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "a27154d4-7d55-40f1-b977-1e40d7afa8c3",
         "43a00c0e-8126-46c5-8081-494d1f7de2b3",
-        "932bf48d-ea58-4b84-b069-595e708939dd"
+        "932bf48d-ea58-4b84-b069-595e708939dd",
+        "ae41a3b8-99c2-4545-8826-2fba8779794f"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -1986,25 +2187,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "a18356f7-d89a-489d-b23c-c17d2f20954e",
         "6819708b-8035-477d-b180-f1cc2ee82fac",
-        "4fcdb0eb-bad7-4e4c-ae8e-894a4c108963"
+        "4fcdb0eb-bad7-4e4c-ae8e-894a4c108963",
+        "a6a4d734-0270-4a37-9d0c-e5b29b278c46"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2017,25 +2222,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "d0a89505-8ff7-48e7-8c8c-0172e904258d",
         "b43957ea-1c38-49fe-a89c-ef756d3ac82c",
-        "7991e64c-469f-495d-b812-d762cf9d1834"
+        "7991e64c-469f-495d-b812-d762cf9d1834",
+        "231c6e35-9c3a-4257-8020-702560e4449f"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2048,25 +2257,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "193e5ea0-dbb9-459b-b68f-8c510c20e543",
         "ac1065e2-22fa-46f0-958a-165cd7936f0b",
-        "e8bf382c-eb23-4f3f-a651-ad5f80db821d"
+        "e8bf382c-eb23-4f3f-a651-ad5f80db821d",
+        "19e6168c-a719-407e-a2b8-c64146bfb830"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2079,59 +2292,70 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 5,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "f941d972-28a0-4328-8001-f880b75e6efd",
         "1d2722da-ed3c-425b-9d4d-fef1cf376ea3",
         "10d1b3c3-6cfe-4d4f-a268-b2b2b3ba785c",
-        "53cad101-45c0-4832-bd71-6f81a05b95a7"
+        "53cad101-45c0-4832-bd71-6f81a05b95a7",
+        "3817e5af-df84-4986-bb9b-17004e80bc61"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
       "method": "GET",
       "path": "/store/product-tags/{id}",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
+        200,
         404
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": true,
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "9c9aa1d3-502b-4940-a886-2d4139c12ea7"
+        "9c9aa1d3-502b-4940-a886-2d4139c12ea7",
+        "068884a2-b54b-41da-bb42-881d040b3477",
+        "a7e9d39d-fce9-46de-bfba-3d6bf3db2689"
       ],
       "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1049,
         "heading": "62. 取得單一商品標籤",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "GET",
@@ -2143,59 +2367,70 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 5,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "9ea9702d-98a6-4d4c-b6fc-6e2985a47242",
         "3b8446a1-2426-4733-9856-ff343b46d6aa",
         "9bbc5f91-0fea-4fdf-8a58-aad541a0a5d0",
-        "bb496d74-4e24-4e5d-bff0-b0449fbd547c"
+        "bb496d74-4e24-4e5d-bff0-b0449fbd547c",
+        "e131bc46-ef88-4029-8174-1f5901974447"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
       "method": "GET",
       "path": "/store/product-types/{id}",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
+        200,
         404
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": true,
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "7290c271-6caf-4d04-8852-9b22be9ef593"
+        "7290c271-6caf-4d04-8852-9b22be9ef593",
+        "bd513832-8e37-4a29-99a1-2f4624676947",
+        "c1e33cad-ee0e-4c25-ad1b-d5a8fa5069b5"
       ],
       "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1088,
         "heading": "64. 取得單一商品類型",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "GET",
@@ -2207,25 +2442,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "fabaeec4-2075-468a-ac77-107608ae89f6",
         "3075b3db-b49d-4353-819c-ee4e82f0255c",
-        "dc1dcf98-c6e4-499b-a5b6-6f30989da93c"
+        "dc1dcf98-c6e4-499b-a5b6-6f30989da93c",
+        "e2323356-f50e-4c40-a742-5f0e9fae1bac"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2238,26 +2477,30 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 5,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "ad6353ce-c1cb-4c90-8b4a-37365696e5d4",
         "f1e13fba-5d05-408d-b898-8fa2d9ded67f",
         "a1d628de-cafa-4b5d-9627-dd6887aa6200",
-        "950279b2-ede0-4d90-b8cb-afa364aab4c3"
+        "950279b2-ede0-4d90-b8cb-afa364aab4c3",
+        "296984d0-6177-49ff-a868-c54599a97fcc"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2270,25 +2513,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "67ad736e-4b71-420e-8cea-5592b87e6e86",
         "21936de9-f92a-436c-9109-9bdb23fa50c9",
-        "3fe243b6-12a7-4a39-8d83-c6cbd21001c3"
+        "3fe243b6-12a7-4a39-8d83-c6cbd21001c3",
+        "a10a877f-e824-45dd-a20a-6d3d6ec2c5df"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2301,26 +2548,30 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 5,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "031437dc-69f2-46a1-b193-21a65f0eaf38",
         "303f1101-1b5d-48b9-8d5d-f2bb6f7457c1",
         "d49ab465-08ac-43d2-9452-af47f8ea17bd",
-        "c685b6e0-9eb7-436c-9c19-c51f341a545f"
+        "c685b6e0-9eb7-436c-9c19-c51f341a545f",
+        "c1da1cd0-f344-43fd-91a4-91cbda01a215"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2333,25 +2584,29 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 3,
+      "runtime_request_count": 4,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "283ddb60-a982-4063-8294-4c1185f3f5d2",
         "7d729e8a-ec65-4311-b5c9-e768b057072f",
-        "ad7acbad-c0e8-45ff-886e-c9e1ba6fb161"
+        "ad7acbad-c0e8-45ff-886e-c9e1ba6fb161",
+        "b9f2b55e-7601-4147-a32b-7f7ff5b930e8"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2364,91 +2619,107 @@
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 4,
+      "runtime_request_count": 5,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "bcd41184-f7d2-4d09-bc0e-2a3ecd65f2c7",
         "389a79f1-dc7e-4429-a2c8-e2d214f90baa",
         "c1e53e55-0ea3-41bb-9dfe-95e8fa1c7e40",
-        "f2621a79-d643-4eb0-b362-93d873c60158"
+        "f2621a79-d643-4eb0-b362-93d873c60158",
+        "7869b567-65ca-4bf8-95bc-e153da6d66fd"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
       "method": "GET",
       "path": "/store/return-reasons/{id}",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
         200
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": true,
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "77f32ebd-e4e6-49bf-b25f-e1f1df8b3573"
+        "77f32ebd-e4e6-49bf-b25f-e1f1df8b3573",
+        "6e06bfdd-9780-4ff9-8703-b0d7c3300ad0",
+        "25b2de44-62be-46ec-ad23-7027add78f6d"
       ],
       "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1241,
         "heading": "71. 取得單一退貨原因",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "POST",
       "path": "/store/returns",
-      "runtime_status": "blocked_prerequisite",
-      "runtime_reason": "本次測試訂單尚未履約／缺退貨配送條件，回應為前置拒絕；未修改後台履約或假裝退貨成功",
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
       "runtime_application_version": "2.21.0",
       "runtime_http_attempted": true,
       "runtime_http_statuses": [
+        200,
         400
       ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
       ],
       "runtime_request_ids": [
-        "e78019f6-d61c-4c07-9fb7-d19142facdaa"
+        "e78019f6-d61c-4c07-9fb7-d19142facdaa",
+        "85e133b2-a8f7-43e9-9ba5-17dbc941a9aa"
       ],
       "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
+      "runtime_success_targets": [
+        "https://127.0.0.1:18444"
+      ],
       "runtime_user_document_reference": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1255,
         "heading": "72. 建立退貨要求",
         "in_original_77": true
       },
-      "runtime_document_review_note": "文件必填order_id、items.id／quantity、return_shipping.option_id有送；實例fulfilled_quantity=0且沒有可用退貨配送選項。原生400證明業務前置不足，不是任填品項ID可解決。"
+      "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
       "method": "POST",
@@ -2464,7 +2735,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -2493,16 +2764,18 @@
         200,
         400
       ],
-      "runtime_request_count": 6,
+      "runtime_request_count": 8,
       "runtime_business_verified": true,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json"
       ],
       "runtime_request_ids": [
         "28dc4d9a-13d1-4cf4-8271-31412db57805",
@@ -2510,12 +2783,15 @@
         "4cf48bb9-6131-483b-bfe1-45f21ff91521",
         "04ad355c-1837-455c-9c22-ad09925c4402",
         "b0ce5ff9-18ff-4e00-b2cf-b7fce24407a3",
-        "b3b7daf6-7695-44af-91a1-575b22298b4b"
+        "b3b7daf6-7695-44af-91a1-575b22298b4b",
+        "b2c2df5a-d261-42d0-8c0c-43c2fa12eae8",
+        "b1584b2b-8b9c-48b7-8034-2c17a56109a4"
       ],
       "runtime_coverage_limitations": [],
       "runtime_success_targets": [
         "http://127.0.0.1:18085",
-        "https://127.0.0.1:18443"
+        "https://127.0.0.1:18443",
+        "https://127.0.0.1:18444"
       ]
     },
     {
@@ -2532,7 +2808,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": false,
       "runtime_in_installed_routes": true,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-document-environment-proof.json",
@@ -2565,7 +2841,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -2597,7 +2873,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
@@ -2629,7 +2905,7 @@
       "runtime_business_verified": false,
       "runtime_negative_probe_only": true,
       "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T12:47:53.913629+00:00",
+      "runtime_checked_at": "2026-11-09T13:19:59.194113+00:00",
       "runtime_evidence_files": [
         "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
         "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"

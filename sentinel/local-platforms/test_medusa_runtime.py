@@ -27,6 +27,31 @@ class RuntimeStatusTests(unittest.TestCase):
         self.assertEqual(json_sha256(json.loads(outer)), json_sha256(json.loads(outer.replace('\n', '\r\n'))))
         self.assertNotEqual(json_sha256(value), json_sha256(dict(value, raw_body='A\nB')))
 
+    def test_promotions_require_measured_effect_before_passed(self):
+        op = {'method': 'POST', 'path': '/store/carts/{id}/promotions'}
+        empty = {'status': 200, 'business_verified': True}
+        self.assertEqual(classify(op, [empty], True)[0], 'partial_pass')
+        measured = dict(empty, promotion_effect_verified=True)
+        self.assertEqual(classify(op, [empty, measured], True)[0], 'passed')
+        self.assertEqual(classify(op, [dict(measured, business_verified=False)], True)[0], 'blocked_prerequisite')
+
+    def test_real_fixture_evidence_has_reversible_discount_and_correct_return(self):
+        root = Path(__file__).resolve().parent
+        data = json.loads((root / 'reports/medusa-demo-v9-fixture-checks.json').read_text(encoding='utf-8'))
+        self.assertEqual(data['outcome'], 'passed')
+        self.assertTrue(all(c['passed'] for c in data['checks']))
+        promo = [r for r in data['requests'] if r.get('promotion_effect_verified')]
+        self.assertEqual({r['method'] for r in promo}, {'POST', 'DELETE'})
+        apply = next(r['response_body']['cart'] for r in promo if r['method'] == 'POST')
+        remove = next(r['response_body']['cart'] for r in promo if r['method'] == 'DELETE')
+        self.assertEqual(apply['id'], remove['id'])
+        self.assertGreater(apply['discount_total'], 0)
+        self.assertEqual(remove['discount_total'], 0)
+        self.assertGreater(remove['total'], apply['total'])
+        returned = next(r for r in data['requests'] if r['operation_path'] == '/store/returns')
+        self.assertTrue(returned['business_verified'])
+        self.assertEqual(returned['response_body']['return']['status'], 'requested')
+
     def test_manifest_all79_have_honest_runtime_status(self):
         root = Path(__file__).resolve().parents[2]
         value = json.loads((root / 'sentinel/analysis/api-extension/medusa-holdout-inventory.json').read_text(encoding='utf-8'))

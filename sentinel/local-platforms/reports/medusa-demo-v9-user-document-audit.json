@@ -126,7 +126,7 @@
       "method": "POST",
       "path": "/auth/customer/{auth_provider}/update",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 79,
@@ -170,12 +170,12 @@
           "present_in_selected_sample": true
         }
       ],
-      "selected_request_id": "f5251f09-c1b7-420e-a33c-bcb431dd6eb9",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-document-input-checks.json",
-      "selected_case_is_negative_probe": true,
+      "selected_request_id": "ac499d94-f79f-4506-98fb-6eda87f3ab5b",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
+      "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件明確要求重設密碼token。上次僅password且用了普通登入JWT；本次補email＋password仍401。缺合法reset token是關鍵，不把登入JWT冒充重設JWT。",
-      "runtime_reason": "登入JWT不等於reset-password郵件token；缺少合法重設token，未捏造或自行簽發；依文件需reset-password通知token，與一般登入JWT不同；補email後仍401 Invalid token"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。 native workflow fixture; not evidence that HTTP reset event was received or email delivered",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "POST",
@@ -423,11 +423,11 @@
           "present_in_selected_sample": true
         }
       ],
-      "selected_request_id": "f248620c-3630-44bd-b39f-afc71e6a38d1",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_request_id": "6a14d706-792c-4423-83a2-6e2ae05601cd",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。",
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
       "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
@@ -450,18 +450,18 @@
           "present_in_selected_sample": true
         }
       ],
-      "selected_request_id": "368a0e01-2804-46f8-8b2b-9fa6f8da2a10",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_request_id": "f5d82404-1433-4845-b364-645a3f07cae7",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "手寫文件的JWT／connect.sid用法正確；HTTP不符production Secure Cookie。真正HTTPS、驗證憑證、CookieJar自動維持與刪除身分均已補測成功。",
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
       "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "POST",
       "path": "/auth/verification/confirm",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 200,
@@ -481,7 +481,7 @@
           "name": "code",
           "requirement": "必填",
           "meaning": "此驗證流程要求的驗證碼",
-          "present_in_selected_sample": false
+          "present_in_selected_sample": true
         },
         {
           "location": "Body",
@@ -491,12 +491,12 @@
           "present_in_selected_sample": true
         }
       ],
-      "selected_request_id": "b64d74ec-ca9e-4fce-ae4c-4da099c40e19",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-      "selected_case_is_negative_probe": true,
+      "selected_request_id": "74b533c4-35b7-4590-be9d-6ead197c8e68",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-verification-fixture-checks.json",
+      "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件必填code，實際沒有通知接收途徑取得原生code；先前省略code的400不是正向驗收。現只有feed通知、src/subscribers空，未配置email發送／取碼。",
-      "runtime_reason": "未配置驗證通知取碼途徑，沒有真實code；本次僅驗證缺參數會被拒絕"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。 native auth service issued code for own identity; no email delivery claim",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "POST",
@@ -626,7 +626,7 @@
       "method": "POST",
       "path": "/store/carts/{id}/promotions",
       "prior_runtime_status": "partial_pass",
-      "runtime_status": "partial_pass",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 436,
@@ -684,18 +684,18 @@
           "present_in_selected_sample": true
         }
       ],
-      "selected_request_id": "7b078077-168a-46e1-b2ba-900bf4416bee",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_request_id": "620c9314-39d8-4378-9c6e-5ebaabd4a6a0",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。",
-      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "DELETE",
       "path": "/store/carts/{id}/promotions",
       "prior_runtime_status": "partial_pass",
-      "runtime_status": "partial_pass",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 452,
@@ -753,12 +753,12 @@
           "present_in_selected_sample": true
         }
       ],
-      "selected_request_id": "81abf1e5-57c2-46a7-9737-32cb436bdb01",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_request_id": "17dba2be-4f10-4f28-b66d-c713c1725a1f",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件用途是套用／移除優惠碼，空陣列只覆蓋清除分支。唯讀DB promotion=0，不能把任意字串當成真優惠碼；兩項保留部分成功。",
-      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "POST",
@@ -826,7 +826,7 @@
       "method": "GET",
       "path": "/store/collections/{id}",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 542,
@@ -870,12 +870,12 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "f8c5e26f-f5af-4d80-bf10-ce231880a8e2",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-      "selected_case_is_negative_probe": true,
+      "selected_request_id": "3d64fb36-42d2-41ce-941d-ef05a46a0b14",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
+      "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "GET",
@@ -966,8 +966,8 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "020fdcd4-bf7e-4d81-9c26-8a646d3110ef",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_request_id": "10f447e7-e66a-4946-8039-7a662839612a",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
       "confirmed_explanation": "不是缺路由：原生標示自2.12.3存在、以translation feature flag控制；實際translation module disable=true。屬目前功能設定，不是必須升級或補locale參數。",
@@ -1123,8 +1123,8 @@
         "in_original_77": false
       },
       "parameter_checks": [],
-      "selected_request_id": "d147e4b9-05f0-4e6d-9ff9-aecf652c77ae",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+      "selected_request_id": "3532544c-7b0b-4ce1-b249-9ebdf7857002",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
       "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
@@ -1135,7 +1135,7 @@
       "method": "GET",
       "path": "/store/product-tags/{id}",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1049,
@@ -1179,18 +1179,18 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "9c9aa1d3-502b-4940-a886-2d4139c12ea7",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-      "selected_case_is_negative_probe": true,
+      "selected_request_id": "a7e9d39d-fce9-46de-bfba-3d6bf3db2689",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
+      "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "GET",
       "path": "/store/product-types/{id}",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1088,
@@ -1234,18 +1234,18 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "7290c271-6caf-4d04-8852-9b22be9ef593",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-      "selected_case_is_negative_probe": true,
+      "selected_request_id": "c1e33cad-ee0e-4c25-ad1b-d5a8fa5069b5",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
+      "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "GET",
       "path": "/store/return-reasons/{id}",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1241,
@@ -1289,18 +1289,18 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "77f32ebd-e4e6-49bf-b25f-e1f1df8b3573",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-      "selected_case_is_negative_probe": true,
+      "selected_request_id": "25b2de44-62be-46ec-ad23-7027add78f6d",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
+      "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件要求既有資源ID，唯讀資料庫對應表皆0筆；未發行ID只是負向探查。return-reasons甚至200空物件，不能當成功。",
-      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "POST",
       "path": "/store/returns",
       "prior_runtime_status": "blocked_prerequisite",
-      "runtime_status": "blocked_prerequisite",
+      "runtime_status": "passed",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": 1255,
@@ -1369,7 +1369,7 @@
           "name": "items[].reason_id",
           "requirement": "選填／依業務條件",
           "meaning": "退貨原因識別碼",
-          "present_in_selected_sample": false
+          "present_in_selected_sample": true
         },
         {
           "location": "Body",
@@ -1421,12 +1421,12 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "e78019f6-d61c-4c07-9fb7-d19142facdaa",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+      "selected_request_id": "85e133b2-a8f7-43e9-9ba5-17dbc941a9aa",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件必填order_id、items.id／quantity、return_shipping.option_id有送；實例fulfilled_quantity=0且沒有可用退貨配送選項。原生400證明業務前置不足，不是任填品項ID可解決。",
-      "runtime_reason": "本次測試訂單尚未履約／缺退貨配送條件，回應為前置拒絕；未修改後台履約或假裝退貨成功"
+      "confirmed_explanation": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過"
     },
     {
       "method": "POST",

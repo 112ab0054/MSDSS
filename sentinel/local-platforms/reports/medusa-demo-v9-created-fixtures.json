@@ -1,0 +1,37 @@
+{
+  "collection": {
+    "id": "pcol_01M707620943QME6QA583MXECZ",
+    "title": "MSDSS demo collection 6812de144c",
+    "value": null,
+    "label": null,
+    "code": null
+  },
+  "tag": {
+    "id": "ptag_01M707620XMWGWZ2QJZM7SN0Q8",
+    "title": null,
+    "value": "MSDSS demo tag 6812de144c",
+    "label": null,
+    "code": null
+  },
+  "type": {
+    "id": "ptyp_01M707621HG1N6ZGNXJYC9GR6H",
+    "title": null,
+    "value": "MSDSS demo type 6812de144c",
+    "label": null,
+    "code": null
+  },
+  "reason": {
+    "id": "rr_01M707621ZEZ4WY8XEZ1BQMDVT",
+    "title": null,
+    "value": "msdss-demo-6812de144c",
+    "label": "MSDSS demo wrong size 6812de144c",
+    "code": null
+  },
+  "promotion": {
+    "id": "promo_01M707622JM47Q3PF12TWKXRDA",
+    "title": null,
+    "value": null,
+    "label": null,
+    "code": "MSDSSDEMO6812DE144C"
+  }
+}

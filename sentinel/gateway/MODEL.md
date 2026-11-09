@@ -1,7 +1,9 @@
 # 已接入的 XGBoost 模型與推論說明
 
+最新補資料實測：60成功、1部分成功、7前置不足、11版本／功能差異，not_run=0；339筆HTTP與實際gateway分數匹配，184項業務斷言通過。促銷、四種目錄明細、密碼更新、退貨及通用驗證碼已補通；通知／郵件送達仍未驗證。 [本輪實測紀錄](../analysis/Medusa補測資料建立與驗收.md)
 
-最新Medusa狀態（依原文件復核後）：79項均有HTTP紀錄，not_run=0；51成功、3部分成功、14前置不足、11版本／功能差異。Cookie成功限真正HTTPS；移轉接受／拒絕使用原生token、通知送達未測。配送500保留，但已證實manual不支援動態計價，改列前置不足。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+
+最新Medusa狀態（依原文件復核後）：79項均有HTTP紀錄，not_run=0；60成功、1部分成功、7前置不足、11版本／功能差異。Cookie成功限真正HTTPS；移轉接受／拒絕使用原生token、通知送達未測。配送500保留，但已證實manual不支援動態計價，改列前置不足。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
 
 目前模型為使用者上傳的Colab v9（results_download (6).zip），四份資料SHA與small-api-v9一致，特徵v6／2402維，沒有另行調參或改權重。舊v7完整套件已保存在../model/history/model-v7-before-colab-v9。下方v5／v6／v7探針為歷史，當前真實Medusa結果見[教授展示驗證](../analysis/Medusa教授展示驗證v9.md)。
 已核對原 `bundle-manifest.json`，只保留其中列出的檔案與清單本身，不攜帶 Python 3.13 的 `__pycache__`、全部訓練／測試請求或其他評估產物。

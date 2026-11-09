@@ -29,7 +29,7 @@ def classify(operation, matches, native_present, environment=None):
     if not matches: return 'not_run', '沒有本次展示站證據'
     successful = [r for r in matches if 200 <= r.get('status', 0) < 300 and r.get('business_verified') and not r.get('route_probe_only')]
     if successful:
-        if operation['path'].endswith('/promotions'):
+        if operation['path'].endswith('/promotions') and not any(r.get('promotion_effect_verified') for r in successful):
             return 'partial_pass', '合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除'
         return 'passed', '真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過'
     if operation['path'].endswith('/reset-password') and any(r.get('document_request_validated') and r.get('status') == 201 for r in matches):
@@ -60,7 +60,7 @@ def audit(sync_inventory=False):
     native = json.loads(route_path.read_text(encoding='utf-8'))
     methods = {(m, normalize(o['path'])) for o in native for m in o['methods']}
     sources = ['medusa-demo-v9-flow.json', 'medusa-demo-v9-remaining.json', 'medusa-demo-v9-remaining-followups.json']
-    for name in ['medusa-demo-v9-document-input-checks.json', 'medusa-demo-v9-native-token-transfers.json', 'medusa-demo-v9-reset-event-check.json']:
+    for name in ['medusa-demo-v9-document-input-checks.json', 'medusa-demo-v9-native-token-transfers.json', 'medusa-demo-v9-reset-event-check.json', 'medusa-demo-v9-fixture-checks.json', 'medusa-demo-v9-verification-fixture-checks.json']:
         if (REPORTS / name).is_file(): sources.append(name)
     environment_path = REPORTS / 'medusa-demo-v9-document-environment-proof.json'
     environment = json.loads(environment_path.read_text(encoding='utf-8')) if environment_path.is_file() else {}
@@ -70,7 +70,7 @@ def audit(sync_inventory=False):
         document_reviews = {(o['method'], o['path']): o for o in json.loads(document_path.read_text(encoding='utf-8'))['operations']}
     scores = {}
     score_files = ['medusa-demo-v9-gateway-scores.json', 'medusa-demo-v9-remaining-gateway-scores.json', 'medusa-demo-v9-followup-gateway-scores.json']
-    for name in ['medusa-demo-v9-document-check-gateway-scores.json', 'medusa-demo-v9-reset-gateway-scores.json']:
+    for name in ['medusa-demo-v9-document-check-gateway-scores.json', 'medusa-demo-v9-reset-gateway-scores.json', 'medusa-demo-v9-fixture-gateway-scores.json']:
         if (REPORTS / name).is_file(): score_files.append(name)
     for name in score_files:
         for row in json.loads((REPORTS / name).read_text(encoding='utf-8'))['scores']: scores[row['request_id']] = row
@@ -109,6 +109,8 @@ def audit(sync_inventory=False):
             op['runtime_evidence_files'].append('sentinel/local-platforms/reports/' + environment_path.name)
         if old['path'] in ('/store/orders/{id}/transfer/accept', '/store/orders/{id}/transfer/decline') and status == 'passed':
             op['runtime_evidence_files'].append('sentinel/local-platforms/reports/medusa-demo-v9-native-token-provenance.json')
+        if status == 'passed' and any('fixture-checks.json' in r['runtime_evidence_file'] for r in matching):
+            op['runtime_evidence_files'].append('sentinel/local-platforms/reports/medusa-demo-v9-native-fixture-provenance.json')
         if key in document_reviews:
             review = document_reviews[key]
             op['runtime_user_document_reference'] = review['user_document']

@@ -1,0 +1,263 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T13:19:59.194113+00:00",
+  "outcome": "passed_with_unverified_email_delivery",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "63de56f9dc6656d165320ea73be04bbac7619650e4229f209d3cd11e248ab9be",
+    "run_medusa_verification_fixture.py": "887c6b655f189eff64ac6d0cde9d56ebf9a01d73bff2c0a5ffdc420f543e1ee2"
+  },
+  "requests": [
+    {
+      "request_id": "0d3e467e-eec6-43dd-921d-1c3ebc00c27c",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/register",
+      "operation_path": "/auth/customer/{auth_provider}/register",
+      "request_headers": {
+        "Content-length": "125",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "0d3e467e-eec6-43dd-921d-1c3ebc00c27c",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass/register",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "1e10f65f-7a9a-44cb-b02e-65b5e4d4dee5",
+      "method": "POST",
+      "path": "/store/customers",
+      "operation_path": "/store/customers",
+      "request_headers": {
+        "Content-length": "73",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "1e10f65f-7a9a-44cb-b02e-65b5e4d4dee5",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test"
+      },
+      "business_verified": false,
+      "request_target": "/store/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M707E59Z0WGSKZ8GMR3MS5QQ",
+          "email": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T13:19:52.127Z",
+          "updated_at": "2026-11-09T13:19:52.127Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "84d02edf-fb86-4a8a-808b-f76c9da554de",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Content-length": "125",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "84d02edf-fb86-4a8a-808b-f76c9da554de",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "8ce76eac-dba3-4887-aed6-6af10d6c4915",
+      "method": "POST",
+      "path": "/auth/verification/request",
+      "operation_path": "/auth/verification/request",
+      "request_headers": {
+        "Content-length": "127",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "8ce76eac-dba3-4887-aed6-6af10d6c4915",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "entity_id": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test",
+        "entity_type": "email",
+        "code_provider": "token"
+      },
+      "business_verified": true,
+      "request_target": "/auth/verification/request",
+      "raw_query": "",
+      "request_body_raw": "{\"entity_id\": \"verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test\", \"entity_type\": \"email\", \"code_provider\": \"token\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "verification": {
+          "auth_identity_id": "authid_01M707E5679JN49HBX0WB0S6JH",
+          "entity_id": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test",
+          "entity_type": "email",
+          "code_provider": "token",
+          "verified_at": null,
+          "requested_at": "2026-11-09T13:19:52.468Z",
+          "provider_metadata": {
+            "token_hash": "[REDACTED]"
+          },
+          "metadata": {},
+          "created_at": "2026-11-09T13:19:52.471Z",
+          "updated_at": "2026-11-09T13:19:52.471Z",
+          "deleted_at": null,
+          "id": "authver_01M707E5MQA6A9S3Z50SN4D0Z0"
+        }
+      }
+    },
+    {
+      "request_id": "74b533c4-35b7-4590-be9d-6ead197c8e68",
+      "method": "POST",
+      "path": "/auth/verification/confirm",
+      "operation_path": "/auth/verification/confirm",
+      "request_headers": {
+        "Content-length": "81",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "74b533c4-35b7-4590-be9d-6ead197c8e68",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "code": "[REDACTED]",
+        "code_provider": "token"
+      },
+      "business_verified": true,
+      "request_target": "/auth/verification/confirm",
+      "raw_query": "",
+      "request_body_raw": "{\"code\": \"[REDACTED]\", \"code_provider\": \"token\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "entity_id": "verify-fixture-1e83ed782c504a42963c1233eafdf15b@example.test",
+        "entity_type": "email",
+        "code_provider": "token",
+        "verified_at": "2026-11-09T13:19:59.045Z"
+      },
+      "coverage_limitation": "native auth service issued code for own identity; no email delivery claim"
+    },
+    {
+      "request_id": "d08d2d88-2846-4c47-b282-c433386c54b6",
+      "method": "POST",
+      "path": "/auth/verification/confirm",
+      "operation_path": "/auth/verification/confirm",
+      "request_headers": {
+        "Content-length": "81",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "d08d2d88-2846-4c47-b282-c433386c54b6",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "code": "[REDACTED]",
+        "code_provider": "token"
+      },
+      "business_verified": true,
+      "request_target": "/auth/verification/confirm",
+      "raw_query": "",
+      "request_body_raw": "{\"code\": \"[REDACTED]\", \"code_provider\": \"token\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 400,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "type": "not_allowed",
+        "message": "Verification code is invalid or already used"
+      },
+      "negative_control": true
+    }
+  ],
+  "checks": [
+    {
+      "description": "原生HTTP驗證要求屬於自己帳號且尚未驗證",
+      "passed": true,
+      "request_ids": [
+        "8ce76eac-dba3-4887-aed6-6af10d6c4915"
+      ]
+    },
+    {
+      "description": "HTTP確認真實原生驗證碼後回傳同一帳號與非空verified_at",
+      "passed": true,
+      "request_ids": [
+        "74b533c4-35b7-4590-be9d-6ead197c8e68"
+      ]
+    },
+    {
+      "description": "同一驗證碼重用被拒絕，沒有冒稱可重複使用",
+      "passed": true,
+      "request_ids": [
+        "d08d2d88-2846-4c47-b282-c433386c54b6"
+      ]
+    }
+  ],
+  "error": null,
+  "verification_target": "https://127.0.0.1:18444",
+  "tls_certificate_verification": true
+}
