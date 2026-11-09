@@ -1,0 +1,46 @@
+{
+  "scope": "real_uvicorn_and_local_tcp_fixture_not_medusa_business_validation",
+  "model_sha256": "f191cdc17704a9e20291c674e03f0920b5236ca17a621a1585c90f268e2a6e77",
+  "mode": "offline",
+  "exploratory": true,
+  "platform_http_verified": false,
+  "model_retrained": false,
+  "bundle_self_test_probes": 3,
+  "gateway_tests_passed": 15,
+  "http_statuses": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "selected_requests_predicted": 3,
+  "unselected_requests_predicted": 0,
+  "original_body_forwarded": true,
+  "credentials_logged": false,
+  "predictions": [
+    {
+      "label": "sqli",
+      "probabilities": {
+        "normal": 0.30225643515586853,
+        "sqli": 0.567987859249115,
+        "xss": 0.12975570559501648
+      }
+    },
+    {
+      "label": "sqli",
+      "probabilities": {
+        "normal": 0.039213646203279495,
+        "sqli": 0.9279839396476746,
+        "xss": 0.032802481204271317
+      }
+    },
+    {
+      "label": "sqli",
+      "probabilities": {
+        "normal": 0.052785467356443405,
+        "sqli": 0.5918757915496826,
+        "xss": 0.35533878207206726
+      }
+    }
+  ]
+}

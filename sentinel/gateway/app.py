@@ -2,7 +2,8 @@
 
 所有請求照常轉送 Medusa，只有清單內 79 個「方法＋路徑模板」進入模型偵測。
 其他 API 略過模型、不額外拒絕；模型判為攻擊也只告警，仍照常轉送。
-GATEWAY_MODEL_DIR 不設／模型失敗時僅轉送。離線模型可供 demo，紀錄仍標示 offline。
+預設載入本目錄 model/ 的使用者已訓練模型；GATEWAY_MODEL_DIR 可另指定完整推論套件。
+模型失敗時僅轉送。離線模型可供 demo，紀錄仍標示 offline，不冒充實機驗證。
 啟動與限制見同目錄 README；不把原始請求、密碼或 Cookie 寫入日誌。
 """
 # asyncio 負責非同步等待；HTTP 轉送用 httpx，API 入口與回應分別由 FastAPI／Starlette 處理。
@@ -24,6 +25,8 @@ from starlette.responses import Response, StreamingResponse
 
 # 依程式位置找共用模型程式；Windows/Linux 換位置後不必修改原始碼。
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'model'))
+# 隨程式位置找已提供的推論套件；不依賴目前工作目錄，也不寫死 Colab／Windows 路徑。
+DEFAULT_MODEL = Path(__file__).resolve().parent / 'model'
 # 使用 uvicorn 的日誌體系，讓啟動狀態與預測結果可在終端機看到。
 log = logging.getLogger('uvicorn.error.gateway')
 # HOP 是逐段連線標頭，例如 Connection／Transfer-Encoding；每段代理連線要自行管理。
@@ -130,11 +133,15 @@ def analyze(predictor, request, body):
     """在工作執行緒解析與推論；只記結果／模式，錯誤也只記類型，避免洩漏憑證。"""
     try:
         # model_request 建立副本 → predictor.predict 以共用 features 轉為數值向量 → XGBoost 回傳分類。
-        # 結果含 label、mode、exploratory；這裡不修改原請求，也不依結果產生封鎖回應。
+        # 結果含 label、三類 probabilities、mode、exploratory。
+        # predict.py 先用與訓練相同的 features 產生 2402 維向量，再呼叫 XGBClassifier.predict_proba。
+        # 三類順序為 normal／sqli／xss，取最大機率的類別（argmax），沒有另加 0.5 或 0.9 門檻。
+        # 這裡不修改原請求，也不依結果產生封鎖回應。
         result = predictor.predict(model_request(request, body))
         # 只記判斷與來源標記；offline 不冒充實測，機率也不是已驗證的正確率。
-        log.info('prediction label=%s mode=%s exploratory=%s',
-                 result['label'], result.get('mode', 'unspecified'), result['exploratory'])
+        log.info('prediction label=%s mode=%s exploratory=%s probabilities=%s',
+                 result['label'], result.get('mode', 'unspecified'), result['exploratory'],
+                 json.dumps(result.get('probabilities', {}), sort_keys=True))
     except Exception as error:
         log.warning('prediction_failed type=%s', type(error).__name__)
 
@@ -157,20 +164,27 @@ async def lifespan(app):
     app.state.upstream, app.state.analysis_timeout = url, timeout
     # predictor=None 表示尚無可用模型；analysis_task=None 表示目前沒有背景分析工作。
     app.state.predictor, app.state.analysis_task = None, None
-    # 此目錄應含 model.json、metadata、manifest 與同版程式；沒有設定時仍能做純轉送。
-    directory = os.getenv('GATEWAY_MODEL_DIR')
+    # 未設定時使用隨專案提供的 model/；環境變數有值時改用指定套件，空字串則明確停用模型。
+    # model.json 是樹模型，metadata 是特徵與類別契約，manifest 用來確認檔案沒有混版。
+    # 不重新訓練模型、不讀 test/validation 選門檻，只載入使用者提供的訓練結果。
+    directory = os.getenv('GATEWAY_MODEL_DIR', str(DEFAULT_MODEL))
     if directory:
         try:
             from predict import Predictor
-            # Predictor 載入樹模型並核對套件檔案、特徵版本、類別順序與向量維度。
+            # ../model/predict.py 是專案推論入口；model/ 內另附使用者訓練時的同版程式副本。
+            # Predictor 會核對目前 import 的 predict/features/request_input 與套件 SHA 是否相同，
+            # 以及特徵版本、類別順序、向量維度，再把 model.json 載入 XGBClassifier。
+            # 因此更新訓練套件時必須連同同版程式一起更新，不能只替換一份權重或單一 .py。
             predictor = Predictor(Path(directory))
-            predictor.self_test()  # 只核對套件探針，不代表準確率或跨平台防護率。
+            # 用訓練側保存的三筆探針核對三類機率，確認目前 Python 環境能重現原套件輸出。
+            # 自測通過才設為可用模型；這不是測試集準確率或平台漏洞／防護率。
+            predictor.self_test()
             app.state.predictor = predictor  # 觀察模式容許 offline，但不可隱藏探索性標記。
             log.info('model_ready mode=%s exploratory=%s', predictor.mode, predictor.exploratory)
         except Exception as error:
             log.warning('model_load_failed type=%s', type(error).__name__)
     else:
-        log.warning('model_disabled: 未設定 GATEWAY_MODEL_DIR，僅轉送')
+        log.warning('model_disabled: GATEWAY_MODEL_DIR 為空，僅轉送')
     # 不追蹤 302，交由瀏覽器處理；不沿用環境代理。30 秒是上游 HTTP 階段逾時。
     async with httpx.AsyncClient(timeout=30, follow_redirects=False, trust_env=False) as client:
         app.state.client = client

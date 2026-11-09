@@ -3,3 +3,5 @@
 Dockerfile text eol=lf
 *.yaml text eol=lf
 *.ts text eol=lf
+# 已訓練推論套件逐檔核對 SHA，保留原始 bytes，避免 Windows/Linux checkout 改換行而拒載。
+sentinel/gateway/model/** -text
