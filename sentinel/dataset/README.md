@@ -1,6 +1,10 @@
 # XGBoost 資料集試產
 
-## 最新：只擴充訓練 v5
+## 最新：傳輸header補強 v6
+
+[small-api-v6](small-api-v6/README.md)：train702／test150／Sylius validation150／challenge96，共1098筆。相對v5新增108筆全部只進train，三類同樣涵蓋四種正常傳輸header情境，保留CSV整檔不變。特徵v6修正Accept萬用值的SQL註解誤計，raw不正規化，Medusa不放進train。見[白話歷程與實測結果](../analysis/訓練版本與問題處理白話紀錄.md)。
+
+## 歷史：只擴充訓練 v5
 
 [small-api-v5](small-api-v5/README.md)：train594、test150、Sylius validation150、challenge96，共990筆。新增48組三類配對144筆，所有新增資料只進train，故主比例改為594:150:150，不再宣稱60/20/20。三份保留CSV與原v4完全相同，原始輸入不正規化；新增案例先通過全目錄骨架與原文近似隔離。仍62API／620文件位置、offline、無新HTTP證據。見 [補強與限制](../analysis/train-augmentation-v5.md)。
 

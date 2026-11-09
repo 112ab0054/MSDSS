@@ -5,7 +5,7 @@
 主程式只有 [app.py](app.py)。所有請求照常轉送 Medusa，只有清單內的 [79 個操作](../analysis/api-extension/medusa-holdout-inventory.json) 送進模型偵測。
 這份清單是偵測範圍，不是 API 存取白名單；其他 API 不會因此被 gateway 拒絕。
 目前為觀察模式：模型判為 SQLi/XSS 也照常轉送，避免誤判直接封鎖 demo 操作。
-已附使用者上傳的 Colab 訓練模型，預設直接載入，不需要重新訓練。來源與推論流程見 [MODEL.md](MODEL.md)。
+目前已附授權重訓的v6 Accept修正模型，預設直接載入，不需為啟動再次訓練。來源與推論流程見 [MODEL.md](MODEL.md)。
 
 ## 安裝與啟動
 
@@ -32,9 +32,9 @@ python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 808
 安裝 gateway 的 requirements 已包含 XGBoost 與特徵依賴。啟動預設載入程式旁的 `model/`，不受目前工作目錄影響。
 若要換模型，設定 `GATEWAY_MODEL_DIR` 指向完整解壓後的 `inference` 目錄，不是 model.json 或 ZIP。
 設定 `GATEWAY_MODEL_DIR` 為空字串可以明確停用偵測，只保留轉送。
-使用同版特徵 v5、請求格式 v3 的完整套件；不要把單獨修改過的程式混入舊 manifest。
+使用同版特徵 v6、請求格式 v3 的完整套件；不要把單獨修改過的程式混入舊 manifest。
 啟動會載入一次模型並執行套件自測，通過後顯示 `model_ready mode=offline exploratory=True`；失敗會顯示 `model_load_failed` 並僅轉送。
-已附模型與專案推論程式逐檔相符，權重與 manifest 維持上傳原樣；Git 也針對該目錄保留原始 bytes，避免換行改變 SHA。
+已附模型與專案推論程式逐檔相符，權重與manifest維持本次重訓輸出原樣，舊上傳套件保存在歷史目錄；Git 也針對該目錄保留原始 bytes，避免換行改變 SHA。
 離線模型可做 demo 分析，預測日誌保留 `mode=offline`、`exploratory=True`；自測通過不代表準確率或平台實測通過。
 
 ## 79 個操作的偵測範圍
@@ -96,10 +96,12 @@ python -m unittest discover -s sentinel/gateway -p 'test_*.py'
 
 測試以模擬上游及假模型驗證：79 個操作會分析、其他路徑／方法只轉送不分析、編碼攻擊 ID 仍進入偵測、原文與憑證副本、Cookie 隔離、重複 Set-Cookie、gzip、302、4xx/5xx、推論失敗／超時、form、畸形 JSON、二進位標記與模型載入狀態。
 另有本機 TCP 上游測試，確認真正 HTTPX 傳輸保留原始路徑／query、gzip 與 Cookie 隔離。
-另有 4 項使用上傳的真實模型測試：原套件 SHA、預設載入與真實三類機率、中文／空白路徑搬移、損壞套件拒載。
-共 15 項測試驗證接線與容錯；不等於 Medusa 的 79 個業務成功證據，也不是新增的模型準確率評估。
+另有5項使用真實模型測試（含Accept誤報回歸）：原套件 SHA、預設載入與真實三類機率、中文／空白路徑搬移、損壞套件拒載。
+共16項測試驗證接線與容錯；不等於 Medusa 的 79 個業務成功證據，也不是新增的模型準確率評估。
 
 請求本文目前整段讀入記憶體，尚無大小限制；multipart／二進位檔案未做完整內容分析。
 回應為 HTTP 串流，但尚未完成 SSE 的長連線驗證；不支援 WebSocket。
 推論執行緒卡死時後續分析會持續略過，需重啟服務恢復，關閉程序也可能等候該執行緒。
 尚未宣稱可直接用於正式環境。上面的啟動命令關閉一般 access log，避免 query 中的憑證進入網址日誌；預測結果仍會輸出。
+
+模型只在啟動時載入，已在執行的gateway需重啟才會使用v6。原始API文件與保留評估資料未改；版本歷程、問題原因、修正及分數見[白話紀錄](../analysis/訓練版本與問題處理白話紀錄.md)。

@@ -1,6 +1,6 @@
 {
   "bundle_version": 1,
-  "feature_version": 5,
+  "feature_version": 6,
   "request_input_version": 3,
   "labels": [
     "normal",
@@ -23,7 +23,7 @@
   ],
   "feature_count": 2402,
   "feature_layout": {
-    "version": 5,
+    "version": 6,
     "hash_buckets_per_channel": 512,
     "ngram_sizes": [
       2,
@@ -62,7 +62,8 @@
       "%(?:3c|3e|22|27|28|29|3b|24|7b|7d)",
       "(?:%3c\\s*script|on\\w+%3d|javascript%3a)",
       "&#(?:x[0-9a-f]+|\\d+);|&(?:lt|gt|quot|apos);"
-    ]
+    ],
+    "accept_sql_comment_policy": "media-range-wildcard-v1"
   },
   "header_document_sha256": {
     "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "783a8da3b6a93ae2fb0215260373e7e541998a642e16af5a6acde10a6a44758d",
@@ -72,7 +73,7 @@
   "exploratory": true,
   "mode": "offline",
   "platform_http_verified": false,
-  "python": "3.13.18",
+  "python": "3.11.3",
   "packages": {
     "numpy": "2.3.5",
     "scikit-learn": "1.7.2",
@@ -121,6 +122,6 @@
     "verbosity": null,
     "num_class": 3
   },
-  "training_seconds": 5.084677689000046,
+  "training_seconds": 2.6186365000903606,
   "trees_selection": "predeclared_not_selected_by_holdout"
 }

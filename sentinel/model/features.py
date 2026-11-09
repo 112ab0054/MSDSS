@@ -1,10 +1,10 @@
-"""v5 HTTP 請求特徵：基礎數值訊號＋四通道字元 n-gram 雜湊，訓練與推論共用。"""
+"""v6 HTTP 請求特徵：基礎數值訊號＋四通道字元 n-gram 雜湊，訓練與推論共用。"""
 import json
 import re
 from sklearn.feature_extraction.text import HashingVectorizer
 from request_input import SENSITIVE, prepare_request, redact_fields
 
-VERSION = 5
+VERSION = 6
 LABELS = ['normal', 'sqli', 'xss']
 PATTERNS = [r'\b(or|and)\b', r'\bunion\b', r'\bselect\b', r'\bsleep\b|\bbenchmark\b',
             r'--|/\*|\*/', r'<script\b', r'\bon\w+\s*=', r'javascript\s*:']
@@ -60,7 +60,8 @@ def layout():
     return {'version': VERSION, 'hash_buckets_per_channel': HASH_BUCKETS,
             'ngram_sizes': [2, 3, 4, 5], 'channels': ['query', 'body', 'path', 'headers'],
             'normalization': None, 'lowercase_values': False, 'vocabulary_fit': False,
-            'extra_symbols': EXTRA_SYMBOLS, 'extra_patterns': EXTRA_PATTERNS}
+            'extra_symbols': EXTRA_SYMBOLS, 'extra_patterns': EXTRA_PATTERNS,
+            'accept_sql_comment_policy': 'media-range-wildcard-v1'}
 
 
 def clean(value):
@@ -97,6 +98,38 @@ def signals(value):
             *[len(re.findall(pattern, value, re.I)) for pattern in PATTERNS]]
 
 
+
+# Accept的媒體型別語意只修正SQL註解那一格；原文、長度、符號與ngram完整保留。
+_HTTP_TOKEN = r"[!#$%&'+.^_`|~0-9A-Za-z-]+"
+_ACCEPT_ITEM = re.compile(r'\s*(?P<media>\*/\*|'+_HTTP_TOKEN+r'/(?:\*|'+_HTTP_TOKEN+r'))'
+    r'(?:\s*;\s*'+_HTTP_TOKEN+r'\s*=\s*(?:'+_HTTP_TOKEN+r'|"(?:[^"\\\r\n]|\\[^\r\n])*"))*\s*(?:,|$)')
+
+
+def accept_wildcard_comments(value):
+    """只辨識完整可解析Accept清單中，媒體型別位置的合法萬用值。
+
+    參數／引號內的/*不豁免；未知或畸形值不豁免。不是攻擊allowlist，
+    更不直接決定normal標籤。只避免把HTTP格式本身算成SQL註解。
+    """
+    if isinstance(value,list):return sum(accept_wildcard_comments(v) for v in value)
+    if not isinstance(value,str) or not value:return 0
+    position=0;count=0
+    while position<len(value):
+        match=_ACCEPT_ITEM.match(value,position)
+        if match is None or match.end()==position:return 0
+        media=match.group('media')
+        if media.endswith('/*'):count+=len(re.findall(PATTERNS[4],media))
+        position=match.end()
+        if value[:position].rstrip().endswith(',') and not value[position:].strip():return 0
+    return count
+
+
+def contextual_header_signals(name,value):
+    result=signals(text(value))
+    if str(name).lower()=='accept':result[12]-=accept_wildcard_comments(value)
+    return result
+
+
 def header_features(headers, header_names):
     """輸入 headers：一筆請求觀測到的 header 字典。
     輸入 header_names：訓練規格中排序後的具名 header 清單，不能任意改順序。
@@ -111,12 +144,14 @@ def header_features(headers, header_names):
     """
     observed = {str(k).lower(): v for k, v in headers.items()}
     ordinary = {k: v for k, v in headers.items() if not SENSITIVE.search(str(k))}
-    result = [len(headers), sum(bool(SENSITIVE.search(str(k))) for k in headers)] + signals(text(ordinary))
+    aggregate=signals(text(ordinary))
+    aggregate[12]-=sum(accept_wildcard_comments(v) for k,v in ordinary.items() if str(k).lower()=='accept')
+    result = [len(headers), sum(bool(SENSITIVE.search(str(k))) for k in headers)] + aggregate
     # One named block for EACH header from the three API documents, not Content-Type only.
     for name in header_names:
         present = name in observed
         result.append(int(present))
-        result += signals(text(observed[name])) if present and not SENSITIVE.search(name) else [0] * 16
+        result += contextual_header_signals(name,observed[name]) if present and not SENSITIVE.search(name) else [0] * 16
     return result
 
 

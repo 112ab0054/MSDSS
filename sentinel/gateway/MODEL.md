@@ -1,6 +1,6 @@
 # 已接入的 XGBoost 模型與推論說明
 
-本次使用上傳的 `results_download (5).zip/inference/`，沒有重新訓練、改權重、調門檻或用 Medusa 調整模型。
+目前已由使用者授權修正Accept語意，使用small-api-v6／特徵v6固定參數重訓並更新完整套件；沒有調門檻或使用Medusa樣本訓練。原results_download (5).zip模型與相關紀錄保存在../model/history/accept-v5-baseline，以下歷史探針維持原樣。
 已核對原 `bundle-manifest.json`，只保留其中列出的檔案與清單本身，不攜帶 Python 3.13 的 `__pycache__`、全部訓練／測試請求或其他評估產物。
 來源摘要在 [model-source.json](model-source.json)，原套件在 [model/](model/)。
 
@@ -13,7 +13,7 @@
 | `model/model.json` | 使用者已訓練完成的樹模型權重 |
 | `model/metadata.json` | 特徵／輸入版本、類別順序、header 順序、布局及離線標記 |
 | `model/predict.py` | 原訓練輸出的同版推論程式副本，附詳細中文註解 |
-| `model/features.py` | 原訓練輸出的 v5 特徵，產生 2402 維數值向量 |
+| `model/features.py` | 本次重訓輸出的 v6 特徵，產生 2402 維數值向量 |
 | `model/request_input.py` | 原訓練輸出的請求整理與憑證遮蔽規則 |
 | `model/self-test.json` | 三類各一筆 train 探針及原環境機率，用來檢查計算一致性 |
 | `model/bundle-manifest.json` | 原套件逐檔 SHA-256，包含程式註解與空白 |
@@ -50,10 +50,10 @@ python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 808
 選定 API 的預測日誌會附 `probabilities`，讓你確認不是只收到請求而沒有推論。非選定 API 不產生預測紀錄。
 日誌是推論輸出，沒有拿它當作已標註的準確率或召回率。
 
-模型已在此 Linux／Python 環境完成套件探針與真實推論接線測試，包含中文／空白路徑搬移。
+歷史v5模型曾在Linux／Python環境完成套件探針與真實推論接線測試，目前v6已在Windows驗證，包含中文／空白路徑搬移。
 另有本機 HTTP 傳輸測試；不代表已替實際 Medusa 網站完成登入、CORS 或 79 個業務流程驗收。
 
-## 本次實際 HTTP 接線探針
+## 歷史v5實際HTTP接線探針（非目前模型）
 
 已另外啟動真實 uvicorn gateway，連到本機 TCP 測試上游，使用原模型取得以下結果：
 
@@ -67,3 +67,7 @@ python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 808
 結果保存於 [model-connection-verification.json](model-connection-verification.json)，包含三類分數、原模型 SHA 與測試範圍。
 這代表接線可用，也顯示正常查詢誤報與攻擊類別混淆；沒有為改善表面結果重新訓練或調整門檻。
 這幾筆只是接線探針，不是新的準確率測試；本機上游不是 Medusa，亦未證明任何漏洞成功。
+
+## 目前v6修正結果
+
+正常查詢的20個固定模型探針皆判normal，包括HTTPX Accept:*/*及application/*；不代表真實網站誤報率0%。完整改版、分數與取捨見[白話紀錄](../analysis/訓練版本與問題處理白話紀錄.md)，證據見normal-probe-v6-2026-11-09。當前權重是在Windows固定依賴重訓及驗證，先前Linux驗證只屬歷史v5套件；v6仍須目標環境自測。

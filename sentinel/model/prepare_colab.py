@@ -56,7 +56,7 @@ def package(data_dir, output, evidence_root=None):
     provenance = data_dir / 'provenance.json'
     if provenance.is_file():
         files['data/provenance.json'] = provenance.read_bytes()
-    for name in ('augmentation-bindings.csv','candidate-decisions.csv','parser-compatibility.json','skeleton-catalog.csv','field-coverage.csv','external-payloads.csv','HTTPPARAMS-LICENSE.txt','README.md'):
+    for name in ('transport-augmentation.csv','augmentation-bindings.csv','candidate-decisions.csv','parser-compatibility.json','skeleton-catalog.csv','field-coverage.csv','external-payloads.csv','HTTPPARAMS-LICENSE.txt','README.md'):
         if (data_dir/name).is_file():files['data/'+name]=(data_dir/name).read_bytes()
     # 外層清單核對上傳檔案；不同於訓練後 inference/ 的 bundle-manifest.json。
     files['package-manifest.json'] = json.dumps({n: hashlib.sha256(b).hexdigest() for n,b in files.items()}, indent=2).encode()

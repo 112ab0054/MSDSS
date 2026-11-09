@@ -1,0 +1,217 @@
+{
+  "model_sha256": "f191cdc17704a9e20291c674e03f0920b5236ca17a621a1585c90f268e2a6e77",
+  "model_modified": false,
+  "http_executed": false,
+  "cases": [
+    {
+      "case": "minimal:query=cotton",
+      "header_profile": "minimal",
+      "raw_query": "query=cotton",
+      "headers": {
+        "host": "127.0.0.1:8080"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.8851069211959839,
+        "sqli": 0.04313300549983978,
+        "xss": 0.07176008075475693
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "minimal:query=cotton&page=2",
+      "header_profile": "minimal",
+      "raw_query": "query=cotton&page=2",
+      "headers": {
+        "host": "127.0.0.1:8080"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.8851069211959839,
+        "sqli": 0.04313300549983978,
+        "xss": 0.07176008075475693
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "minimal:q=cotton",
+      "header_profile": "minimal",
+      "raw_query": "q=cotton",
+      "headers": {
+        "host": "127.0.0.1:8080"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.9013596177101135,
+        "sqli": 0.03703141584992409,
+        "xss": 0.06160890683531761
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "minimal:q=cotton&limit=10&offset=0",
+      "header_profile": "minimal",
+      "raw_query": "q=cotton&limit=10&offset=0",
+      "headers": {
+        "host": "127.0.0.1:8080"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.9013596177101135,
+        "sqli": 0.03703141584992409,
+        "xss": 0.06160890683531761
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "httpx_defaults:query=cotton",
+      "header_profile": "httpx_defaults",
+      "raw_query": "query=cotton",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1"
+      },
+      "label": "sqli",
+      "scores": {
+        "normal": 0.30225643515586853,
+        "sqli": 0.567987859249115,
+        "xss": 0.12975570559501648
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "httpx_defaults:query=cotton&page=2",
+      "header_profile": "httpx_defaults",
+      "raw_query": "query=cotton&page=2",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1"
+      },
+      "label": "sqli",
+      "scores": {
+        "normal": 0.30225643515586853,
+        "sqli": 0.567987859249115,
+        "xss": 0.12975570559501648
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "httpx_defaults:q=cotton",
+      "header_profile": "httpx_defaults",
+      "raw_query": "q=cotton",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1"
+      },
+      "label": "sqli",
+      "scores": {
+        "normal": 0.33942487835884094,
+        "sqli": 0.5377314686775208,
+        "xss": 0.1228436753153801
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "httpx_defaults:q=cotton&limit=10&offset=0",
+      "header_profile": "httpx_defaults",
+      "raw_query": "q=cotton&limit=10&offset=0",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1"
+      },
+      "label": "sqli",
+      "scores": {
+        "normal": 0.33942487835884094,
+        "sqli": 0.5377314686775208,
+        "xss": 0.1228436753153801
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "api_document_headers:query=cotton",
+      "header_profile": "api_document_headers",
+      "raw_query": "query=cotton",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.8851069211959839,
+        "sqli": 0.04313300549983978,
+        "xss": 0.07176008075475693
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "api_document_headers:query=cotton&page=2",
+      "header_profile": "api_document_headers",
+      "raw_query": "query=cotton&page=2",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.8851069211959839,
+        "sqli": 0.04313300549983978,
+        "xss": 0.07176008075475693
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "api_document_headers:q=cotton",
+      "header_profile": "api_document_headers",
+      "raw_query": "q=cotton",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.9013596177101135,
+        "sqli": 0.03703141584992409,
+        "xss": 0.06160890683531761
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    },
+    {
+      "case": "api_document_headers:q=cotton&limit=10&offset=0",
+      "header_profile": "api_document_headers",
+      "raw_query": "q=cotton&limit=10&offset=0",
+      "headers": {
+        "host": "127.0.0.1:8080",
+        "accept": "application/json",
+        "x-publishable-api-key": "[REDACTED]"
+      },
+      "label": "normal",
+      "scores": {
+        "normal": 0.9013596177101135,
+        "sqli": 0.03703141584992409,
+        "xss": 0.06160890683531761
+      },
+      "scope": "offline model-only probe; no actual API/business acceptance verified"
+    }
+  ],
+  "notes": [
+    "full headers of original TCP probe were not saved; URL alone does not uniquely reproduce its score",
+    "q/limit/offset taken from backend/static/openapi/store.yaml; query/page not documented product-list parameters",
+    "scores are uncalibrated; these 12 probes are not a false-positive-rate evaluation",
+    "API key is a redacted placeholder for model-only analysis, not a valid credential or HTTP success claim"
+  ]
+}

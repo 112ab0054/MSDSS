@@ -39,15 +39,16 @@ async def connected(directory=None):
 
 
 class ActualModelConnectionTests(unittest.IsolatedAsyncioTestCase):
-    def test_original_uploaded_bundle_is_intact(self):
-        """模型與原清單逐檔核對，證明接線沒有重新訓練或偷偷改寫使用者權重。"""
+    def test_current_trained_bundle_is_intact(self):
+        """模型與原清單逐檔核對，核對已授權重訓的v6套件與來源，避免混入舊權重。"""
         folder = gateway.DEFAULT_MODEL
         manifest = json.loads((folder / 'bundle-manifest.json').read_text())
         source = json.loads((HERE / 'model-source.json').read_text())
         for name, digest in manifest.items():
             self.assertEqual(hashlib.sha256((folder / name).read_bytes()).hexdigest(), digest, name)
         self.assertEqual(hashlib.sha256((folder / 'model.json').read_bytes()).hexdigest(), source['model_sha256'])
-        self.assertFalse(source['model_retrained'])
+        self.assertTrue(source['model_retrained'])
+        self.assertEqual(source['feature_version'],6)
         self.assertFalse(source['platform_http_verified'])
 
     async def test_default_real_model_predicts_selected_requests_and_forwards_all(self):
@@ -80,6 +81,20 @@ class ActualModelConnectionTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(json.loads(line.split('probabilities=', 1)[1]), result['probabilities'])
             self.assertAlmostEqual(sum(result['probabilities'].values()), 1, places=6)
         self.assertNotIn('fixture-private', str(logs.output) + str(samples))
+
+    async def test_legitimate_accept_ranges_remain_visible_and_predict_normal(self):
+        """針對已重現的Accept誤報作回歸，並確認原header仍送到後端。"""
+        async with connected() as (client, seen):
+            predictor=gateway.app.state.predictor
+            original=predictor.predict
+            with patch.object(predictor,'predict',wraps=original) as calls:
+                for value in ('*/*','application/*','text/html,application/json;q=0.9,*/*;q=0.8'):
+                    response=await client.get('/store/products?q=cotton',headers={'Accept':value})
+                    self.assertEqual(response.status_code,200)
+                    sample=calls.call_args.args[0]
+                    self.assertEqual(sample['headers']['accept'],value)
+                    self.assertEqual(original(sample)['label'],'normal')
+                    self.assertEqual(seen[-1].headers['accept'],value)
 
     async def test_relocated_bundle_with_chinese_spaces_loads(self):
         """換到含中文與空白的目錄後仍可載入與推論，不依賴訓練機或目前 cwd 的路徑。"""

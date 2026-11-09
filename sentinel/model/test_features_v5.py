@@ -26,7 +26,7 @@ class V5Tests(unittest.TestCase):
     def test_sensitive_values_remain_excluded_and_shape_is_portable(self):
         self.assertEqual(features({'headers':{'Authorization':'short'}}),features({'headers':{'Authorization':'very-long-private-value'}}))
         headers,_=documented_headers()
-        self.assertEqual(VERSION,5);self.assertEqual(feature_count(headers),2402)
+        self.assertEqual(VERSION,6);self.assertEqual(feature_count(headers),2402)
         self.assertEqual(len(features({},headers)),2402)
 
 

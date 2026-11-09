@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "python": "3.11.3",
+      "rows": 1098,
+      "errors": []
+    },
+    {
+      "python": "3.13.13",
+      "rows": 1098,
+      "errors": []
+    }
+  ],
+  "hash_seeds": [
+    17,
+    153
+  ],
+  "deterministic": true
+}

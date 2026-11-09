@@ -60,7 +60,7 @@ def run(group_function):
     檢查通過不是 normal 內容正確或模型有效的保證。沒有重新切分、沒有用 HTTP 狀態碼當特徵，
     也沒有依 test/validation 分數修改樹數、機率門檻或挑掉難題。
 
-    新版模式與資料：預設 data-dir 改為 small-api-v5，增加 --mode live/offline。
+    新版模式與資料：預設 data-dir 改為 small-api-v6，增加 --mode live/offline。
     live 是預設模式，要求實測證據；offline 允許生成請求，但保留配對與原文格式檢查。
     offline 的輸出一律 exploratory=True、platform_http_verified=False，不能用其分數冒充 HTTP 實測。
     --allow-candidates 是原本的較寬條件試跑開關，與 --mode 不同，不能把兩者當成同一選項。
@@ -72,7 +72,7 @@ def run(group_function):
     """
     # 路徑交給 pathlib；資料、輸出與證據根目錄分開設定，搬到其他 OS 不依賴原電腦磁碟機。
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v5', help='預設 small-api-v5；Colab 請指定解壓縮後的 data 目錄')
+    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v6', help='預設 small-api-v6；Colab 請指定解壓縮後的 data 目錄')
     parser.add_argument('--output', type=Path, help='訓練輸出新目錄；--check-only 不需要')
     parser.add_argument('--check-only', action='store_true', help='只列出資料資格與分組問題，不訓練、不產生成績')
     parser.add_argument('--evidence-root', type=Path)
@@ -141,12 +141,12 @@ def run(group_function):
             'mode': args.mode, 'platform_http_verified': args.mode == 'live' and not args.allow_candidates,
             'python': platform.python_version(), 'packages': packages, 'parameters': model.get_params(),
             'training_seconds': seconds, 'trees_selection': 'predeclared_not_selected_by_holdout'}
-    (bundle / 'metadata.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding='utf-8')
+    (bundle / 'metadata.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     for name in ('features.py', 'request_input.py', 'predict.py'):
         shutil.copyfile(HERE / name, bundle / name)
     # 記錄訓練時套件版本；到 Windows／Ubuntu 重新安裝，不複製 Colab 虛擬環境。
     (bundle / 'requirements-inference.txt').write_text('\n'.join(
-        f'{name}=={packages[name]}' for name in ('numpy', 'scikit-learn', 'xgboost')) + '\n', encoding='utf-8')
+        f'{name}=={packages[name]}' for name in ('numpy', 'scikit-learn', 'xgboost')) + '\n', encoding='utf-8', newline='\n')
     # 可搬移性自測只取訓練樣本，避免將測試資料打包到部署端。
     probes = []
     for label in LABELS:
@@ -156,14 +156,14 @@ def run(group_function):
         sanitized = prepare_request(req)
         probabilities = model.predict_proba([features(sanitized, names)])[0]
         probes.append({'request': sanitized, 'probabilities': list(map(float, probabilities))})
-    (bundle / 'self-test.json').write_text(json.dumps(probes, ensure_ascii=False, indent=2), encoding='utf-8')
+    (bundle / 'self-test.json').write_text(json.dumps(probes, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     (bundle / 'README.md').write_text('# 可搬移推論套件\n\n安裝 requirements-inference.txt，執行 '
         '`python predict.py --self-test --model .`。此路徑由命令明確提供；預設也會在 predict.py 旁尋找模型。'
         '模型以 XGBoost JSON 儲存，沒有 pickle 或訓練資料的絕對路徑。'
-        '跨系統需實際執行 self-test；未經校準的機率不是正確率保證。\n', encoding='utf-8')
+        '跨系統需實際執行 self-test；未經校準的機率不是正確率保證。\n', encoding='utf-8', newline='\n')
     # SHA 包含註解及空白；新程式必須與新清單一起打包，不能單換 .py 配舊模型套件。
     manifest = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in bundle.iterdir() if p.is_file()}
-    (bundle / 'bundle-manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
+    (bundle / 'bundle-manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8', newline='\n')
     with zipfile.ZipFile(output / 'inference.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for file in sorted(bundle.iterdir()):
             z.write(file, file.name)
@@ -181,7 +181,7 @@ def run(group_function):
              'source_sha256': {n: hashlib.sha256((HERE / n).read_bytes()).hexdigest()
                                for n in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py', 'skeletons.py')},
              'seed': 42, 'platform': platform.system(), 'readiness': readiness}
-    (output / 'experiment.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding='utf-8')
+    (output / 'experiment.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     with (output / 'split.csv').open('w', encoding='utf-8-sig', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['sample_id', 'platform', 'group', 'split'])
@@ -207,6 +207,6 @@ def run(group_function):
     (output / 'summary.md').write_text('# 分開保留的評估結果\n\n'
         f'模式：{args.mode}；探索性實驗：{meta["exploratory"]}。離線分類成績不代表平台 HTTP 實測或漏洞成功。\n\n'
         '| 集合 | Accuracy | Macro-F1 |\n|---|---:|---:|\n' + '\n'.join(
-        f'| {s} | {r["accuracy"]:.6f} | {r["macro_f1"]:.6f} |' for s, r in reports.items()) + '\n', encoding='utf-8')
+        f'| {s} | {r["accuracy"]:.6f} | {r["macro_f1"]:.6f} |' for s, r in reports.items()) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps({'output': str(output), 'mode': args.mode, 'exploratory': meta['exploratory'],
                       'metrics': {s: {'accuracy': r['accuracy'], 'macro_f1': r['macro_f1']} for s, r in reports.items()}}, ensure_ascii=False))

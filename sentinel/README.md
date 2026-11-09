@@ -2,7 +2,7 @@
 
 Sentinel 是本專案規劃中的 XGBoost 電商 API 請求分類模組。目前已有契約、API 參數文件與研究計畫，尚無正式訓練資料、模型或線上推論服務。
 
-目前離線實驗為 small-api-v5：只擴充train至594筆，保留test150／Sylius validation150／challenge96原檔，共990筆；骨架隔離、原始請求與特徵v5保持不變。Colab 入口與限制見 [模型說明](model/README.md)；本次沒有新增平台HTTP證據。
+目前離線實驗為small-api-v6：train702／test150／Sylius validation150／challenge96，共1098筆；特徵v6修正Accept萬用值誤計SQL註解，原文與保留題不變。完整版本與問題歷程見[白話紀錄](analysis/訓練版本與問題處理白話紀錄.md)。Colab 入口與限制見 [模型說明](model/README.md)；本次沒有新增平台HTTP證據。
 
 ## 現行範圍
 

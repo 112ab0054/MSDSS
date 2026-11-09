@@ -1,19 +1,19 @@
 # MSDSS：Colab 訓練與跨系統推論
 
-目前版本：資料 small-api-v5、特徵 v5（2402 維）。使用 [msdss訓練.ipynb](msdss訓練.ipynb) 與 [dataset.zip](dataset.zip)，重新上傳 Colab 並從第一格執行。預設 offline，沒有人工審核門檻。這是離線生成請求分類，不宣稱平台已實測或攻擊成功。
+目前版本：資料 small-api-v6、特徵 v6（2402 維）。使用 [msdss訓練.ipynb](msdss訓練.ipynb) 與 [dataset.zip](dataset.zip)，重新上傳 Colab 並從第一格執行。預設 offline，沒有人工審核門檻。這是離線生成請求分類，不宣稱平台已實測或攻擊成功。
 
 ## 資料配置
 
 | 集合 | 平台 | normal/sqli/xss 各類 | 合計 | 用途 |
 |---|---|---:|---:|---|
-| train | Bagisto＋Shopware | 198 | 594 | 唯一參與模型 fit 的資料 |
+| train | Bagisto＋Shopware | 234 | 702 | 唯一參與模型 fit 的資料 |
 | test | Bagisto＋Shopware | 50 | 150 | 不同骨架群／API |
 | validation | Sylius | 50 | 150 | 新抽樣 httpParamsDataset payload＋API |
 | challenge | Bagisto＋Shopware | 32 | 96 | 保留語境群與其近似變體 |
 
-目前只增加train144筆，主實驗594/150/150，比例不再是60/20/20；challenge96另計，共990筆，不使用Medusa。新增每類四位置各12筆，保留集CSV與骨架完全不變。
+v5之後另增加train108筆傳輸header配對，主實驗702/150/150，比例不是60/20/20；challenge96另計，共1098筆，不使用Medusa。新增每類四位置各12筆，保留集CSV與骨架完全不變。
 
-三份人工 API 文件原文不改；62操作、620個「API＋位置＋欄位」皆有覆蓋。攻擊只替換文件宣告的非敏感欄位。正常字面程式碼內容只放搜尋／備註等合適自由文字欄，不放認證／語言／貨幣欄。詳細來源、限制、欄位與抽樣見 [資料說明](../dataset/small-api-v5/README.md)。
+三份人工 API 文件原文不改；62操作、620個「API＋位置＋欄位」皆有覆蓋。攻擊只替換文件宣告的非敏感欄位。正常字面程式碼內容只放搜尋／備註等合適自由文字欄，不放認證／語言／貨幣欄。詳細來源、限制、欄位與抽樣見 [資料說明](../dataset/small-api-v6/README.md)。
 
 新版先以保守片段語法與近似原文建立全域骨架關聯，再分集合。字串／數字、console輸出別名、大小寫與常見編碼變體保守同組，正常對照依配對留在同集合。外部骨架保留Sylius驗證，本地重疊者排除；原challenge骨架與其兄弟保留challenge，其餘固定雜湊分配。家族可共享，骨架不可跨。規則不是完整SQL/JS解析器，不能保證所有語意近似都抓到。詳見 [骨架分組紀錄](../analysis/skeleton-split-v4.md)。
 
@@ -21,7 +21,9 @@
 
 v5訓練補強已新增24種無註解SQL原文、24種XSS原文與48筆文件允許的正常文字／公司名稱控制；48組配對共144筆，全部只進train。舊v4與可用於Python3.13的Notebook／ZIP保存在history/train-v4-baseline。新增案例先避開所有既有攻擊骨架與跨家族原文近似，保留集再以SHA核對凍結。沒有新增HTTP證據；詳見 [v5補強紀錄](../analysis/train-augmentation-v5.md)。
 
-## v5 特徵
+目前v6修正Accept合法媒體型別萬用字元被當SQL註解的問題；只改該統計的語意，raw header、長度、符號與ngram不變。三類對稱補入正常傳輸header profile，原Medusa樣本不進train，保留CSV不變。總歷程與實測取捨見 [白話紀錄](../analysis/訓練版本與問題處理白話紀錄.md)。舊v5完整套件保存在history/accept-v5-baseline，不能搭配v6程式載入。
+
+## v6 特徵（延續v5布局）
 
 保留v4的278維方法、Content-Type、原始query/body/path統計與12個文件Header個別區塊。另於query、body、path、非敏感Header四通道加入：
 
@@ -43,13 +45,13 @@ v5訓練補強已新增24種無註解SQL原文、24種XSS原文與48筆文件允
 
 ```sh
 python -m pip install -r sentinel/model/requirements.txt
-python sentinel/model/train.py --mode offline --data-dir sentinel/dataset/small-api-v5 --output NEW_RUN_DIRECTORY
+python sentinel/model/train.py --mode offline --data-dir sentinel/dataset/small-api-v6 --output NEW_RUN_DIRECTORY
 ```
 
 重新打包（新檔名）：
 
 ```sh
-python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v5 --output dataset_new.zip
+python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v6 --output dataset_new.zip
 ```
 
 程式使用明確分割、不重新洗牌。v4允許家族共享，但骨架群、原始攻擊字串、模板、操作與正常／攻擊配對不可跨集合；訓練前重算目錄及實際資料，不只信任ID。challenge是保留語境群，不宣稱家族完全未見。真實session、來源證據及原文重複也不得跨集合。歷史參考值不是實際session；不虛構已採集旗標。
@@ -83,7 +85,7 @@ python predict.py request.json
 
 或從其他目錄指定predict.py完整路徑；模型預設由程式所在目錄定位，沒有C槽或/content的固定依賴。套件含XGBoost model.json、metadata.json、三份推論程式、實際訓練版本依賴、SHA清單與三類自測樣本，不使用pickle/joblib。
 
-載入會核對特徵版本、完整layout、Header順序、實際維度、模型／程式SHA；自測比較訓練環境機率（容許誤差1e-6）。目前Windows的固定依賴、中文／空白搬移及解壓後自測已檢查，記錄見 [v5驗證](../dataset/small-api-v5/verification.json)。Colab／Ubuntu仍需在當地執行self-test，不能把Windows資料夾名稱模擬當成Linux實測。
+載入會核對特徵版本、完整layout、Header順序、實際維度、模型／程式SHA；自測比較訓練環境機率（容許誤差1e-6）。目前Windows的固定依賴、中文／空白搬移及解壓後自測已檢查，記錄見 [v6驗證](../dataset/small-api-v6/verification.json)。Colab／Ubuntu仍需在當地執行self-test，不能把Windows資料夾名稱模擬當成Linux實測。
 
 ## 基準保留
 

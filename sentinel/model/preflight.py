@@ -110,11 +110,14 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
             errors.extend(audit_dataset(data_dir,sets,saved))
         elif any(r['metadata'].get('evaluation_protocol')=='document-v3-seen-families-heldout-templates' for r in all_rows):
             errors.append('v3 實驗規則必須附上對應 provenance.json')
-        if saved.get('dataset_revision')=='v5-train-augmentation':
+        if saved.get('dataset_revision') in ('v5-train-augmentation','v6-transport-augmentation'):
             frozen=saved.get('frozen_holdout_sha256',{})
             for split in ('test','validation','challenge'):
                 if split not in summary or summary[split]['sha256']!=frozen.get(split):
                     errors.append('v5保留集與凍結指紋不符：'+split)
+        if saved.get('required_feature_version') is not None:
+            from features import VERSION
+            if saved['required_feature_version']!=VERSION:errors.append('資料要求的特徵版本與程式不符')
         for name, expected in saved.get('parameter_document_sha256', {}).items():
             if header_schema is not None and header_schema.get('document_sha256', {}).get(name) != expected:
                 errors.append('Header schema 與資料來源文件快照不符：' + name)

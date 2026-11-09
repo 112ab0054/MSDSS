@@ -30,3 +30,7 @@
 2026-11-09 v4誤判診斷完成：固定train-only模型重現396筆預測，機率誤差0。110筆重點錯誤（SQLi→normal47、SQLi→XSS39、normal→XSS24）。訓練SQLi150筆皆有註解訊號；無此訊號的86筆保留SQLi全錯，在副本追加--後85筆轉SQLi。normal誤報24筆對path.length高度敏感；純數值探針設17後24筆轉normal，非資料正規化或模型改善評估。已排除單靠中文說明文字的解釋。資料／文件／模型入口／ZIP未改，見v4-error-diagnosis.md及model/diagnosis-v4-2026-11-09。
 
 2026-11-09 訓練補強v5完成：目前small-api-v5，共990筆（train594／test150／Sylius validation150／challenge96）。只追加48組三類配對144筆，24種無註解SQL與24種XSS原文，原450筆train保留；所有保留CSV bytes不變，preflight核對凍結SHA。原文／API文件／特徵與固定模型參數不改。一次探索性比較Accuracy84%／84%／73.96%，challenge SQLi Recall仍25%；未再依分數調整。新ZIP與Notebook沿用現名，舊v4包保存在history/train-v4-baseline，詳見train-augmentation-v5.md。未新增HTTP證據。
+
+2026-11-09 Medusa正常查詢誤報診斷：已重現SQLi56.7988%，HTTPX預設Accept:*/*被聚合SQL註解正則視為/*。保持q=cotton與其他headers不變，Accept:*/*為SQLi53.7731%，application/json為SQLi6.7971%／normal68.4350%；application/*再誤報。模型／資料／規則未改，仍只告警。Medusa產品搜尋實際參數q與limit/offset，原query/page接線探針不等於正確業務請求；差異另記medusa-normal-false-positive-2026-11-09.md，未覆寫原文件。
+
+2026-11-09 Accept修正完成：small-api-v6共1098筆（train702／150／150／96），只新增train108筆三類對稱傳輸header配對，所有保留CSV不變。特徵VERSION6仍2402維，只豁免Accept合法媒體型別位置萬用字元的SQL註解誤計，raw與hash保留；固定參數重訓，更新gateway完整model及Colab套件。正常query=cotton原SQLi56.8%轉normal88.84%，20個固定正常探針皆normal；整體Accuracy86%／86%／72.92%，challenge SQLi Recall21.88%未解。總白話紀錄為訓練版本與問題處理白話紀錄.md。舊v5套件存history/accept-v5-baseline。未新增真實Medusa業務證據、未改API文件／compose／Mirage。
