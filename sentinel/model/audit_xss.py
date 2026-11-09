@@ -1,4 +1,4 @@
-"""Read-only XSS data/feature audit; optional fixed-parameter reproduction, no tuning."""
+"""凍結 v4 基準的 XSS 資料／特徵診斷；可選固定參數重現，不調參、不執行攻擊。"""
 import argparse
 from collections import Counter, defaultdict
 import csv
@@ -14,6 +14,7 @@ from data_io import read_rows
 import importlib.util
 
 HERE = Path(__file__).resolve().parent
+# 必須載入歷史 v4 才能重現舊盲點；不能悄悄換成 v5 後仍沿用舊結論。
 BASELINE = HERE/'history/xss-v4-baseline'
 spec=importlib.util.spec_from_file_location('xss_features_v4_baseline',BASELINE/'features.py')
 baseline=importlib.util.module_from_spec(spec);spec.loader.exec_module(baseline)
@@ -25,10 +26,16 @@ EXPECTED = {'test': [[21, 0, 7], [7, 21, 0], [18, 0, 10]],
 
 
 def label(row):
+    """讀取一筆樣本的標籤，優先使用 label，缺少才讀候選 proposed_label。
+    不根據模型預測或 HTTP 狀態重新標記，輸出 normal/sqli/xss 字串。
+    """
     return row['annotation'].get('label', row['annotation'].get('proposed_label'))
 
 
 def feature_names(headers):
+    """依凍結的舊版 v4 向量布局建立具名欄位清單，供報告列出哪格變動。
+    這裡不是目前 v5 的 2402 維規格，也不應用它解讀新版樹模型的重要性。
+    """
     names = ['method.'+m for m in ['GET','POST','PUT','PATCH','DELETE']]
     names += ['content_type.'+m for m in ['json','form','multipart']]
     names += [location+'.'+s for location in ['query','body','path'] for s in SIGNALS]
@@ -39,6 +46,9 @@ def feature_names(headers):
 
 
 def write_csv(path, rows):
+    """將字典清單存成 UTF-8 BOM CSV，便於 Windows Excel 開啟。
+    清單為空就不建立檔案；欄位順序取第一筆，呼叫端要先補齊每筆共同欄位。
+    """
     if not rows:
         return
     with path.open('w',encoding='utf-8-sig',newline='') as f:
@@ -46,6 +56,21 @@ def write_csv(path, rows):
 
 
 def audit(data, output, reproduce=False):
+    """診斷舊版 XSS 資料／特徵的工具，不是目前 v5 訓練主程式。
+    輸入 data 為三集合資料目錄，output 為新的診斷目錄，reproduce 預設 False。
+    此檔明確載入 history/xss-v4-baseline/features.py，檢查的是凍結的 v4、278 維基準。
+    即使目前 features.py 已升 v5，本診斷也不能當成 v5 的辨識結果。
+
+    流程：讀資料並記 SHA → 算舊特徵 → 找各 XSS 的正常配對 → 作向量差 → 找碰撞。
+    delta 是攻擊請求減正常對照的特徵，用來看嵌入 query/body/path 後可疑訊號是否仍可見。
+    xsig 指舊版 script/event/javascript 專用統計位置，不代表全部 XSS 語意。
+    兩筆原文不同但向量相同叫特徵碰撞，與原始請求逐字重複是不同問題。
+
+    reproduce=True 才以固定 150 棵樹重現舊基準，只 fit train，不調參、不部署模型。
+    EXPECTED 是過去矩陣的比對值，不是重新訓練時要最佳化的目標。
+    輸出 xss-samples.csv、feature-collisions.csv、audit.json、report.md；最後核對原資料 SHA 不變。
+    不送 HTTP、不執行瀏覽器 JavaScript，所以 XSS 意圖、字串命中或分類分數都不證明漏洞成功。
+    """
     if output.exists():
         raise ValueError('輸出已存在，請另選新目錄')
     paths={s:data/(s+'.csv') for s in ['train','test','validation']}
