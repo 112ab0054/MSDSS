@@ -18,3 +18,5 @@
 本次清理保留三份 API 參數文件、舊 Medusa 77 參數文件、原始規格及契約 JSON 的內容；更新現行索引與說明，舊產物移至歷史區。
 
 2026-11-09 訓練資格更新：使用者要求移除人工審核及程式判斷。model/data_io.py 不再要求 training_approved 或 audit 的人工核准欄位；preflight 不再輸出人工審核相關欄位。真實 HTTP、v3 原文、session、來源證據及分割檢查仍保留；舊資料與審核紀錄不改寫。新版 Colab ZIP 另存 model/colab_upload_no_manual_review.zip。
+
+2026-11-09 Colab 訓練修正：新增明確 --mode offline，允許現有生成請求做離線分類實驗，缺 HTTP／session 不再阻擋此模式；不改原資料狀態。--mode live 保留實機證據對帳。使用者已將 Notebook／套件改名為 model/msdss訓練.ipynb、model/dataset.zip，沿用此名稱；不復原舊名稱。

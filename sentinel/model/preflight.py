@@ -7,7 +7,7 @@ from data_io import read_rows, validate_rows
 from features import LABELS
 
 
-def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=None, header_schema=None):
+def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=None, header_schema=None, offline=False):
     """一次列出三個集合的問題，避免到 Colab 才逐次碰到第一個錯誤。"""
     sets, summary, errors = {}, {}, []
     for split in ('train', 'test', 'validation'):
@@ -20,12 +20,14 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
                 'rows': len(rows), 'labels': dict(labels),
                 'platforms': dict(Counter(r['metadata']['platform'] for r in rows)),
                 'http_executed': sum(r['metadata'].get('http_executed') is True for r in rows),
+                'observed_sessions': len({r['metadata']['session_group'] for r in rows if r['metadata'].get('session_group')}),
+                'pair_groups': len({r['metadata']['pair_group'] for r in rows if r['metadata'].get('pair_group')}),
                 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             }
             if set(labels) != set(LABELS):
                 errors.append(f'{split} 必須包含 normal/sqli/xss，且不能有其他標籤')
             try:
-                validate_rows(rows, split, exploratory, evidence_root)
+                validate_rows(rows, split, exploratory, evidence_root, offline=offline)
             except ValueError as error:
                 errors.append(f'{split}: {error}')
         except (OSError, ValueError, KeyError, TypeError) as error:
@@ -71,7 +73,8 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
                     errors.append('API 文件與資料來源快照不符：' + name)
             else:
                 snapshots[name] = 'not_available'
-    report = {'ready': not errors, 'exploratory': exploratory, 'splits': summary,
+    report = {'ready': not errors, 'mode': 'offline' if offline else 'live', 'exploratory': bool(exploratory or offline), 'splits': summary,
               'document_snapshots': snapshots, 'errors': errors,
+              'warnings': ['離線生成資料：可評估分類器，但沒有完成平台 HTTP 實機驗證。群組數是相依關聯的合併結果，不等於真實購物流程數。'] if offline else [],
               'note': '檢查通過僅代表目前程式的資格與分組條件通過，不代表模型有效。'}
     return sets, all_rows, indices, group, report

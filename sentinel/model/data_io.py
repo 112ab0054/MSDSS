@@ -50,7 +50,7 @@ def check_evidence(row, evidence_root):
         raise ValueError('來源 HTTP 請求與訓練輸入內容不符')
 
 
-def validate_rows(rows, split, exploratory=False, evidence_root=None):
+def validate_rows(rows, split, exploratory=False, evidence_root=None, offline=False):
     if not rows:
         raise ValueError(f'{split} 沒有資料')
     expected = {'sylius'} if split == 'validation' else {'bagisto', 'shopware'}
@@ -60,6 +60,15 @@ def validate_rows(rows, split, exploratory=False, evidence_root=None):
         meta = row['metadata']
         if meta.get('split') not in (None, split):
             raise ValueError('檔案集合與 metadata.split 不符')
+        if offline:
+            if meta.get('request_input_version') != INPUT_VERSION:
+                raise ValueError('離線模式要求相同的 v3 原始輸入格式')
+            if not meta.get('pair_group'):
+                raise ValueError('離線變體必須保留 pair_group，不可隨機拆散正常／攻擊配對')
+            request = row['input']
+            if not isinstance(request.get('raw_query'), str) or not isinstance(request.get('raw_body'), str):
+                raise ValueError('離線模式需明確的 raw_query／raw_body；不補造遺失原文')
+            continue
         if meta.get('http_executed') is False:
             raise ValueError('包含未送出的候選計畫；請先實機採集，不能直接訓練')
         if not meta.get('session_group'):

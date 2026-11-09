@@ -29,6 +29,7 @@ def run(group_function):
     parser.add_argument('--evidence-root', type=Path)
     parser.add_argument('--header-config', type=Path, default=HERE / 'header-schema.json')
     parser.add_argument('--allow-candidates', action='store_true', help='只供原文／來源證據不完整的流程試跑；仍拒絕未送出計畫，與人工審核無關')
+    parser.add_argument('--mode', choices=['live', 'offline'], default='live', help='offline 可使用生成請求；結果明確標為未實機驗證')
     parser.add_argument('--trees', type=int, default=150, help='事先固定樹數；不使用 test/validation 選樹數')
     args = parser.parse_args()
     if not args.check_only and args.output is None:
@@ -42,7 +43,7 @@ def run(group_function):
     schema = json.loads(args.header_config.read_text(encoding='utf-8-sig'))
     # 固定三份 CSV：不重新切分，也不偷偷把獨立驗證資料加回訓練。
     sets, all_rows, indices, group, readiness = inspect_dataset(
-        args.data_dir, group_function, args.allow_candidates, args.evidence_root, schema)
+        args.data_dir, group_function, args.allow_candidates, args.evidence_root, schema, offline=args.mode == 'offline')
     if args.check_only:
         print(json.dumps(readiness, ensure_ascii=False, indent=2))
         if not readiness['ready']:
@@ -75,7 +76,8 @@ def run(group_function):
     packages = {n: importlib.metadata.version(n) for n in ('numpy', 'scikit-learn', 'xgboost')}
     meta = {'bundle_version': 1, 'feature_version': VERSION, 'request_input_version': INPUT_VERSION,
             'labels': LABELS, 'header_names': names, 'feature_count': int(x['train'].shape[1]),
-            'header_document_sha256': schema['document_sha256'], 'exploratory': args.allow_candidates,
+            'header_document_sha256': schema['document_sha256'], 'exploratory': bool(args.allow_candidates or args.mode == 'offline'),
+            'mode': args.mode, 'platform_http_verified': args.mode == 'live' and not args.allow_candidates,
             'python': platform.python_version(), 'packages': packages, 'parameters': model.get_params(),
             'training_seconds': seconds, 'trees_selection': 'predeclared_not_selected_by_holdout'}
     (bundle / 'metadata.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -136,8 +138,8 @@ def run(group_function):
         reports[s] = save_evaluation(folder, y[s], model.predict_proba(x[s]),
                 baseline.predict_proba(x[s]), sets[s], group[indices[s]], report_audit)
     (output / 'summary.md').write_text('# 分開保留的評估結果\n\n'
-        f'候選試跑：{args.allow_candidates}。未實測計畫不能訓練；單元合成測試成績不是研究結果。\n\n'
+        f'模式：{args.mode}；探索性實驗：{meta["exploratory"]}。離線分類成績不代表平台 HTTP 實測或漏洞成功。\n\n'
         '| 集合 | Accuracy | Macro-F1 |\n|---|---:|---:|\n' + '\n'.join(
         f'| {s} | {r["accuracy"]:.6f} | {r["macro_f1"]:.6f} |' for s, r in reports.items()) + '\n', encoding='utf-8')
-    print(json.dumps({'output': str(output), 'exploratory': args.allow_candidates,
+    print(json.dumps({'output': str(output), 'mode': args.mode, 'exploratory': meta['exploratory'],
                       'metrics': {s: {'accuracy': r['accuracy'], 'macro_f1': r['macro_f1']} for s, r in reports.items()}}, ensure_ascii=False))

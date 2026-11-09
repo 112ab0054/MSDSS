@@ -41,6 +41,7 @@ class Predictor:
                 or meta["feature_version"] != VERSION or meta["labels"] != LABELS):
             raise ValueError("模型與特徵程式版本不符")
         self.exploratory = meta["exploratory"]
+        self.mode = meta.get('mode', 'unspecified')
         self.header_names = meta['header_names']
         self.feature_count = meta['feature_count']
         if self.header_names != sorted(set(self.header_names)) or self.feature_count != 74 + 17 * len(self.header_names):
@@ -74,6 +75,7 @@ class Predictor:
             raise ValueError('模型與文件 header 特徵維度不符')
         probabilities = self.model.predict_proba([vector])[0]
         return {"label": LABELS[int(probabilities.argmax())],
+                'mode': self.mode,
                 "exploratory": self.exploratory,
                 "probabilities": dict(zip(LABELS, map(float, probabilities)))}
 

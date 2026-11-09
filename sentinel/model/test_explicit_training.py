@@ -67,6 +67,28 @@ def run_integration(test):
 
 
 class ExplicitTests(unittest.TestCase):
+    def test_offline_current_v2_trains_and_relocated_bundle_predicts(self):
+        data = HERE.parent / 'dataset/small-api-v2'
+        before = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in data.glob('*.csv')}
+        with tempfile.TemporaryDirectory(prefix='msdss-offline-unit-') as temp:
+            root=Path(temp).resolve(); assert root.is_relative_to(Path(tempfile.gettempdir()).resolve())
+            result=subprocess.run([sys.executable,'-X','utf8','-B',str(HERE/'train.py'),
+                '--data-dir',str(data),'--mode','offline','--trees','10','--output',str(root/'results')],
+                cwd=root,capture_output=True,text=True,encoding='utf-8')
+            self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+            for split in ('test','validation'):
+                report=json.loads((root/'results'/split/'report.json').read_text(encoding='utf-8'))
+                self.assertEqual(report['audit']['mode'],'offline')
+                self.assertTrue(report['audit']['exploratory'])
+                self.assertFalse(report['audit']['platform_http_verified'])
+            moved=root/'搬移推論';moved.mkdir()
+            with zipfile.ZipFile(root/'results/inference.zip') as z:z.extractall(moved)
+            result=subprocess.run([sys.executable,'-X','utf8','-B',str(moved/'predict.py'),'--self-test'],
+                                  cwd=root,capture_output=True,text=True,encoding='utf-8')
+            self.assertEqual(result.returncode,0,result.stderr)
+            self.assertTrue(json.loads(result.stdout)['passed'])
+        self.assertEqual(before,{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in data.glob('*.csv')})
+
     def test_formal_accepts_traceable_http_without_manual_approval(self):
         from data_io import read_rows
         from request_input import from_evidence
