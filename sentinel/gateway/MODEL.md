@@ -1,5 +1,8 @@
 # 已接入的 XGBoost 模型與推論說明
 
+
+最新Medusa狀態：79項均有HTTP紀錄且清單runtime_status已同步，not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。含負向探查，不代表79個正常流程全成功。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+
 目前模型為使用者上傳的Colab v9（results_download (6).zip），四份資料SHA與small-api-v9一致，特徵v6／2402維，沒有另行調參或改權重。舊v7完整套件已保存在../model/history/model-v7-before-colab-v9。下方v5／v6／v7探針為歷史，當前真實Medusa結果見[教授展示驗證](../analysis/Medusa教授展示驗證v9.md)。
 已核對原 `bundle-manifest.json`，只保留其中列出的檔案與清單本身，不攜帶 Python 3.13 的 `__pycache__`、全部訓練／測試請求或其他評估產物。
 來源摘要在 [model-source.json](model-source.json)，原套件在 [model/](model/)。

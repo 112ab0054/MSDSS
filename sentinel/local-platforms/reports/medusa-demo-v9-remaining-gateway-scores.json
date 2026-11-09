@@ -1,0 +1,1182 @@
+{
+  "source": "actual gateway log matched to supplemental run UUID; no offline recalculation",
+  "scores": [
+    {
+      "request_id": "5c0c5262-4dc4-490f-b7c0-ade46c851ba9",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.814522385597229,
+        "sqli": 0.03298015892505646,
+        "xss": 0.15249744057655334
+      }
+    },
+    {
+      "request_id": "303f1101-1b5d-48b9-8d5d-f2bb6f7457c1",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8108335137367249,
+        "sqli": 0.032830797135829926,
+        "xss": 0.15633569657802582
+      }
+    },
+    {
+      "request_id": "7d729e8a-ec65-4311-b5c9-e768b057072f",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5663659572601318,
+        "sqli": 0.07525937259197235,
+        "xss": 0.3583746552467346
+      }
+    },
+    {
+      "request_id": "6c5a1fe9-0bf0-4f41-991d-56d06c81dbb0",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8639610409736633,
+        "sqli": 0.04226672276854515,
+        "xss": 0.09377223998308182
+      }
+    },
+    {
+      "request_id": "225d53ca-f0d4-4a72-b0b9-1d4061c5ede8",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8296816349029541,
+        "sqli": 0.04058970510959625,
+        "xss": 0.12972865998744965
+      }
+    },
+    {
+      "request_id": "ca9281d2-c162-4231-9254-8c052fc8273a",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7514211535453796,
+        "sqli": 0.0304251778870821,
+        "xss": 0.2181537002325058
+      }
+    },
+    {
+      "request_id": "02acd616-c144-4285-8f49-58bc4afcf11b",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8893791437149048,
+        "sqli": 0.03601112216711044,
+        "xss": 0.07460978627204895
+      }
+    },
+    {
+      "request_id": "43a00c0e-8126-46c5-8081-494d1f7de2b3",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8108335137367249,
+        "sqli": 0.032830797135829926,
+        "xss": 0.15633569657802582
+      }
+    },
+    {
+      "request_id": "6819708b-8035-477d-b180-f1cc2ee82fac",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5399834513664246,
+        "sqli": 0.02186402678489685,
+        "xss": 0.438152551651001
+      }
+    },
+    {
+      "request_id": "b43957ea-1c38-49fe-a89c-ef756d3ac82c",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6335503458976746,
+        "sqli": 0.0256525669246912,
+        "xss": 0.3407971262931824
+      }
+    },
+    {
+      "request_id": "ac1065e2-22fa-46f0-958a-165cd7936f0b",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.43087539076805115,
+        "sqli": 0.01744622364640236,
+        "xss": 0.5516784191131592
+      }
+    },
+    {
+      "request_id": "1d2722da-ed3c-425b-9d4d-fef1cf376ea3",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "3b8446a1-2426-4733-9856-ff343b46d6aa",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "389a79f1-dc7e-4429-a2c8-e2d214f90baa",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8601909279823303,
+        "sqli": 0.034829284995794296,
+        "xss": 0.10497980564832687
+      }
+    },
+    {
+      "request_id": "f1e13fba-5d05-408d-b898-8fa2d9ded67f",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5392752289772034,
+        "sqli": 0.07306826114654541,
+        "xss": 0.3876565396785736
+      }
+    },
+    {
+      "request_id": "21936de9-f92a-436c-9109-9bdb23fa50c9",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.716346263885498,
+        "sqli": 0.09706021845340729,
+        "xss": 0.18659356236457825
+      }
+    },
+    {
+      "request_id": "3075b3db-b49d-4353-819c-ee4e82f0255c",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6759414672851562,
+        "sqli": 0.031816475093364716,
+        "xss": 0.2922420799732208
+      }
+    },
+    {
+      "request_id": "d718b4ef-d516-495a-b0c7-f10c942acfe2",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.77785724401474,
+        "sqli": 0.03805435076355934,
+        "xss": 0.18408842384815216
+      }
+    },
+    {
+      "request_id": "ab204a49-306f-4ae6-99ac-65f35ad566fd",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7141754627227783,
+        "sqli": 0.0949004665017128,
+        "xss": 0.1909240186214447
+      }
+    },
+    {
+      "request_id": "51d4912a-a9d3-4856-9e79-5971b6da1ef8",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8676897883415222,
+        "sqli": 0.042449142783880234,
+        "xss": 0.08986102044582367
+      }
+    },
+    {
+      "request_id": "703ac628-007b-4a1d-8ddb-67b641953331",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7701904773712158,
+        "sqli": 0.0376792773604393,
+        "xss": 0.19213028252124786
+      }
+    },
+    {
+      "request_id": "e8477353-1932-4794-abd1-9a5183ca88e5",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8628207445144653,
+        "sqli": 0.03493576496839523,
+        "xss": 0.10224348306655884
+      }
+    },
+    {
+      "request_id": "7515b3bf-e47e-40f4-953a-9379179fb858",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.814522385597229,
+        "sqli": 0.03298015892505646,
+        "xss": 0.15249744057655334
+      }
+    },
+    {
+      "request_id": "487a2083-d8ac-4790-bb82-7bdd35729ad2",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7852625250816345,
+        "sqli": 0.03841663524508476,
+        "xss": 0.17632080614566803
+      }
+    },
+    {
+      "request_id": "40249a3d-a7c1-45bd-a129-c2a6a56bb5d6",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "15f8a094-250a-42d5-869d-e37f55107d7d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5723075270652771,
+        "sqli": 0.07604888826608658,
+        "xss": 0.35164353251457214
+      }
+    },
+    {
+      "request_id": "5744c602-fd71-4105-a18c-20cb9ca68e4d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.814522385597229,
+        "sqli": 0.03298015892505646,
+        "xss": 0.15249744057655334
+      }
+    },
+    {
+      "request_id": "a61319d0-1c4a-47ad-873f-aaf08c40d300",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5227405428886414,
+        "sqli": 0.0694623738527298,
+        "xss": 0.40779706835746765
+      }
+    },
+    {
+      "request_id": "19a2b4df-3c0d-44ef-9178-f29cb206032d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "64e7cdd8-d1f2-4526-a382-f7b27ec698ad",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7852625250816345,
+        "sqli": 0.03841663524508476,
+        "xss": 0.17632080614566803
+      }
+    },
+    {
+      "request_id": "e1577716-aa79-481d-9496-f9ea71e4a297",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7136015892028809,
+        "sqli": 0.034910835325717926,
+        "xss": 0.2514876127243042
+      }
+    },
+    {
+      "request_id": "69254678-8427-4b59-93f9-da6f02bc8aa9",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7528437376022339,
+        "sqli": 0.030482778325676918,
+        "xss": 0.21667347848415375
+      }
+    },
+    {
+      "request_id": "dd44c180-f859-49a0-82ac-000ef34bd422",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "0687e8ab-dc60-4de0-a4b1-e0d3b9df4976",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8037214279174805,
+        "sqli": 0.03254282474517822,
+        "xss": 0.16373568773269653
+      }
+    },
+    {
+      "request_id": "03420629-5c98-42b4-8777-065ca3d1fb57",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8654860854148865,
+        "sqli": 0.035043686628341675,
+        "xss": 0.09947019070386887
+      }
+    },
+    {
+      "request_id": "50b33b59-9571-42a5-97d6-ad33b2c3a878",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8654860854148865,
+        "sqli": 0.035043686628341675,
+        "xss": 0.09947019070386887
+      }
+    },
+    {
+      "request_id": "17abf1a7-433b-42d4-a9c6-60d0240ad4d1",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8654860854148865,
+        "sqli": 0.035043686628341675,
+        "xss": 0.09947019070386887
+      }
+    },
+    {
+      "request_id": "52e78ae9-360d-4f17-a03b-4e22c486fe9e",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5000572800636292,
+        "sqli": 0.06644818931818008,
+        "xss": 0.43349453806877136
+      }
+    },
+    {
+      "request_id": "07ccf086-cdbf-4f6a-ab92-458a5ccac3d7",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.4772614538669586,
+        "sqli": 0.06341905891895294,
+        "xss": 0.45931947231292725
+      }
+    },
+    {
+      "request_id": "e7f8876e-440a-4219-b4d7-92fbecff9319",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7428114414215088,
+        "sqli": 0.030076568946242332,
+        "xss": 0.2271120548248291
+      }
+    },
+    {
+      "request_id": "f8a79d36-4943-4679-8ba6-2ba51d05f3c4",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6792213916778564,
+        "sqli": 0.027501797303557396,
+        "xss": 0.2932768166065216
+      }
+    },
+    {
+      "request_id": "80429bc6-1a2f-48e6-82da-f0a755a323f0",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7138379812240601,
+        "sqli": 0.03492239862680435,
+        "xss": 0.2512395679950714
+      }
+    },
+    {
+      "request_id": "56beef79-da25-43e6-a016-b38b122c748d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.820540726184845,
+        "sqli": 0.03322384133934975,
+        "xss": 0.14623545110225677
+      }
+    },
+    {
+      "request_id": "a01d77fd-ab1c-43ab-a154-5c8132327374",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8654860854148865,
+        "sqli": 0.035043686628341675,
+        "xss": 0.09947019070386887
+      }
+    },
+    {
+      "request_id": "9468040c-8eb4-4080-ae61-4659afaf8f91",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7664949893951416,
+        "sqli": 0.031035521999001503,
+        "xss": 0.20246949791908264
+      }
+    },
+    {
+      "request_id": "cc99a685-361d-42ed-9f71-9724d32c2cfb",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7138379812240601,
+        "sqli": 0.03492239862680435,
+        "xss": 0.2512395679950714
+      }
+    },
+    {
+      "request_id": "9ce06428-6c7d-4d59-adca-de93ff2de6da",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8101640343666077,
+        "sqli": 0.03375512734055519,
+        "xss": 0.15608085691928864
+      }
+    },
+    {
+      "request_id": "42d84e83-c10f-41e7-9ad0-3b9306f2a326",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7444204688072205,
+        "sqli": 0.030141720548272133,
+        "xss": 0.22543779015541077
+      }
+    },
+    {
+      "request_id": "27a8ba11-52af-4e66-8c79-362d3a9d601a",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8653228282928467,
+        "sqli": 0.04316556453704834,
+        "xss": 0.09151164442300797
+      }
+    },
+    {
+      "request_id": "97ef42b4-f75b-4148-8f80-40aa472ac623",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8699197173118591,
+        "sqli": 0.04255823418498039,
+        "xss": 0.0875220000743866
+      }
+    },
+    {
+      "request_id": "12f837c0-deef-499b-8bb0-d35fa1c25d97",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7049755454063416,
+        "sqli": 0.21161945164203644,
+        "xss": 0.08340493589639664
+      }
+    },
+    {
+      "request_id": "faeceabe-03f6-409a-a0c7-7e895c18cc36",
+      "label": "sqli",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.2584152817726135,
+        "sqli": 0.5414619445800781,
+        "xss": 0.20012277364730835
+      }
+    },
+    {
+      "request_id": "0d1e7640-c86c-40e6-ae14-70062e967644",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8654860854148865,
+        "sqli": 0.035043686628341675,
+        "xss": 0.09947019070386887
+      }
+    },
+    {
+      "request_id": "4d4232ec-5ef3-489c-8a3b-c0df7dae48f0",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.753058671951294,
+        "sqli": 0.030491480603814125,
+        "xss": 0.21644988656044006
+      }
+    },
+    {
+      "request_id": "6650d666-2e6b-4144-9111-6d64d1918bac",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8601909279823303,
+        "sqli": 0.034829284995794296,
+        "xss": 0.10497980564832687
+      }
+    },
+    {
+      "request_id": "8c3b9e08-d669-4647-a310-fde55118e0b0",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7348809242248535,
+        "sqli": 0.03595186397433281,
+        "xss": 0.22916720807552338
+      }
+    },
+    {
+      "request_id": "7c9c4381-2815-4bc6-913c-914c45635133",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8653725981712341,
+        "sqli": 0.03503909334540367,
+        "xss": 0.0995882898569107
+      }
+    },
+    {
+      "request_id": "64637f9e-17b8-48f2-9bc5-8ed7c554e509",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5270252227783203,
+        "sqli": 0.08461540937423706,
+        "xss": 0.388359397649765
+      }
+    },
+    {
+      "request_id": "521edfac-0dc0-4d2e-a525-5a2ee07aad35",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.3869702219963074,
+        "sqli": 0.062129177153110504,
+        "xss": 0.5509006381034851
+      }
+    },
+    {
+      "request_id": "e9f66785-d1ae-4c1c-b45e-b9158d5ef5e7",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7570095658302307,
+        "sqli": 0.030651455745100975,
+        "xss": 0.21233895421028137
+      }
+    },
+    {
+      "request_id": "7bfac44b-e3dd-4938-ab76-5faea18fa96d",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.40509408712387085,
+        "sqli": 0.0650390088558197,
+        "xss": 0.5298668742179871
+      }
+    },
+    {
+      "request_id": "dd66869d-a43e-4498-92f4-255a097a3fe7",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7141754627227783,
+        "sqli": 0.0949004665017128,
+        "xss": 0.1909240186214447
+      }
+    },
+    {
+      "request_id": "2480785f-3cfa-4a2b-858c-4af83c38ae4d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5436339378356934,
+        "sqli": 0.07223871350288391,
+        "xss": 0.38412728905677795
+      }
+    },
+    {
+      "request_id": "171da7c5-d659-4a7f-9e92-ef6b9b7da503",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8451482057571411,
+        "sqli": 0.04134635999798775,
+        "xss": 0.11350547522306442
+      }
+    },
+    {
+      "request_id": "b64d74ec-ca9e-4fce-ae4c-4da099c40e19",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.4301801025867462,
+        "sqli": 0.057162825018167496,
+        "xss": 0.512657105922699
+      }
+    },
+    {
+      "request_id": "0ab33441-fc3a-460c-a959-9bc1d6368e08",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8050068616867065,
+        "sqli": 0.03259487450122833,
+        "xss": 0.16239826381206512
+      }
+    },
+    {
+      "request_id": "d49ab465-08ac-43d2-9452-af47f8ea17bd",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.765800952911377,
+        "sqli": 0.037464533001184464,
+        "xss": 0.19673451781272888
+      }
+    },
+    {
+      "request_id": "a1d628de-cafa-4b5d-9627-dd6887aa6200",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8653228282928467,
+        "sqli": 0.04316556453704834,
+        "xss": 0.09151164442300797
+      }
+    },
+    {
+      "request_id": "4ac9f1bf-7c94-4bd6-9854-4c4ceea96356",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6938424706459045,
+        "sqli": 0.09219859540462494,
+        "xss": 0.21395893394947052
+      }
+    },
+    {
+      "request_id": "d526565d-6b27-4130-8d7b-478fbc34cad4",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8679262399673462,
+        "sqli": 0.04246070981025696,
+        "xss": 0.08961300551891327
+      }
+    },
+    {
+      "request_id": "7b078077-168a-46e1-b2ba-900bf4416bee",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7695032358169556,
+        "sqli": 0.03764565661549568,
+        "xss": 0.19285112619400024
+      }
+    },
+    {
+      "request_id": "81abf1e5-57c2-46a7-9737-32cb436bdb01",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8876411318778992,
+        "sqli": 0.0359407477080822,
+        "xss": 0.07641815394163132
+      }
+    },
+    {
+      "request_id": "4cf48bb9-6131-483b-bfe1-45f21ff91521",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "33ab0a78-cb31-453d-a398-57f38b39231b",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6286154985427856,
+        "sqli": 0.08353116363286972,
+        "xss": 0.28785333037376404
+      }
+    },
+    {
+      "request_id": "c524ec36-8f82-4e5d-b195-7ff8479186ed",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8620351552963257,
+        "sqli": 0.034903958439826965,
+        "xss": 0.10306087136268616
+      }
+    },
+    {
+      "request_id": "3eee0982-78e9-4c81-b5eb-6cadc3857bba",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.4460185170173645,
+        "sqli": 0.07160954177379608,
+        "xss": 0.482371985912323
+      }
+    },
+    {
+      "request_id": "dcda4d40-48dc-4c11-af98-5c117c946a32",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8876411318778992,
+        "sqli": 0.0359407477080822,
+        "xss": 0.07641815394163132
+      }
+    },
+    {
+      "request_id": "4b2591a2-b9a8-4e86-92eb-ad551ac4b196",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "406f709c-5dfa-4e30-aea7-c8a42a7346a2",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.5663659572601318,
+        "sqli": 0.07525937259197235,
+        "xss": 0.3583746552467346
+      }
+    },
+    {
+      "request_id": "f8c5e26f-f5af-4d80-bf10-ce231880a8e2",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8108335137367249,
+        "sqli": 0.032830797135829926,
+        "xss": 0.15633569657802582
+      }
+    },
+    {
+      "request_id": "10d1b3c3-6cfe-4d4f-a268-b2b2b3ba785c",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7846004366874695,
+        "sqli": 0.03176861256361008,
+        "xss": 0.18363092839717865
+      }
+    },
+    {
+      "request_id": "9c9aa1d3-502b-4940-a886-2d4139c12ea7",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.814522385597229,
+        "sqli": 0.03298015892505646,
+        "xss": 0.15249744057655334
+      }
+    },
+    {
+      "request_id": "9bbc5f91-0fea-4fdf-8a58-aad541a0a5d0",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7701904773712158,
+        "sqli": 0.0376792773604393,
+        "xss": 0.19213028252124786
+      }
+    },
+    {
+      "request_id": "7290c271-6caf-4d04-8852-9b22be9ef593",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7428114414215088,
+        "sqli": 0.030076568946242332,
+        "xss": 0.2271120548248291
+      }
+    },
+    {
+      "request_id": "c1e53e55-0ea3-41bb-9dfe-95e8fa1c7e40",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.4869925379753113,
+        "sqli": 0.06471213698387146,
+        "xss": 0.44829535484313965
+      }
+    },
+    {
+      "request_id": "77f32ebd-e4e6-49bf-b25f-e1f1df8b3573",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7570095658302307,
+        "sqli": 0.030651455745100975,
+        "xss": 0.21233895421028137
+      }
+    },
+    {
+      "request_id": "dbb13050-f6cc-4cc5-90ab-a01a322dfe2d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7141754627227783,
+        "sqli": 0.0949004665017128,
+        "xss": 0.1909240186214447
+      }
+    },
+    {
+      "request_id": "bddc7836-5457-48b5-a3ff-fd104e19eb55",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "87b653a2-f99f-41ec-af34-4ab961d517b1",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7701904773712158,
+        "sqli": 0.0376792773604393,
+        "xss": 0.19213028252124786
+      }
+    },
+    {
+      "request_id": "92f4386f-0ba6-4a88-a0c8-b79c3ce1db52",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8611053824424744,
+        "sqli": 0.03486631065607071,
+        "xss": 0.10402834415435791
+      }
+    },
+    {
+      "request_id": "d11728a2-07bd-4cd3-8314-b8050dad43a1",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.77785724401474,
+        "sqli": 0.03805435076355934,
+        "xss": 0.18408842384815216
+      }
+    },
+    {
+      "request_id": "9f346af5-821e-4378-bdc1-b1d776f01538",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7859740853309631,
+        "sqli": 0.03182423114776611,
+        "xss": 0.18220165371894836
+      }
+    },
+    {
+      "request_id": "dc61306e-37f4-401b-b1c8-ae2e60e0e6a5",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7060772776603699,
+        "sqli": 0.0938243642449379,
+        "xss": 0.20009835064411163
+      }
+    },
+    {
+      "request_id": "b38b0052-049f-45b2-b5a1-299bb79a992d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8601909279823303,
+        "sqli": 0.034829284995794296,
+        "xss": 0.10497980564832687
+      }
+    },
+    {
+      "request_id": "566ccdfc-6629-4636-a071-03435c783e10",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "21e5367c-c0c6-4d9d-986f-60f29c3f94bd",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8639610409736633,
+        "sqli": 0.04226672276854515,
+        "xss": 0.09377223998308182
+      }
+    },
+    {
+      "request_id": "a17143f1-fb1d-4a64-9e0b-b40bb4804f4d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7431045770645142,
+        "sqli": 0.030088437721133232,
+        "xss": 0.22680701315402985
+      }
+    },
+    {
+      "request_id": "66ac0240-2e9d-4d5b-aadd-af492ea5d408",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "69e2c601-c717-4d91-9df3-f3f6941031d7",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.814522385597229,
+        "sqli": 0.03298015892505646,
+        "xss": 0.15249744057655334
+      }
+    },
+    {
+      "request_id": "fd47b53c-1fc6-4ff7-be42-4f596157d9ea",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7218532562255859,
+        "sqli": 0.03531452268362045,
+        "xss": 0.2428322434425354
+      }
+    },
+    {
+      "request_id": "6cf9ce8b-4fae-47b6-ad85-5a6db6a67940",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7100645899772644,
+        "sqli": 0.03473779931664467,
+        "xss": 0.2551976144313812
+      }
+    },
+    {
+      "request_id": "04ad355c-1837-455c-9c22-ad09925c4402",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.7141754627227783,
+        "sqli": 0.0949004665017128,
+        "xss": 0.1909240186214447
+      }
+    },
+    {
+      "request_id": "e78019f6-d61c-4c07-9fb7-d19142facdaa",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "60172d97-e56d-440d-ae67-9b12f284f117",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6936302781105042,
+        "sqli": 0.03393379971385002,
+        "xss": 0.27243590354919434
+      }
+    },
+    {
+      "request_id": "f3f93201-2ab8-4c5a-9257-bf66943bd282",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.20211200416088104,
+        "sqli": 0.026856878772377968,
+        "xss": 0.7710310816764832
+      }
+    },
+    {
+      "request_id": "35b56c6a-d008-4882-8dca-0da5bb11c57a",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8601909279823303,
+        "sqli": 0.034829284995794296,
+        "xss": 0.10497980564832687
+      }
+    },
+    {
+      "request_id": "07e0160c-c141-4a04-b571-5e8de847f2b1",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    }
+  ]
+}

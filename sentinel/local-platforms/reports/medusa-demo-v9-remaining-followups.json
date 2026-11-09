@@ -1,0 +1,265 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T12:00:00.517229+00:00",
+  "outcome": "passed_with_limitations",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993"
+  },
+  "requests": [
+    {
+      "request_id": "8b4a9b21-9e18-43b3-8f08-d4f0b8228336",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/register",
+      "operation_path": "/auth/customer/{auth_provider}/register",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "118",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "8b4a9b21-9e18-43b3-8f08-d4f0b8228336",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "session-20e3f859b3114779b5796a0b6e9f77ea@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass/register",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"session-20e3f859b3114779b5796a0b6e9f77ea@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "8570daae-0d74-4650-bea6-db1c44321acf",
+      "method": "POST",
+      "path": "/store/customers",
+      "operation_path": "/store/customers",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "66",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "8570daae-0d74-4650-bea6-db1c44321acf",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "session-20e3f859b3114779b5796a0b6e9f77ea@example.test"
+      },
+      "business_verified": false,
+      "request_target": "/store/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"session-20e3f859b3114779b5796a0b6e9f77ea@example.test\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M702VXNWRZ76P8PQFPPNJPH7",
+          "email": "session-20e3f859b3114779b5796a0b6e9f77ea@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T12:00:00.189Z",
+          "updated_at": "2026-11-09T12:00:00.189Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "c423453e-3f01-400b-bb64-1ba42311cf3f",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "118",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "c423453e-3f01-400b-bb64-1ba42311cf3f",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "session-20e3f859b3114779b5796a0b6e9f77ea@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"session-20e3f859b3114779b5796a0b6e9f77ea@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "39f2e17c-1106-42bc-aea1-e8754e91c6ec",
+      "method": "POST",
+      "path": "/auth/session",
+      "operation_path": "/auth/session",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "0",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "39f2e17c-1106-42bc-aea1-e8754e91c6ec",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/auth/session",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "session_header_metadata_no_values": [],
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "user": {
+          "actor_id": "cus_01M702VXNWRZ76P8PQFPPNJPH7",
+          "actor_type": "customer",
+          "auth_identity_id": "authid_01M702VXM0ZFADJHB8SQWFDCFG",
+          "auth_provider": "emailpass",
+          "mfa_enabled": false,
+          "mfa_challenge_completed_at": null,
+          "app_metadata": {
+            "customer_id": "cus_01M702VXNWRZ76P8PQFPPNJPH7"
+          },
+          "user_metadata": {},
+          "iat": 1794225600,
+          "exp": 1794312000
+        }
+      },
+      "precondition_limitation": "POST session真實200，但回應未發出可供本機HTTP使用的Set-Cookie；移除Bearer後仍401，沒有改服務設定或手工偽造Cookie"
+    },
+    {
+      "request_id": "26b4af70-72e6-4f0f-b5ce-99a4b9610a27",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "26b4af70-72e6-4f0f-b5ce-99a4b9610a27",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "message": "Unauthorized"
+      }
+    },
+    {
+      "request_id": "dcd095fa-2688-4c2d-b73a-07945f4ec768",
+      "method": "DELETE",
+      "path": "/auth/session",
+      "operation_path": "/auth/session",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "dcd095fa-2688-4c2d-b73a-07945f4ec768",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/auth/session",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "session_header_metadata_no_values": [],
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "message": "Unauthorized"
+      },
+      "precondition_limitation": "沒有可用Cookie session；不把DELETE回401當成登出成功"
+    },
+    {
+      "request_id": "b0ce5ff9-18ff-4e00-b2cf-b7fce24407a3",
+      "method": "GET",
+      "path": "/store/shipping-options?cart_id=cart_01M702HZE0CN1474AQ2MR2FJDN&is_return=true",
+      "operation_path": "/store/shipping-options",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "b0ce5ff9-18ff-4e00-b2cf-b7fce24407a3",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/shipping-options?cart_id=cart_01M702HZE0CN1474AQ2MR2FJDN&is_return=true",
+      "raw_query": "cart_id=cart_01M702HZE0CN1474AQ2MR2FJDN&is_return=true",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "shipping_options": []
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "補上cart_id後，退貨配送選項查詢回真實清單",
+      "passed": true,
+      "request_ids": [
+        "b0ce5ff9-18ff-4e00-b2cf-b7fce24407a3"
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "read-only SELECT of this run own test order; no secrets/token/metadata queried",
+  "read_only": true,
+  "order_id": "order_01M702HS3B54TCYXJ6CRCEJX00",
+  "changes": [
+    {
+      "id": "ordch_01M702JBHJ8DAEZ6J9M1C1Z799",
+      "order_id": "order_01M702HS3B54TCYXJ6CRCEJX00",
+      "status": "requested",
+      "change_type": "transfer",
+      "requested_by": "cus_01M702JAE2C394CDT6SG47DVB7",
+      "canceled_by": null,
+      "requested_at": "2026-11-09T11:54:46.73+00:00",
+      "canceled_at": null,
+      "deleted_at": "2026-11-09T11:54:50.436+00:00"
+    }
+  ],
+  "asserted_cancel_soft_deleted": true
+}

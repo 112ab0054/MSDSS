@@ -1,5 +1,8 @@
 # Medusa Gateway
 
+
+最新Medusa狀態：79項均有HTTP紀錄且清單runtime_status已同步，not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。含負向探查，不代表79個正常流程全成功。[最新逐項補測](../analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+
 流程：網站 → gateway → XGBoost 分析副本 → 原始請求轉送 Medusa → 回傳後端結果。
 
 主程式只有 [app.py](app.py)。所有請求照常轉送 Medusa，只有清單內的 [79 個操作](../analysis/api-extension/medusa-holdout-inventory.json) 送進模型偵測。

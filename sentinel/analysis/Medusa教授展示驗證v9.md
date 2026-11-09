@@ -1,5 +1,8 @@
 # Colab v9模型與Medusa教授展示驗證
 
+
+**最新補測已完成：79項都有HTTP紀錄，runtime_status的not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。HTTP覆蓋含負向探查，並非79個正常流程都成功。** 172筆HTTP與實際gateway分數逐筆對應，完整清單與阻礙見[補測及runtime同步](Medusa剩餘API補測與runtime同步.md)。以下58筆流程與42項成功表為第一輪快照。
+
 已使用使用者提供的 results_download (6).zip 取代專案內舊模型，沒有重新訓練、修改權重或調整分類門檻。四份資料SHA與small-api-v9一致；2402維特徵v6、輸入v3、normal／sqli／xss順序相容；完整manifest與三筆跨環境自測通過。
 
 ## 實際接線
@@ -44,7 +47,7 @@
 
 其中`1 AND 1=1`判normal，證實SQLi涵蓋仍有弱點；不能宣稱所有SQLi／XSS都會被攔下。
 
-## 79個選定API的本輪狀態
+## 79個選定API第一輪狀態（歷史快照）
 
 | 狀態 | 數量 |
 | --- | ---: |

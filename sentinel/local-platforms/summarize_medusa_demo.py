@@ -16,6 +16,12 @@ def write_csv(path, rows):
 
 
 def main():
+    # 補測完成後以新版完整證據為準，避免重跑此舊入口又把狀態降回42項。
+    remaining = REPORTS / 'medusa-demo-v9-remaining.json'
+    if remaining.is_file() and json.loads(remaining.read_text(encoding='utf-8')).get('outcome') == 'coverage_complete_with_limitations':
+        from audit_medusa_runtime import audit
+        audit(sync_inventory=False)
+        return
     inventory = json.loads((ROOT / 'sentinel/analysis/api-extension/medusa-holdout-inventory.json').read_text(encoding='utf-8'))
     flow = json.loads((REPORTS / 'medusa-demo-v9-flow.json').read_text(encoding='utf-8'))
     probes = json.loads((REPORTS / 'medusa-demo-v9-readonly-probes.json').read_text(encoding='utf-8'))

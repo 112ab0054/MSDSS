@@ -8,397 +8,2006 @@
     {
       "method": "POST",
       "path": "/auth/customer/emailpass/verification/confirm",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7bfac44b-e3dd-4938-ab76-5faea18fa96d"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/auth/customer/providers",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "91869464-d70e-460c-8f05-b61cd255d1c7",
+        "5c0c5262-4dc4-490f-b7c0-ade46c851ba9"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/customer/{auth_provider}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 4,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "f64f6460-cdcc-4d04-ae76-885146d649cf",
+        "51d4912a-a9d3-4856-9e79-5971b6da1ef8",
+        "dc61306e-37f4-401b-b1c8-ae2e60e0e6a5",
+        "c423453e-3f01-400b-bb64-1ba42311cf3f"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/customer/{auth_provider}/callback",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "目前只配置emailpass，沒有第三方OAuth提供者／授權回呼資料",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        401
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "dd66869d-a43e-4498-92f4-255a097a3fe7"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/customer/{auth_provider}/register",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 4,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "09d72600-c25b-4aae-b60c-6bc3405dbe14",
+        "d718b4ef-d516-495a-b0c7-f10c942acfe2",
+        "d11728a2-07bd-4cd3-8314-b8050dad43a1",
+        "8b4a9b21-9e18-43b3-8f08-d4f0b8228336"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/customer/{auth_provider}/reset-password",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "對自己的測試帳號申請重設；201只表示受理，尚未取得通知送達的重設token",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        201
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "2480785f-3cfa-4a2b-858c-4af83c38ae4d"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/customer/{auth_provider}/update",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "登入JWT不等於reset-password郵件token；缺少合法重設token，未捏造或自行簽發",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        401
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "0ab33441-fc3a-460c-a959-9bc1d6368e08"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/mfa/challenges/{id}/verify",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "60172d97-e56d-440d-ae67-9b12f284f117"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/auth/mfa/factors",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "521edfac-0dc0-4d2e-a525-5a2ee07aad35"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/mfa/factors",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "MFA註冊失敗：MFA encryption key is required to use MFA methods",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "e9f66785-d1ae-4c1c-b45e-b9158d5ef5e7"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "DELETE",
       "path": "/auth/mfa/factors/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "35b56c6a-d008-4882-8dca-0da5bb11c57a"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/mfa/factors/{id}/verify",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "f3f93201-2ab8-4c5a-9257-bf66943bd282"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/mfa/recovery-codes",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "07e0160c-c141-4a04-b571-5e8de847f2b1"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/session",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "本機HTTP入口Cookie登入前置條件未滿足；後續明確使用Bearer，不能宣稱Cookie維持登入成功；POST session真實200，但回應未發出可供本機HTTP使用的Set-Cookie；移除Bearer後仍401，沒有改服務設定或手工偽造Cookie",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "40af19e4-f05d-49e7-95f4-80d6ae9ba7c5",
+        "487a2083-d8ac-4790-bb82-7bdd35729ad2",
+        "39f2e17c-1106-42bc-aea1-e8754e91c6ec"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "DELETE",
       "path": "/auth/session",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "沒有有效Cookie session，刪除回未授權，不能列為登出成功；沒有可用Cookie session；不把DELETE回401當成登出成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        401
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "4c17dd6a-558a-4e29-bc55-e4ab938b608d",
+        "15f8a094-250a-42d5-869d-e37f55107d7d",
+        "dcd095fa-2688-4c2d-b73a-07945f4ec768"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/token/refresh",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "8fb9786b-d546-4ffd-b25a-dbf906e18025",
+        "e8477353-1932-4794-abd1-9a5183ca88e5"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/verification/confirm",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "未配置驗證通知取碼途徑，沒有真實code；本次僅驗證缺參數會被拒絕",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "b64d74ec-ca9e-4fce-ae4c-4da099c40e19"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/auth/verification/request",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        201
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "171da7c5-d659-4a7f-9e92-ef6b9b7da503"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "43764d40-cb50-45b9-bbdc-a47e6cc68e7b",
+        "0687e8ab-dc60-4de0-a4b1-e0d3b9df4976",
+        "4ac9f1bf-7c94-4bd6-9854-4c4ceea96356"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/carts/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 14,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7319b0c3-2da2-4a6b-935d-20c1628dc01b",
+        "5f66de9a-cb10-425c-913d-21893f7e34f8",
+        "1985ec0b-b01a-4f92-8846-945a55f8d9f5",
+        "4bef156e-a92b-4e7e-8bfa-5aaecc8d6a4e",
+        "94862950-6a44-4c30-b240-726c39dfaa64",
+        "5032001d-699b-41ab-a933-079e6e5bf8ee",
+        "9f467045-c585-4401-9ea3-d6b20844dcd1",
+        "50b33b59-9571-42a5-97d6-ad33b2c3a878",
+        "52e78ae9-360d-4f17-a03b-4e22c486fe9e",
+        "e7f8876e-440a-4219-b4d7-92fbecff9319",
+        "80429bc6-1a2f-48e6-82da-f0a755a323f0",
+        "a01d77fd-ab1c-43ab-a154-5c8132327374",
+        "cc99a685-361d-42ed-9f71-9724d32c2cfb",
+        "0d1e7640-c86c-40e6-ae14-70062e967644"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "3e42a761-d203-40dc-9d3c-c53567766fb3",
+        "17abf1a7-433b-42d4-a9c6-60d0240ad4d1"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/complete",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7dd873ba-49f7-4c00-98fb-9453dd05fb05",
+        "4d4232ec-5ef3-489c-8a3b-c0df7dae48f0"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/customer",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "af1d423b-f23c-4766-a9ff-e6e874362c86",
+        "03420629-5c98-42b4-8777-065ca3d1fb57"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/gift-cards",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "c524ec36-8f82-4e5d-b195-7ff8479186ed"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "DELETE",
       "path": "/store/carts/{id}/gift-cards",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "3eee0982-78e9-4c81-b5eb-6cadc3857bba"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/line-items",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 4,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "3cf9975a-36c6-446e-8386-f37c0097e950",
+        "a7a07889-89d1-44e0-8119-caf97bb34915",
+        "07ccf086-cdbf-4f6a-ab92-458a5ccac3d7",
+        "9468040c-8eb4-4080-ae61-4659afaf8f91"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/line-items/{line_id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "b2a9750f-634a-4c25-99b4-9eb324ebaf24",
+        "f8a79d36-4943-4679-8ba6-2ba51d05f3c4"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "DELETE",
       "path": "/store/carts/{id}/line-items/{line_id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "9629bf5f-00e0-4f71-8bbe-2851ef80acec",
+        "56beef79-da25-43e6-a016-b38b122c748d"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/promotions",
-      "runtime_status": "not_run"
+      "runtime_status": "partial_pass",
+      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7b078077-168a-46e1-b2ba-900bf4416bee"
+      ],
+      "runtime_coverage_limitations": [
+        "只驗證清除促銷的合法分支；沒有有效折扣代碼，未驗證有折扣分支"
+      ]
     },
     {
       "method": "DELETE",
       "path": "/store/carts/{id}/promotions",
-      "runtime_status": "not_run"
+      "runtime_status": "partial_pass",
+      "runtime_reason": "合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "81abf1e5-57c2-46a7-9737-32cb436bdb01"
+      ],
+      "runtime_coverage_limitations": [
+        "沒有已套用折扣可移除，只驗證合法空陣列分支"
+      ]
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/shipping-methods",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "df9c6998-e005-4848-83de-20ff93aa5a9d",
+        "42d84e83-c10f-41e7-9ad0-3b9306f2a326"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/store-credits",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "dcda4d40-48dc-4c11-af98-5c117c946a32"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/carts/{id}/taxes",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "d526565d-6b27-4130-8d7b-478fbc34cad4"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/collections",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "32aa3009-d2e6-4d72-bc0d-bd56dc591120",
+        "02acd616-c144-4285-8f49-58bc4afcf11b",
+        "406f709c-5dfa-4e30-aea7-c8a42a7346a2"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/collections/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "f8c5e26f-f5af-4d80-bf10-ce231880a8e2"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/currencies",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "505eda3a-20e5-4d43-82ca-b52ba13271d0",
+        "6c5a1fe9-0bf0-4f41-991d-56d06c81dbb0"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/currencies/{code}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "3b8bf18c-9a76-4120-a492-999edb494f15",
+        "225d53ca-f0d4-4a72-b0b9-1d4061c5ede8"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/customers",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 4,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7c1b29cd-c0e4-47e8-aef7-e1f7837cd5a3",
+        "ab204a49-306f-4ae6-99ac-65f35ad566fd",
+        "9f346af5-821e-4378-bdc1-b1d776f01538",
+        "8570daae-0d74-4650-bea6-db1c44321acf"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/customers/me",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200,
+        401
+      ],
+      "runtime_request_count": 11,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "d121af09-0fa6-4550-8c42-560632a28b52",
+        "024bfafb-d76c-4b34-86aa-eb245a6ea613",
+        "ec398595-e0db-4b0b-ae49-69e4f7ef19d2",
+        "5bd912bb-e6e5-4db5-92eb-b1f806474659",
+        "939e1e4b-cb01-47bb-8d43-a224368b0d38",
+        "703ac628-007b-4a1d-8ddb-67b641953331",
+        "7515b3bf-e47e-40f4-953a-9379179fb858",
+        "40249a3d-a7c1-45bd-a129-c2a6a56bb5d6",
+        "5744c602-fd71-4105-a18c-20cb9ca68e4d",
+        "19a2b4df-3c0d-44ef-9178-f29cb206032d",
+        "26b4af70-72e6-4f0f-b5ce-99a4b9610a27"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/customers/me",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "b2c55ea8-8fb7-4227-a29c-5d5ea6e1596b",
+        "a61319d0-1c4a-47ad-873f-aaf08c40d300"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/customers/me/addresses",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 4,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "63d18323-98c9-4ea1-9290-b9d534f6b88a",
+        "a32ddf0f-ea6a-4278-a864-7c2ad11717ef",
+        "dd44c180-f859-49a0-82ac-000ef34bd422",
+        "64637f9e-17b8-48f2-9bc5-8ed7c554e509"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/customers/me/addresses",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "e21b9b28-cd90-452b-85cd-a8bbdb585eaa",
+        "64e7cdd8-d1f2-4526-a382-f7b27ec698ad"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/customers/me/addresses/{address_id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "565e1baa-915c-41fa-ba95-52f5cb9fdb14",
+        "e1577716-aa79-481d-9496-f9ea71e4a297"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/customers/me/addresses/{address_id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7ccf7832-3bc5-4fec-a351-e568be674c09",
+        "69254678-8427-4b59-93f9-da6f02bc8aa9"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "DELETE",
       "path": "/store/customers/me/addresses/{address_id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "f8ccb7c4-98a4-4db8-8ef5-596c8a751d9c",
+        "7c9c4381-2815-4bc6-913c-914c45635133"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/gift-cards/{idOrCode}",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "92f4386f-0ba6-4a88-a0c8-b79c3ce1db52"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/locales",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "安裝套件有路由但展示站實際404，功能未掛載／啟用原因尚未定位，不能只歸因版本",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7bd0b673-a5a0-4618-a289-bca6594b59a0",
+        "ca9281d2-c162-4231-9254-8c052fc8273a"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/orders",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 6,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "40c905c3-87cc-4349-aaaf-3cd9f38e0a7b",
+        "8c3b9e08-d669-4647-a310-fde55118e0b0",
+        "566ccdfc-6629-4636-a071-03435c783e10",
+        "21e5367c-c0c6-4d9d-986f-60f29c3f94bd",
+        "66ac0240-2e9d-4d5b-aadd-af492ea5d408",
+        "69e2c601-c717-4d91-9df3-f3f6941031d7"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/orders/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "662e7714-7aa6-4a51-bafd-da7ae65e1eb1",
+        "6650d666-2e6b-4144-9111-6d64d1918bac"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/orders/{id}/transfer/accept",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "沒有送達的合法transfer token；只測缺少token會被拒絕，不自行簽發或偽造",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "fd47b53c-1fc6-4ff7-be42-4f596157d9ea"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/orders/{id}/transfer/cancel",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-transfer-state.json"
+      ],
+      "runtime_request_ids": [
+        "a17143f1-fb1d-4a64-9e0b-b40bb4804f4d"
+      ],
+      "runtime_coverage_limitations": [],
+      "runtime_backend_state_check": "自己的測試訂單transfer change存在，取消後依原生workflow實作soft-delete；未改資料庫"
     },
     {
       "method": "POST",
       "path": "/store/orders/{id}/transfer/decline",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "沒有送達的合法transfer token；只測缺少token會被拒絕，不自行簽發或偽造",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "6cf9ce8b-4fae-47b6-ad85-5a6db6a67940"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/orders/{id}/transfer/request",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-transfer-state.json"
+      ],
+      "runtime_request_ids": [
+        "b38b0052-049f-45b2-b5a1-299bb79a992d"
+      ],
+      "runtime_coverage_limitations": [
+        "只驗證申請受理與owner不變，接受移轉仍需合法通知token"
+      ],
+      "runtime_backend_state_check": "自己的測試訂單transfer change存在，取消後依原生workflow實作soft-delete；未改資料庫"
     },
     {
       "method": "POST",
       "path": "/store/payment-collections",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "612bc700-035e-41b4-a3ef-21469f2ce2db",
+        "97ef42b4-f75b-4148-8f80-40aa472ac623"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/payment-collections/{id}/payment-sessions",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "8bc066f0-82f7-4e9d-806e-c93b44fda6d8",
+        "12f837c0-deef-499b-8bb0-d35fa1c25d97"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/payment-collections/{id}/payment-sessions/{session_id}",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "c22d53b0-46b7-42f2-bae5-3764efefe5e3",
+        "faeceabe-03f6-409a-a0c7-7e895c18cc36"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/payment-providers",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "75c44b0f-8969-4b70-b159-507f3fdea037",
+        "27a8ba11-52af-4e66-8c79-362d3a9d601a"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-categories",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "a27154d4-7d55-40f1-b977-1e40d7afa8c3",
+        "43a00c0e-8126-46c5-8081-494d1f7de2b3"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-categories/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "a18356f7-d89a-489d-b23c-c17d2f20954e",
+        "6819708b-8035-477d-b180-f1cc2ee82fac"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-options",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "d0a89505-8ff7-48e7-8c8c-0172e904258d",
+        "b43957ea-1c38-49fe-a89c-ef756d3ac82c"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-options/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "193e5ea0-dbb9-459b-b68f-8c510c20e543",
+        "ac1065e2-22fa-46f0-958a-165cd7936f0b"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-tags",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "f941d972-28a0-4328-8001-f880b75e6efd",
+        "1d2722da-ed3c-425b-9d4d-fef1cf376ea3",
+        "10d1b3c3-6cfe-4d4f-a268-b2b2b3ba785c"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-tags/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "9c9aa1d3-502b-4940-a886-2d4139c12ea7"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-types",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "9ea9702d-98a6-4d4c-b6fc-6e2985a47242",
+        "3b8446a1-2426-4733-9856-ff343b46d6aa",
+        "9bbc5f91-0fea-4fdf-8a58-aad541a0a5d0"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-types/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "7290c271-6caf-4d04-8852-9b22be9ef593"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/product-variants",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "fabaeec4-2075-468a-ac77-107608ae89f6",
+        "3075b3db-b49d-4353-819c-ee4e82f0255c"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/products",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "ad6353ce-c1cb-4c90-8b4a-37365696e5d4",
+        "f1e13fba-5d05-408d-b898-8fa2d9ded67f",
+        "a1d628de-cafa-4b5d-9627-dd6887aa6200"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/products/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "67ad736e-4b71-420e-8cea-5592b87e6e86",
+        "21936de9-f92a-436c-9109-9bdb23fa50c9"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/regions",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "031437dc-69f2-46a1-b193-21a65f0eaf38",
+        "303f1101-1b5d-48b9-8d5d-f2bb6f7457c1",
+        "d49ab465-08ac-43d2-9452-af47f8ea17bd"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/regions/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 2,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "283ddb60-a982-4063-8294-4c1185f3f5d2",
+        "7d729e8a-ec65-4311-b5c9-e768b057072f"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/return-reasons",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 3,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "bcd41184-f7d2-4d09-bc0e-2a3ecd65f2c7",
+        "389a79f1-dc7e-4429-a2c8-e2d214f90baa",
+        "c1e53e55-0ea3-41bb-9dfe-95e8fa1c7e40"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/return-reasons/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "資料庫清單為空，沒有真實明細ID；此未發行識別值只做404負向路由探查，不能當正常流程",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "77f32ebd-e4e6-49bf-b25f-e1f1df8b3573"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/returns",
-      "runtime_status": "not_run"
+      "runtime_status": "blocked_prerequisite",
+      "runtime_reason": "本次測試訂單尚未履約／缺退貨配送條件，回應為前置拒絕；未修改後台履約或假裝退貨成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        400
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "e78019f6-d61c-4c07-9fb7-d19142facdaa"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/search",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "4b2591a2-b9a8-4e86-92eb-ad551ac4b196"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/shipping-options",
-      "runtime_status": "not_run"
+      "runtime_status": "passed",
+      "runtime_reason": "真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        200,
+        400
+      ],
+      "runtime_request_count": 5,
+      "runtime_business_verified": true,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining-followups.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "28dc4d9a-13d1-4cf4-8271-31412db57805",
+        "9ce06428-6c7d-4d59-adca-de93ff2de6da",
+        "4cf48bb9-6131-483b-bfe1-45f21ff91521",
+        "04ad355c-1837-455c-9c22-ad09925c4402",
+        "b0ce5ff9-18ff-4e00-b2cf-b7fce24407a3"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/shipping-options/{id}/calculate",
-      "runtime_status": "not_run"
+      "runtime_status": "failed_runtime",
+      "runtime_reason": "使用真實車與配送ID計價回500；目前manual提供者，根因仍待定位，不算通過",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        500
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": true,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "33ab0a78-cb31-453d-a398-57f38b39231b"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/store-credit-accounts",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "dbb13050-f6cc-4cc5-90ab-a01a322dfe2d"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "POST",
       "path": "/store/store-credit-accounts/claim",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "bddc7836-5457-48b5-a3ff-fd104e19eb55"
+      ],
+      "runtime_coverage_limitations": []
     },
     {
       "method": "GET",
       "path": "/store/store-credit-accounts/{id}",
-      "runtime_status": "not_run"
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T12:00:00.517229+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json"
+      ],
+      "runtime_request_ids": [
+        "87b653a2-f99f-41ec-af34-4ab961d517b1"
+      ],
+      "runtime_coverage_limitations": []
     }
-  ]
+  ],
+  "runtime_verification": {
+    "target": "http://127.0.0.1:18085",
+    "upstream": "http://127.0.0.1:9100",
+    "application_version": "2.21.0",
+    "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
+    "checked_at": "2026-11-09T12:00:00.517229+00:00",
+    "operations": 79,
+    "http_attempted_operations": 79,
+    "not_run": 0,
+    "status_counts": {
+      "unavailable_feature": 11,
+      "passed": 47,
+      "blocked_prerequisite": 18,
+      "partial_pass": 2,
+      "failed_runtime": 1
+    },
+    "http_requests": 172,
+    "actual_gateway_prediction_matches": 172,
+    "business_assertions_passed": 82,
+    "business_assertions_failed": 0,
+    "source_sha256": {
+      "medusa-demo-v9-flow.json": "0e50cfbf6e2779e8bf827dbf39a9a196791bed7b07029719041bcfc3fa28caea",
+      "medusa-demo-v9-remaining.json": "b9f43742cd6e5ad68e25bc85cc150e2f9db860665146f9fa9b85c32605aface8",
+      "medusa-demo-v9-remaining-followups.json": "c66ef884bbb9993db494de6d4ad7db31006adb0ae36c4f72a3e70f273d0f162d"
+    },
+    "source_sha256_format": "parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged",
+    "native_route_sha256": "049ca4b8e66ffbaa573edb655e4c1836d7a0540894f9a4a36c1c28dd35cf5301",
+    "scope": "HTTP coverage includes explicit negative probes; not79 successful normal workflows; Medusa not training data"
+  }
 }

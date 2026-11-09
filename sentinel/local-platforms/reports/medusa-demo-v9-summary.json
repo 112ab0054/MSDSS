@@ -9,10 +9,11 @@
   "business_checks": 36,
   "business_checks_passed": 36,
   "api_status_counts": {
-    "尚未測試": 29,
-    "成功": 42,
-    "前置條件不足": 6,
-    "版本／功能差異": 2
+    "版本／功能差異": 11,
+    "成功": 47,
+    "前置條件不足": 18,
+    "部分成功": 2,
+    "實測失敗": 1
   },
   "normal_intent_flow_predictions": {
     "normal": 55,
@@ -50,6 +51,41 @@
     }
   ],
   "payment": "pp_system_default; order authorized; captured_amount=0; no real charge",
-  "scope": "new isolated Sentinel gateway to existing real Medusa; not Mirage/storefront end-to-end or all79 business success",
-  "training_data": false
+  "scope": "latest79 runtime coverage below; original58-request normal flow and7 read-only probes retain separate counts",
+  "training_data": false,
+  "initial_api_status_counts": {
+    "尚未測試": 29,
+    "成功": 42,
+    "前置條件不足": 6,
+    "版本／功能差異": 2
+  },
+  "runtime_verification": {
+    "target": "http://127.0.0.1:18085",
+    "upstream": "http://127.0.0.1:9100",
+    "application_version": "2.21.0",
+    "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
+    "checked_at": "2026-11-09T12:00:00.517229+00:00",
+    "operations": 79,
+    "http_attempted_operations": 79,
+    "not_run": 0,
+    "status_counts": {
+      "unavailable_feature": 11,
+      "passed": 47,
+      "blocked_prerequisite": 18,
+      "partial_pass": 2,
+      "failed_runtime": 1
+    },
+    "http_requests": 172,
+    "actual_gateway_prediction_matches": 172,
+    "business_assertions_passed": 82,
+    "business_assertions_failed": 0,
+    "source_sha256": {
+      "medusa-demo-v9-flow.json": "0e50cfbf6e2779e8bf827dbf39a9a196791bed7b07029719041bcfc3fa28caea",
+      "medusa-demo-v9-remaining.json": "b9f43742cd6e5ad68e25bc85cc150e2f9db860665146f9fa9b85c32605aface8",
+      "medusa-demo-v9-remaining-followups.json": "c66ef884bbb9993db494de6d4ad7db31006adb0ae36c4f72a3e70f273d0f162d"
+    },
+    "source_sha256_format": "parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged",
+    "native_route_sha256": "049ca4b8e66ffbaa573edb655e4c1836d7a0540894f9a4a36c1c28dd35cf5301",
+    "scope": "HTTP coverage includes explicit negative probes; not79 successful normal workflows; Medusa not training data"
+  }
 }

@@ -1,6 +1,9 @@
 # Sentinel
 
 
+最新Medusa狀態：79項均有HTTP紀錄且清單runtime_status已同步，not_run=0；47成功、2部分成功、18前置不足、11版本／功能差異、1實測失敗。含負向探查，不代表79個正常流程全成功。[最新逐項補測](analysis/Medusa剩餘API補測與runtime同步.md)。下文42成功／29未測屬第一輪歷史。
+
+
 最新模型：已接收使用者Colab v9輸出，更新gateway完整推論套件與inference-v9.zip；原v7套件保留。真實Medusa正常購物與離線建單完成，58筆正常意圖有3筆誤判，79操作中42項成功，其他狀態另列。[教授展示驗證與啟動方式](analysis/Medusa教授展示驗證v9.md)。下文「gateway仍v7／尚未重訓」為之前資料修正階段的歷史紀錄。
 
 Sentinel 是本專案規劃中的 XGBoost 電商 API 請求分類模組。目前已有契約、API 參數文件與研究計畫，尚無正式訓練資料、模型或線上推論服務。

@@ -1,0 +1,68 @@
+{
+  "source": "actual gateway inference logs; UUID matched",
+  "scores": [
+    {
+      "request_id": "8b4a9b21-9e18-43b3-8f08-d4f0b8228336",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.7842819690704346,
+        "sqli": 0.0317557193338871,
+        "xss": 0.18396231532096863
+      }
+    },
+    {
+      "request_id": "8570daae-0d74-4650-bea6-db1c44321acf",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.5227405428886414,
+        "sqli": 0.0694623738527298,
+        "xss": 0.40779706835746765
+      }
+    },
+    {
+      "request_id": "c423453e-3f01-400b-bb64-1ba42311cf3f",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.7060772776603699,
+        "sqli": 0.0938243642449379,
+        "xss": 0.20009835064411163
+      }
+    },
+    {
+      "request_id": "39f2e17c-1106-42bc-aea1-e8754e91c6ec",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "26b4af70-72e6-4f0f-b5ce-99a4b9610a27",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.8913055658340454,
+        "sqli": 0.03608912229537964,
+        "xss": 0.07260535657405853
+      }
+    },
+    {
+      "request_id": "dcd095fa-2688-4c2d-b73a-07945f4ec768",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.5723075270652771,
+        "sqli": 0.07604888826608658,
+        "xss": 0.35164353251457214
+      }
+    },
+    {
+      "request_id": "b0ce5ff9-18ff-4e00-b2cf-b7fce24407a3",
+      "label": "normal",
+      "probabilities": {
+        "normal": 0.7141754627227783,
+        "sqli": 0.0949004665017128,
+        "xss": 0.1909240186214447
+      }
+    }
+  ]
+}
