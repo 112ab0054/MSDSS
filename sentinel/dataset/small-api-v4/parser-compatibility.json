@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-09",
+  "cause": "CPython 3.11 vs 3.13 stdlib HTMLParser changes on unclosed comment/CDATA payload",
+  "fix": "freeze CPython 3.11.3 HTMLParser and _markupbase under PSF license; preserve v1 signatures",
+  "runs": [
+    {
+      "python": "3.11.3",
+      "catalogue_rows": 107,
+      "catalogue_mismatches": 0,
+      "rows_checked": 846,
+      "audit_errors": [],
+      "cross_split_tamper_rejected": true,
+      "fingerprint": "04e57ff0b6c115a74e1ecb39fa87358196b7a3cee60fa41d70e7857d58a10c95",
+      "parser": "cpython-3.11.3-htmlparser-frozen-v1"
+    },
+    {
+      "python": "3.13.13",
+      "catalogue_rows": 107,
+      "catalogue_mismatches": 0,
+      "rows_checked": 846,
+      "audit_errors": [],
+      "cross_split_tamper_rejected": true,
+      "fingerprint": "04e57ff0b6c115a74e1ecb39fa87358196b7a3cee60fa41d70e7857d58a10c95",
+      "parser": "cpython-3.11.3-htmlparser-frozen-v1"
+    }
+  ],
+  "all_dataset_csv_bytes_unchanged": true,
+  "all_846_raw_requests_unchanged": true,
+  "colab_service_itself_executed": false
+}

@@ -124,7 +124,7 @@
   "source_generators_sha256": {
     "build_xss_v3.py": "bea4b2be5ef1bdf6a18710ca89c5a9b6ed149c71e2f4af2463e01173a5f496b7",
     "build_small_dataset.py": "27c3ce9f3493596b5d4f0c3d48797d55dd49c7488ceef2b4ec70b6bd2b508c8b",
-    "build_skeleton_v4.py": "783c39dc51314562155b98b0c0dab14fda3192462b0da959c3812df11145390b"
+    "build_skeleton_v4.py": "608a143198a7d9879f32ed0782c3e77723d34321bbb8d4d37ac432c81a3a776e"
   },
   "baseline_csv_sha256": {
     "train": "9962d26f0d99d3389d500eff1580c817dc87890718af3a7ff2fc231e1f8246ea",
@@ -132,6 +132,14 @@
     "validation": "5ab71efbb212a2773fc08417b8857a31d734c1305a060220e7d178ff2807701c"
   },
   "skeleton_rule_version": 1,
+  "skeleton_parser": {
+    "id": "cpython-3.11.3-htmlparser-frozen-v1",
+    "sha256": {
+      "_skeleton_html_v1.py": "d50e7f0424cc76e88d6233a83654b2d456576a1980a8363b93955e9545763a1e",
+      "_skeleton_markupbase_v1.py": "e7ec858cf543823191d8535e2f45945aa522bcfda7ce521a5fde04d618ee0e0a",
+      "SKELETON-PYTHON-LICENSE.txt": "616fa565945eca2f0e0a5440b3973fed7d5291622b90849212077fe68e27dcb0"
+    }
+  },
   "skeleton_catalog_sha256": "fde7299ad55e2c8feb297d6e04da559522f978b77f98a73d1352bd9beefeb782",
   "skeleton_groups": {
     "train": {
@@ -153,5 +161,5 @@
   },
   "excluded_local_overlaps": 0,
   "baseline": "small-api-v3 unchanged; raw-template/seen-family comparison only",
-  "skeleton_source_sha256": "982d81e865119abb7a25c8a2943c5666e8e8282e35354333155b7d20915ef196"
+  "skeleton_source_sha256": "c46de4972ef09b21ec18342d0208b5429a23298d9db005d8fd7f6386104533c8"
 }

@@ -6,7 +6,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'model'))
 import build_xss_v3 as v3
-from skeletons import PROTOCOL, VERSION, group_catalog
+from skeletons import PROTOCOL, VERSION, group_catalog, parser_fingerprints
 
 
 def allocate_catalog(local, external):
@@ -54,7 +54,7 @@ def build(output):
     # The original API allocation and matched triples preserve all 620 documented positions.
     summary=v3.build(output,selected_cases=cases,selected_external=(external,values,source),protocol=PROTOCOL,version=4)
     v3.write_csv(output/'skeleton-catalog.csv',catalogue)
-    summary.update(skeleton_rule_version=VERSION,
+    summary.update(skeleton_rule_version=VERSION, skeleton_parser=parser_fingerprints(),
                    skeleton_catalog_sha256=v3.sha((output/'skeleton-catalog.csv').read_bytes()),
                    skeleton_groups={s:dict(Counter(c['class'] for c in {c['skeleton_group_id']:c for c in catalogue if c['assigned_split']==s}.values())) for s in v3.QUOTAS},
                    excluded_local_overlaps=sum(c['excluded_local_overlap'] for c in catalogue),

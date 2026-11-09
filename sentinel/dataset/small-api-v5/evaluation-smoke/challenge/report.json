@@ -1,0 +1,690 @@
+{
+  "accuracy": 0.7395833333333334,
+  "balanced_accuracy": 0.7395833333333334,
+  "macro_f1": 0.6861168861168861,
+  "weighted_f1": 0.6861168861168861,
+  "micro_f1": 0.7395833333333334,
+  "macro_precision": 0.8112491373360938,
+  "macro_recall": 0.7395833333333334,
+  "mcc": 0.6578434210479611,
+  "cohen_kappa": 0.609375,
+  "log_loss": 0.6250758152722273,
+  "multiclass_brier_score": 0.34301967749502255,
+  "per_class": {
+    "normal": {
+      "precision": 0.6956521739130435,
+      "recall": 1.0,
+      "f1-score": 0.8205128205128205,
+      "support": 32.0,
+      "specificity": 0.78125,
+      "false_positive_rate": 0.21875,
+      "false_negative_rate": 0.0
+    },
+    "sqli": {
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1-score": 0.4,
+      "support": 32.0,
+      "specificity": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.75
+    },
+    "xss": {
+      "precision": 0.7380952380952381,
+      "recall": 0.96875,
+      "f1-score": 0.8378378378378378,
+      "support": 32.0,
+      "specificity": 0.828125,
+      "false_positive_rate": 0.171875,
+      "false_negative_rate": 0.03125
+    },
+    "accuracy": 0.7395833333333334,
+    "macro avg": {
+      "precision": 0.8112491373360938,
+      "recall": 0.7395833333333334,
+      "f1-score": 0.6861168861168861,
+      "support": 96.0
+    },
+    "weighted avg": {
+      "precision": 0.8112491373360938,
+      "recall": 0.7395833333333334,
+      "f1-score": 0.6861168861168861,
+      "support": 96.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      32,
+      0,
+      0
+    ],
+    [
+      13,
+      8,
+      11
+    ],
+    [
+      1,
+      0,
+      31
+    ]
+  ],
+  "normal_false_positive_rate": 0.0,
+  "attack_detection_recall": 0.78125,
+  "attack_miss_rate": 0.21875,
+  "one_vs_rest": {
+    "normal": {
+      "roc_auc": 0.95263671875,
+      "average_precision": 0.8853508234434125,
+      "prevalence": 0.3333333333333333
+    },
+    "sqli": {
+      "roc_auc": 0.884765625,
+      "average_precision": 0.8662560510936795,
+      "prevalence": 0.3333333333333333
+    },
+    "xss": {
+      "roc_auc": 0.98779296875,
+      "average_precision": 0.9793610619956683,
+      "prevalence": 0.3333333333333333
+    }
+  },
+  "attack_binary_roc_auc": 0.95263671875,
+  "attack_binary_average_precision": 0.9789749851331858,
+  "majority_baseline": {
+    "accuracy": 0.3333333333333333,
+    "balanced_accuracy": 0.3333333333333333,
+    "macro_f1": 0.16666666666666666,
+    "weighted_f1": 0.16666666666666666,
+    "micro_f1": 0.3333333333333333,
+    "macro_precision": 0.1111111111111111,
+    "macro_recall": 0.3333333333333333,
+    "mcc": 0.0,
+    "cohen_kappa": 0.0,
+    "log_loss": 24.02910225941143,
+    "multiclass_brier_score": 1.3333333333333333,
+    "per_class": {
+      "normal": {
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "f1-score": 0.5,
+        "support": 32.0,
+        "specificity": 0.0,
+        "false_positive_rate": 1.0,
+        "false_negative_rate": 0.0
+      },
+      "sqli": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 32.0,
+        "specificity": 1.0,
+        "false_positive_rate": 0.0,
+        "false_negative_rate": 1.0
+      },
+      "xss": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 32.0,
+        "specificity": 1.0,
+        "false_positive_rate": 0.0,
+        "false_negative_rate": 1.0
+      },
+      "accuracy": 0.3333333333333333,
+      "macro avg": {
+        "precision": 0.1111111111111111,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.16666666666666666,
+        "support": 96.0
+      },
+      "weighted avg": {
+        "precision": 0.1111111111111111,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.16666666666666666,
+        "support": 96.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        32,
+        0,
+        0
+      ],
+      [
+        32,
+        0,
+        0
+      ],
+      [
+        32,
+        0,
+        0
+      ]
+    ],
+    "normal_false_positive_rate": 0.0,
+    "attack_detection_recall": 0.0,
+    "attack_miss_rate": 1.0,
+    "one_vs_rest": {
+      "normal": {
+        "roc_auc": 0.5,
+        "average_precision": 0.3333333333333333,
+        "prevalence": 0.3333333333333333
+      },
+      "sqli": {
+        "roc_auc": 0.5,
+        "average_precision": 0.3333333333333333,
+        "prevalence": 0.3333333333333333
+      },
+      "xss": {
+        "roc_auc": 0.5,
+        "average_precision": 0.3333333333333333,
+        "prevalence": 0.3333333333333333
+      }
+    },
+    "attack_binary_roc_auc": 0.5,
+    "attack_binary_average_precision": 0.6666666666666666
+  },
+  "confidence_interval": {
+    "available": false,
+    "reason": "測試獨立群組少於 20，暫不報信賴區間。",
+    "independent_groups": 1
+  },
+  "audit": {
+    "bundle_version": 1,
+    "feature_version": 5,
+    "request_input_version": 3,
+    "labels": [
+      "normal",
+      "sqli",
+      "xss"
+    ],
+    "header_names": [
+      "accept-language",
+      "authorization",
+      "sw-access-key",
+      "sw-context-source",
+      "sw-context-token",
+      "sw-include-search-info",
+      "sw-include-seo-urls",
+      "sw-language-id",
+      "x-channel",
+      "x-currency",
+      "x-locale",
+      "x-storefront-key"
+    ],
+    "feature_count": 2402,
+    "feature_layout": {
+      "version": 5,
+      "hash_buckets_per_channel": 512,
+      "ngram_sizes": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "channels": [
+        "query",
+        "body",
+        "path",
+        "headers"
+      ],
+      "normalization": null,
+      "lowercase_values": false,
+      "vocabulary_fit": false,
+      "extra_symbols": [
+        "(",
+        ")",
+        "{",
+        "}",
+        "$",
+        "`",
+        "/",
+        "\\",
+        ":",
+        "&",
+        "#"
+      ],
+      "extra_patterns": [
+        "\\b(?:alert|prompt|confirm|eval|Function|setTimeout|setInterval|void|console\\.info|String\\.fromCharCode)\\s*\\(",
+        "\\b(?:document|window|location)\\s*\\.",
+        "\\$\\{",
+        "[\"\\'`]\\s*;",
+        "</(?:script|textarea|style|title)",
+        "%(?:3c|3e|22|27|28|29|3b|24|7b|7d)",
+        "(?:%3c\\s*script|on\\w+%3d|javascript%3a)",
+        "&#(?:x[0-9a-f]+|\\d+);|&(?:lt|gt|quot|apos);"
+      ]
+    },
+    "header_document_sha256": {
+      "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "783a8da3b6a93ae2fb0215260373e7e541998a642e16af5a6acde10a6a44758d",
+      "sentinel/analysis/selected-api-contracts/shopware/API_parameters.md": "af6f3cadbf1e229c7db01bf12d7e43612e95bf74ef0381017bd2fdc42ca520f5",
+      "sentinel/analysis/selected-api-contracts/sylius/API_parameters.md": "09684354ddaec52ec4f77c0a0bbcc5d1847ed6cb0f697e8df2ba2dac05dd2179"
+    },
+    "exploratory": true,
+    "mode": "offline",
+    "platform_http_verified": false,
+    "python": "3.11.3",
+    "packages": {
+      "numpy": "2.3.5",
+      "scikit-learn": "1.7.2",
+      "xgboost": "3.1.2"
+    },
+    "parameters": {
+      "objective": "multi:softprob",
+      "base_score": null,
+      "booster": null,
+      "callbacks": null,
+      "colsample_bylevel": null,
+      "colsample_bynode": null,
+      "colsample_bytree": null,
+      "device": "cpu",
+      "early_stopping_rounds": null,
+      "enable_categorical": false,
+      "eval_metric": "mlogloss",
+      "feature_types": null,
+      "feature_weights": null,
+      "gamma": null,
+      "grow_policy": null,
+      "importance_type": null,
+      "interaction_constraints": null,
+      "learning_rate": 0.05,
+      "max_bin": null,
+      "max_cat_threshold": null,
+      "max_cat_to_onehot": null,
+      "max_delta_step": null,
+      "max_depth": 3,
+      "max_leaves": null,
+      "min_child_weight": null,
+      "missing": NaN,
+      "monotone_constraints": null,
+      "multi_strategy": null,
+      "n_estimators": 150,
+      "n_jobs": 2,
+      "num_parallel_tree": null,
+      "random_state": 42,
+      "reg_alpha": null,
+      "reg_lambda": null,
+      "sampling_method": null,
+      "scale_pos_weight": null,
+      "subsample": null,
+      "tree_method": "hist",
+      "validate_parameters": null,
+      "verbosity": null,
+      "num_class": 3
+    },
+    "training_seconds": 5.462896800134331,
+    "trees_selection": "predeclared_not_selected_by_holdout",
+    "counts": {
+      "train": {
+        "normal": 198,
+        "sqli": 198,
+        "xss": 198
+      },
+      "test": {
+        "normal": 50,
+        "sqli": 50,
+        "xss": 50
+      },
+      "validation": {
+        "normal": 50,
+        "sqli": 50,
+        "xss": 50
+      },
+      "challenge": {
+        "normal": 32,
+        "sqli": 32,
+        "xss": 32
+      }
+    },
+    "group_overlap": 0,
+    "independent_groups": {
+      "train": 1,
+      "test": 1,
+      "validation": 1,
+      "challenge": 1
+    },
+    "attack_skeleton_groups": {
+      "train": {
+        "sqli": 31,
+        "xss": 35
+      },
+      "test": {
+        "sqli": 2,
+        "xss": 4
+      },
+      "validation": {
+        "sqli": 20,
+        "xss": 23
+      },
+      "challenge": {
+        "sqli": 4,
+        "xss": 8
+      }
+    },
+    "evaluation_protocols": [
+      "document-v4-skeleton-disjoint"
+    ],
+    "identical_feature_vectors_shared": {
+      "train/test": 0,
+      "train/validation": 0,
+      "train/challenge": 0,
+      "test/validation": 0,
+      "test/challenge": 0,
+      "validation/challenge": 0
+    },
+    "data_sha256": {
+      "train": "b49d0291d725b5cd9ef20bf0fec4b1e62b5f24ca4041dd8adfbc8b9ae0bb8643",
+      "test": "f94a79a4da2de0a652d12800f4c6a0846f27f3c85921bd304cd6d98844e81788",
+      "validation": "6d8320a20065bded2de497cfe73c022a6550a2f5356068766a61f4f2580cf3c8",
+      "challenge": "695514773ce22200c99945e8fd27b2638ff6df1ebe3ccdcb9c24dc7d6cab6376"
+    },
+    "source_sha256": {
+      "train.py": "2fb0686b8e3ddc9f85163c160d32c6d45e695648555b33337da20ff5fb1c33ef",
+      "training.py": "68f960e5a3743b6e3a7de0c8c3aae5f28a771239c434e06c14441a434ecf27f3",
+      "preflight.py": "4aab819dc029ddf917c904fbbf23d91475588200d5e8569de963f86d57741e60",
+      "data_io.py": "72f3fed9a9e0ab18c3531293bf30df337a06f22d8417906667d81b68da39fb58",
+      "evaluate.py": "25f0c3d4583a33dbf248909e63a3bbeff9fc5fb66569575d26c4811f3507985d",
+      "features.py": "384dc78d1ae721f4583d87a6df01bdafb35868b7b8749f4e8955fd5777f55c97",
+      "request_input.py": "417a93fad371c66a8f70b925a240ad93034a3dc688d6f3e2a5b2ee1387589675",
+      "skeletons.py": "c46de4972ef09b21ec18342d0208b5429a23298d9db005d8fd7f6386104533c8"
+    },
+    "seed": 42,
+    "platform": "Windows",
+    "readiness": {
+      "ready": true,
+      "mode": "offline",
+      "exploratory": true,
+      "splits": {
+        "train": {
+          "rows": 594,
+          "labels": {
+            "normal": 198,
+            "sqli": 198,
+            "xss": 198
+          },
+          "platforms": {
+            "bagisto": 195,
+            "shopware": 399
+          },
+          "http_executed": 0,
+          "observed_sessions": 0,
+          "pair_groups": 198,
+          "attack_skeleton_groups": {
+            "sqli": 31,
+            "xss": 35
+          },
+          "sha256": "b49d0291d725b5cd9ef20bf0fec4b1e62b5f24ca4041dd8adfbc8b9ae0bb8643",
+          "independent_groups": 1
+        },
+        "test": {
+          "rows": 150,
+          "labels": {
+            "normal": 50,
+            "sqli": 50,
+            "xss": 50
+          },
+          "platforms": {
+            "bagisto": 84,
+            "shopware": 66
+          },
+          "http_executed": 0,
+          "observed_sessions": 0,
+          "pair_groups": 50,
+          "attack_skeleton_groups": {
+            "sqli": 2,
+            "xss": 4
+          },
+          "sha256": "f94a79a4da2de0a652d12800f4c6a0846f27f3c85921bd304cd6d98844e81788",
+          "independent_groups": 1
+        },
+        "validation": {
+          "rows": 150,
+          "labels": {
+            "normal": 50,
+            "sqli": 50,
+            "xss": 50
+          },
+          "platforms": {
+            "sylius": 150
+          },
+          "http_executed": 0,
+          "observed_sessions": 0,
+          "pair_groups": 50,
+          "attack_skeleton_groups": {
+            "sqli": 20,
+            "xss": 23
+          },
+          "sha256": "6d8320a20065bded2de497cfe73c022a6550a2f5356068766a61f4f2580cf3c8",
+          "independent_groups": 1
+        },
+        "challenge": {
+          "rows": 96,
+          "labels": {
+            "normal": 32,
+            "sqli": 32,
+            "xss": 32
+          },
+          "platforms": {
+            "bagisto": 36,
+            "shopware": 60
+          },
+          "http_executed": 0,
+          "observed_sessions": 0,
+          "pair_groups": 32,
+          "attack_skeleton_groups": {
+            "sqli": 4,
+            "xss": 8
+          },
+          "sha256": "695514773ce22200c99945e8fd27b2638ff6df1ebe3ccdcb9c24dc7d6cab6376",
+          "independent_groups": 1
+        }
+      },
+      "document_snapshots": {
+        "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "not_available",
+        "sentinel/analysis/selected-api-contracts/shopware/API_parameters.md": "not_available",
+        "sentinel/analysis/selected-api-contracts/sylius/API_parameters.md": "not_available"
+      },
+      "errors": [],
+      "warnings": [
+        "離線生成資料：可評估分類器，但沒有完成平台 HTTP 實機驗證。群組數是相依關聯的合併結果，不等於真實購物流程數。"
+      ],
+      "note": "檢查通過僅代表目前程式的資格與分組條件通過，不代表模型有效。"
+    },
+    "evaluated_split": "challenge",
+    "latency_ms": {
+      "median": 6.117000011727214,
+      "p95": 7.45979999192059
+    }
+  },
+  "by_platform": {
+    "bagisto": {
+      "accuracy": 0.7222222222222222,
+      "balanced_accuracy": 0.7222222222222222,
+      "macro_f1": 0.6716049382716051,
+      "weighted_f1": 0.671604938271605,
+      "micro_f1": 0.7222222222222222,
+      "macro_precision": 0.7999999999999999,
+      "macro_recall": 0.7222222222222222,
+      "mcc": 0.6311687442672026,
+      "cohen_kappa": 0.5833333333333333,
+      "log_loss": 0.6131483398608819,
+      "multiclass_brier_score": 0.34005830640927676,
+      "per_class": {
+        "normal": {
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1-score": 0.8,
+          "support": 12.0,
+          "specificity": 0.75,
+          "false_positive_rate": 0.25,
+          "false_negative_rate": 0.0
+        },
+        "sqli": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1-score": 0.4,
+          "support": 12.0,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.75
+        },
+        "xss": {
+          "precision": 0.7333333333333333,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.8148148148148148,
+          "support": 12.0,
+          "specificity": 0.8333333333333334,
+          "false_positive_rate": 0.16666666666666666,
+          "false_negative_rate": 0.08333333333333333
+        },
+        "accuracy": 0.7222222222222222,
+        "macro avg": {
+          "precision": 0.7999999999999999,
+          "recall": 0.7222222222222222,
+          "f1-score": 0.6716049382716051,
+          "support": 36.0
+        },
+        "weighted avg": {
+          "precision": 0.7999999999999999,
+          "recall": 0.7222222222222222,
+          "f1-score": 0.671604938271605,
+          "support": 36.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          12,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          4
+        ],
+        [
+          1,
+          0,
+          11
+        ]
+      ],
+      "normal_false_positive_rate": 0.0,
+      "attack_detection_recall": 0.75,
+      "attack_miss_rate": 0.25,
+      "one_vs_rest": {
+        "normal": {
+          "roc_auc": 0.9756944444444444,
+          "average_precision": 0.9345238095238095,
+          "prevalence": 0.3333333333333333
+        },
+        "sqli": {
+          "roc_auc": 0.8368055555555557,
+          "average_precision": 0.856045751633987,
+          "prevalence": 0.3333333333333333
+        },
+        "xss": {
+          "roc_auc": 0.986111111111111,
+          "average_precision": 0.9791666666666669,
+          "prevalence": 0.3333333333333333
+        }
+      },
+      "attack_binary_roc_auc": 0.9756944444444443,
+      "attack_binary_average_precision": 0.9856321839080459
+    },
+    "shopware": {
+      "accuracy": 0.75,
+      "balanced_accuracy": 0.75,
+      "macro_f1": 0.6947990543735224,
+      "weighted_f1": 0.6947990543735225,
+      "micro_f1": 0.75,
+      "macro_precision": 0.818342151675485,
+      "macro_recall": 0.75,
+      "mcc": 0.6742815985200936,
+      "cohen_kappa": 0.625,
+      "log_loss": 0.6322323005190345,
+      "multiclass_brier_score": 0.34479650014647006,
+      "per_class": {
+        "normal": {
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1-score": 0.8333333333333334,
+          "support": 20.0,
+          "specificity": 0.8,
+          "false_positive_rate": 0.2,
+          "false_negative_rate": 0.0
+        },
+        "sqli": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1-score": 0.4,
+          "support": 20.0,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "false_negative_rate": 0.75
+        },
+        "xss": {
+          "precision": 0.7407407407407407,
+          "recall": 1.0,
+          "f1-score": 0.851063829787234,
+          "support": 20.0,
+          "specificity": 0.825,
+          "false_positive_rate": 0.175,
+          "false_negative_rate": 0.0
+        },
+        "accuracy": 0.75,
+        "macro avg": {
+          "precision": 0.818342151675485,
+          "recall": 0.75,
+          "f1-score": 0.6947990543735224,
+          "support": 60.0
+        },
+        "weighted avg": {
+          "precision": 0.8183421516754851,
+          "recall": 0.75,
+          "f1-score": 0.6947990543735225,
+          "support": 60.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          20,
+          0,
+          0
+        ],
+        [
+          8,
+          5,
+          7
+        ],
+        [
+          0,
+          0,
+          20
+        ]
+      ],
+      "normal_false_positive_rate": 0.0,
+      "attack_detection_recall": 0.8,
+      "attack_miss_rate": 0.2,
+      "one_vs_rest": {
+        "normal": {
+          "roc_auc": 0.9500000000000001,
+          "average_precision": 0.863222506393862,
+          "prevalence": 0.3333333333333333
+        },
+        "sqli": {
+          "roc_auc": 0.90125,
+          "average_precision": 0.8650055671565144,
+          "prevalence": 0.3333333333333333
+        },
+        "xss": {
+          "roc_auc": 0.9937499999999999,
+          "average_precision": 0.9900000000000003,
+          "prevalence": 0.3333333333333333
+        }
+      },
+      "attack_binary_roc_auc": 0.95,
+      "attack_binary_average_precision": 0.9783116883116885
+    }
+  }
+}

@@ -165,7 +165,7 @@
       "verbosity": null,
       "num_class": 3
     },
-    "training_seconds": 1.5780582998413593,
+    "training_seconds": 2.881860800087452,
     "trees_selection": "predeclared_not_selected_by_holdout",
     "counts": {
       "train": {
@@ -239,7 +239,7 @@
       "evaluate.py": "25f0c3d4583a33dbf248909e63a3bbeff9fc5fb66569575d26c4811f3507985d",
       "features.py": "384dc78d1ae721f4583d87a6df01bdafb35868b7b8749f4e8955fd5777f55c97",
       "request_input.py": "417a93fad371c66a8f70b925a240ad93034a3dc688d6f3e2a5b2ee1387589675",
-      "skeletons.py": "982d81e865119abb7a25c8a2943c5666e8e8282e35354333155b7d20915ef196"
+      "skeletons.py": "c46de4972ef09b21ec18342d0208b5429a23298d9db005d8fd7f6386104533c8"
     },
     "seed": 42,
     "platform": "Windows",
@@ -345,8 +345,8 @@
     },
     "evaluated_split": "challenge",
     "latency_ms": {
-      "median": 1.936800079420209,
-      "p95": 2.572574943769723
+      "median": 3.2997499220073223,
+      "p95": 4.039574996568263
     }
   },
   "confidence_interval": {

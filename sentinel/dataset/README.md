@@ -1,6 +1,10 @@
 # XGBoost 資料集試產
 
-## 最新：骨架分組 v4
+## 最新：只擴充訓練 v5
+
+[small-api-v5](small-api-v5/README.md)：train594、test150、Sylius validation150、challenge96，共990筆。新增48組三類配對144筆，所有新增資料只進train，故主比例改為594:150:150，不再宣稱60/20/20。三份保留CSV與原v4完全相同，原始輸入不正規化；新增案例先通過全目錄骨架與原文近似隔離。仍62API／620文件位置、offline、無新HTTP證據。見 [補強與限制](../analysis/train-augmentation-v5.md)。
+
+## 歷史：骨架分組 v4
 
 [small-api-v4](small-api-v4/README.md) 為目前離線版本，筆數450/150/150＋challenge96與特徵v5不變。先按全域骨架／近似原文合併，再整群分集合；Sylius外部驗證獨立，Medusa排除。所有620位置保留、原始輸入不正規化，骨架分析只作輔助 metadata。舊v3保留比較；其97.33%不能代表新切分效果。見 [實作與限制](../analysis/skeleton-split-v4.md)。
 

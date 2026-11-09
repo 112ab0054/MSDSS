@@ -25,6 +25,19 @@ class SkeletonTests(unittest.TestCase):
         for label,a,b in examples:
             with self.subTest(a=a):self.assertEqual(signature(a,label),signature(b,label))
 
+    def test_unclosed_comment_cdata_has_frozen_signature(self):
+        # CPython 3.13's stdlib HTMLParser differs from 3.11 on this real external payload.
+        value='<!--<value><![cdata[<xml id=i><x><c><![cdata[<img id=xss src="javas<![cdata[cript:alert(\'xss\');">'
+        with (DATA/'skeleton-catalog.csv').open(encoding='utf-8-sig',newline='') as f:
+            entry=next(r for r in csv.DictReader(f) if r['value']==value)
+        self.assertEqual(signature(value,'xss'),entry['skeleton_signature'])
+        self.assertEqual(json.loads(signature(value,'xss'))[0],'HTML')
+
+    def test_parser_mismatch_fails_closed(self):
+        saved=copy.deepcopy(self.saved);saved['skeleton_parser']['id']='different-parser'
+        self.assertTrue(any('解析器版本' in e for e in audit_dataset(DATA,self.sets,saved)))
+
+
     def test_distinct_structure_is_not_identical(self):
         self.assertNotEqual(signature("' AND SLEEP(1)=0 -- ",'sqli'),signature("' UNION SELECT 1 -- ",'sqli'))
         self.assertNotEqual(signature('<script>console.info(1)</script>','xss'),signature('<img onerror="console.info(1)">','xss'))

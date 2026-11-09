@@ -74,3 +74,11 @@ python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v4 
 同樣固定150棵，沒有依這些分數再修改資料或模型。v3的test97.33%沒有延續到此切分，但考題分布已變，不能用兩個數字宣稱單一因素的因果效果。challenge正常誤報率50%、SQLi召回0，顯示模型仍有明顯缺口；XSS較高召回也不能抵銷這些問題。
 
 完整本機診斷指標、逐筆預測與混淆矩陣保留 small-api-v4/evaluation-smoke/；這些是Windows固定依賴的離線試跑，不是Colab／Linux／真實平台效果。
+
+## Python版本相容性修正
+
+使用者Colab回報「骨架目錄無法由原文重算」。本機以Python3.13.13重現：外部一筆含未封閉HTML註解／CDATA的XSS片段，在3.11被標為HTML骨架，3.13標準庫則成為JS_FRAGMENT。這使簽章與群ID改變；不是HTTP旗標或文件not_available造成，也不是需要刪除的檢查。
+
+修正為專用凍結解析器（CPython3.11.3 HTMLParser與_markupbase，保留PSF授權），再核對解析器ID及檔案SHA。未關閉跨集合骨架檢查，也未將預存簽章當成重算結果。新產生器也使用同一解析器。骨架規則仍v1，CSV、全部846筆原文、ID與分割完全不變；只更新程式、來源指紋與套件。
+
+Python3.11.3／3.13.13各自重算107列目錄與846筆樣本，結果指紋相同，跨集合故意放入同骨架的反例均被拒絕。結果見small-api-v4/parser-compatibility.json。未直接操作Colab或Linux環境；用戶須重新上傳dataset.zip，從第一格重新解壓再檢查。

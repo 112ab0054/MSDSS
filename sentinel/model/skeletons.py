@@ -7,7 +7,7 @@ not create independent evaluation templates. Decoded views exist only here.
 from collections import defaultdict
 import hashlib
 import html
-from html.parser import HTMLParser
+from _skeleton_html_v1 import HTMLParser
 import json
 import re
 from urllib.parse import unquote
@@ -15,6 +15,15 @@ from difflib import SequenceMatcher
 
 VERSION=1
 PROTOCOL='document-v4-skeleton-disjoint'
+PARSER_ID='cpython-3.11.3-htmlparser-frozen-v1'
+
+
+def parser_fingerprints():
+    from pathlib import Path
+    here=Path(__file__).resolve().parent
+    return {'id':PARSER_ID,'sha256':{name:hashlib.sha256((here/name).read_bytes()).hexdigest()
+            for name in ('_skeleton_html_v1.py','_skeleton_markupbase_v1.py','SKELETON-PYTHON-LICENSE.txt')}}
+
 TOKEN=re.compile(r'"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|(?:\d+(?:\.\d+)?)|[a-z_$][\w$]*(?:\.[a-z_$][\w$]*)*|--|/\*|\*/|//|===|!==|==|!=|<=|>=|&&|\|\||[^\s]',re.I)
 SQL_WORDS=set('and or not union select null from where order by asc desc as case when then else end collate like is in exists between sleep benchmark length json_extract substring substr extractvalue updatexml cast convert concat char if count distinct true false'.split())
 JS_WORDS=set('javascript void alert prompt confirm eval function settimeout setinterval string.fromcharcode console.output'.split())
@@ -137,6 +146,8 @@ def audit_dataset(data_dir, sets, saved):
     import csv
     errors=[]
     path=data_dir/'skeleton-catalog.csv'
+    if saved.get('skeleton_parser')!=parser_fingerprints():
+        return ['骨架解析器版本／檔案指紋不符，請重新上傳完整新版套件']
     if saved.get('skeleton_rule_version')!=VERSION:
         return ['骨架規則版本不符']
     if not path.is_file():return ['缺少 skeleton-catalog.csv']

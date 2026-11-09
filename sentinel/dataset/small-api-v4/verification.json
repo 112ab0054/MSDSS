@@ -6,7 +6,7 @@
   "python_version": "Python 3.11.3",
   "unit_tests": {
     "dataset": 36,
-    "model": 31,
+    "model": 33,
     "privacy": 8
   },
   "determinism": {
@@ -16,7 +16,7 @@
     ],
     "identical_generated_files": 10
   },
-  "package_manifest_files_verified": 21,
+  "package_manifest_files_verified": 25,
   "notebook_code_cells_compiled": 7,
   "moved_inference_self_test": {
     "passed": true,
@@ -103,7 +103,7 @@
     "offline requests; no HTTP or exploit evidence",
     "test has only 2 SQLi / 4 XSS skeleton groups"
   ],
-  "dataset_zip_sha256": "c87131a07793a388c18319806bba9615f1eaf3abd6d1669dbe20fab02248219a",
+  "dataset_zip_sha256": "49b90b29cec227975d02eddad552e850160a90f7260d3b61892cbffc85beb112",
   "normal_inputs_unchanged_from_v3": {
     "train": true,
     "test": true,
@@ -112,5 +112,18 @@
   },
   "original_api_documents_and_v3_csv_unchanged": true,
   "baseline_zip_preserved": true,
-  "full_diagnostics": "evaluation-smoke/"
+  "full_diagnostics": "evaluation-smoke/",
+  "parser_compatibility_fix": {
+    "report": "parser-compatibility.json",
+    "python_versions": [
+      "3.11.3",
+      "3.13.13"
+    ],
+    "catalogue_rows": 107,
+    "requests": 846,
+    "all_csv_unchanged": true,
+    "training_metrics_unchanged": true,
+    "package_training_passed": true,
+    "relocated_inference_passed": true
+  }
 }

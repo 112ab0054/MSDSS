@@ -24,3 +24,9 @@
 2026-11-09 最新：依XSS診斷新增small-api-v3，主資料450/150/150＋challenge96，共846；train/test共享已見家族但模板與操作隔離，challenge保留未見語境，Sylius外部原文重新抽樣排除v2曾用值。62API／620欄位置都保留，原API文件不改。特徵v5=2402維，原字元2–5gram固定hash及JS／編碼統計，無正規化／詞彙fit。舊v2、v4基準與dataset.zip已保留history/xss-v4-baseline。新版Notebook與dataset.zip沿用現名。Windows固定依賴打包訓練／搬移自測通過，Colab／Ubuntu需當地驗證；未新增HTTP證據。
 
 2026-11-09 骨架分組更新：目前 small-api-v4／document-v4-skeleton-disjoint；先將所有本地／外部原文建立骨架與近似關聯，再整群分配。保留v3資料與Notebook/ZIP基準。846筆、62API、620文件位置、特徵v5/2402維與固定模型參數不變。原文不正規化，分組視圖不進特徵；重算目錄及實際樣本攔截跨集合近似變體。獨立相依群仍各1，不能報信賴區間。詳見 skeleton-split-v4.md；未新增HTTP證據。
+
+2026-11-09 Colab骨架重算修正：Python3.11與3.13標準庫HTMLParser對一筆未封閉註解／CDATA外部XSS解析不同，已凍結CPython3.11.3解析器及markupbase並保留PSF授權、核對ID／SHA。107筆目錄／846筆樣本在3.11.3和3.13.13重算一致。CSV原文／骨架ID／分割不變，洩漏檢查保留；更新dataset.zip後需Colab第一格重新上傳解壓。
+
+2026-11-09 v4誤判診斷完成：固定train-only模型重現396筆預測，機率誤差0。110筆重點錯誤（SQLi→normal47、SQLi→XSS39、normal→XSS24）。訓練SQLi150筆皆有註解訊號；無此訊號的86筆保留SQLi全錯，在副本追加--後85筆轉SQLi。normal誤報24筆對path.length高度敏感；純數值探針設17後24筆轉normal，非資料正規化或模型改善評估。已排除單靠中文說明文字的解釋。資料／文件／模型入口／ZIP未改，見v4-error-diagnosis.md及model/diagnosis-v4-2026-11-09。
+
+2026-11-09 訓練補強v5完成：目前small-api-v5，共990筆（train594／test150／Sylius validation150／challenge96）。只追加48組三類配對144筆，24種無註解SQL與24種XSS原文，原450筆train保留；所有保留CSV bytes不變，preflight核對凍結SHA。原文／API文件／特徵與固定模型參數不改。一次探索性比較Accuracy84%／84%／73.96%，challenge SQLi Recall仍25%；未再依分數調整。新ZIP與Notebook沿用現名，舊v4包保存在history/train-v4-baseline，詳見train-augmentation-v5.md。未新增HTTP證據。
