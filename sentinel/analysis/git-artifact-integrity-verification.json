@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-09",
+  "before_commit": "f1e6ed8",
+  "before_model_tests": {
+    "run": 44,
+    "failures": 6
+  },
+  "after_preflight": {
+    "git_export": {
+      "ready": true,
+      "errors": [],
+      "sha256": {
+        "train": "dbaa979ed73cd35b2fed90595c0713d58583a2d9a8e939a17012ebc023c4684c",
+        "test": "f94a79a4da2de0a652d12800f4c6a0846f27f3c85921bd304cd6d98844e81788",
+        "validation": "6d8320a20065bded2de497cfe73c022a6550a2f5356068766a61f4f2580cf3c8",
+        "challenge": "695514773ce22200c99945e8fd27b2638ff6df1ebe3ccdcb9c24dc7d6cab6376"
+      },
+      "document_snapshots": {
+        "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "match",
+        "sentinel/analysis/selected-api-contracts/shopware/API_parameters.md": "match",
+        "sentinel/analysis/selected-api-contracts/sylius/API_parameters.md": "match"
+      }
+    },
+    "colab_zip": {
+      "ready": true,
+      "errors": [],
+      "sha256": {
+        "train": "dbaa979ed73cd35b2fed90595c0713d58583a2d9a8e939a17012ebc023c4684c",
+        "test": "f94a79a4da2de0a652d12800f4c6a0846f27f3c85921bd304cd6d98844e81788",
+        "validation": "6d8320a20065bded2de497cfe73c022a6550a2f5356068766a61f4f2580cf3c8",
+        "challenge": "695514773ce22200c99945e8fd27b2638ff6df1ebe3ccdcb9c24dc7d6cab6376"
+      },
+      "document_snapshots": {
+        "sentinel/analysis/selected-api-contracts/bagisto/API_parameters.md": "not_available",
+        "sentinel/analysis/selected-api-contracts/shopware/API_parameters.md": "not_available",
+        "sentinel/analysis/selected-api-contracts/sylius/API_parameters.md": "not_available"
+      }
+    }
+  },
+  "source_csv_contents_changed": false,
+  "model_weights_changed": false,
+  "training_code_changed": false,
+  "sha_checks_relaxed": false,
+  "approach": "preserve exact artifact bytes in Git; validate candidate tree using temporary Git index, no main index changes or commits",
+  "dataset_zip_sha256": "d1bfadbdecd33a6af3cb33fbc48932bc91ee21955db19d1b0dfa946561a2a154",
+  "after_clean_git_export_tests": {
+    "model": 46,
+    "dataset": 36,
+    "gateway": 16,
+    "total": 98,
+    "failures": 0
+  },
+  "git_roundtrip_regression_autocrlf": [
+    "true",
+    "false"
+  ],
+  "real_csv_newline_tamper_still_rejected": true,
+  "verification_platform": "Windows; real Git index/blob/export and checkout tests",
+  "main_git_index_staged_changes": false,
+  "published_to_github_at_verification": false
+}

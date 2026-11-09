@@ -34,3 +34,5 @@
 2026-11-09 Medusa正常查詢誤報診斷：已重現SQLi56.7988%，HTTPX預設Accept:*/*被聚合SQL註解正則視為/*。保持q=cotton與其他headers不變，Accept:*/*為SQLi53.7731%，application/json為SQLi6.7971%／normal68.4350%；application/*再誤報。模型／資料／規則未改，仍只告警。Medusa產品搜尋實際參數q與limit/offset，原query/page接線探針不等於正確業務請求；差異另記medusa-normal-false-positive-2026-11-09.md，未覆寫原文件。
 
 2026-11-09 Accept修正完成：small-api-v6共1098筆（train702／150／150／96），只新增train108筆三類對稱傳輸header配對，所有保留CSV不變。特徵VERSION6仍2402維，只豁免Accept合法媒體型別位置萬用字元的SQL註解誤計，raw與hash保留；固定參數重訓，更新gateway完整model及Colab套件。正常query=cotton原SQLi56.8%轉normal88.84%，20個固定正常探針皆normal；整體Accuracy86%／86%／72.92%，challenge SQLi Recall21.88%未解。總白話紀錄為訓練版本與問題處理白話紀錄.md。舊v5套件存history/accept-v5-baseline。未新增真實Medusa業務證據、未改API文件／compose／Mirage。
+
+2026-11-09 Git發布完整性修正：重現f1e6ed8直接Git匯出的44項模型測試6失敗，原因為Git text=auto eol=lf把CSV／凍結授權檔轉換換行，與原SHA不符。新增精確bytes保留屬性並恢復Git儲存格式，不改工作檔原內容、SHA檢查或模型。暫存索引候選Git樹重新匯出後46模型＋36資料＋16gateway=98全過，Git與ZIP preflight均ready且四份SHA相同；回歸測試涵蓋autocrlf true/false與真正換行篡改仍拒絕。驗證階段未建立commit或改主索引；後續依使用者要求提交推送。結果見git-artifact-integrity-verification.json及白話紀錄。

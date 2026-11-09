@@ -5,3 +5,10 @@ Dockerfile text eol=lf
 *.ts text eol=lf
 # 已訓練推論套件逐檔核對 SHA，保留原始 bytes，避免 Windows/Linux checkout 改換行而拒載。
 sentinel/gateway/model/** -text
+
+# CSV contains raw request text and frozen byte-level hashes. Do not normalize it.
+sentinel/dataset/**/*.csv -text whitespace=cr-at-eol
+# Frozen parser provenance includes exact bytes, including the upstream license.
+sentinel/model/_skeleton_html_v1.py -text
+sentinel/model/_skeleton_markupbase_v1.py -text
+sentinel/model/SKELETON-PYTHON-LICENSE.txt -text whitespace=-blank-at-eol,cr-at-eol
