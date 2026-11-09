@@ -1,5 +1,7 @@
 # XGBoost 資料集試產
 
+2026-11-09 CSV 顯示更新：現行 small-api-v2 的 train/test/validation 已移除「實際送出」「可正式訓練」兩欄；完整紀錄 JSON、請求、標籤、集合與內部 HTTP 證據檢查不變。舊歷史檔保留原狀。
+
 ## 最新：小規模 v2，比例與參數補全
 
 [small-api-v2](small-api-v2/README.md) 為目前候選版本：train/test/validation=252/84/84，共 420 筆（60/20/20），各集合三類等量。train/test 使用 Bagisto＋Shopware，validation 僅 Sylius 結合 httpParamsDataset，Medusa 排除。比例是小規模配置，不是研究有效性的充分條件；平台隔離、同來源分組與避免洩漏仍須維持。

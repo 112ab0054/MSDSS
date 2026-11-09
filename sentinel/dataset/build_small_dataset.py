@@ -367,7 +367,7 @@ def export(output):
                 '變動位置': meta['target_location'], '變動欄位': meta['target_parameter'],
                 'Payload原文': (meta['payload'] or {}).get('value'),
                 'Payload來源': (meta['payload'] or {}).get('source', 'API文件／合成基底'),
-                '實際送出': False, '可正式訓練': False, '完整紀錄JSON': json.dumps(row, ensure_ascii=False)})
+                '完整紀錄JSON': json.dumps(row, ensure_ascii=False)})
         write_csv(output / f'{split}.csv', flat)
     write_csv(output / 'field-coverage.csv', fields)
     selected = [{'類別': label, '來源紀錄起始行': line, 'payload': value, 'commit': COMMIT}

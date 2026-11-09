@@ -335,7 +335,7 @@ def export(output):
                 'Query_JSON': json.dumps(req['query'], ensure_ascii=False), 'Body_JSON': json.dumps(req['body'], ensure_ascii=False),
                 '原始Query': req['raw_query'], '原始Body': req['raw_body'], '變動位置': meta['target_location'],
                 '變動欄位': meta['target_parameter'], 'Payload原文': (meta['payload'] or {}).get('value'),
-                '實際送出': False, '可正式訓練': False, '完整紀錄JSON': json.dumps(row, ensure_ascii=False)})
+                '完整紀錄JSON': json.dumps(row, ensure_ascii=False)})
         write_csv(output / f'{split}.csv', flat)
         stats[split] = {'rows': len(data), 'labels': dict(Counter(r['annotation']['proposed_label'] for r in data))}
     write_csv(output / 'field-coverage.csv', fields)

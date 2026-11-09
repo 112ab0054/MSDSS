@@ -1,5 +1,9 @@
 # XGBoost：Colab 訓練與可搬移推論
 
+2026-11-09 CSV 顯示更新：現行 small-api-v2 的 train/test/validation 已移除「實際送出」「可正式訓練」兩欄；完整紀錄 JSON、請求、標籤、集合與內部 HTTP 證據檢查不變。舊歷史檔保留原狀。
+
+2026-11-09 更新：依使用者要求移除人工審核及其訓練資格判斷。新版 Colab 套件為 [colab_upload_no_manual_review.zip](colab_upload_no_manual_review.zip)，舊 ZIP 不覆寫。仍保留真實 HTTP、原文、來源證據、標籤與集合隔離檢查。
+
 程式使用明確的 train/test/validation 三份 CSV，不重新分割。**目前 small-api-v2 是未實機採集的候選，正式訓練會停止；這不是路徑錯誤，不可修改旗標繞過。** 沒有正式模型或真實效果分數。
 
 ## 資料與評估規則
@@ -8,14 +12,14 @@
 - 預定小版本 252/84/84，各集合三類等量；程式不強迫固定筆數，會核對平台、三類、來源和集合隔離。
 - session、正常／攻擊配對、來源證據、家族及重複群不可跨集合。發現衝突直接停止，不重新洗牌。
 - 事前固定 CPU、150 棵樹、深度 3、learning_rate=0.05、seed=42。沒有以 test 或獨立 validation 做 early stopping 或選參數；如果以後要調參，只能在 train 內另做分組驗證。
-- 正式輸入須為審核工具輸出，包含審核人、理由、候選 SHA、v3 原文、真實 session、明確 HTTP 已執行旗標；核對實際證據 SHA、request ID、狀態和請求內容。
-- `--allow-candidates` 只供已送出但尚未核准資料／單元合成測試；**仍拒絕 http_executed=false 的計畫**。試跑套件帶 exploratory 標記，正式閘道拒絕載入。
+- 不要求人工審核、training_approved、reviewer、reason 或 candidate_sha256。正式輸入仍須包含標籤、v3 原文、真實 session、明確 HTTP 已執行旗標；核對實際證據 SHA、request ID、狀態和請求內容。舊 audit 紀錄可保留，但不決定訓練資格。
+- `--allow-candidates` 只供原文／來源證據不完整的流程測試；**仍拒絕 http_executed=false 的計畫**。試跑套件帶 exploratory 標記，正式閘道拒絕載入。
 
 ## 在 Colab 操作
 
 1. 開啟 [Colab_訓練.ipynb](Colab_訓練.ipynb)，上傳至 Colab。
-2. 第一個程式格上傳 [colab_upload.zip](colab_upload.zip)。這個目前隨附候選資料，只能檢查解壓、安裝與資料保護；尚不能獲得正式成績。
-3. 完成真實採集、人工審核與三集合分配後，重新打包已核准 CSV 和遮蔽證據，再執行訓練。不要改候選旗標冒充已採集。
+2. 第一個程式格上傳 [colab_upload_no_manual_review.zip](colab_upload_no_manual_review.zip)。這個目前隨附候選資料，只能檢查解壓、安裝與資料保護；尚不能獲得正式成績。
+3. 完成真實採集、證據對帳與三集合分配後，重新打包 CSV 和遮蔽證據，再執行訓練。不要改候選旗標冒充已採集。
 4. Notebook 分開顯示 test 與 validation 報告，可畫混淆矩陣、ROC、PR 圖，最後下載結果 ZIP。
 
 重新打包（在專案根目錄；output 必須是新檔名）：
@@ -24,13 +28,13 @@
 python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v2 --output colab_upload_new.zip
 ```
 
-正式審核資料須加入證據根目錄：
+正式訓練資料須加入證據根目錄：
 
 ```sh
-python sentinel/model/prepare_colab.py --data-dir PATH_TO_APPROVED_SPLITS --evidence-root PATH_TO_EVIDENCE_ROOT --output colab_approved.zip
+python sentinel/model/prepare_colab.py --data-dir PATH_TO_COLLECTED_SPLITS --evidence-root PATH_TO_EVIDENCE_ROOT --output colab_collected.zip
 ```
 
-每份 CSV 至少有 `完整紀錄JSON` 欄位，其值是完整審核輸出的 JSON；保留 audit、input、label、sample_id。證據根目錄下保留 source_evidence 的相對子目錄，例如 sentinel/dataset/evidence。只打包被引用的已遮蔽 reports/evidence，絕不打包 .runtime、密碼設定、三個平台或整份專案。
+每份 CSV 至少有 `完整紀錄JSON` 欄位，其值包含 input、metadata、sample_id，以及 annotation.label／annotation.proposed_label 或頂層 label。audit 是選填的歷史紀錄，不要求審核工具匯出。證據根目錄下保留 source_evidence 的相對子目錄，例如 sentinel/dataset/evidence。只打包被引用的已遮蔽 reports/evidence，絕不打包 .runtime、密碼設定、三個平台或整份專案。
 
 訓練套件包含 header-schema.json，直接保存三份人工 API 文件的 12 種 header 名稱和來源 SHA，Colab 不需連回原電腦或讀取 API 文件。更新 API 文件後應重新打包。
 
@@ -40,7 +44,7 @@ Python 3.11–3.13，建議 3.12。Windows 和 Ubuntu 均使用獨立環境安�
 
 ```sh
 python -m pip install -r requirements.txt
-python train.py --data-dir PATH_TO_APPROVED_SPLITS --evidence-root PATH_TO_EVIDENCE_ROOT --output NEW_RUN_DIRECTORY
+python train.py --data-dir PATH_TO_COLLECTED_SPLITS --evidence-root PATH_TO_EVIDENCE_ROOT --output NEW_RUN_DIRECTORY
 ```
 
 可用 `--trees 150` 明確宣告樹數，必須在看保留資料成績前決定。CLI 路徑來自參數；模型預設位置由 predict.py 本身定位，沒有 C 槽、/content 或原 repository 的固定依賴。輸出拒絕覆蓋非空實驗目錄。
@@ -95,13 +99,13 @@ python sentinel/model/train.py --check-only --evidence-root .
 
 未指定 --data-dir 時，預設由程式位置找 sentinel/dataset/small-api-v2，不依賴 Windows 磁碟機字母。原始碼專案中使用上方指令；Colab 解壓縮套件後，Notebook 會明確指定 data、evidence 的所在位置。
 
-完成實機採集與人工審核後，再執行：
+完成實機採集與證據對帳後，再執行：
 
 ```sh
 python sentinel/model/train.py --data-dir sentinel/dataset/small-api-v2 --evidence-root . --output runs/experiment-001
 ```
 
-目前儲存庫內的 420 筆仍是未送出計畫，上述正式命令應停止；--allow-candidates 也不允許未送出計畫。Bagisto 來源快照已經由完整重建與資料逐檔比對對帳；原紀錄保留在 small-api-v2/history，詳見 source-reconciliation.json。候選仍須實機採集與審核。
+目前儲存庫內的 420 筆仍是未送出計畫，上述正式命令應停止；--allow-candidates 也不允許未送出計畫。Bagisto 來源快照已經由完整重建與資料逐檔比對對帳；原紀錄保留在 small-api-v2/history，詳見 source-reconciliation.json。候選仍須實機採集與證據對帳。
 
 Colab Notebook 已加入前置檢查；prepare_colab.py 同時打包 preflight.py 與原始 provenance.json。test 與獨立 validation 的成績仍各自輸出，不用於選參數。套件內的 self-test.json 改從 train 取樣，不帶入保留測試資料。
 

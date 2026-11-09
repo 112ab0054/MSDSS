@@ -98,3 +98,5 @@ train/test 只用 Bagisto＋Shopware，操作及本地攻擊家族不跨集合�
 ## 合成人物資料更新
 
 姓名改為 Emily Chen、Daniel Lin 等自然人名樣式；email 使用人名加保留網域。同一歷史流程維持一致人物；攻擊 payload、類別與集合不變，原始本文／query、樣本 ID 與對照引用同步重建。這些身份值是合成資料，不是歷史實測身份，舊 HTTP 證據不能證明改名後請求已送出。更動摘要見 identity-revision.json；來源對帳紀錄描述的是本次改名前的版本。
+
+CSV 顯示更新（2026-11-09）：已移除「實際送出」「可正式訓練」兩欄，其他儲存格與完整紀錄 JSON 逐筆比對相同，見 display-column-update.json。內部 HTTP 證據檢查仍保留；此前 source-reconciliation 與 identity-revision 是歷史變更紀錄，最新 CSV SHA 見 verification.json。

@@ -20,7 +20,6 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
                 'rows': len(rows), 'labels': dict(labels),
                 'platforms': dict(Counter(r['metadata']['platform'] for r in rows)),
                 'http_executed': sum(r['metadata'].get('http_executed') is True for r in rows),
-                'approved': sum(r['metadata'].get('training_approved') is True for r in rows),
                 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             }
             if set(labels) != set(LABELS):

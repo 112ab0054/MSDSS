@@ -28,7 +28,7 @@ def run(group_function):
     parser.add_argument('--check-only', action='store_true', help='只列出資料資格與分組問題，不訓練、不產生成績')
     parser.add_argument('--evidence-root', type=Path)
     parser.add_argument('--header-config', type=Path, default=HERE / 'header-schema.json')
-    parser.add_argument('--allow-candidates', action='store_true', help='只供已送出但未核准資料／單元測試試跑')
+    parser.add_argument('--allow-candidates', action='store_true', help='只供原文／來源證據不完整的流程試跑；仍拒絕未送出計畫，與人工審核無關')
     parser.add_argument('--trees', type=int, default=150, help='事先固定樹數；不使用 test/validation 選樹數')
     args = parser.parse_args()
     if not args.check_only and args.output is None:

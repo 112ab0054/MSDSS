@@ -67,10 +67,40 @@ def run_integration(test):
 
 
 class ExplicitTests(unittest.TestCase):
+    def test_formal_accepts_traceable_http_without_manual_approval(self):
+        from data_io import read_rows
+        from request_input import from_evidence
+        with tempfile.TemporaryDirectory(prefix='msdss-no-manual-review-unit-') as temp:
+            root=Path(temp).resolve(); assert root.is_relative_to(Path(tempfile.gettempdir()).resolve())
+            rows=[]
+            for platform in ('bagisto','shopware'):
+                record={'request_id':'unit-request','method':'GET','path':'/products','operation_path':'/products',
+                        'request_target':'/products','raw_query':'','request_headers':{},
+                        'request_body':None,'request_body_raw':'','status':200}
+                relative=f'sentinel/dataset/evidence/{platform}-unit.json'
+                file=root/relative;file.parent.mkdir(parents=True,exist_ok=True)
+                file.write_text(json.dumps({'platform':platform,'requests':[record]}),encoding='utf-8')
+                rows.append({'sample_id':platform,'input':from_evidence(record),'annotation':{'label':'normal'},
+                    'metadata':{'platform':platform,'session_group':platform,'http_executed':True,
+                        'request_input_version':3,'raw_target_captured':True,'raw_body_captured':True,
+                        'source_evidence':relative,'source_evidence_sha256':hashlib.sha256(file.read_bytes()).hexdigest(),
+                        'request_id':'unit-request','http_status':200,'training_approved':False}})
+            validate_rows(rows,'train',evidence_root=root)
+            for row in rows:
+                row['metadata'].pop('training_approved')
+            validate_rows(rows,'train',evidence_root=root)
+            # Legacy review decisions remain traceable but no longer control eligibility.
+            legacy=root/'legacy.jsonl'
+            legacy.write_text(''.join(json.dumps({'sample_id':r['sample_id'],'input':r['input'],'label':'normal',
+                'audit':{'metadata':r['metadata'],'review_status':'rejected'}})+'\n' for r in rows),encoding='utf-8')
+            imported=read_rows(legacy)
+            validate_rows(imported,'train',evidence_root=root)
+            self.assertTrue(all('training_approved' not in r['metadata'] for r in imported))
+
     def test_preflight_blocks_unexecuted_v2_without_training(self):
         # 直接檢查目前真實候選檔，不修改任何旗標或製造研究成績。
         data = HERE.parent / 'dataset/small-api-v2'
-        result = subprocess.run([sys.executable, str(HERE / 'train.py'), '--data-dir', str(data),
+        result = subprocess.run([sys.executable, '-X', 'utf8', '-B', str(HERE / 'train.py'), '--data-dir', str(data),
                                  '--check-only'], capture_output=True, text=True, encoding='utf-8')
         self.assertEqual(result.returncode, 2, result.stderr)
         report = json.loads(result.stdout)

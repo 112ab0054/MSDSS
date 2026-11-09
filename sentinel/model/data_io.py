@@ -17,8 +17,8 @@ def read_rows(path):
         if 'audit' in row and 'label' in row:
             audit = row['audit']
             row['metadata'] = dict(audit['metadata'])
-            row['metadata']['training_approved'] = audit.get('review_status') == 'approved'
-            row['annotation'] = {'label': row['label']}
+        if 'label' in row:
+            row['annotation'] = {**row.get('annotation', {}), 'label': row['label']}
     return rows
 
 
@@ -65,14 +65,10 @@ def validate_rows(rows, split, exploratory=False, evidence_root=None):
         if not meta.get('session_group'):
             raise ValueError('缺少真實 session_group，不可用配對數冒充獨立流程數')
         if not exploratory:
-            if not meta.get('training_approved') or meta.get('http_executed') is not True:
-                raise ValueError('正式模式要求明確人工核准與 http_executed=true')
+            if meta.get('http_executed') is not True:
+                raise ValueError('正式模式要求明確 http_executed=true')
             if meta.get('request_input_version') != INPUT_VERSION or not meta.get('raw_target_captured') or not meta.get('raw_body_captured'):
                 raise ValueError('正式模式要求 v3 與實際擷取原文')
             if evidence_root is None:
                 raise ValueError('正式模式需提供 --evidence-root 核對 HTTP 證據')
-            audit = row.get('audit', {})
-            if (audit.get('review_status') != 'approved' or not str(audit.get('reviewer', '')).strip()
-                    or not str(audit.get('reason', '')).strip() or len(audit.get('candidate_sha256', '')) != 64):
-                raise ValueError('正式模式僅接受含審核人、理由與候選 SHA 的審核匯出')
             check_evidence(row, evidence_root)

@@ -27,12 +27,13 @@
   "csv_sha256": {
     "external-payloads.csv": "2ce05c74c9f3b0579d71b552a49f69b85ff2a8b840771ae22d94500b250172f0",
     "field-coverage.csv": "48650502eaef192da0f2382bae7aed7c4f4d51ea20344e478084d29450b20393",
-    "test.csv": "6689547e4c0886b6de187bc2170de53e660fd84c686b9383054724ad62febf49",
-    "train.csv": "c9be468e43a17973631f6446c759f54350afae162e5d9e0bf1bc5db7718bdfa3",
-    "validation.csv": "921427ed67e85213ec672647456189edfaba8b7d6dc8325a3b7b5256d80b4f33"
+    "test.csv": "fd4eaeec2141b02182066f749816cd0d82b14b3f4ecd2841489c8e94b1f57dae",
+    "train.csv": "9962d26f0d99d3389d500eff1580c817dc87890718af3a7ff2fc231e1f8246ea",
+    "validation.csv": "5ab71efbb212a2773fc08417b8857a31d734c1305a060220e7d178ff2807701c"
   },
   "source_reconciliation": "source-reconciliation.json",
   "source_snapshot_rebuilt_against_current_documents": true,
   "http_execution_scope": "This file describes the unchanged 420 planned rows; separate live attempts are in ../live-small-api-v2/.",
-  "identity_revision": "identity-revision.json"
+  "identity_revision": "identity-revision.json",
+  "display_column_update": "display-column-update.json"
 }
