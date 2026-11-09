@@ -1,8 +1,0 @@
-{
-  "model_tests_passed": 57,
-  "zip_manifest_verified": true,
-  "zip_preflight_ready": true,
-  "notebook_code_compiles": true,
-  "training_run_performed": false,
-  "gateway_weights_changed_this_revision": false
-}

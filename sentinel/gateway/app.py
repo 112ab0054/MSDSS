@@ -1,7 +1,7 @@
 """Medusa 觀察型閘道：請求 → 模型副本 → XGBoost → 原始請求轉送。
 
-所有請求照常轉送 Medusa，只有清單內 79 個「方法＋路徑模板」進入模型偵測。
-其他 API 略過模型、不額外拒絕；模型判為攻擊也只告警，仍照常轉送。
+所有支援的HTTP方法與路徑均送入模型分析，再照常轉送 Medusa。
+推論序列處理，忙碌時等待而不略過；模型判為攻擊也只告警，仍照常轉送。
 預設載入本目錄 model/ 的使用者已訓練模型；GATEWAY_MODEL_DIR 可另指定完整推論套件。
 模型失敗時僅轉送。離線模型可供 demo，紀錄仍標示 offline，不冒充實機驗證。
 啟動與限制見同目錄 README；不把原始請求、密碼或 Cookie 寫入日誌。
@@ -34,37 +34,7 @@ log = logging.getLogger('uvicorn.error.gateway')
 # 移除這些標頭不等於只看少數 header，其他觀測值仍保留給模型副本及後端。
 HOP = {'connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization',
        'te', 'trailer', 'transfer-encoding', 'upgrade', 'proxy-connection'}
-# 偵測範圍從既有清單讀取，不另維護第二份；缺檔或數量不符就拒絕啟動。
-# 步驟 1：定位清單檔。__file__ 是本 app.py，parents[1] 是 sentinel 資料夾。
-# INVENTORY 只是一個 Path 路徑物件，這行還沒有讀檔。
-INVENTORY = Path(__file__).resolve().parents[1] / 'analysis/api-extension/medusa-holdout-inventory.json'
-# 步驟 2：這一行才真正讀檔：read_text 讀 UTF-8 文字，json.loads 解析為 Python 物件。
-# 再取 operations 清單，SELECTED 每筆例如 {"method": "GET", "path": "/store/products/{id}"}。
-SELECTED = json.loads(INVENTORY.read_text(encoding='utf-8'))['operations']
-# 步驟 3：以 (method, path) 組成集合去重，再確認剛好 79 種操作。
-# 同一條 /store/carts/{id} 的 GET 與 POST 是兩個操作；清單壞掉就停止啟動，不默默擴大偵測。
-if len({(op['method'], op['path']) for op in SELECTED}) != 79:
-    raise ValueError('Medusa 選用清單必須恰有 79 個不重複操作')
-# 步驟 4：把每筆模板轉為可重用的正則，啟動時只編譯一次，不在每筆請求重新做。
-# re.escape 先將普通路徑字元視為字面值；re.sub 再把跳脫後的 {id} 等參數換成 [^/]+。
-# [^/]+ 表示至少一個非斜線字元，例如 /store/products/{id} 可配對 /store/products/product_123。
-# OPERATIONS 每筆是 (方法, 已編譯路徑規則)，稍後由 selected_operation 逐一比對。
-OPERATIONS = [(op['method'], re.compile(re.sub(r'\\\{[^}]+\\\}', '[^/]+', re.escape(op['path'])))) for op in SELECTED]
-
-
-def selected_operation(method, raw_path):
-    """依原始路徑判斷 79 個偵測目標，不決定可否轉送；{id} 匹配一段且方法須符合。"""
-    try:
-        # raw_path 是 ASGI 提供的 bytes，先轉成字串供正則使用；不包含問號後面的 query。
-        # decode 是 bytes→文字，不是 URL 百分比解碼；%2F 仍維持三個字元。
-        path = raw_path.decode('utf-8')
-    except UnicodeError:
-        return False
-    # 不先解碼 %2F，否則含編碼斜線的攻擊 ID 會被誤當額外路徑段而漏掉偵測。
-    # any：79 個規則中只要一個符合就回 True，全部不符合就回 False。
-    # method == verb 要求 GET／POST 等方法相同；fullmatch 要求整條路徑匹配，不能只對到前綴。
-    # 例如 GET /store/products/id/extra 不符合 /store/products/{id}；False 只略過模型，不阻擋轉送。
-    return any(method == verb and pattern.fullmatch(path) for verb, pattern in OPERATIONS)
+# API參考清單僅供文件／驗證；所有支援的HTTP路徑都分析，不依賴清單檔。
 
 
 class ForwardURL(httpx.URL):
@@ -159,7 +129,7 @@ async def lifespan(app):
     if (url.scheme not in ('http', 'https') or not url.host or url.userinfo
             or url.raw_path != b'/' or url.fragment):
         raise ValueError('MEDUSA_UPSTREAM 請填不含帳密、路徑、query 的 HTTP(S) origin')
-    # 這是「等待模型」的預算，預設 0.2 秒；與下面上游 HTTP 的 30 秒逾時不同。
+    # 這是「等待模型」的告警門檻，預設0.2秒；超過後仍等完成；與下面上游 HTTP 的 30 秒逾時不同。
     timeout = float(os.getenv('GATEWAY_ANALYSIS_TIMEOUT', '0.2'))
     if not math.isfinite(timeout) or timeout <= 0:
         raise ValueError('GATEWAY_ANALYSIS_TIMEOUT 必須是有限正數（秒）')
@@ -167,6 +137,7 @@ async def lifespan(app):
     app.state.upstream, app.state.analysis_timeout = url, timeout
     # predictor=None 表示尚無可用模型；analysis_task=None 表示目前沒有背景分析工作。
     app.state.predictor, app.state.analysis_task = None, None
+    app.state.analysis_lock = asyncio.Lock()
     # 未設定時使用隨專案提供的 model/；環境變數有值時改用指定套件，空字串則明確停用模型。
     # model.json 是樹模型，metadata 是特徵與類別契約，manifest 用來確認檔案沒有混版。
     # 不重新訓練模型、不讀 test/validation 選門檻，只載入使用者提供的訓練結果。
@@ -210,11 +181,11 @@ async def response_body(upstream):
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
 
 
-# 共用 HTTP 入口：這裡接所有路徑才能讓其他 API 照常工作，79 清單只控制模型偵測範圍。
+# 共用HTTP入口：所有路徑分析後轉送；77項清單不限制偵測範圍。
 # {path:path} 能接多層路徑；目前支援以下七種方法，不處理 WebSocket。
 @app.api_route('/{path:path}', methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'])
 async def proxy(request: Request, path: str):
-    """選定的 79 操作先分析再轉送，其餘直接轉送；是否成功由 Medusa 決定。"""
+    """所有支援的HTTP請求先分析再轉送；是否成功由Medusa決定。"""
     # 每筆請求先取得追蹤編號。只接受單一、標準連字號 UUID，避免重複 header 產生歧義。
     # 沒帶、格式錯誤或帶多個值，都重新產生 UUID；不把任意用戶文字當成日誌編號。
     identifiers = request.headers.getlist('x-request-id')
@@ -224,36 +195,24 @@ async def proxy(request: Request, path: str):
     ) else str(uuid.uuid4())
     # 只放在 request.state，新增 UUID 不加入模型副本，避免影響現有模型特徵與分數。
     # 呼叫端原本帶的 headers 仍按既有模型輸入規則處理，不修改訓練／推論契約。
-    # 取原始路徑 bytes；框架沒提供時才退回 URL.path。這個 path 用來判定是否屬於 79 操作。
+    # 保留原始路徑，不以文件清單或URL解碼結果篩選模型輸入。
     raw_path = request.scope.get('raw_path', request.url.path.encode())
-    body, state = await request.body(), request.app.state  # 請求本文目前整段讀入記憶體。
-    # task 是上一筆仍可能執行的背景推論。只保留一個，避免網站請求無限制排隊等模型。
-    task = state.analysis_task
-    # 這個 if 只決定「要不要進入模型偵測」，不決定「可不可以使用這支 API」。
-    # state 是目前 gateway 程序共用的狀態，state.predictor 是啟動時載入的 XGBoost 推論物件。
-    # 第一個條件：state.predictor is not None，表示模型已成功載入；None 表示未設定或載入失敗。
-    # 第二個條件：selected_operation(...) 檢查「HTTP 方法＋原始路徑」是否符合選定的 79 個操作。
-    # request.method 例如 GET／POST；raw_path 例如 b'/store/products/product_123'，不包含 query。
-    # 例如 GET /store/products 符合清單，但 POST /store/products 不符合；同一路徑仍要區分方法。
-    # and 表示兩個條件都成立才執行下方偵測；模型為 None 時，Python 不會再呼叫右邊的函式。
-    # 條件不成立就略過整段偵測，往下建立 outgoing，再由 client.send 送到 Medusa。
-    # 因此清單外的 API 仍正常轉送，並不是在這裡回 404；它的結果由 Medusa 決定。
-    if state.predictor is not None and selected_operation(request.method, raw_path):
-        # 沒有上一個工作，或上一個已完成，才開這一筆；模型忙碌則走下方 else 略過分析。
-        if task is None or task.done():
-            # 同程序最多一個推論工作；忙碌時略過新分析，避免所有請求在模型前排隊。
-            # to_thread 把解析與模型運算移到執行緒；create_task 建立可追蹤完成狀態的非同步工作。
+    body, state = await request.body(), request.app.state
+    if state.predictor is not None:
+        # 所有請求以backpressure等待同一個模型；不再busy略過。
+        async with state.analysis_lock:
+            # 前一個客戶端若中斷，其shield保護的推論仍須完成，避免並行存取模型。
+            previous = state.analysis_task
+            if previous is not None and not previous.done():
+                await asyncio.shield(previous)
             task = asyncio.create_task(asyncio.to_thread(analyze, state.predictor, request, body))
-            # 存起來讓下一個請求看見同一工作，不能每筆各開一個推論而失去數量限制。
             state.analysis_task = task
             try:
-                # shield 避免逾時時取消追蹤中的 task；wait_for 只限制本請求等多久，不會殺死執行緒。
-                # 超時仍向下轉送；背景工作未結束時，新請求不再新增分析工作。
                 await asyncio.wait_for(asyncio.shield(task), state.analysis_timeout)
             except asyncio.TimeoutError:
-                log.warning('analysis_timeout: request_id=%s 繼續轉送，背景推論仍在執行', request.state.request_id)
-        else:
-            log.warning('analysis_busy: request_id=%s 本筆略過分析，繼續轉送', request.state.request_id)
+                # 這是等待告警門檻，非取消／略過門檻；仍等本筆推論完成再轉送。
+                log.warning('analysis_slow: request_id=%s 等待本筆推論完成，沒有略過', request.state.request_id)
+                await asyncio.shield(task)
     # 不論是否偵測、模型成功或失敗，都走到轉送區。query 保留重複參數、百分比編碼與順序。
     query = request.scope['query_string']
     # 組成 Medusa 的目標 URL，使用原始 path/query，而不是已遮蔽的模型副本。

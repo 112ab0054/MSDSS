@@ -1,0 +1,71 @@
+{
+  "source": "actual gateway log UUID import; not offline recalculation",
+  "scores": [
+    {
+      "request_id": "3f1ea74f-7fee-4fa5-a83a-c510d0e076ac",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8390383124351501,
+        "sqli": 0.02862093411386013,
+        "xss": 0.13234072923660278
+      }
+    },
+    {
+      "request_id": "820e35f5-f62e-4675-9fcf-1bab1ef217f7",
+      "label": "xss",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.2541444003582001,
+        "sqli": 0.0343756340444088,
+        "xss": 0.7114799618721008
+      }
+    },
+    {
+      "request_id": "ff0737dc-d7ff-4ce5-b5c9-e9427e1fe946",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6127119660377502,
+        "sqli": 0.020900581032037735,
+        "xss": 0.3663874864578247
+      }
+    },
+    {
+      "request_id": "92f4f6e3-74e5-47a5-baa0-11f740bf6d83",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8390383124351501,
+        "sqli": 0.02862093411386013,
+        "xss": 0.13234072923660278
+      }
+    },
+    {
+      "request_id": "6ed0490a-8cb5-4078-aa73-52788ecd798d",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.8390383124351501,
+        "sqli": 0.02862093411386013,
+        "xss": 0.13234072923660278
+      }
+    },
+    {
+      "request_id": "38a247cb-0649-4453-b4e9-1c551a4d7ba8",
+      "label": "normal",
+      "mode": "offline",
+      "exploratory": true,
+      "probabilities": {
+        "normal": 0.6146367788314819,
+        "sqli": 0.02533232979476452,
+        "xss": 0.3600309193134308
+      }
+    }
+  ]
+}

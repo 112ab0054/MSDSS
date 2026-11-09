@@ -1,0 +1,75 @@
+{
+  "reason": "restore exact original77; user explicitly retains reset-password",
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/store/payment-collections/{id}/payment-sessions/{session_id}",
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 4,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": false,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T13:57:14.628824+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
+      ],
+      "runtime_request_ids": [
+        "c22d53b0-46b7-42f2-bae5-3764efefe5e3",
+        "faeceabe-03f6-409a-a0c7-7e895c18cc36",
+        "d147e4b9-05f0-4e6d-9ff9-aecf652c77ae",
+        "3532544c-7b0b-4ce1-b249-9ebdf7857002"
+      ],
+      "runtime_coverage_limitations": [],
+      "runtime_success_targets": [],
+      "runtime_user_document_reference": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": null,
+        "heading": null,
+        "in_original_77": false
+      },
+      "runtime_document_review_note": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。"
+    },
+    {
+      "method": "POST",
+      "path": "/store/search",
+      "runtime_status": "unavailable_feature",
+      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
+      "runtime_application_version": "2.21.0",
+      "runtime_http_attempted": true,
+      "runtime_http_statuses": [
+        404
+      ],
+      "runtime_request_count": 1,
+      "runtime_business_verified": false,
+      "runtime_negative_probe_only": true,
+      "runtime_in_installed_routes": false,
+      "runtime_checked_at": "2026-11-09T13:57:14.628824+00:00",
+      "runtime_evidence_files": [
+        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
+        "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
+      ],
+      "runtime_request_ids": [
+        "4b2591a2-b9a8-4e86-92eb-ad551ac4b196"
+      ],
+      "runtime_coverage_limitations": [],
+      "runtime_success_targets": [],
+      "runtime_user_document_reference": {
+        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
+        "line": null,
+        "heading": null,
+        "in_original_77": false
+      },
+      "runtime_document_review_note": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。"
+    }
+  ]
+}

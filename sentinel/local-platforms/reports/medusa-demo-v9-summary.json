@@ -9,7 +9,7 @@
   "business_checks": 36,
   "business_checks_passed": 36,
   "api_status_counts": {
-    "版本／功能差異": 11,
+    "版本／功能差異": 9,
     "成功": 60,
     "前置條件不足": 7,
     "部分成功": 1
@@ -50,7 +50,7 @@
     }
   ],
   "payment": "pp_system_default; order authorized; captured_amount=0; no real charge",
-  "scope": "latest79 runtime coverage below; original58-request normal flow and7 read-only probes retain separate counts",
+  "scope": "current reference-list runtime coverage below; original58-request normal flow and7 read-only probes retain separate counts",
   "training_data": false,
   "initial_api_status_counts": {
     "尚未測試": 29,
@@ -69,11 +69,11 @@
     ],
     "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
     "checked_at": "2026-11-09T13:57:14.628824+00:00",
-    "operations": 79,
-    "http_attempted_operations": 79,
+    "operations": 77,
+    "http_attempted_operations": 77,
     "not_run": 0,
     "status_counts": {
-      "unavailable_feature": 11,
+      "unavailable_feature": 9,
       "passed": 60,
       "blocked_prerequisite": 7,
       "partial_pass": 1
@@ -81,6 +81,8 @@
     "http_requests": 357,
     "actual_gateway_prediction_matches": 357,
     "business_assertions_passed": 193,
+    "http_requests_in_reference_scope": 352,
+    "historical_out_of_scope_requests": 5,
     "business_assertions_failed": 0,
     "source_sha256": {
       "medusa-demo-v9-flow.json": "0e50cfbf6e2779e8bf827dbf39a9a196791bed7b07029719041bcfc3fa28caea",
@@ -97,6 +99,6 @@
     "source_sha256_format": "parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged",
     "native_route_sha256": "049ca4b8e66ffbaa573edb655e4c1836d7a0540894f9a4a36c1c28dd35cf5301",
     "document_environment_proof_sha256": "73c02a7e968a983abaee6e6868909f608a370478942bde77cb530fefdb654abe",
-    "scope": "HTTP coverage includes explicit negative probes; not79 successful normal workflows; Medusa not training data"
+    "scope": "HTTP coverage includes explicit negative probes; not all selected operations successful; historical HTTP evidence may include removed operations; Medusa not training data"
   }
 }

@@ -4,16 +4,16 @@
 
 ```text
 瀏覽器／商城伺服器 → gateway:8080 → medusa:9000
-                        └─ 選用的 79 操作 → XGBoost（僅觀察）
+                        └─ 所有支援HTTP路徑 → XGBoost（僅觀察，忙碌排隊）
 ```
 
 對外網址維持 `http://161.33.154.211:8000`，商城維持 `:3000`。
 Medusa 不再直接發布主機連接埠；管理介面、文件及清單外 API 也由 gateway 原樣轉送。
-`/health` 由 gateway 轉給 Medusa，不屬於模型偵測目標。
+`/health`也經模型分析再轉給Medusa；健康檢查只代表當次請求，不代表模型準確率。
 
-模型包放在 `sentinel/gateway/model/`，映像同時帶入同版推論程式與 79 操作清單。
+模型包放在`sentinel/gateway/model/`；映像帶入同版推論程式，無需API清單即可分析所有支援路徑。
 不需要訓練 CSV、Windows 路徑或雲端硬碟。模型 SHA／自測失敗時容器拒絕啟動。
-啟動後推論失敗、逾時或忙碌，仍依既有觀察模式轉送並記警告；健康檢查不代表每筆都被分析。
+啟動後推論失敗仍轉送並記警告；忙碌排隊，超過等待告警門檻仍等分析完成。併發時延遲增加，健康檢查需納入實際負載評估。
 目前模型仍有正常請求誤報，不啟用自動封鎖。
 
 ## 更新既有主機
@@ -33,7 +33,7 @@ cp .env "$backup_dir/.env"
 ```
 
 上傳更新後的 compose.yaml、sentinel/gateway、sentinel/model 的推論原始碼、
-requirements.txt，以及 sentinel/analysis/api-extension/medusa-holdout-inventory.json。
+requirements.txt。77項清單僅供參考，不是gateway執行相依。
 不覆蓋 `.env`，不需要上傳資料集或測試報告。確認 PUBLIC_URL 仍是公開的 `:8000`，
 MEDUSA_PORT 仍是 8000；PUBLIC_URL 不應改成 Docker 內部位址。
 

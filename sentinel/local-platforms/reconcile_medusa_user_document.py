@@ -82,12 +82,13 @@ def main():
             requests.append(dict(r, evidence_file='sentinel/local-platforms/reports/' + name))
     operations = []; table = []
     for before in targets:
-        key = before['method'], before['path']; op = now[key]; doc = docs.get(key)
+        key = before['method'], before['path']; op = now.get(key, dict(before, runtime_status='excluded')); doc = docs.get(key)
         matches = [r for r in requests if (r['method'], r['operation_path']) == key]
         positive = [r for r in matches if r.get('business_verified') and 200 <= r['status'] < 300 and not r.get('route_probe_only') and not r.get('negative_control')]
         sample = (positive or matches)[-1]
         params = [dict(p, present_in_selected_sample=present(sample, p)) for p in doc['parameters']] if doc else []
         note = explanation(before['path'], env)
+        if key not in now: note = '依使用者指示還原原77文件，額外兩項移出當前參考清單；歷史HTTP與失敗原因保留。'
         if before['path'].endswith('/reset-password') and sample.get('reset_request_token_persisted'):
             note = '已用唯讀DB與HTTP舊JWT拒絕證實：本次HTTP重設要求產生新Token、舊Token失效；不存在帳號的201不產生Token。事件／郵件送達仍未獨立觀測，保留部分成功。'
         if op['runtime_status'] == 'passed' and 'fixture-checks.json' in sample['evidence_file']:

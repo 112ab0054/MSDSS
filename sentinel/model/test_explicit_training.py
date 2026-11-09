@@ -67,8 +67,8 @@ def run_integration(test):
 
 
 class ExplicitTests(unittest.TestCase):
-    def test_offline_current_v2_trains_and_relocated_bundle_predicts(self):
-        data = HERE.parent / 'dataset/small-api-v2'
+    def test_offline_current_v9_trains_and_relocated_bundle_predicts(self):
+        data = HERE.parent / 'dataset/small-api-v9'
         before = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in data.glob('*.csv')}
         with tempfile.TemporaryDirectory(prefix='msdss-offline-unit-') as temp:
             root=Path(temp).resolve(); assert root.is_relative_to(Path(tempfile.gettempdir()).resolve())
@@ -119,15 +119,15 @@ class ExplicitTests(unittest.TestCase):
             validate_rows(imported,'train',evidence_root=root)
             self.assertTrue(all('training_approved' not in r['metadata'] for r in imported))
 
-    def test_preflight_blocks_unexecuted_v2_without_training(self):
+    def test_preflight_blocks_unexecuted_v9_without_training(self):
         # 直接檢查目前真實候選檔，不修改任何旗標或製造研究成績。
-        data = HERE.parent / 'dataset/small-api-v2'
+        data = HERE.parent / 'dataset/small-api-v9'
         result = subprocess.run([sys.executable, '-X', 'utf8', '-B', str(HERE / 'train.py'), '--data-dir', str(data),
                                  '--check-only'], capture_output=True, text=True, encoding='utf-8')
         self.assertEqual(result.returncode, 2, result.stderr)
         report = json.loads(result.stdout)
         self.assertFalse(report['ready'])
-        self.assertEqual(report['splits']['train']['rows'], 252)
+        self.assertEqual(report['splits']['train']['rows'], 702)
         self.assertEqual(report['splits']['validation']['http_executed'], 0)
         self.assertTrue(any('未送出' in message for message in report['errors']))
 

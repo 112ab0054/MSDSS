@@ -57,7 +57,7 @@ def main():
                 if lists and all(not x for x in lists): status = '前置條件不足'; reason = '真實目錄清單為空，沒有明細ID可測'
         rows.append({'method': operation['method'], 'api': operation['path'], 'status': status, 'reason': reason,
                      'http_statuses': ','.join(map(str, sorted({r['status'] for r in matching}))), 'request_count': len(matching)})
-    assert len(rows) == 79
+    assert len(rows) == len(inventory['operations'])
     write_csv(REPORTS / 'medusa-demo-v9-api-status.csv', rows)
     write_csv(REPORTS / 'medusa-demo-v9-predictions.csv', observed)
     checks = flow.get('business_checks', flow.get('checks', []))

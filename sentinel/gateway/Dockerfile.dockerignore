@@ -16,4 +16,3 @@
 sentinel/gateway/model/__pycache__/
 !sentinel/analysis/
 !sentinel/analysis/api-extension/
-!sentinel/analysis/api-extension/medusa-holdout-inventory.json

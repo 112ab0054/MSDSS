@@ -1,3 +1,0 @@
-numpy==2.3.5
-scikit-learn==1.7.2
-xgboost==3.1.2

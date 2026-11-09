@@ -2068,44 +2068,6 @@
       ]
     },
     {
-      "method": "POST",
-      "path": "/store/payment-collections/{id}/payment-sessions/{session_id}",
-      "runtime_status": "unavailable_feature",
-      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
-      "runtime_application_version": "2.21.0",
-      "runtime_http_attempted": true,
-      "runtime_http_statuses": [
-        404
-      ],
-      "runtime_request_count": 4,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": false,
-      "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T13:57:14.628824+00:00",
-      "runtime_evidence_files": [
-        "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-flow.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-native-token-transfers.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
-      ],
-      "runtime_request_ids": [
-        "c22d53b0-46b7-42f2-bae5-3764efefe5e3",
-        "faeceabe-03f6-409a-a0c7-7e895c18cc36",
-        "d147e4b9-05f0-4e6d-9ff9-aecf652c77ae",
-        "3532544c-7b0b-4ce1-b249-9ebdf7857002"
-      ],
-      "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
-      "runtime_user_document_reference": {
-        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
-        "line": null,
-        "heading": null,
-        "in_original_77": false
-      },
-      "runtime_document_review_note": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。"
-    },
-    {
       "method": "GET",
       "path": "/store/payment-providers",
       "runtime_status": "passed",
@@ -2724,38 +2686,6 @@
       "runtime_document_review_note": "已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。"
     },
     {
-      "method": "POST",
-      "path": "/store/search",
-      "runtime_status": "unavailable_feature",
-      "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
-      "runtime_application_version": "2.21.0",
-      "runtime_http_attempted": true,
-      "runtime_http_statuses": [
-        404
-      ],
-      "runtime_request_count": 1,
-      "runtime_business_verified": false,
-      "runtime_negative_probe_only": true,
-      "runtime_in_installed_routes": false,
-      "runtime_checked_at": "2026-11-09T13:57:14.628824+00:00",
-      "runtime_evidence_files": [
-        "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
-        "sentinel/local-platforms/reports/medusa-demo-v9-user-document-audit.json"
-      ],
-      "runtime_request_ids": [
-        "4b2591a2-b9a8-4e86-92eb-ad551ac4b196"
-      ],
-      "runtime_coverage_limitations": [],
-      "runtime_success_targets": [],
-      "runtime_user_document_reference": {
-        "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
-        "line": null,
-        "heading": null,
-        "in_original_77": false
-      },
-      "runtime_document_review_note": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。"
-    },
-    {
       "method": "GET",
       "path": "/store/shipping-options",
       "runtime_status": "passed",
@@ -2937,11 +2867,11 @@
     ],
     "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
     "checked_at": "2026-11-09T13:57:14.628824+00:00",
-    "operations": 79,
-    "http_attempted_operations": 79,
+    "operations": 77,
+    "http_attempted_operations": 77,
     "not_run": 0,
     "status_counts": {
-      "unavailable_feature": 11,
+      "unavailable_feature": 9,
       "passed": 60,
       "blocked_prerequisite": 7,
       "partial_pass": 1
@@ -2949,6 +2879,8 @@
     "http_requests": 357,
     "actual_gateway_prediction_matches": 357,
     "business_assertions_passed": 193,
+    "http_requests_in_reference_scope": 352,
+    "historical_out_of_scope_requests": 5,
     "business_assertions_failed": 0,
     "source_sha256": {
       "medusa-demo-v9-flow.json": "0e50cfbf6e2779e8bf827dbf39a9a196791bed7b07029719041bcfc3fa28caea",
@@ -2965,6 +2897,8 @@
     "source_sha256_format": "parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged",
     "native_route_sha256": "049ca4b8e66ffbaa573edb655e4c1836d7a0540894f9a4a36c1c28dd35cf5301",
     "document_environment_proof_sha256": "73c02a7e968a983abaee6e6868909f608a370478942bde77cb530fefdb654abe",
-    "scope": "HTTP coverage includes explicit negative probes; not79 successful normal workflows; Medusa not training data"
-  }
+    "scope": "HTTP coverage includes explicit negative probes; not all selected operations successful; historical HTTP evidence may include removed operations; Medusa not training data"
+  },
+  "selected_operation_count": 77,
+  "scope_note": "Original77 document restored by user; reset-password retained; documentation/reference scope only; gateway analyzes all supported HTTP routes."
 }

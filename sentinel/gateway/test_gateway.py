@@ -183,7 +183,7 @@ class GatewayTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(first.headers['location'], '/login')
         self.assertNotIn('x-hop', first.headers)
 
-    async def test_all_79_analyzed_other_routes_only_forwarded(self):
+    async def test_reference77_and_unknown_routes_all_analyzed(self):
         operations = json.loads((ROOT / 'sentinel/analysis/api-extension/medusa-holdout-inventory.json').read_text())['operations']
         observed = []
         def backend(request):
@@ -197,11 +197,11 @@ class GatewayTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(response.status_code, 404)
                 self.assertEqual(observed[-1], (operation['method'], path))
             self.assertEqual((await client.get('/unknown-path')).status_code, 404)
-        self.assertEqual(len(operations), 79)
-        self.assertEqual(len(observed), 80)
-        self.assertEqual(len(model.samples), 79)
+        self.assertEqual(len(operations), 77)
+        self.assertEqual(len(observed), 78)
+        self.assertEqual(len(model.samples), 78)
 
-    async def test_unselected_methods_paths_only_forwarded_without_analysis(self):
+    async def test_methods_and_paths_outside_reference_are_also_analyzed(self):
         observed, model = [], Predictor()
         def backend(request):
             observed.append(request)
@@ -218,7 +218,7 @@ class GatewayTests(unittest.IsolatedAsyncioTestCase):
                 outgoing.url = gateway.ForwardURL(httpx.URL('http://gateway.test'), path.encode())
                 self.assertEqual((await client.send(outgoing)).status_code, 200, (method, path))
         self.assertEqual(len(observed), len(cases))
-        self.assertFalse(model.samples)  # 非偵測目標只轉送，不呼叫模型，也不額外拒絕。
+        self.assertEqual(len(model.samples), len(cases))  # 清單外、HEAD、OPTIONS也分析並轉送。
 
     async def test_encoded_attack_ids_still_enter_selected_detection(self):
         model = Predictor()
@@ -227,7 +227,7 @@ class GatewayTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual((await client.get('/store/products/' + identifier)).status_code, 200)
         self.assertEqual(len(model.samples), 3)  # 編碼值仍是 {id}，不因解碼出斜線就跳過模型。
 
-    async def test_slow_prediction_does_not_queue_other_requests(self):
+    async def test_busy_model_queues_each_request_without_skipping(self):
         entered, release = threading.Event(), threading.Event()
         model = Predictor()
         original = model.predict
@@ -237,16 +237,20 @@ class GatewayTests(unittest.IsolatedAsyncioTestCase):
             return original(sample)
         model.predict = slow
         async with running(lambda r: reply(), model, GATEWAY_ANALYSIS_TIMEOUT='0.02') as client:
+            first = asyncio.create_task(client.get('/store/products'))
+            second = None
             try:
-                first = await client.get('/store/products')
-                second = await client.get('/store/collections')
-                self.assertEqual((first.status_code, second.status_code), (200, 200))
-                self.assertTrue(entered.is_set())
-                self.assertFalse(release.is_set())
+                self.assertTrue(await asyncio.to_thread(entered.wait, 1))
+                second = asyncio.create_task(client.post('/custom-outside-reference'))
+                await asyncio.sleep(0.05)
+                self.assertFalse(first.done())
+                self.assertFalse(second.done())
             finally:
                 release.set()
-                await gateway.app.state.analysis_task
-        self.assertEqual(len(model.samples), 1)  # 第二筆略過，不偷偷堆進背景佇列。
+                responses = await asyncio.wait_for(asyncio.gather(first, *([second] if second else [])), 3)
+        self.assertEqual([r.status_code for r in responses], [200, 200])
+        self.assertEqual(len(model.samples), 2)
+        self.assertEqual([s['path'] for s in model.samples], ['/store/products', '/custom-outside-reference'])
 
     async def test_prediction_error_does_not_block_forwarding(self):
         model = Predictor()

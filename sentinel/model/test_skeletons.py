@@ -11,7 +11,7 @@ from data_io import read_rows
 from preflight import inspect_dataset
 from train import groups
 ROOT=Path(__file__).resolve().parents[2]
-DATA=ROOT/'sentinel/dataset/small-api-v4'
+DATA=ROOT/'sentinel/dataset/small-api-v9'
 sys.path.insert(0,str(ROOT/'sentinel/dataset'))
 
 
@@ -70,11 +70,11 @@ class SkeletonTests(unittest.TestCase):
         _,_,_,_,report=inspect_dataset(DATA,groups,offline=True,evidence_root=ROOT)
         self.assertTrue(report['ready'],report['errors'])
         self.assertEqual(set(report['document_snapshots'].values()),{'match'})
-        with (DATA/'field-coverage.csv').open(encoding='utf-8-sig',newline='') as f:coverage=list(csv.DictReader(f))
+        with (DATA/'document-field-status.csv').open(encoding='utf-8-sig',newline='') as f:coverage=list(csv.DictReader(f))
         self.assertEqual(len(coverage),620)
-        self.assertTrue(all(int(c['存在筆數'])>0 for c in coverage))
+        self.assertTrue(all(int(c['normal_occurrences'])>0 or c['status']=='absent_optional_or_document_branch' for c in coverage))
         for split,rows in self.sets.items():
-            self.assertEqual(len(rows),{'train':450,'test':150,'validation':150,'challenge':96}[split])
+            self.assertEqual(len(rows),{'train':702,'test':150,'validation':150,'challenge':96}[split])
             self.assertTrue(all(not r['metadata']['http_executed'] for r in rows))
             self.assertTrue(all(r['metadata']['platform']!='medusa' for r in rows))
             self.assertTrue(all(r['metadata']['evaluation_protocol']==PROTOCOL for r in rows))

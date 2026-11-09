@@ -67,14 +67,14 @@ class ActualModelConnectionTests(unittest.IsolatedAsyncioTestCase):
                     await client.get('/store/products', params={'query': "' OR 1=1 --"})
                     raw = b'{"note":"<script>alert(1)</script>","password":"fixture-private"}'
                     await client.post('/store/carts', content=raw, headers={'Content-Type': 'application/json'})
-                    await client.get('/not-in-selected-79')
-                    self.assertEqual(calls.call_count, 3)
+                    await client.get('/outside-reference-77')
+                    self.assertEqual(calls.call_count, 4)
                     samples = [call.args[0] for call in calls.call_args_list]
                 expected = [original(sample) for sample in samples]
                 self.assertEqual(len(seen), 4)
                 self.assertEqual(seen[2].content, raw)  # 原密碼只交後端，不被副本的遮蔽值取代。
         predictions = [line for line in logs.output if 'prediction label=' in line]
-        self.assertEqual(len(predictions), 3)
+        self.assertEqual(len(predictions), 4)
         for line, result in zip(predictions, expected):
             self.assertIn('mode=offline exploratory=True', line)
             self.assertIn('label=' + result['label'], line)

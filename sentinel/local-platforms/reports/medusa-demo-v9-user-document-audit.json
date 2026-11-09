@@ -1115,7 +1115,7 @@
       "method": "POST",
       "path": "/store/payment-collections/{id}/payment-sessions/{session_id}",
       "prior_runtime_status": "unavailable_feature",
-      "runtime_status": "unavailable_feature",
+      "runtime_status": "excluded",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": null,
@@ -1127,7 +1127,7 @@
       "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-fixture-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "confirmed_explanation": "依使用者指示還原原77文件，額外兩項移出當前參考清單；歷史HTTP與失敗原因保留。",
       "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
       "document_difference": "不在原77文件；只在新79操作清單／bundled2.22.3規格。不可假稱已按舊文件驗證此操作。"
     },
@@ -1432,7 +1432,7 @@
       "method": "POST",
       "path": "/store/search",
       "prior_runtime_status": "unavailable_feature",
-      "runtime_status": "unavailable_feature",
+      "runtime_status": "excluded",
       "user_document": {
         "snapshot": "sentinel/analysis/history/2026-11-09/medusa-77-user-reference.md",
         "line": null,
@@ -1444,7 +1444,7 @@
       "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-remaining.json",
       "selected_case_is_negative_probe": true,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。",
+      "confirmed_explanation": "依使用者指示還原原77文件，額外兩項移出當前參考清單；歷史HTTP與失敗原因保留。",
       "runtime_reason": "本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功",
       "document_difference": "不在原77文件；只在新79操作清單／bundled2.22.3規格。不可假稱已按舊文件驗證此操作。"
     },

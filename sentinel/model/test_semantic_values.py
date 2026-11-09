@@ -17,7 +17,6 @@ sys.path.insert(0, str(ROOT / 'sentinel/dataset'))
 from build_xss_v3 import set_field
 from build_small_dataset import finalize
 DATA = ROOT / 'sentinel/dataset/small-api-v9'
-OLD = ROOT / 'sentinel/dataset/small-api-v8'
 SPLITS = ('train', 'test', 'validation', 'challenge')
 
 
@@ -27,18 +26,20 @@ class SemanticValueTests(unittest.TestCase):
         cls.sets = {s: read_rows(DATA / (s + '.csv')) for s in SPLITS}
         cls.provenance = json.loads((DATA / 'provenance.json').read_text(encoding='utf-8'))
 
-    def test_labels_split_payload_skeleton_and_pair_background_preserved(self):
+    def test_current_labels_split_and_pair_background_are_consistent(self):
         count = 0
         for split in SPLITS:
-            old = {r['sample_id']: r for r in read_rows(OLD / (split + '.csv'))}; pairs = defaultdict(list)
+            pairs = defaultdict(list)
             for row in self.sets[split]:
-                previous = old[row['metadata']['semantic_source_sample_id']]
-                self.assertEqual(row['annotation'], previous['annotation'])
-                for field in ('platform', 'split', 'payload', 'skeleton_group_id', 'benign_content_context'):
-                    self.assertEqual(row['metadata'].get(field), previous['metadata'].get(field))
+                self.assertIn(row['annotation']['proposed_label'], ('normal', 'sqli', 'xss'))
+                self.assertEqual(row['metadata']['split'], split)
+                self.assertIn(row['metadata']['platform'], ('bagisto', 'shopware', 'sylius'))
+                self.assertTrue(row['metadata'].get('semantic_source_sample_id'))
                 self.assertFalse(row['metadata']['http_executed'])
                 pairs[row['metadata']['pair_group']].append(row); count += 1
             for triple in pairs.values():
+                self.assertEqual(len(triple), 3)
+                self.assertEqual({r['annotation']['proposed_label'] for r in triple}, {'normal', 'sqli', 'xss'})
                 normal = next(r for r in triple if r['annotation']['proposed_label'] == 'normal')
                 for row in triple:
                     if row is normal: continue

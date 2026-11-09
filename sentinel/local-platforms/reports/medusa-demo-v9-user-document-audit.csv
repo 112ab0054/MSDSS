@@ -21,12 +21,12 @@ GET,/store/gift-cards/{idOrCode},unavailable_feature,unavailable_feature,46. 查
 GET,/store/locales,unavailable_feature,unavailable_feature,47. 列出支援語系,773,False,不是缺路由：原生標示自2.12.3存在、以translation feature flag控制；實際translation module disable=true。屬目前功能設定，不是必須升級或補locale參數。
 POST,/store/orders/{id}/transfer/accept,blocked_prerequisite,passed,50. 接受訂單歸戶轉移,823,False,依文件送本次真實訂單ID與平台產生的token後已成功，接受／拒絕後查雙方訂單歸屬及confirmed／declined狀態。token唯讀取自己訂單資料列，沒有偽造；郵件送達未驗證。
 POST,/store/orders/{id}/transfer/decline,blocked_prerequisite,passed,52. 拒絕訂單歸戶轉移,854,False,依文件送本次真實訂單ID與平台產生的token後已成功，接受／拒絕後查雙方訂單歸屬及confirmed／declined狀態。token唯讀取自己訂單資料列，沒有偽造；郵件送達未驗證。
-POST,/store/payment-collections/{id}/payment-sessions/{session_id},unavailable_feature,unavailable_feature,原77文件未列,,False,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+POST,/store/payment-collections/{id}/payment-sessions/{session_id},unavailable_feature,excluded,原77文件未列,,False,依使用者指示還原原77文件，額外兩項移出當前參考清單；歷史HTTP與失敗原因保留。
 GET,/store/product-tags/{id},blocked_prerequisite,passed,62. 取得單一商品標籤,1049,False,已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。
 GET,/store/product-types/{id},blocked_prerequisite,passed,64. 取得單一商品類型,1088,False,已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。
 GET,/store/return-reasons/{id},blocked_prerequisite,passed,71. 取得單一退貨原因,1241,False,已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。
 POST,/store/returns,blocked_prerequisite,passed,72. 建立退貨要求,1255,False,已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。
-POST,/store/search,unavailable_feature,unavailable_feature,原77文件未列,,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
+POST,/store/search,unavailable_feature,excluded,原77文件未列,,True,依使用者指示還原原77文件，額外兩項移出當前參考清單；歷史HTTP與失敗原因保留。
 POST,/store/shipping-options/{id}/calculate,failed_runtime,blocked_prerequisite,74. 計算配送選項價格,1300,False,文件cart_id必填、data選填，先前已有真實cart／option ID。實際provider=manual_manual、price_type=flat；原生canCalculate=false且calculatePrice明確拋錯。500保留，改列需支援動態計價provider的前置不足。
 GET,/store/store-credit-accounts,unavailable_feature,unavailable_feature,75. 列出自己的商店額度帳戶,1317,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
 POST,/store/store-credit-accounts/claim,unavailable_feature,unavailable_feature,76. 認領商店額度帳戶,1340,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。

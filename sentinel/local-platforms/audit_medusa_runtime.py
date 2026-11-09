@@ -1,4 +1,4 @@
-"""核對79操作的HTTP／業務／負向探查證據；可明確同步manifest runtime欄位。"""
+"""核對當前參考清單操作的HTTP／業務／負向探查證據；可明確同步manifest runtime欄位。"""
 import argparse
 import csv
 import hashlib
@@ -59,7 +59,7 @@ def classify(operation, matches, native_present, environment=None):
 def audit(sync_inventory=False):
     inventory = json.loads(INVENTORY.read_text(encoding='utf-8'))
     before = {(o['method'], o['path']) for o in inventory['operations']}
-    assert len(before) == 79
+    assert len(before) == inventory.get('selected_operation_count', 77)
     route_path = REPORTS / 'medusa-2.21.0-demo-code-routes.json'
     native = json.loads(route_path.read_text(encoding='utf-8'))
     methods = {(m, normalize(o['path'])) for o in native for m in o['methods']}
@@ -139,14 +139,16 @@ def audit(sync_inventory=False):
     summary = {'target': 'http://127.0.0.1:18085', 'upstream': 'http://127.0.0.1:9100', 'application_version': '2.21.0',
                'verified_targets': sorted(targets),
                'model_sha256': hashlib.sha256((ROOT / 'sentinel/gateway/model/model.json').read_bytes()).hexdigest(),
-               'checked_at': latest, 'operations': 79, 'http_attempted_operations': sum(o['runtime_http_attempted'] for o in operations),
+               'checked_at': latest, 'operations': len(operations), 'http_attempted_operations': sum(o['runtime_http_attempted'] for o in operations),
                'not_run': counts.get('not_run', 0), 'status_counts': counts, 'http_requests': len(requests),
                'actual_gateway_prediction_matches': len(predictions), 'business_assertions_passed': sum(c['passed'] for c in checks),
+               'http_requests_in_reference_scope': sum((r['method'], r['operation_path']) in before for r in requests),
+               'historical_out_of_scope_requests': sum((r['method'], r['operation_path']) not in before for r in requests),
                'business_assertions_failed': sum(not c['passed'] for c in checks), 'source_sha256': source_hashes,
                'source_sha256_format': 'parsed JSON sorted keys UTF-8; outer line endings only; raw request strings unchanged',
                'native_route_sha256': json_sha256(native),
                'document_environment_proof_sha256': json_sha256(environment) if environment else None,
-               'scope': 'HTTP coverage includes explicit negative probes; not79 successful normal workflows; Medusa not training data'}
+               'scope': 'HTTP coverage includes explicit negative probes; not all selected operations successful; historical HTTP evidence may include removed operations; Medusa not training data'}
     result = {'runtime_verification': summary, 'operations': operations}
     (REPORTS / 'medusa-demo-v9-runtime-status.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     summary_path = REPORTS / 'medusa-demo-v9-summary.json'
@@ -154,7 +156,7 @@ def audit(sync_inventory=False):
     short.setdefault('initial_api_status_counts', short['api_status_counts'])
     short['api_status_counts'] = {LABELS[k]: v for k, v in counts.items()}
     short['runtime_verification'] = summary
-    short['scope'] = 'latest79 runtime coverage below; original58-request normal flow and7 read-only probes retain separate counts'
+    short['scope'] = 'current reference-list runtime coverage below; original58-request normal flow and7 read-only probes retain separate counts'
     summary_path.write_text(json.dumps(short, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for path, rows in [(REPORTS / 'medusa-demo-v9-api-status.csv', table), (REPORTS / 'medusa-demo-v9-all-runtime-predictions.csv', predictions)]:
         with path.open('w', encoding='utf-8-sig', newline='') as f:

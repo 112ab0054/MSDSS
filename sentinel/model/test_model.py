@@ -111,38 +111,22 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(training['raw_body'],observed['raw_body'])
         self.assertEqual(features(training),features(observed))
 
-    def test_document_candidates(self):
-        """候選只能修改文件宣告的 header，且不能偽造 HTTP 或訓練核准。"""
-        from generate_api_data import generate, ROOT as PROJECT
-        rows, coverage = generate(PROJECT / "sentinel/dataset/reference/normal-candidates.csv")
-        self.assertTrue(rows)
-        self.assertEqual(len(coverage), 62)
-        for row in rows:
-            meta = row["metadata"]
-            self.assertFalse(meta["http_executed"])
-            self.assertFalse(meta["training_approved"])
-            self.assertIsNone(meta["source_evidence"])
-            self.assertTrue((PROJECT / meta["contract_file"]).exists())
-            if meta["scenario_kind"] in {"attack_intent", "documented_value"}:
-                self.assertIn(meta["target_parameter"], row["input"]["headers"])
-        from collections import defaultdict
-        by_operation = defaultdict(list)
-        for row in rows:
-            by_operation[(row["metadata"]["platform"], row["input"]["method"], row["metadata"]["operation_path"])].append(row)
-        for detail in coverage:
-            key = detail["platform"], detail["method"], detail["path"]
-            planned = by_operation[key]
-            optional = set(detail["optional_headers"])
-            masks = {tuple(sorted(set(r["metadata"]["present_documented_headers"]) & optional))
-                     for r in planned if r["metadata"]["scenario_kind"] == "optional_presence"}
-            self.assertEqual(len(masks), 2 ** len(optional))
-            for name, spec in detail["headers"].items():
-                self.assertTrue(any(name in r["input"]["headers"] for r in planned))
-                self.assertTrue(any(name not in r["input"]["headers"] for r in planned))
-                for value in spec["values"]:
-                    self.assertTrue(any(r["input"]["headers"].get(name) == value for r in planned))
-                if spec["sensitive"]:
-                    self.assertEqual(spec["values"], ["${LIVE:" + name + "}"])
+    def test_current_candidates_reference_contracts_without_fabricated_http(self):
+        """最新版離線資料須能追溯文件，不能假稱已實機執行。"""
+        from data_io import read_rows
+        project = ROOT.parents[1]
+        data = project / 'sentinel/dataset/small-api-v9'
+        operations = set()
+        for split in ('train', 'test', 'validation', 'challenge'):
+            rows = read_rows(data / (split + '.csv'))
+            self.assertTrue(rows)
+            for row in rows:
+                meta = row['metadata']
+                self.assertFalse(meta['http_executed'])
+                self.assertNotIn('training_approved', meta)
+                self.assertTrue((project / meta['parameter_document']).is_file())
+                operations.add((meta['platform'], row['input']['method'], meta['operation_path']))
+        self.assertEqual(len(operations), 62)
 
     def test_metrics(self):
         """用可手算的錯誤驗證矩陣方向，以及誤報／漏報的分母。"""

@@ -60,7 +60,7 @@ def run(group_function):
     檢查通過不是 normal 內容正確或模型有效的保證。沒有重新切分、沒有用 HTTP 狀態碼當特徵，
     也沒有依 test/validation 分數修改樹數、機率門檻或挑掉難題。
 
-    新版模式與資料：預設 data-dir 改為 small-api-v6，增加 --mode live/offline。
+    新版模式與資料：預設 data-dir 為 small-api-v9，增加 --mode live/offline。
     live 是預設模式，要求實測證據；offline 允許生成請求，但保留配對與原文格式檢查。
     offline 的輸出一律 exploratory=True、platform_http_verified=False，不能用其分數冒充 HTTP 實測。
     --allow-candidates 是原本的較寬條件試跑開關，與 --mode 不同，不能把兩者當成同一選項。

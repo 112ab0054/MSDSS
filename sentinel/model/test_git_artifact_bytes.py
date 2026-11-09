@@ -12,7 +12,7 @@ from data_io import read_rows
 from preflight import inspect_dataset
 from train import groups
 ROOT=Path(__file__).resolve().parents[2]
-DATA=ROOT/'sentinel/dataset/small-api-v6'
+DATA=ROOT/'sentinel/dataset/small-api-v9'
 
 
 class GitArtifactBytesTests(unittest.TestCase):
@@ -22,7 +22,7 @@ class GitArtifactBytesTests(unittest.TestCase):
         text=io.StringIO(newline='');writer=csv.writer(text)
         writer.writerow(['raw_body','raw_query']);writer.writerow(['line1\r\nline2\nline3','q=%0D%0A'])
         payload=text.getvalue().encode('utf-8-sig')
-        files={'sentinel/dataset/small-api-v6/train.csv':payload,
+        files={'sentinel/dataset/small-api-v9/train.csv':payload,
                'sentinel/dataset/reference/normal-candidates.csv':payload,
                'sentinel/model/SKELETON-PYTHON-LICENSE.txt':b'License\r\nparagraph\n',
                'sentinel/model/_skeleton_html_v1.py':b'# frozen\r\n'}

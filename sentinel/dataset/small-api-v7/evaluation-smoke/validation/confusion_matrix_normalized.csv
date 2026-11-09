@@ -1,4 +1,0 @@
-﻿actual/predicted,normal,sqli,xss
-normal,1.0,0.0,0.0
-sqli,0.06,0.74,0.2
-xss,0.14,0.08,0.78

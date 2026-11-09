@@ -72,13 +72,17 @@ class RuntimeStatusTests(unittest.TestCase):
         self.assertTrue(returned['business_verified'])
         self.assertEqual(returned['response_body']['return']['status'], 'requested')
 
-    def test_manifest_all79_have_honest_runtime_status(self):
+    def test_manifest_original77_have_honest_runtime_status(self):
         root = Path(__file__).resolve().parents[2]
         value = json.loads((root / 'sentinel/analysis/api-extension/medusa-holdout-inventory.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(value['operations']), 79)
+        self.assertEqual(len(value['operations']), 77)
         self.assertTrue(all(o['runtime_status'] != 'not_run' and o['runtime_http_attempted'] for o in value['operations']))
-        self.assertEqual(sum(value['runtime_verification']['status_counts'].values()), 79)
+        self.assertEqual(sum(value['runtime_verification']['status_counts'].values()), 77)
         self.assertEqual(value['runtime_verification']['not_run'], 0)
+        from reconcile_medusa_user_document import parse_document
+        source = (root / 'Medusa_77_API_填寫參數.md').read_text(encoding='utf-8')
+        self.assertEqual({(o['method'], o['path']) for o in value['operations']}, set(parse_document(source)))
+        self.assertIn(('POST', '/auth/customer/{auth_provider}/reset-password'), set(parse_document(source)))
 
     def test_log_import_rejects_missing_or_conflicting_observations(self):
         uid = '12345678-1234-1234-1234-123456789abc'

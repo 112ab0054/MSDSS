@@ -54,7 +54,6 @@ POST,/store/orders/{id}/transfer/decline,passed,成功,True,True,False,2,"200,40
 POST,/store/orders/{id}/transfer/request,passed,成功,True,True,False,3,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/payment-collections,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/payment-collections/{id}/payment-sessions,passed,成功,True,True,False,6,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/store/payment-collections/{id}/payment-sessions/{session_id},unavailable_feature,版本／功能差異,True,False,False,4,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
 GET,/store/payment-providers,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/product-categories,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/product-categories/{id},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
@@ -72,7 +71,6 @@ GET,/store/regions/{id},passed,成功,True,True,False,4,200,真實HTTP與業務�
 GET,/store/return-reasons,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/return-reasons/{id},passed,成功,True,True,False,3,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/returns,passed,成功,True,True,False,2,"200,400",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/store/search,unavailable_feature,版本／功能差異,True,False,True,1,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
 GET,/store/shipping-options,passed,成功,True,True,False,8,"200,400",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/shipping-options/{id}/calculate,blocked_prerequisite,前置條件不足,True,False,False,1,500,文件必填cart_id與真實option ID已送；實際使用flat／manual_manual，原生canCalculate=false且calculatePrice明確拋錯。HTTP500保留，正向驗收需支援動態計價的提供者，不是缺data參數
 GET,/store/store-credit-accounts,unavailable_feature,版本／功能差異,True,False,True,1,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
