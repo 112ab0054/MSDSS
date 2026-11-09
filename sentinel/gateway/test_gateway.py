@@ -12,6 +12,7 @@ import sys
 import threading
 from types import SimpleNamespace
 import unittest
+import uuid
 from unittest.mock import patch
 
 import httpx
@@ -54,6 +55,53 @@ async def running(handler, predictor=None, **environment):
 
 
 class GatewayTests(unittest.IsolatedAsyncioTestCase):
+    async def test_generated_request_ids_match_logs_upstream_and_response(self):
+        """自動編號逐筆不同，且推論、後端與回應三者能對應；不加入模型特徵。"""
+        observed, model = [], Predictor()
+        def backend(request):
+            observed.append(request)
+            return reply(headers={'X-Request-ID': 'upstream-other-id'})
+        with self.assertLogs(gateway.log, level='INFO') as logs:
+            async with running(backend, model) as client:
+                responses = [await client.get('/store/products') for _ in range(2)]
+        ids = [r.headers['x-request-id'] for r in responses]
+        self.assertNotEqual(*ids)
+        for identifier, wire in zip(ids, observed):
+            self.assertEqual(str(uuid.UUID(identifier)), identifier)
+            self.assertEqual(wire.headers.get_list('x-request-id'), [identifier])
+            self.assertIn('request_id=' + identifier, str(logs.output))
+        self.assertEqual(model.samples[0], model.samples[1])
+        self.assertNotIn('x-request-id', model.samples[0]['headers'])
+
+    async def test_request_id_preserved_or_replaced_including_unselected_api(self):
+        """合法值沿用；非法及重複值重建；清單外 API 也能追蹤但不推論。"""
+        observed = []
+        def backend(request):
+            observed.append(request)
+            return reply()
+        valid = '11111111-1111-4111-8111-111111111111'
+        async with running(backend) as client:
+            for headers in ({'X-Request-ID': valid}, {'X-Request-ID': 'bad-value'},
+                            [('X-Request-ID', valid), ('X-Request-ID', valid)]):
+                response = await client.get('/not-selected', headers=headers)
+                identifier = response.headers['x-request-id']
+                uuid.UUID(identifier)
+                self.assertEqual(observed[-1].headers.get_list('x-request-id'), [identifier])
+                if headers == {'X-Request-ID': valid}:
+                    self.assertEqual(identifier, valid)
+                else:
+                    self.assertNotEqual(identifier, valid)
+
+    async def test_upstream_errors_include_request_id(self):
+        """連線失敗／逾時仍回傳同一編號，方便查詢失敗請求。"""
+        for error, status in ((httpx.ConnectError, 502), (httpx.ReadTimeout, 504)):
+            def backend(request):
+                raise error('test upstream error', request=request)
+            async with running(backend) as client:
+                response = await client.get('/store/products')
+                self.assertEqual(response.status_code, status)
+                uuid.UUID(response.headers['x-request-id'])
+
     async def test_real_local_http_transport_preserves_target_and_cookie_isolation(self):
         """真正經過本機 TCP／HTTPX 傳輸，避免只靠 MockTransport 判斷原文保留。"""
         observed, payload = [], gzip.compress(b'local transport passed')

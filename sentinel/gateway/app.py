@@ -17,6 +17,7 @@ import os
 from pathlib import Path
 import re
 import sys
+import uuid
 from urllib.parse import parse_qs
 
 import httpx
@@ -138,16 +139,14 @@ def analyze(predictor, request, body):
         # 三類順序為 normal／sqli／xss，取最大機率的類別（argmax），沒有另加 0.5 或 0.9 門檻。
         # 這裡不修改原請求，也不依結果產生封鎖回應。
         result = predictor.predict(model_request(request, body))
-        # 展示驗證只記可比對的UUID，不把任意用戶文字或憑證帶進日誌。
-        request_id = request.headers.get('x-request-id', '')
-        if not re.fullmatch(r'[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}', request_id):
-            request_id = 'unavailable'
+        # proxy 入口已驗證／產生 UUID；從 state 取值，不需修改模型看到的原始 headers。
+        request_id = request.state.request_id
         # 只記判斷與來源標記；offline 不冒充實測，機率也不是已驗證的正確率。
         log.info('prediction label=%s mode=%s exploratory=%s request_id=%s probabilities=%s',
                  result['label'], result.get('mode', 'unspecified'), result['exploratory'],
                  request_id, json.dumps(result.get('probabilities', {}), sort_keys=True))
     except Exception as error:
-        log.warning('prediction_failed type=%s', type(error).__name__)
+        log.warning('prediction_failed request_id=%s type=%s', request.state.request_id, type(error).__name__)
 
 
 @asynccontextmanager
@@ -216,6 +215,15 @@ app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None
 @app.api_route('/{path:path}', methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'])
 async def proxy(request: Request, path: str):
     """選定的 79 操作先分析再轉送，其餘直接轉送；是否成功由 Medusa 決定。"""
+    # 每筆請求先取得追蹤編號。只接受單一、標準連字號 UUID，避免重複 header 產生歧義。
+    # 沒帶、格式錯誤或帶多個值，都重新產生 UUID；不把任意用戶文字當成日誌編號。
+    identifiers = request.headers.getlist('x-request-id')
+    incoming_id = identifiers[0] if len(identifiers) == 1 else ''
+    request.state.request_id = incoming_id if re.fullmatch(
+        r'[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}', incoming_id
+    ) else str(uuid.uuid4())
+    # 只放在 request.state，新增 UUID 不加入模型副本，避免影響現有模型特徵與分數。
+    # 呼叫端原本帶的 headers 仍按既有模型輸入規則處理，不修改訓練／推論契約。
     # 取原始路徑 bytes；框架沒提供時才退回 URL.path。這個 path 用來判定是否屬於 79 操作。
     raw_path = request.scope.get('raw_path', request.url.path.encode())
     body, state = await request.body(), request.app.state  # 請求本文目前整段讀入記憶體。
@@ -243,16 +251,18 @@ async def proxy(request: Request, path: str):
                 # 超時仍向下轉送；背景工作未結束時，新請求不再新增分析工作。
                 await asyncio.wait_for(asyncio.shield(task), state.analysis_timeout)
             except asyncio.TimeoutError:
-                log.warning('analysis_timeout: 繼續轉送，背景推論仍在執行')
+                log.warning('analysis_timeout: request_id=%s 繼續轉送，背景推論仍在執行', request.state.request_id)
         else:
-            log.warning('analysis_busy: 本筆略過分析，繼續轉送')
+            log.warning('analysis_busy: request_id=%s 本筆略過分析，繼續轉送', request.state.request_id)
     # 不論是否偵測、模型成功或失敗，都走到轉送區。query 保留重複參數、百分比編碼與順序。
     query = request.scope['query_string']
     # 組成 Medusa 的目標 URL，使用原始 path/query，而不是已遮蔽的模型副本。
     target = ForwardURL(state.upstream, raw_path + (b'?' + query if query else b''))
     # 保留原始 Authorization／Cookie 供後端認證，僅移除逐段標頭及由 HTTPX 重建的 Host/Content-Length。
     headers = [(k, v) for k, v in forwarded_headers(request.headers.raw)
-               if k.lower() not in {b'host', b'content-length'}]
+               if k.lower() not in {b'host', b'content-length', b'x-request-id'}]
+    # 轉送時只保留入口決定的一個編號；即使 Connection 要求移除它，也重新補上。
+    headers.append((b'x-request-id', request.state.request_id.encode('ascii')))
     try:
         # 直接建立 Request，不合併共用 client 的 CookieJar，避免不同使用者 Cookie 互相串用。
         # outgoing 是要送給 Medusa 的 HTTP 請求，方法、header、body 都來自原始進站請求。
@@ -264,10 +274,13 @@ async def proxy(request: Request, path: str):
         # Medusa 的 200、401、404、422、500 等狀態碼原樣回給網站，不拿來改寫模型標籤。
         response = StreamingResponse(response_body(upstream), status_code=upstream.status_code)
         # 原樣保留可轉送的重複回應 header，例如多個 Set-Cookie，讓各瀏覽器收到自己的登入 Cookie。
-        response.raw_headers = forwarded_headers(upstream.headers.raw)
+        response.raw_headers = [(k, v) for k, v in forwarded_headers(upstream.headers.raw)
+                                if k.lower() != b'x-request-id']
+        # 同名 header 由 gateway 統一設定，避免上游另產生編號導致日誌與回應對不起來。
+        response.headers['x-request-id'] = request.state.request_id
         return response
     # 只有 gateway 與後端的連線／傳輸失敗才在這裡產生 504 或 502；正常收到的後端錯誤照實回傳。
     except httpx.TimeoutException:
-        return Response('Upstream timeout', status_code=504)
+        return Response('Upstream timeout', status_code=504, headers={'X-Request-ID': request.state.request_id})
     except httpx.HTTPError:
-        return Response('Upstream unavailable', status_code=502)
+        return Response('Upstream unavailable', status_code=502, headers={'X-Request-ID': request.state.request_id})

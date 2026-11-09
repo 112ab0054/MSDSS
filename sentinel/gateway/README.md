@@ -120,6 +120,8 @@ python -m unittest discover -s sentinel/gateway -p 'test_*.py'
 
 使用者Colab v9模型已取代專案舊權重；明確入口http://127.0.0.1:18085，連到真實Medusa2.21.0 http://127.0.0.1:9100。沒有把原Mirage網站切流。主要購物建單36項斷言通過，正常意圖58筆有3筆誤判，仍只告警。79項API狀態與版本／Cookie限制及重跑方式見[教授展示驗證](../analysis/Medusa教授展示驗證v9.md)。
 
-gateway推論日誌新增request_id，僅允許UUID格式，其他內容記unavailable；不改請求／特徵或回傳資料，用於將實際線上分數與遮蔽HTTP證據比對。
+gateway 在每筆請求入口讀取 `X-Request-ID`：單一且符合標準連字號 UUID 格式就沿用，缺少、非法或重複則自動產生 UUID。相同編號用於推論日誌、轉送 Medusa 的 header 及回應 header；清單外 API、上游 502／504 也有編號。此編號用於追蹤，不代表已完成模型分析，需同時查看 prediction／busy／timeout 紀錄。
+
+新增編號只存入 request.state，不加入模型副本，避免 gateway 新增的隨機 UUID 改變特徵及分數；呼叫端原本提供的 headers 仍依既有模型輸入規則處理。此變更沒有修改特徵程式、模型或訓練契約。Postman 可直接從回應 Headers 的 `X-Request-ID` 找到相同日誌；跨域瀏覽器 JavaScript 若需讀此 header，仍須在上游 CORS 設定 expose headers，這次沒有修改 CORS。
 
 最新[依原API文件逐項復核32項](../analysis/Medusa依原API文件逐項復核.md)，包含原文件快照、參數檢查、設定／資料庫／原生實作證據與HTTPS補測。未修改原API文件或模型。
