@@ -2,7 +2,7 @@
 
 Sentinel 是本專案規劃中的 XGBoost 電商 API 請求分類模組。目前已有契約、API 參數文件與研究計畫，尚無正式訓練資料、模型或線上推論服務。
 
-目前離線實驗為small-api-v6：train702／test150／Sylius validation150／challenge96，共1098筆；特徵v6修正Accept萬用值誤計SQL註解，原文與保留題不變。完整版本與問題歷程見[白話紀錄](analysis/訓練版本與問題處理白話紀錄.md)。Colab 入口與限制見 [模型說明](model/README.md)；本次沒有新增平台HTTP證據。
+目前離線資料為small-api-v9：train702／test150／Sylius validation150／challenge96，共1098筆；依文件修正正常控制填值，特徵仍v6。舊資料保留，新請求與ID有追溯映射，不能宣稱與舊保留題bytes相同。完整版本與問題歷程見[白話紀錄](analysis/訓練版本與問題處理白話紀錄.md)。Colab 入口與限制見 [模型說明](model/README.md)；本次新增Shopware語言清單與context切換的HTTP證據；1098筆分類資料本身仍offline。
 
 ## 現行範圍
 
@@ -30,3 +30,7 @@ Sentinel 是本專案規劃中的 XGBoost 電商 API 請求分類模組。目前
 三份 API_parameters.md 已有人工修訂，不可用舊產生器整份覆寫。歷史重建工具與當時的保留／驗證報告已移入 [歷史區](analysis/history/README.md)，不能視為目前文件的通過證明。
 
 Medusa 現行規格為 79 操作；舊 77 操作參數文件保留，差異見 [Medusa 文件狀態](../MSDSS_部署核對紀錄.md)。
+
+當前v8用實機確認的英文／德文ID修正語言多樣性，Colab套件已更新；gateway模型仍為v7，需重新訓練後再替換。詳見[語言查核](analysis/Shopware語言ID查核.md)。
+
+當前v9按原API文件、Bagisto／Sylius資料庫選項與參數含意多樣化，未部署應用或宣稱整批HTTP已執行；詳見[參數語義紀錄](analysis/參數語義與資料多樣性v9.md)。Colab已改v9，需重訓；gateway仍v7。

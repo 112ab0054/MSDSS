@@ -1,0 +1,4 @@
+﻿class,precision,recall,f1-score,support,specificity,false_positive_rate,false_negative_rate
+normal,0.6621621621621622,0.98,0.7903225806451613,50.0,0.75,0.25,0.02
+sqli,1.0,0.58,0.7341772151898734,50.0,1.0,0.0,0.42
+xss,0.9361702127659575,0.88,0.9072164948453608,50.0,0.97,0.03,0.12

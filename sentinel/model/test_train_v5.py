@@ -70,7 +70,7 @@ class TrainingAugmentationTests(unittest.TestCase):
             (tmp/'provenance.json').write_text(json.dumps(saved),encoding='utf-8')
             _,_,_,_,report=inspect_dataset(tmp,groups,offline=True)
             self.assertFalse(report['ready'])
-            self.assertIn('v5保留集與凍結指紋不符：test',report['errors'])
+            self.assertIn('保留集與凍結指紋不符：test',report['errors'])
 
     def test_candidate_matching_existing_skeleton_is_rejected(self):
         candidate={'class':'sqli','value':SQL[0],'family':'sqli.train-v5-curated','template':'reserved','source':'reserved'}

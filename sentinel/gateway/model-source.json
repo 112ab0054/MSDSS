@@ -1,14 +1,14 @@
 {
-  "source": "local_fixed_train_only_v6_accept_fix",
-  "dataset": "sentinel/dataset/small-api-v6",
+  "source": "local_fixed_train_only_v7_document_values",
+  "dataset": "sentinel/dataset/small-api-v7",
   "feature_version": 6,
-  "model_sha256": "248b222b9569eb5722afdcde5937480da52021d5d6d62efa4bd1c6d98a9bf4a0",
-  "baseline_model_sha256": "f191cdc17704a9e20291c674e03f0920b5236ca17a621a1585c90f268e2a6e77",
-  "original_bundle_manifest_sha256": "2b3028dd67e5cbf77a8a52f6b47bb3a98d184304ee602946c52ede96dfc8ac09",
+  "model_sha256": "c1c6f754ee5610c6e49e1d65f6f73059b224e45de539ba1921cc829d57cad332",
+  "baseline_model_sha256": "248b222b9569eb5722afdcde5937480da52021d5d6d62efa4bd1c6d98a9bf4a0",
+  "original_bundle_manifest_sha256": "a101406600fe63c3ccd9bf7a0c858b8cf949c8fac911a49c5559934f8ea025bc",
   "model_retrained": true,
   "manual_weight_edit": false,
   "mode": "offline",
   "exploratory": true,
   "platform_http_verified": false,
-  "note": "使用者授權修正Accept語意後，以固定參數僅用train重訓；舊Colab v5模型保存在sentinel/model/history/accept-v5-baseline/gateway-model。"
+  "note": "按文件修正正常值後固定參數重訓；舊v6模型保存在history/document-values-before，未用Medusa資料訓練，未宣稱實機業務成功。"
 }

@@ -1,6 +1,6 @@
 # MSDSS：Colab 訓練與跨系統推論
 
-目前版本：資料 small-api-v6、特徵 v6（2402 維）。使用 [msdss訓練.ipynb](msdss訓練.ipynb) 與 [dataset.zip](dataset.zip)，重新上傳 Colab 並從第一格執行。預設 offline，沒有人工審核門檻。這是離線生成請求分類，不宣稱平台已實測或攻擊成功。
+目前版本：資料 small-api-v9（依資料庫與參數含意多樣化，含攻擊面向欄）、特徵 v6（2402 維）。使用 [msdss訓練.ipynb](msdss訓練.ipynb) 與 [dataset.zip](dataset.zip)，重新上傳 Colab 並從第一格執行。預設 offline，沒有人工審核門檻。這是離線生成請求分類，不宣稱平台已實測或攻擊成功。
 
 ## 資料配置
 
@@ -13,7 +13,7 @@
 
 v5之後另增加train108筆傳輸header配對，主實驗702/150/150，比例不是60/20/20；challenge96另計，共1098筆，不使用Medusa。新增每類四位置各12筆，保留集CSV與骨架完全不變。
 
-三份人工 API 文件原文不改；62操作、620個「API＋位置＋欄位」皆有覆蓋。攻擊只替換文件宣告的非敏感欄位。正常字面程式碼內容只放搜尋／備註等合適自由文字欄，不放認證／語言／貨幣欄。詳細來源、限制、欄位與抽樣見 [資料說明](../dataset/small-api-v6/README.md)。
+三份人工 API 文件原文不改；62操作、620個「API＋位置＋欄位」皆有狀態紀錄，選填／未綁定者有原因。攻擊只替換文件宣告的非敏感欄位。正常字面程式碼內容只放搜尋／備註等合適自由文字欄，不放認證／語言／貨幣欄。詳細來源、限制、欄位與抽樣見 [資料說明](../dataset/small-api-v9/README.md)。
 
 新版先以保守片段語法與近似原文建立全域骨架關聯，再分集合。字串／數字、console輸出別名、大小寫與常見編碼變體保守同組，正常對照依配對留在同集合。外部骨架保留Sylius驗證，本地重疊者排除；原challenge骨架與其兄弟保留challenge，其餘固定雜湊分配。家族可共享，骨架不可跨。規則不是完整SQL/JS解析器，不能保證所有語意近似都抓到。詳見 [骨架分組紀錄](../analysis/skeleton-split-v4.md)。
 
@@ -45,13 +45,13 @@ v5訓練補強已新增24種無註解SQL原文、24種XSS原文與48筆文件允
 
 ```sh
 python -m pip install -r sentinel/model/requirements.txt
-python sentinel/model/train.py --mode offline --data-dir sentinel/dataset/small-api-v6 --output NEW_RUN_DIRECTORY
+python sentinel/model/train.py --mode offline --data-dir sentinel/dataset/small-api-v9 --output NEW_RUN_DIRECTORY
 ```
 
 重新打包（新檔名）：
 
 ```sh
-python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v6 --output dataset_new.zip
+python sentinel/model/prepare_colab.py --data-dir sentinel/dataset/small-api-v9 --output dataset_new.zip
 ```
 
 程式使用明確分割、不重新洗牌。v4允許家族共享，但骨架群、原始攻擊字串、模板、操作與正常／攻擊配對不可跨集合；訓練前重算目錄及實際資料，不只信任ID。challenge是保留語境群，不宣稱家族完全未見。真實session、來源證據及原文重複也不得跨集合。歷史參考值不是實際session；不虛構已採集旗標。
@@ -98,3 +98,21 @@ python predict.py request.json
 全部846筆與CSV、骨架ID和集合配置保持原樣。107筆骨架目錄與846筆樣本已在Python3.11.3及3.13.13重算一致，跨集合篡改仍會被攔截。這是Windows兩個Python版本的驗證，不冒充已在Colab／Linux服務上實測。細節見 ../dataset/small-api-v4/parser-compatibility.json。
 
 重新上傳最新dataset.zip，並從Notebook第一格重新解壓；只重跑檢查格會繼續使用Colab內的舊程式。解析器與授權檔會隨ZIP攜帶，推論特徵與模型格式不變。
+
+CSV新增「攻擊面向」顯示欄，多標籤以「；」分隔，normal為不適用。面向是可見語法與既有family的輔助判讀，不是攻擊成功證據。訓練仍只讀完整紀錄JSON，欄位不作模型輸入；原v6檔案保留，來源SHA與閱讀版SHA分開記錄，不需重訓。規則與計數見dataset/small-api-v6-annotated/attack-facets-rules.json。
+
+資料v7依文件修正normal格式與語義，含111筆真實歷史語言ID、不同正常文字與正確壓縮criteria；未綁定的選填值另記省略原因，592個文件位置在normal出現，不能宣稱620全填。特徵仍v6，但權重已按新資料重訓；gateway與inference-v7.zip為新版，舊v6套件存history/document-values-before。完整歷程見白話紀錄，當前結果不再沿用舊資料分數。
+
+
+## v8：實機語言值
+
+Shopware 6.7.15.1 已查得英文與德文，逐個以語言header查context，確認實際語言鏈與locale。111筆normal分成英文54、德文57，配對的攻擊資料同步背景語言，攻擊目標是語言本身時保留原攻擊。共145筆請求輸入改變，1098筆總數與骨架／切分不變；Sylius validation CSV bytes不變。
+
+當前Colab ZIP與Notebook已用v8，舊v7套件保存在history/language-v7-baseline。訓練程式／特徵／模型參數沿用，檢查程式新增語言證據驗證。**需重新上傳dataset.zip並訓練；gateway與inference-v7仍是舊v7模型，本次未覆蓋權重。** 語言查詢成功不代表整批資料已實機送出。
+
+
+## v9：依參數含意多樣化
+
+當前ZIP、Notebook與預設資料集用small-api-v9。依使用者要求只查既有Bagisto／Sylius資料庫，不部署應用。Bagisto資料庫只有en；Sylius8種語言都入離線目錄範圍資料，但目前通路只分配en_US，不能稱全部HTTP可用。國家、城市、郵遞區號、州省及巢狀地址同步產生；公司、人名、電話、搜尋、備註等按含意多樣化。有至少3筆的語義自由文字欄位皆至少3種值；少量欄位不複製湊數。1098筆、標籤、切分與攻擊骨架保留，1036筆欄位修正紀錄、794筆input改變。
+
+所有集合含明確填值修正，須重新訓練，不能沿用v8分數。gateway與inference-v7權重未改。完整數量與範圍見[參數語義紀錄](../analysis/參數語義與資料多樣性v9.md)，逐欄計數見small-api-v9/free-text-diversity.csv。

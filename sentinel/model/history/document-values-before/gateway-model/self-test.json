@@ -1,0 +1,71 @@
+[
+  {
+    "request": {
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "raw_query": "",
+      "query": {},
+      "headers": {
+        "Accept": "application/json",
+        "X-STOREFRONT-KEY": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "default",
+        "X-Currency": "USD"
+      },
+      "body": null,
+      "raw_body": "",
+      "path_parameters": {}
+    },
+    "probabilities": [
+      0.9072238206863403,
+      0.032175857573747635,
+      0.06060030683875084
+    ]
+  },
+  {
+    "request": {
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "raw_query": "",
+      "query": {},
+      "headers": {
+        "Accept": "application/json",
+        "X-STOREFRONT-KEY": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "' AND LENGTH('local')=4 -- ",
+        "X-Currency": "USD"
+      },
+      "body": null,
+      "raw_body": "",
+      "path_parameters": {}
+    },
+    "probabilities": [
+      0.010088321752846241,
+      0.9815037250518799,
+      0.008407989516854286
+    ]
+  },
+  {
+    "request": {
+      "method": "GET",
+      "path": "/checkout-shipping-methods",
+      "raw_query": "",
+      "query": {},
+      "headers": {
+        "Accept": "application/json",
+        "X-STOREFRONT-KEY": "[REDACTED]",
+        "X-Locale": "en",
+        "X-Channel": "\" autofocus onfocus=\"console.info('field')\" data-note=\"",
+        "X-Currency": "USD"
+      },
+      "body": null,
+      "raw_body": "",
+      "path_parameters": {}
+    },
+    "probabilities": [
+      0.01320877019315958,
+      0.018364200368523598,
+      0.9684270620346069
+    ]
+  }
+]

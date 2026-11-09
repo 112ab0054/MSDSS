@@ -1,0 +1,19 @@
+{
+  "installed_languages": [
+    {
+      "id": "01a162e6e938738db9be38797c416637",
+      "name": "Deutsch",
+      "locale": "de-DE",
+      "parent_id": null,
+      "assigned_to_channel": 1
+    },
+    {
+      "id": "2fbb5fe2e29a4d70aa5854ce7ce3e20b",
+      "name": "English",
+      "locale": "en-GB",
+      "parent_id": null,
+      "assigned_to_channel": 1
+    }
+  ],
+  "locale_catalog_count": 252
+}

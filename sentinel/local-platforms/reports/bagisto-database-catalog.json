@@ -1,0 +1,3982 @@
+{
+  "platform": "bagisto",
+  "checked_at": "2026-11-09T11:05:39.472789+00:00",
+  "read_only": true,
+  "scope": "database catalog; channel assignments listed separately; no HTTP or full business verification",
+  "languages": [
+    {
+      "id": "1",
+      "code": "en",
+      "name": "English",
+      "direction": "ltr"
+    }
+  ],
+  "channel_languages": [
+    {
+      "channel_code": "default",
+      "locale_code": "en"
+    }
+  ],
+  "countries": [
+    {
+      "code": "AC",
+      "name": "Ascension Island"
+    },
+    {
+      "code": "AD",
+      "name": "Andorra"
+    },
+    {
+      "code": "AE",
+      "name": "United Arab Emirates"
+    },
+    {
+      "code": "AF",
+      "name": "Afghanistan"
+    },
+    {
+      "code": "AG",
+      "name": "Antigua & Barbuda"
+    },
+    {
+      "code": "AI",
+      "name": "Anguilla"
+    },
+    {
+      "code": "AL",
+      "name": "Albania"
+    },
+    {
+      "code": "AM",
+      "name": "Armenia"
+    },
+    {
+      "code": "AO",
+      "name": "Angola"
+    },
+    {
+      "code": "AQ",
+      "name": "Antarctica"
+    },
+    {
+      "code": "AR",
+      "name": "Argentina"
+    },
+    {
+      "code": "AS",
+      "name": "American Samoa"
+    },
+    {
+      "code": "AT",
+      "name": "Austria"
+    },
+    {
+      "code": "AU",
+      "name": "Australia"
+    },
+    {
+      "code": "AW",
+      "name": "Aruba"
+    },
+    {
+      "code": "AX",
+      "name": "Åland Islands"
+    },
+    {
+      "code": "AZ",
+      "name": "Azerbaijan"
+    },
+    {
+      "code": "BA",
+      "name": "Bosnia & Herzegovina"
+    },
+    {
+      "code": "BB",
+      "name": "Barbados"
+    },
+    {
+      "code": "BD",
+      "name": "Bangladesh"
+    },
+    {
+      "code": "BE",
+      "name": "Belgium"
+    },
+    {
+      "code": "BF",
+      "name": "Burkina Faso"
+    },
+    {
+      "code": "BG",
+      "name": "Bulgaria"
+    },
+    {
+      "code": "BH",
+      "name": "Bahrain"
+    },
+    {
+      "code": "BI",
+      "name": "Burundi"
+    },
+    {
+      "code": "BJ",
+      "name": "Benin"
+    },
+    {
+      "code": "BL",
+      "name": "St. Barthélemy"
+    },
+    {
+      "code": "BM",
+      "name": "Bermuda"
+    },
+    {
+      "code": "BN",
+      "name": "Brunei"
+    },
+    {
+      "code": "BO",
+      "name": "Bolivia"
+    },
+    {
+      "code": "BQ",
+      "name": "Caribbean Netherlands"
+    },
+    {
+      "code": "BR",
+      "name": "Brazil"
+    },
+    {
+      "code": "BS",
+      "name": "Bahamas"
+    },
+    {
+      "code": "BT",
+      "name": "Bhutan"
+    },
+    {
+      "code": "BW",
+      "name": "Botswana"
+    },
+    {
+      "code": "BY",
+      "name": "Belarus"
+    },
+    {
+      "code": "BZ",
+      "name": "Belize"
+    },
+    {
+      "code": "CA",
+      "name": "Canada"
+    },
+    {
+      "code": "CC",
+      "name": "Cocos (Keeling) Islands"
+    },
+    {
+      "code": "CD",
+      "name": "Congo - Kinshasa"
+    },
+    {
+      "code": "CF",
+      "name": "Central African Republic"
+    },
+    {
+      "code": "CG",
+      "name": "Congo - Brazzaville"
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland"
+    },
+    {
+      "code": "CI",
+      "name": "Côte d’Ivoire"
+    },
+    {
+      "code": "CK",
+      "name": "Cook Islands"
+    },
+    {
+      "code": "CL",
+      "name": "Chile"
+    },
+    {
+      "code": "CM",
+      "name": "Cameroon"
+    },
+    {
+      "code": "CN",
+      "name": "China"
+    },
+    {
+      "code": "CO",
+      "name": "Colombia"
+    },
+    {
+      "code": "CR",
+      "name": "Costa Rica"
+    },
+    {
+      "code": "CU",
+      "name": "Cuba"
+    },
+    {
+      "code": "CV",
+      "name": "Cape Verde"
+    },
+    {
+      "code": "CW",
+      "name": "Curaçao"
+    },
+    {
+      "code": "CX",
+      "name": "Christmas Island"
+    },
+    {
+      "code": "CY",
+      "name": "Cyprus"
+    },
+    {
+      "code": "CZ",
+      "name": "Czechia"
+    },
+    {
+      "code": "DE",
+      "name": "Germany"
+    },
+    {
+      "code": "DG",
+      "name": "Diego Garcia"
+    },
+    {
+      "code": "DJ",
+      "name": "Djibouti"
+    },
+    {
+      "code": "DK",
+      "name": "Denmark"
+    },
+    {
+      "code": "DM",
+      "name": "Dominica"
+    },
+    {
+      "code": "DO",
+      "name": "Dominican Republic"
+    },
+    {
+      "code": "DZ",
+      "name": "Algeria"
+    },
+    {
+      "code": "EA",
+      "name": "Ceuta & Melilla"
+    },
+    {
+      "code": "EC",
+      "name": "Ecuador"
+    },
+    {
+      "code": "EE",
+      "name": "Estonia"
+    },
+    {
+      "code": "EG",
+      "name": "Egypt"
+    },
+    {
+      "code": "EH",
+      "name": "Western Sahara"
+    },
+    {
+      "code": "ER",
+      "name": "Eritrea"
+    },
+    {
+      "code": "ES",
+      "name": "Spain"
+    },
+    {
+      "code": "ET",
+      "name": "Ethiopia"
+    },
+    {
+      "code": "EZ",
+      "name": "Eurozone"
+    },
+    {
+      "code": "FI",
+      "name": "Finland"
+    },
+    {
+      "code": "FJ",
+      "name": "Fiji"
+    },
+    {
+      "code": "FK",
+      "name": "Falkland Islands"
+    },
+    {
+      "code": "FM",
+      "name": "Micronesia"
+    },
+    {
+      "code": "FO",
+      "name": "Faroe Islands"
+    },
+    {
+      "code": "FR",
+      "name": "France"
+    },
+    {
+      "code": "GA",
+      "name": "Gabon"
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "code": "GD",
+      "name": "Grenada"
+    },
+    {
+      "code": "GE",
+      "name": "Georgia"
+    },
+    {
+      "code": "GF",
+      "name": "French Guiana"
+    },
+    {
+      "code": "GG",
+      "name": "Guernsey"
+    },
+    {
+      "code": "GH",
+      "name": "Ghana"
+    },
+    {
+      "code": "GI",
+      "name": "Gibraltar"
+    },
+    {
+      "code": "GL",
+      "name": "Greenland"
+    },
+    {
+      "code": "GM",
+      "name": "Gambia"
+    },
+    {
+      "code": "GN",
+      "name": "Guinea"
+    },
+    {
+      "code": "GP",
+      "name": "Guadeloupe"
+    },
+    {
+      "code": "GQ",
+      "name": "Equatorial Guinea"
+    },
+    {
+      "code": "GR",
+      "name": "Greece"
+    },
+    {
+      "code": "GS",
+      "name": "South Georgia & South Sandwich Islands"
+    },
+    {
+      "code": "GT",
+      "name": "Guatemala"
+    },
+    {
+      "code": "GU",
+      "name": "Guam"
+    },
+    {
+      "code": "GW",
+      "name": "Guinea-Bissau"
+    },
+    {
+      "code": "GY",
+      "name": "Guyana"
+    },
+    {
+      "code": "HK",
+      "name": "Hong Kong SAR China"
+    },
+    {
+      "code": "HN",
+      "name": "Honduras"
+    },
+    {
+      "code": "HR",
+      "name": "Croatia"
+    },
+    {
+      "code": "HT",
+      "name": "Haiti"
+    },
+    {
+      "code": "HU",
+      "name": "Hungary"
+    },
+    {
+      "code": "IC",
+      "name": "Canary Islands"
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland"
+    },
+    {
+      "code": "IL",
+      "name": "Israel"
+    },
+    {
+      "code": "IM",
+      "name": "Isle of Man"
+    },
+    {
+      "code": "IN",
+      "name": "India"
+    },
+    {
+      "code": "IO",
+      "name": "British Indian Ocean Territory"
+    },
+    {
+      "code": "IQ",
+      "name": "Iraq"
+    },
+    {
+      "code": "IR",
+      "name": "Iran"
+    },
+    {
+      "code": "IS",
+      "name": "Iceland"
+    },
+    {
+      "code": "IT",
+      "name": "Italy"
+    },
+    {
+      "code": "JE",
+      "name": "Jersey"
+    },
+    {
+      "code": "JM",
+      "name": "Jamaica"
+    },
+    {
+      "code": "JO",
+      "name": "Jordan"
+    },
+    {
+      "code": "JP",
+      "name": "Japan"
+    },
+    {
+      "code": "KE",
+      "name": "Kenya"
+    },
+    {
+      "code": "KG",
+      "name": "Kyrgyzstan"
+    },
+    {
+      "code": "KH",
+      "name": "Cambodia"
+    },
+    {
+      "code": "KI",
+      "name": "Kiribati"
+    },
+    {
+      "code": "KM",
+      "name": "Comoros"
+    },
+    {
+      "code": "KN",
+      "name": "St. Kitts & Nevis"
+    },
+    {
+      "code": "KP",
+      "name": "North Korea"
+    },
+    {
+      "code": "KR",
+      "name": "South Korea"
+    },
+    {
+      "code": "KW",
+      "name": "Kuwait"
+    },
+    {
+      "code": "KY",
+      "name": "Cayman Islands"
+    },
+    {
+      "code": "KZ",
+      "name": "Kazakhstan"
+    },
+    {
+      "code": "LA",
+      "name": "Laos"
+    },
+    {
+      "code": "LB",
+      "name": "Lebanon"
+    },
+    {
+      "code": "LC",
+      "name": "St. Lucia"
+    },
+    {
+      "code": "LI",
+      "name": "Liechtenstein"
+    },
+    {
+      "code": "LK",
+      "name": "Sri Lanka"
+    },
+    {
+      "code": "LR",
+      "name": "Liberia"
+    },
+    {
+      "code": "LS",
+      "name": "Lesotho"
+    },
+    {
+      "code": "LT",
+      "name": "Lithuania"
+    },
+    {
+      "code": "LU",
+      "name": "Luxembourg"
+    },
+    {
+      "code": "LV",
+      "name": "Latvia"
+    },
+    {
+      "code": "LY",
+      "name": "Libya"
+    },
+    {
+      "code": "MA",
+      "name": "Morocco"
+    },
+    {
+      "code": "MC",
+      "name": "Monaco"
+    },
+    {
+      "code": "MD",
+      "name": "Moldova"
+    },
+    {
+      "code": "ME",
+      "name": "Montenegro"
+    },
+    {
+      "code": "MF",
+      "name": "St. Martin"
+    },
+    {
+      "code": "MG",
+      "name": "Madagascar"
+    },
+    {
+      "code": "MH",
+      "name": "Marshall Islands"
+    },
+    {
+      "code": "MK",
+      "name": "Macedonia"
+    },
+    {
+      "code": "ML",
+      "name": "Mali"
+    },
+    {
+      "code": "MM",
+      "name": "Myanmar (Burma)"
+    },
+    {
+      "code": "MN",
+      "name": "Mongolia"
+    },
+    {
+      "code": "MO",
+      "name": "Macau SAR China"
+    },
+    {
+      "code": "MP",
+      "name": "Northern Mariana Islands"
+    },
+    {
+      "code": "MQ",
+      "name": "Martinique"
+    },
+    {
+      "code": "MR",
+      "name": "Mauritania"
+    },
+    {
+      "code": "MS",
+      "name": "Montserrat"
+    },
+    {
+      "code": "MT",
+      "name": "Malta"
+    },
+    {
+      "code": "MU",
+      "name": "Mauritius"
+    },
+    {
+      "code": "MV",
+      "name": "Maldives"
+    },
+    {
+      "code": "MW",
+      "name": "Malawi"
+    },
+    {
+      "code": "MX",
+      "name": "Mexico"
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia"
+    },
+    {
+      "code": "MZ",
+      "name": "Mozambique"
+    },
+    {
+      "code": "NA",
+      "name": "Namibia"
+    },
+    {
+      "code": "NC",
+      "name": "New Caledonia"
+    },
+    {
+      "code": "NE",
+      "name": "Niger"
+    },
+    {
+      "code": "NF",
+      "name": "Norfolk Island"
+    },
+    {
+      "code": "NG",
+      "name": "Nigeria"
+    },
+    {
+      "code": "NI",
+      "name": "Nicaragua"
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands"
+    },
+    {
+      "code": "NO",
+      "name": "Norway"
+    },
+    {
+      "code": "NP",
+      "name": "Nepal"
+    },
+    {
+      "code": "NR",
+      "name": "Nauru"
+    },
+    {
+      "code": "NU",
+      "name": "Niue"
+    },
+    {
+      "code": "NZ",
+      "name": "New Zealand"
+    },
+    {
+      "code": "OM",
+      "name": "Oman"
+    },
+    {
+      "code": "PA",
+      "name": "Panama"
+    },
+    {
+      "code": "PE",
+      "name": "Peru"
+    },
+    {
+      "code": "PF",
+      "name": "French Polynesia"
+    },
+    {
+      "code": "PG",
+      "name": "Papua New Guinea"
+    },
+    {
+      "code": "PH",
+      "name": "Philippines"
+    },
+    {
+      "code": "PK",
+      "name": "Pakistan"
+    },
+    {
+      "code": "PL",
+      "name": "Poland"
+    },
+    {
+      "code": "PM",
+      "name": "St. Pierre & Miquelon"
+    },
+    {
+      "code": "PN",
+      "name": "Pitcairn Islands"
+    },
+    {
+      "code": "PR",
+      "name": "Puerto Rico"
+    },
+    {
+      "code": "PS",
+      "name": "Palestinian Territories"
+    },
+    {
+      "code": "PT",
+      "name": "Portugal"
+    },
+    {
+      "code": "PW",
+      "name": "Palau"
+    },
+    {
+      "code": "PY",
+      "name": "Paraguay"
+    },
+    {
+      "code": "QA",
+      "name": "Qatar"
+    },
+    {
+      "code": "RE",
+      "name": "Réunion"
+    },
+    {
+      "code": "RO",
+      "name": "Romania"
+    },
+    {
+      "code": "RS",
+      "name": "Serbia"
+    },
+    {
+      "code": "RU",
+      "name": "Russia"
+    },
+    {
+      "code": "RW",
+      "name": "Rwanda"
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia"
+    },
+    {
+      "code": "SB",
+      "name": "Solomon Islands"
+    },
+    {
+      "code": "SC",
+      "name": "Seychelles"
+    },
+    {
+      "code": "SD",
+      "name": "Sudan"
+    },
+    {
+      "code": "SE",
+      "name": "Sweden"
+    },
+    {
+      "code": "SG",
+      "name": "Singapore"
+    },
+    {
+      "code": "SH",
+      "name": "St. Helena"
+    },
+    {
+      "code": "SI",
+      "name": "Slovenia"
+    },
+    {
+      "code": "SJ",
+      "name": "Svalbard & Jan Mayen"
+    },
+    {
+      "code": "SK",
+      "name": "Slovakia"
+    },
+    {
+      "code": "SL",
+      "name": "Sierra Leone"
+    },
+    {
+      "code": "SM",
+      "name": "San Marino"
+    },
+    {
+      "code": "SN",
+      "name": "Senegal"
+    },
+    {
+      "code": "SO",
+      "name": "Somalia"
+    },
+    {
+      "code": "SR",
+      "name": "Suriname"
+    },
+    {
+      "code": "SS",
+      "name": "South Sudan"
+    },
+    {
+      "code": "ST",
+      "name": "São Tomé & Príncipe"
+    },
+    {
+      "code": "SV",
+      "name": "El Salvador"
+    },
+    {
+      "code": "SX",
+      "name": "Sint Maarten"
+    },
+    {
+      "code": "SY",
+      "name": "Syria"
+    },
+    {
+      "code": "SZ",
+      "name": "Swaziland"
+    },
+    {
+      "code": "TA",
+      "name": "Tristan da Cunha"
+    },
+    {
+      "code": "TC",
+      "name": "Turks & Caicos Islands"
+    },
+    {
+      "code": "TD",
+      "name": "Chad"
+    },
+    {
+      "code": "TF",
+      "name": "French Southern Territories"
+    },
+    {
+      "code": "TG",
+      "name": "Togo"
+    },
+    {
+      "code": "TH",
+      "name": "Thailand"
+    },
+    {
+      "code": "TJ",
+      "name": "Tajikistan"
+    },
+    {
+      "code": "TK",
+      "name": "Tokelau"
+    },
+    {
+      "code": "TL",
+      "name": "Timor-Leste"
+    },
+    {
+      "code": "TM",
+      "name": "Turkmenistan"
+    },
+    {
+      "code": "TN",
+      "name": "Tunisia"
+    },
+    {
+      "code": "TO",
+      "name": "Tonga"
+    },
+    {
+      "code": "TR",
+      "name": "Turkey"
+    },
+    {
+      "code": "TT",
+      "name": "Trinidad & Tobago"
+    },
+    {
+      "code": "TV",
+      "name": "Tuvalu"
+    },
+    {
+      "code": "TW",
+      "name": "Taiwan"
+    },
+    {
+      "code": "TZ",
+      "name": "Tanzania"
+    },
+    {
+      "code": "UA",
+      "name": "Ukraine"
+    },
+    {
+      "code": "UG",
+      "name": "Uganda"
+    },
+    {
+      "code": "UM",
+      "name": "U.S. Outlying Islands"
+    },
+    {
+      "code": "US",
+      "name": "United States"
+    },
+    {
+      "code": "UY",
+      "name": "Uruguay"
+    },
+    {
+      "code": "UZ",
+      "name": "Uzbekistan"
+    },
+    {
+      "code": "VA",
+      "name": "Vatican City"
+    },
+    {
+      "code": "VC",
+      "name": "St. Vincent & Grenadines"
+    },
+    {
+      "code": "VE",
+      "name": "Venezuela"
+    },
+    {
+      "code": "VG",
+      "name": "British Virgin Islands"
+    },
+    {
+      "code": "VI",
+      "name": "U.S. Virgin Islands"
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam"
+    },
+    {
+      "code": "VU",
+      "name": "Vanuatu"
+    },
+    {
+      "code": "WF",
+      "name": "Wallis & Futuna"
+    },
+    {
+      "code": "WS",
+      "name": "Samoa"
+    },
+    {
+      "code": "XK",
+      "name": "Kosovo"
+    },
+    {
+      "code": "YE",
+      "name": "Yemen"
+    },
+    {
+      "code": "YT",
+      "name": "Mayotte"
+    },
+    {
+      "code": "ZA",
+      "name": "South Africa"
+    },
+    {
+      "code": "ZM",
+      "name": "Zambia"
+    },
+    {
+      "code": "ZW",
+      "name": "Zimbabwe"
+    }
+  ],
+  "states": [
+    {
+      "country_code": "AT",
+      "code": "BL",
+      "default_name": "Burgenland"
+    },
+    {
+      "country_code": "AT",
+      "code": "KN",
+      "default_name": "Kärnten"
+    },
+    {
+      "country_code": "AT",
+      "code": "NO",
+      "default_name": "Niederösterreich"
+    },
+    {
+      "country_code": "AT",
+      "code": "OO",
+      "default_name": "Oberösterreich"
+    },
+    {
+      "country_code": "AT",
+      "code": "SB",
+      "default_name": "Salzburg"
+    },
+    {
+      "country_code": "AT",
+      "code": "ST",
+      "default_name": "Steiermark"
+    },
+    {
+      "country_code": "AT",
+      "code": "TI",
+      "default_name": "Tirol"
+    },
+    {
+      "country_code": "AT",
+      "code": "VB",
+      "default_name": "Vorarlberg"
+    },
+    {
+      "country_code": "AT",
+      "code": "WI",
+      "default_name": "Wien"
+    },
+    {
+      "country_code": "BR",
+      "code": "AC",
+      "default_name": "Acre"
+    },
+    {
+      "country_code": "BR",
+      "code": "AL",
+      "default_name": "Alagoas"
+    },
+    {
+      "country_code": "BR",
+      "code": "AM",
+      "default_name": "Amazonas"
+    },
+    {
+      "country_code": "BR",
+      "code": "AP",
+      "default_name": "Amapá"
+    },
+    {
+      "country_code": "BR",
+      "code": "BA",
+      "default_name": "Bahia"
+    },
+    {
+      "country_code": "BR",
+      "code": "CE",
+      "default_name": "Ceará"
+    },
+    {
+      "country_code": "BR",
+      "code": "DF",
+      "default_name": "Distrito Federal"
+    },
+    {
+      "country_code": "BR",
+      "code": "ES",
+      "default_name": "Espírito Santo"
+    },
+    {
+      "country_code": "BR",
+      "code": "GO",
+      "default_name": "Goiás"
+    },
+    {
+      "country_code": "BR",
+      "code": "MA",
+      "default_name": "Maranhão"
+    },
+    {
+      "country_code": "BR",
+      "code": "MG",
+      "default_name": "Minas Gerais"
+    },
+    {
+      "country_code": "BR",
+      "code": "MS",
+      "default_name": "Mato Grosso do Sul"
+    },
+    {
+      "country_code": "BR",
+      "code": "MT",
+      "default_name": "Mato Grosso"
+    },
+    {
+      "country_code": "BR",
+      "code": "PA",
+      "default_name": "Pará"
+    },
+    {
+      "country_code": "BR",
+      "code": "PB",
+      "default_name": "Paraíba"
+    },
+    {
+      "country_code": "BR",
+      "code": "PE",
+      "default_name": "Pernambuco"
+    },
+    {
+      "country_code": "BR",
+      "code": "PI",
+      "default_name": "Piauí"
+    },
+    {
+      "country_code": "BR",
+      "code": "PR",
+      "default_name": "Paraná"
+    },
+    {
+      "country_code": "BR",
+      "code": "RJ",
+      "default_name": "Rio de Janeiro"
+    },
+    {
+      "country_code": "BR",
+      "code": "RN",
+      "default_name": "Rio Grande do Norte"
+    },
+    {
+      "country_code": "BR",
+      "code": "RO",
+      "default_name": "Rondônia"
+    },
+    {
+      "country_code": "BR",
+      "code": "RR",
+      "default_name": "Roraima"
+    },
+    {
+      "country_code": "BR",
+      "code": "RS",
+      "default_name": "Rio Grande do Sul"
+    },
+    {
+      "country_code": "BR",
+      "code": "SC",
+      "default_name": "Santa Catarina"
+    },
+    {
+      "country_code": "BR",
+      "code": "SE",
+      "default_name": "Sergipe"
+    },
+    {
+      "country_code": "BR",
+      "code": "SP",
+      "default_name": "São Paulo"
+    },
+    {
+      "country_code": "BR",
+      "code": "TO",
+      "default_name": "Tocantins"
+    },
+    {
+      "country_code": "CA",
+      "code": "AB",
+      "default_name": "Alberta"
+    },
+    {
+      "country_code": "CA",
+      "code": "BC",
+      "default_name": "British Columbia"
+    },
+    {
+      "country_code": "CA",
+      "code": "MB",
+      "default_name": "Manitoba"
+    },
+    {
+      "country_code": "CA",
+      "code": "NB",
+      "default_name": "New Brunswick"
+    },
+    {
+      "country_code": "CA",
+      "code": "NL",
+      "default_name": "Newfoundland and Labrador"
+    },
+    {
+      "country_code": "CA",
+      "code": "NS",
+      "default_name": "Nova Scotia"
+    },
+    {
+      "country_code": "CA",
+      "code": "NT",
+      "default_name": "Northwest Territories"
+    },
+    {
+      "country_code": "CA",
+      "code": "NU",
+      "default_name": "Nunavut"
+    },
+    {
+      "country_code": "CA",
+      "code": "ON",
+      "default_name": "Ontario"
+    },
+    {
+      "country_code": "CA",
+      "code": "PE",
+      "default_name": "Prince Edward Island"
+    },
+    {
+      "country_code": "CA",
+      "code": "QC",
+      "default_name": "Quebec"
+    },
+    {
+      "country_code": "CA",
+      "code": "SK",
+      "default_name": "Saskatchewan"
+    },
+    {
+      "country_code": "CA",
+      "code": "YT",
+      "default_name": "Yukon Territory"
+    },
+    {
+      "country_code": "CH",
+      "code": "AG",
+      "default_name": "Aargau"
+    },
+    {
+      "country_code": "CH",
+      "code": "AI",
+      "default_name": "Appenzell Innerrhoden"
+    },
+    {
+      "country_code": "CH",
+      "code": "AR",
+      "default_name": "Appenzell Ausserrhoden"
+    },
+    {
+      "country_code": "CH",
+      "code": "BE",
+      "default_name": "Bern"
+    },
+    {
+      "country_code": "CH",
+      "code": "BL",
+      "default_name": "Basel-Landschaft"
+    },
+    {
+      "country_code": "CH",
+      "code": "BS",
+      "default_name": "Basel-Stadt"
+    },
+    {
+      "country_code": "CH",
+      "code": "FR",
+      "default_name": "Freiburg"
+    },
+    {
+      "country_code": "CH",
+      "code": "GE",
+      "default_name": "Genf"
+    },
+    {
+      "country_code": "CH",
+      "code": "GL",
+      "default_name": "Glarus"
+    },
+    {
+      "country_code": "CH",
+      "code": "GR",
+      "default_name": "Graubünden"
+    },
+    {
+      "country_code": "CH",
+      "code": "JU",
+      "default_name": "Jura"
+    },
+    {
+      "country_code": "CH",
+      "code": "LU",
+      "default_name": "Luzern"
+    },
+    {
+      "country_code": "CH",
+      "code": "NE",
+      "default_name": "Neuenburg"
+    },
+    {
+      "country_code": "CH",
+      "code": "NW",
+      "default_name": "Nidwalden"
+    },
+    {
+      "country_code": "CH",
+      "code": "OW",
+      "default_name": "Obwalden"
+    },
+    {
+      "country_code": "CH",
+      "code": "SG",
+      "default_name": "St. Gallen"
+    },
+    {
+      "country_code": "CH",
+      "code": "SH",
+      "default_name": "Schaffhausen"
+    },
+    {
+      "country_code": "CH",
+      "code": "SO",
+      "default_name": "Solothurn"
+    },
+    {
+      "country_code": "CH",
+      "code": "SZ",
+      "default_name": "Schwyz"
+    },
+    {
+      "country_code": "CH",
+      "code": "TG",
+      "default_name": "Thurgau"
+    },
+    {
+      "country_code": "CH",
+      "code": "TI",
+      "default_name": "Tessin"
+    },
+    {
+      "country_code": "CH",
+      "code": "UR",
+      "default_name": "Uri"
+    },
+    {
+      "country_code": "CH",
+      "code": "VD",
+      "default_name": "Waadt"
+    },
+    {
+      "country_code": "CH",
+      "code": "VS",
+      "default_name": "Wallis"
+    },
+    {
+      "country_code": "CH",
+      "code": "ZG",
+      "default_name": "Zug"
+    },
+    {
+      "country_code": "CH",
+      "code": "ZH",
+      "default_name": "Zürich"
+    },
+    {
+      "country_code": "DE",
+      "code": "BAW",
+      "default_name": "Baden-Württemberg"
+    },
+    {
+      "country_code": "DE",
+      "code": "BAY",
+      "default_name": "Bayern"
+    },
+    {
+      "country_code": "DE",
+      "code": "BER",
+      "default_name": "Berlin"
+    },
+    {
+      "country_code": "DE",
+      "code": "BRE",
+      "default_name": "Bremen"
+    },
+    {
+      "country_code": "DE",
+      "code": "BRG",
+      "default_name": "Brandenburg"
+    },
+    {
+      "country_code": "DE",
+      "code": "HAM",
+      "default_name": "Hamburg"
+    },
+    {
+      "country_code": "DE",
+      "code": "HES",
+      "default_name": "Hessen"
+    },
+    {
+      "country_code": "DE",
+      "code": "MEC",
+      "default_name": "Mecklenburg-Vorpommern"
+    },
+    {
+      "country_code": "DE",
+      "code": "NDS",
+      "default_name": "Niedersachsen"
+    },
+    {
+      "country_code": "DE",
+      "code": "NRW",
+      "default_name": "Nordrhein-Westfalen"
+    },
+    {
+      "country_code": "DE",
+      "code": "RHE",
+      "default_name": "Rheinland-Pfalz"
+    },
+    {
+      "country_code": "DE",
+      "code": "SAC",
+      "default_name": "Sachsen-Anhalt"
+    },
+    {
+      "country_code": "DE",
+      "code": "SAR",
+      "default_name": "Saarland"
+    },
+    {
+      "country_code": "DE",
+      "code": "SAS",
+      "default_name": "Sachsen"
+    },
+    {
+      "country_code": "DE",
+      "code": "SCN",
+      "default_name": "Schleswig-Holstein"
+    },
+    {
+      "country_code": "DE",
+      "code": "THE",
+      "default_name": "Thüringen"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-37",
+      "default_name": "Harjumaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-39",
+      "default_name": "Hiiumaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-44",
+      "default_name": "Ida-Virumaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-49",
+      "default_name": "Jõgevamaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-51",
+      "default_name": "Järvamaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-57",
+      "default_name": "Läänemaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-59",
+      "default_name": "Lääne-Virumaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-65",
+      "default_name": "Põlvamaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-67",
+      "default_name": "Pärnumaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-70",
+      "default_name": "Raplamaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-74",
+      "default_name": "Saaremaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-78",
+      "default_name": "Tartumaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-82",
+      "default_name": "Valgamaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-84",
+      "default_name": "Viljandimaa"
+    },
+    {
+      "country_code": "EE",
+      "code": "EE-86",
+      "default_name": "Võrumaa"
+    },
+    {
+      "country_code": "ES",
+      "code": "A Coruсa",
+      "default_name": "A Coruña"
+    },
+    {
+      "country_code": "ES",
+      "code": "Alava",
+      "default_name": "Alava"
+    },
+    {
+      "country_code": "ES",
+      "code": "Albacete",
+      "default_name": "Albacete"
+    },
+    {
+      "country_code": "ES",
+      "code": "Alicante",
+      "default_name": "Alicante"
+    },
+    {
+      "country_code": "ES",
+      "code": "Almeria",
+      "default_name": "Almeria"
+    },
+    {
+      "country_code": "ES",
+      "code": "Asturias",
+      "default_name": "Asturias"
+    },
+    {
+      "country_code": "ES",
+      "code": "Avila",
+      "default_name": "Avila"
+    },
+    {
+      "country_code": "ES",
+      "code": "Badajoz",
+      "default_name": "Badajoz"
+    },
+    {
+      "country_code": "ES",
+      "code": "Baleares",
+      "default_name": "Baleares"
+    },
+    {
+      "country_code": "ES",
+      "code": "Barcelona",
+      "default_name": "Barcelona"
+    },
+    {
+      "country_code": "ES",
+      "code": "Burgos",
+      "default_name": "Burgos"
+    },
+    {
+      "country_code": "ES",
+      "code": "Caceres",
+      "default_name": "Caceres"
+    },
+    {
+      "country_code": "ES",
+      "code": "Cadiz",
+      "default_name": "Cadiz"
+    },
+    {
+      "country_code": "ES",
+      "code": "Cantabria",
+      "default_name": "Cantabria"
+    },
+    {
+      "country_code": "ES",
+      "code": "Castellon",
+      "default_name": "Castellon"
+    },
+    {
+      "country_code": "ES",
+      "code": "Ceuta",
+      "default_name": "Ceuta"
+    },
+    {
+      "country_code": "ES",
+      "code": "Ciudad Real",
+      "default_name": "Ciudad Real"
+    },
+    {
+      "country_code": "ES",
+      "code": "Cordoba",
+      "default_name": "Cordoba"
+    },
+    {
+      "country_code": "ES",
+      "code": "Cuenca",
+      "default_name": "Cuenca"
+    },
+    {
+      "country_code": "ES",
+      "code": "Girona",
+      "default_name": "Girona"
+    },
+    {
+      "country_code": "ES",
+      "code": "Granada",
+      "default_name": "Granada"
+    },
+    {
+      "country_code": "ES",
+      "code": "Guadalajara",
+      "default_name": "Guadalajara"
+    },
+    {
+      "country_code": "ES",
+      "code": "Guipuzcoa",
+      "default_name": "Guipuzcoa"
+    },
+    {
+      "country_code": "ES",
+      "code": "Huelva",
+      "default_name": "Huelva"
+    },
+    {
+      "country_code": "ES",
+      "code": "Huesca",
+      "default_name": "Huesca"
+    },
+    {
+      "country_code": "ES",
+      "code": "Jaen",
+      "default_name": "Jaen"
+    },
+    {
+      "country_code": "ES",
+      "code": "La Rioja",
+      "default_name": "La Rioja"
+    },
+    {
+      "country_code": "ES",
+      "code": "Las Palmas",
+      "default_name": "Las Palmas"
+    },
+    {
+      "country_code": "ES",
+      "code": "Leon",
+      "default_name": "Leon"
+    },
+    {
+      "country_code": "ES",
+      "code": "Lleida",
+      "default_name": "Lleida"
+    },
+    {
+      "country_code": "ES",
+      "code": "Lugo",
+      "default_name": "Lugo"
+    },
+    {
+      "country_code": "ES",
+      "code": "Madrid",
+      "default_name": "Madrid"
+    },
+    {
+      "country_code": "ES",
+      "code": "Malaga",
+      "default_name": "Malaga"
+    },
+    {
+      "country_code": "ES",
+      "code": "Melilla",
+      "default_name": "Melilla"
+    },
+    {
+      "country_code": "ES",
+      "code": "Murcia",
+      "default_name": "Murcia"
+    },
+    {
+      "country_code": "ES",
+      "code": "Navarra",
+      "default_name": "Navarra"
+    },
+    {
+      "country_code": "ES",
+      "code": "Ourense",
+      "default_name": "Ourense"
+    },
+    {
+      "country_code": "ES",
+      "code": "Palencia",
+      "default_name": "Palencia"
+    },
+    {
+      "country_code": "ES",
+      "code": "Pontevedra",
+      "default_name": "Pontevedra"
+    },
+    {
+      "country_code": "ES",
+      "code": "Salamanca",
+      "default_name": "Salamanca"
+    },
+    {
+      "country_code": "ES",
+      "code": "Santa Cruz de Tenerife",
+      "default_name": "Santa Cruz de Tenerife"
+    },
+    {
+      "country_code": "ES",
+      "code": "Segovia",
+      "default_name": "Segovia"
+    },
+    {
+      "country_code": "ES",
+      "code": "Sevilla",
+      "default_name": "Sevilla"
+    },
+    {
+      "country_code": "ES",
+      "code": "Soria",
+      "default_name": "Soria"
+    },
+    {
+      "country_code": "ES",
+      "code": "Tarragona",
+      "default_name": "Tarragona"
+    },
+    {
+      "country_code": "ES",
+      "code": "Teruel",
+      "default_name": "Teruel"
+    },
+    {
+      "country_code": "ES",
+      "code": "Toledo",
+      "default_name": "Toledo"
+    },
+    {
+      "country_code": "ES",
+      "code": "Valencia",
+      "default_name": "Valencia"
+    },
+    {
+      "country_code": "ES",
+      "code": "Valladolid",
+      "default_name": "Valladolid"
+    },
+    {
+      "country_code": "ES",
+      "code": "Vizcaya",
+      "default_name": "Vizcaya"
+    },
+    {
+      "country_code": "ES",
+      "code": "Zamora",
+      "default_name": "Zamora"
+    },
+    {
+      "country_code": "ES",
+      "code": "Zaragoza",
+      "default_name": "Zaragoza"
+    },
+    {
+      "country_code": "FI",
+      "code": "Ahvenanmaa",
+      "default_name": "Ahvenanmaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Etelä-Karjala",
+      "default_name": "Etelä-Karjala"
+    },
+    {
+      "country_code": "FI",
+      "code": "Etelä-Pohjanmaa",
+      "default_name": "Etelä-Pohjanmaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Etelä-Savo",
+      "default_name": "Etelä-Savo"
+    },
+    {
+      "country_code": "FI",
+      "code": "Itä-Uusimaa",
+      "default_name": "Itä-Uusimaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Kainuu",
+      "default_name": "Kainuu"
+    },
+    {
+      "country_code": "FI",
+      "code": "Kanta-Häme",
+      "default_name": "Kanta-Häme"
+    },
+    {
+      "country_code": "FI",
+      "code": "Keski-Pohjanmaa",
+      "default_name": "Keski-Pohjanmaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Keski-Suomi",
+      "default_name": "Keski-Suomi"
+    },
+    {
+      "country_code": "FI",
+      "code": "Kymenlaakso",
+      "default_name": "Kymenlaakso"
+    },
+    {
+      "country_code": "FI",
+      "code": "Lappi",
+      "default_name": "Lappi"
+    },
+    {
+      "country_code": "FI",
+      "code": "Päijät-Häme",
+      "default_name": "Päijät-Häme"
+    },
+    {
+      "country_code": "FI",
+      "code": "Pirkanmaa",
+      "default_name": "Pirkanmaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Pohjanmaa",
+      "default_name": "Pohjanmaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Pohjois-Karjala",
+      "default_name": "Pohjois-Karjala"
+    },
+    {
+      "country_code": "FI",
+      "code": "Pohjois-Pohjanmaa",
+      "default_name": "Pohjois-Pohjanmaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Pohjois-Savo",
+      "default_name": "Pohjois-Savo"
+    },
+    {
+      "country_code": "FI",
+      "code": "Satakunta",
+      "default_name": "Satakunta"
+    },
+    {
+      "country_code": "FI",
+      "code": "Uusimaa",
+      "default_name": "Uusimaa"
+    },
+    {
+      "country_code": "FI",
+      "code": "Varsinais-Suomi",
+      "default_name": "Varsinais-Suomi"
+    },
+    {
+      "country_code": "FR",
+      "code": "1",
+      "default_name": "Ain"
+    },
+    {
+      "country_code": "FR",
+      "code": "10",
+      "default_name": "Aube"
+    },
+    {
+      "country_code": "FR",
+      "code": "11",
+      "default_name": "Aude"
+    },
+    {
+      "country_code": "FR",
+      "code": "12",
+      "default_name": "Aveyron"
+    },
+    {
+      "country_code": "FR",
+      "code": "13",
+      "default_name": "Bouches-du-Rhône"
+    },
+    {
+      "country_code": "FR",
+      "code": "14",
+      "default_name": "Calvados"
+    },
+    {
+      "country_code": "FR",
+      "code": "15",
+      "default_name": "Cantal"
+    },
+    {
+      "country_code": "FR",
+      "code": "16",
+      "default_name": "Charente"
+    },
+    {
+      "country_code": "FR",
+      "code": "17",
+      "default_name": "Charente-Maritime"
+    },
+    {
+      "country_code": "FR",
+      "code": "18",
+      "default_name": "Cher"
+    },
+    {
+      "country_code": "FR",
+      "code": "19",
+      "default_name": "Corrèze"
+    },
+    {
+      "country_code": "FR",
+      "code": "2",
+      "default_name": "Aisne"
+    },
+    {
+      "country_code": "FR",
+      "code": "21",
+      "default_name": "Côte-d'Or"
+    },
+    {
+      "country_code": "FR",
+      "code": "22",
+      "default_name": "Côtes-d'Armor"
+    },
+    {
+      "country_code": "FR",
+      "code": "23",
+      "default_name": "Creuse"
+    },
+    {
+      "country_code": "FR",
+      "code": "24",
+      "default_name": "Dordogne"
+    },
+    {
+      "country_code": "FR",
+      "code": "25",
+      "default_name": "Doubs"
+    },
+    {
+      "country_code": "FR",
+      "code": "26",
+      "default_name": "Drôme"
+    },
+    {
+      "country_code": "FR",
+      "code": "27",
+      "default_name": "Eure"
+    },
+    {
+      "country_code": "FR",
+      "code": "28",
+      "default_name": "Eure-et-Loir"
+    },
+    {
+      "country_code": "FR",
+      "code": "29",
+      "default_name": "Finistère"
+    },
+    {
+      "country_code": "FR",
+      "code": "2A",
+      "default_name": "Corse-du-Sud"
+    },
+    {
+      "country_code": "FR",
+      "code": "2B",
+      "default_name": "Haute-Corse"
+    },
+    {
+      "country_code": "FR",
+      "code": "3",
+      "default_name": "Allier"
+    },
+    {
+      "country_code": "FR",
+      "code": "30",
+      "default_name": "Gard"
+    },
+    {
+      "country_code": "FR",
+      "code": "31",
+      "default_name": "Haute-Garonne"
+    },
+    {
+      "country_code": "FR",
+      "code": "32",
+      "default_name": "Gers"
+    },
+    {
+      "country_code": "FR",
+      "code": "33",
+      "default_name": "Gironde"
+    },
+    {
+      "country_code": "FR",
+      "code": "34",
+      "default_name": "Hérault"
+    },
+    {
+      "country_code": "FR",
+      "code": "35",
+      "default_name": "Ille-et-Vilaine"
+    },
+    {
+      "country_code": "FR",
+      "code": "36",
+      "default_name": "Indre"
+    },
+    {
+      "country_code": "FR",
+      "code": "37",
+      "default_name": "Indre-et-Loire"
+    },
+    {
+      "country_code": "FR",
+      "code": "38",
+      "default_name": "Isère"
+    },
+    {
+      "country_code": "FR",
+      "code": "39",
+      "default_name": "Jura"
+    },
+    {
+      "country_code": "FR",
+      "code": "4",
+      "default_name": "Alpes-de-Haute-Provence"
+    },
+    {
+      "country_code": "FR",
+      "code": "40",
+      "default_name": "Landes"
+    },
+    {
+      "country_code": "FR",
+      "code": "41",
+      "default_name": "Loir-et-Cher"
+    },
+    {
+      "country_code": "FR",
+      "code": "42",
+      "default_name": "Loire"
+    },
+    {
+      "country_code": "FR",
+      "code": "43",
+      "default_name": "Haute-Loire"
+    },
+    {
+      "country_code": "FR",
+      "code": "44",
+      "default_name": "Loire-Atlantique"
+    },
+    {
+      "country_code": "FR",
+      "code": "45",
+      "default_name": "Loiret"
+    },
+    {
+      "country_code": "FR",
+      "code": "46",
+      "default_name": "Lot"
+    },
+    {
+      "country_code": "FR",
+      "code": "47",
+      "default_name": "Lot-et-Garonne"
+    },
+    {
+      "country_code": "FR",
+      "code": "48",
+      "default_name": "Lozère"
+    },
+    {
+      "country_code": "FR",
+      "code": "49",
+      "default_name": "Maine-et-Loire"
+    },
+    {
+      "country_code": "FR",
+      "code": "5",
+      "default_name": "Hautes-Alpes"
+    },
+    {
+      "country_code": "FR",
+      "code": "50",
+      "default_name": "Manche"
+    },
+    {
+      "country_code": "FR",
+      "code": "51",
+      "default_name": "Marne"
+    },
+    {
+      "country_code": "FR",
+      "code": "52",
+      "default_name": "Haute-Marne"
+    },
+    {
+      "country_code": "FR",
+      "code": "53",
+      "default_name": "Mayenne"
+    },
+    {
+      "country_code": "FR",
+      "code": "54",
+      "default_name": "Meurthe-et-Moselle"
+    },
+    {
+      "country_code": "FR",
+      "code": "55",
+      "default_name": "Meuse"
+    },
+    {
+      "country_code": "FR",
+      "code": "56",
+      "default_name": "Morbihan"
+    },
+    {
+      "country_code": "FR",
+      "code": "57",
+      "default_name": "Moselle"
+    },
+    {
+      "country_code": "FR",
+      "code": "58",
+      "default_name": "Nièvre"
+    },
+    {
+      "country_code": "FR",
+      "code": "59",
+      "default_name": "Nord"
+    },
+    {
+      "country_code": "FR",
+      "code": "6",
+      "default_name": "Alpes-Maritimes"
+    },
+    {
+      "country_code": "FR",
+      "code": "60",
+      "default_name": "Oise"
+    },
+    {
+      "country_code": "FR",
+      "code": "61",
+      "default_name": "Orne"
+    },
+    {
+      "country_code": "FR",
+      "code": "62",
+      "default_name": "Pas-de-Calais"
+    },
+    {
+      "country_code": "FR",
+      "code": "63",
+      "default_name": "Puy-de-Dôme"
+    },
+    {
+      "country_code": "FR",
+      "code": "64",
+      "default_name": "Pyrénées-Atlantiques"
+    },
+    {
+      "country_code": "FR",
+      "code": "65",
+      "default_name": "Hautes-Pyrénées"
+    },
+    {
+      "country_code": "FR",
+      "code": "66",
+      "default_name": "Pyrénées-Orientales"
+    },
+    {
+      "country_code": "FR",
+      "code": "67",
+      "default_name": "Bas-Rhin"
+    },
+    {
+      "country_code": "FR",
+      "code": "68",
+      "default_name": "Haut-Rhin"
+    },
+    {
+      "country_code": "FR",
+      "code": "69",
+      "default_name": "Rhône"
+    },
+    {
+      "country_code": "FR",
+      "code": "7",
+      "default_name": "Ardèche"
+    },
+    {
+      "country_code": "FR",
+      "code": "70",
+      "default_name": "Haute-Saône"
+    },
+    {
+      "country_code": "FR",
+      "code": "71",
+      "default_name": "Saône-et-Loire"
+    },
+    {
+      "country_code": "FR",
+      "code": "72",
+      "default_name": "Sarthe"
+    },
+    {
+      "country_code": "FR",
+      "code": "73",
+      "default_name": "Savoie"
+    },
+    {
+      "country_code": "FR",
+      "code": "74",
+      "default_name": "Haute-Savoie"
+    },
+    {
+      "country_code": "FR",
+      "code": "75",
+      "default_name": "Paris"
+    },
+    {
+      "country_code": "FR",
+      "code": "76",
+      "default_name": "Seine-Maritime"
+    },
+    {
+      "country_code": "FR",
+      "code": "77",
+      "default_name": "Seine-et-Marne"
+    },
+    {
+      "country_code": "FR",
+      "code": "78",
+      "default_name": "Yvelines"
+    },
+    {
+      "country_code": "FR",
+      "code": "79",
+      "default_name": "Deux-Sèvres"
+    },
+    {
+      "country_code": "FR",
+      "code": "8",
+      "default_name": "Ardennes"
+    },
+    {
+      "country_code": "FR",
+      "code": "80",
+      "default_name": "Somme"
+    },
+    {
+      "country_code": "FR",
+      "code": "81",
+      "default_name": "Tarn"
+    },
+    {
+      "country_code": "FR",
+      "code": "82",
+      "default_name": "Tarn-et-Garonne"
+    },
+    {
+      "country_code": "FR",
+      "code": "83",
+      "default_name": "Var"
+    },
+    {
+      "country_code": "FR",
+      "code": "84",
+      "default_name": "Vaucluse"
+    },
+    {
+      "country_code": "FR",
+      "code": "85",
+      "default_name": "Vendée"
+    },
+    {
+      "country_code": "FR",
+      "code": "86",
+      "default_name": "Vienne"
+    },
+    {
+      "country_code": "FR",
+      "code": "87",
+      "default_name": "Haute-Vienne"
+    },
+    {
+      "country_code": "FR",
+      "code": "88",
+      "default_name": "Vosges"
+    },
+    {
+      "country_code": "FR",
+      "code": "89",
+      "default_name": "Yonne"
+    },
+    {
+      "country_code": "FR",
+      "code": "9",
+      "default_name": "Ariège"
+    },
+    {
+      "country_code": "FR",
+      "code": "90",
+      "default_name": "Territoire-de-Belfort"
+    },
+    {
+      "country_code": "FR",
+      "code": "91",
+      "default_name": "Essonne"
+    },
+    {
+      "country_code": "FR",
+      "code": "92",
+      "default_name": "Hauts-de-Seine"
+    },
+    {
+      "country_code": "FR",
+      "code": "93",
+      "default_name": "Seine-Saint-Denis"
+    },
+    {
+      "country_code": "FR",
+      "code": "94",
+      "default_name": "Val-de-Marne"
+    },
+    {
+      "country_code": "FR",
+      "code": "95",
+      "default_name": "Val-d'Oise"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-01",
+      "default_name": "Zagrebačka županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-02",
+      "default_name": "Krapinsko-zagorska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-03",
+      "default_name": "Sisačko-moslavačka županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-04",
+      "default_name": "Karlovačka županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-05",
+      "default_name": "Varaždinska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-06",
+      "default_name": "Koprivničko-križevačka županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-07",
+      "default_name": "Bjelovarsko-bilogorska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-08",
+      "default_name": "Primorsko-goranska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-09",
+      "default_name": "Ličko-senjska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-10",
+      "default_name": "Virovitičko-podravska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-11",
+      "default_name": "Požeško-slavonska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-12",
+      "default_name": "Brodsko-posavska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-13",
+      "default_name": "Zadarska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-14",
+      "default_name": "Osječko-baranjska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-15",
+      "default_name": "Šibensko-kninska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-16",
+      "default_name": "Vukovarsko-srijemska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-17",
+      "default_name": "Splitsko-dalmatinska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-18",
+      "default_name": "Istarska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-19",
+      "default_name": "Dubrovačko-neretvanska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-20",
+      "default_name": "Međimurska županija"
+    },
+    {
+      "country_code": "HR",
+      "code": "HR-21",
+      "default_name": "Grad Zagreb"
+    },
+    {
+      "country_code": "IN",
+      "code": "AN",
+      "default_name": "Andaman and Nicobar Islands"
+    },
+    {
+      "country_code": "IN",
+      "code": "AP",
+      "default_name": "Andhra Pradesh"
+    },
+    {
+      "country_code": "IN",
+      "code": "AR",
+      "default_name": "Arunachal Pradesh"
+    },
+    {
+      "country_code": "IN",
+      "code": "AS",
+      "default_name": "Assam"
+    },
+    {
+      "country_code": "IN",
+      "code": "BR",
+      "default_name": "Bihar"
+    },
+    {
+      "country_code": "IN",
+      "code": "CH",
+      "default_name": "Chandigarh"
+    },
+    {
+      "country_code": "IN",
+      "code": "CT",
+      "default_name": "Chhattisgarh"
+    },
+    {
+      "country_code": "IN",
+      "code": "DD",
+      "default_name": "Daman and Diu"
+    },
+    {
+      "country_code": "IN",
+      "code": "DL",
+      "default_name": "Delhi"
+    },
+    {
+      "country_code": "IN",
+      "code": "DN",
+      "default_name": "Dadra and Nagar Haveli"
+    },
+    {
+      "country_code": "IN",
+      "code": "GA",
+      "default_name": "Goa"
+    },
+    {
+      "country_code": "IN",
+      "code": "GJ",
+      "default_name": "Gujarat"
+    },
+    {
+      "country_code": "IN",
+      "code": "HP",
+      "default_name": "Himachal Pradesh"
+    },
+    {
+      "country_code": "IN",
+      "code": "HR",
+      "default_name": "Haryana"
+    },
+    {
+      "country_code": "IN",
+      "code": "JH",
+      "default_name": "Jharkhand"
+    },
+    {
+      "country_code": "IN",
+      "code": "JK",
+      "default_name": "Jammu and Kashmir"
+    },
+    {
+      "country_code": "IN",
+      "code": "KA",
+      "default_name": "Karnataka"
+    },
+    {
+      "country_code": "IN",
+      "code": "KL",
+      "default_name": "Kerala"
+    },
+    {
+      "country_code": "IN",
+      "code": "LD",
+      "default_name": "Lakshadweep"
+    },
+    {
+      "country_code": "IN",
+      "code": "MH",
+      "default_name": "Maharashtra"
+    },
+    {
+      "country_code": "IN",
+      "code": "ML",
+      "default_name": "Meghalaya"
+    },
+    {
+      "country_code": "IN",
+      "code": "MN",
+      "default_name": "Manipur"
+    },
+    {
+      "country_code": "IN",
+      "code": "MP",
+      "default_name": "Madhya Pradesh"
+    },
+    {
+      "country_code": "IN",
+      "code": "MZ",
+      "default_name": "Mizoram"
+    },
+    {
+      "country_code": "IN",
+      "code": "NL",
+      "default_name": "Nagaland"
+    },
+    {
+      "country_code": "IN",
+      "code": "OR",
+      "default_name": "Odisha"
+    },
+    {
+      "country_code": "IN",
+      "code": "PB",
+      "default_name": "Punjab"
+    },
+    {
+      "country_code": "IN",
+      "code": "PY",
+      "default_name": "Puducherry"
+    },
+    {
+      "country_code": "IN",
+      "code": "RJ",
+      "default_name": "Rajasthan"
+    },
+    {
+      "country_code": "IN",
+      "code": "SK",
+      "default_name": "Sikkim"
+    },
+    {
+      "country_code": "IN",
+      "code": "TG",
+      "default_name": "Telangana"
+    },
+    {
+      "country_code": "IN",
+      "code": "TN",
+      "default_name": "Tamil Nadu"
+    },
+    {
+      "country_code": "IN",
+      "code": "TR",
+      "default_name": "Tripura"
+    },
+    {
+      "country_code": "IN",
+      "code": "UP",
+      "default_name": "Uttar Pradesh"
+    },
+    {
+      "country_code": "IN",
+      "code": "UT",
+      "default_name": "Uttarakhand"
+    },
+    {
+      "country_code": "IN",
+      "code": "WB",
+      "default_name": "West Bengal"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-AL",
+      "default_name": "Alytaus Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-KL",
+      "default_name": "Klaipėdos Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-KU",
+      "default_name": "Kauno Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-MR",
+      "default_name": "Marijampolės Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-PN",
+      "default_name": "Panevėžio Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-SA",
+      "default_name": "Šiaulių Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-TA",
+      "default_name": "Tauragės Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-TE",
+      "default_name": "Telšių Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-UT",
+      "default_name": "Utenos Apskritis"
+    },
+    {
+      "country_code": "LT",
+      "code": "LT-VL",
+      "default_name": "Vilniaus Apskritis"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ādažu novads",
+      "default_name": "Ādažu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Aglonas novads",
+      "default_name": "Aglonas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Aizputes novads",
+      "default_name": "Aizputes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Aknīstes novads",
+      "default_name": "Aknīstes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Alojas novads",
+      "default_name": "Alojas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Alsungas novads",
+      "default_name": "Alsungas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Amatas novads",
+      "default_name": "Amatas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Apes novads",
+      "default_name": "Apes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Auces novads",
+      "default_name": "Auces novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Babītes novads",
+      "default_name": "Babītes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Baldones novads",
+      "default_name": "Baldones novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Baltinavas novads",
+      "default_name": "Baltinavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Beverīnas novads",
+      "default_name": "Beverīnas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Brocēnu novads",
+      "default_name": "Brocēnu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Burtnieku novads",
+      "default_name": "Burtnieku novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Carnikavas novads",
+      "default_name": "Carnikavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Cesvaines novads",
+      "default_name": "Cesvaines novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ciblas novads",
+      "default_name": "Ciblas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Dagdas novads",
+      "default_name": "Dagdas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Dundagas novads",
+      "default_name": "Dundagas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Durbes novads",
+      "default_name": "Durbes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Engures novads",
+      "default_name": "Engures novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ērgļu novads",
+      "default_name": "Ērgļu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Garkalnes novads",
+      "default_name": "Garkalnes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Grobiņas novads",
+      "default_name": "Grobiņas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Iecavas novads",
+      "default_name": "Iecavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ikšķiles novads",
+      "default_name": "Ikšķiles novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ilūkstes novads",
+      "default_name": "Ilūkstes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Inčukalna novads",
+      "default_name": "Inčukalna novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Jaunjelgavas novads",
+      "default_name": "Jaunjelgavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Jaunpiebalgas novads",
+      "default_name": "Jaunpiebalgas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Jaunpils novads",
+      "default_name": "Jaunpils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Jēkabpils",
+      "default_name": "Jēkabpils"
+    },
+    {
+      "country_code": "LV",
+      "code": "Kandavas novads",
+      "default_name": "Kandavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Kārsavas novads",
+      "default_name": "Kārsavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ķeguma novads",
+      "default_name": "Ķeguma novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ķekavas novads",
+      "default_name": "Ķekavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Kokneses novads",
+      "default_name": "Kokneses novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Krimuldas novads",
+      "default_name": "Krimuldas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Krustpils novads",
+      "default_name": "Krustpils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Lielvārdes novads",
+      "default_name": "Lielvārdes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Līgatnes novads",
+      "default_name": "Līgatnes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Līvānu novads",
+      "default_name": "Līvānu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Lubānas novads",
+      "default_name": "Lubānas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-AI",
+      "default_name": "Aizkraukles novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-AL",
+      "default_name": "Alūksnes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-BL",
+      "default_name": "Balvu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-BU",
+      "default_name": "Bauskas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-CE",
+      "default_name": "Cēsu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-DA",
+      "default_name": "Daugavpils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-DGV",
+      "default_name": "Daugavpils"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-DO",
+      "default_name": "Dobeles novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-GU",
+      "default_name": "Gulbenes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-JEL",
+      "default_name": "Jelgava"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-JK",
+      "default_name": "Jēkabpils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-JL",
+      "default_name": "Jelgavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-JUR",
+      "default_name": "Jūrmala"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-KR",
+      "default_name": "Krāslavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-KU",
+      "default_name": "Kuldīgas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-LE",
+      "default_name": "Liepājas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-LM",
+      "default_name": "Limbažu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-LPX",
+      "default_name": "Liepāja"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-LU",
+      "default_name": "Ludzas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-MA",
+      "default_name": "Madonas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-OG",
+      "default_name": "Ogres novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-PR",
+      "default_name": "Preiļu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-RE",
+      "default_name": "Rēzeknes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-REZ",
+      "default_name": "Rēzekne"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-RI",
+      "default_name": "Rīgas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-RIX",
+      "default_name": "Rīga"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-SA",
+      "default_name": "Saldus novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-TA",
+      "default_name": "Talsu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-TU",
+      "default_name": "Tukuma novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-VE",
+      "default_name": "Ventspils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-VEN",
+      "default_name": "Ventspils"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-VK",
+      "default_name": "Valkas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "LV-VM",
+      "default_name": "Valmieras novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Mālpils novads",
+      "default_name": "Mālpils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Mārupes novads",
+      "default_name": "Mārupes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Mazsalacas novads",
+      "default_name": "Mazsalacas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Naukšēnu novads",
+      "default_name": "Naukšēnu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Neretas novads",
+      "default_name": "Neretas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Nīcas novads",
+      "default_name": "Nīcas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Olaines novads",
+      "default_name": "Olaines novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ozolnieku novads",
+      "default_name": "Ozolnieku novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Pārgaujas novads",
+      "default_name": "Pārgaujas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Pāvilostas novads",
+      "default_name": "Pāvilostas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Pļaviņu novads",
+      "default_name": "Pļaviņu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Priekules novads",
+      "default_name": "Priekules novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Priekuļu novads",
+      "default_name": "Priekuļu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Raunas novads",
+      "default_name": "Raunas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Riebiņu novads",
+      "default_name": "Riebiņu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Rojas novads",
+      "default_name": "Rojas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Ropažu novads",
+      "default_name": "Ropažu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Rucavas novads",
+      "default_name": "Rucavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Rugāju novads",
+      "default_name": "Rugāju novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Rūjienas novads",
+      "default_name": "Rūjienas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Rundāles novads",
+      "default_name": "Rundāles novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Salacgrīvas novads",
+      "default_name": "Salacgrīvas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Salas novads",
+      "default_name": "Salas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Salaspils novads",
+      "default_name": "Salaspils novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Saulkrastu novads",
+      "default_name": "Saulkrastu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Sējas novads",
+      "default_name": "Sējas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Siguldas novads",
+      "default_name": "Siguldas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Skrīveru novads",
+      "default_name": "Skrīveru novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Skrundas novads",
+      "default_name": "Skrundas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Smiltenes novads",
+      "default_name": "Smiltenes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Stopiņu novads",
+      "default_name": "Stopiņu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Strenču novads",
+      "default_name": "Strenču novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Tērvetes novads",
+      "default_name": "Tērvetes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Vaiņodes novads",
+      "default_name": "Vaiņodes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Valmiera",
+      "default_name": "Valmiera"
+    },
+    {
+      "country_code": "LV",
+      "code": "Varakļānu novads",
+      "default_name": "Varakļānu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Vārkavas novads",
+      "default_name": "Vārkavas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Vecpiebalgas novads",
+      "default_name": "Vecpiebalgas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Vecumnieku novads",
+      "default_name": "Vecumnieku novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Viesītes novads",
+      "default_name": "Viesītes novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Viļakas novads",
+      "default_name": "Viļakas novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Viļānu novads",
+      "default_name": "Viļānu novads"
+    },
+    {
+      "country_code": "LV",
+      "code": "Zilupes novads",
+      "default_name": "Zilupes novads"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-1",
+      "default_name": "Concepción"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-10",
+      "default_name": "Alto Paraná"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-11",
+      "default_name": "Central"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-12",
+      "default_name": "Ñeembucú"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-13",
+      "default_name": "Amambay"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-14",
+      "default_name": "Canindeyú"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-15",
+      "default_name": "Presidente Hayes"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-16",
+      "default_name": "Alto Paraguay"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-19",
+      "default_name": "Boquerón"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-2",
+      "default_name": "San Pedro"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-3",
+      "default_name": "Cordillera"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-4",
+      "default_name": "Guairá"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-5",
+      "default_name": "Caaguazú"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-6",
+      "default_name": "Caazapá"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-7",
+      "default_name": "Itapúa"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-8",
+      "default_name": "Misiones"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-9",
+      "default_name": "Paraguarí"
+    },
+    {
+      "country_code": "PY",
+      "code": "PY-ASU",
+      "default_name": "Asunción"
+    },
+    {
+      "country_code": "RO",
+      "code": "AB",
+      "default_name": "Alba"
+    },
+    {
+      "country_code": "RO",
+      "code": "AG",
+      "default_name": "Argeş"
+    },
+    {
+      "country_code": "RO",
+      "code": "AR",
+      "default_name": "Arad"
+    },
+    {
+      "country_code": "RO",
+      "code": "B",
+      "default_name": "Bucureşti"
+    },
+    {
+      "country_code": "RO",
+      "code": "BC",
+      "default_name": "Bacău"
+    },
+    {
+      "country_code": "RO",
+      "code": "BH",
+      "default_name": "Bihor"
+    },
+    {
+      "country_code": "RO",
+      "code": "BN",
+      "default_name": "Bistriţa-Năsăud"
+    },
+    {
+      "country_code": "RO",
+      "code": "BR",
+      "default_name": "Brăila"
+    },
+    {
+      "country_code": "RO",
+      "code": "BT",
+      "default_name": "Botoşani"
+    },
+    {
+      "country_code": "RO",
+      "code": "BV",
+      "default_name": "Braşov"
+    },
+    {
+      "country_code": "RO",
+      "code": "BZ",
+      "default_name": "Buzău"
+    },
+    {
+      "country_code": "RO",
+      "code": "CJ",
+      "default_name": "Cluj"
+    },
+    {
+      "country_code": "RO",
+      "code": "CL",
+      "default_name": "Călăraşi"
+    },
+    {
+      "country_code": "RO",
+      "code": "CS",
+      "default_name": "Caraş-Severin"
+    },
+    {
+      "country_code": "RO",
+      "code": "CT",
+      "default_name": "Constanţa"
+    },
+    {
+      "country_code": "RO",
+      "code": "CV",
+      "default_name": "Covasna"
+    },
+    {
+      "country_code": "RO",
+      "code": "DB",
+      "default_name": "Dâmboviţa"
+    },
+    {
+      "country_code": "RO",
+      "code": "DJ",
+      "default_name": "Dolj"
+    },
+    {
+      "country_code": "RO",
+      "code": "GJ",
+      "default_name": "Gorj"
+    },
+    {
+      "country_code": "RO",
+      "code": "GL",
+      "default_name": "Galaţi"
+    },
+    {
+      "country_code": "RO",
+      "code": "GR",
+      "default_name": "Giurgiu"
+    },
+    {
+      "country_code": "RO",
+      "code": "HD",
+      "default_name": "Hunedoara"
+    },
+    {
+      "country_code": "RO",
+      "code": "HR",
+      "default_name": "Harghita"
+    },
+    {
+      "country_code": "RO",
+      "code": "IF",
+      "default_name": "Ilfov"
+    },
+    {
+      "country_code": "RO",
+      "code": "IL",
+      "default_name": "Ialomiţa"
+    },
+    {
+      "country_code": "RO",
+      "code": "IS",
+      "default_name": "Iaşi"
+    },
+    {
+      "country_code": "RO",
+      "code": "MH",
+      "default_name": "Mehedinţi"
+    },
+    {
+      "country_code": "RO",
+      "code": "MM",
+      "default_name": "Maramureş"
+    },
+    {
+      "country_code": "RO",
+      "code": "MS",
+      "default_name": "Mureş"
+    },
+    {
+      "country_code": "RO",
+      "code": "NT",
+      "default_name": "Neamţ"
+    },
+    {
+      "country_code": "RO",
+      "code": "OT",
+      "default_name": "Olt"
+    },
+    {
+      "country_code": "RO",
+      "code": "PH",
+      "default_name": "Prahova"
+    },
+    {
+      "country_code": "RO",
+      "code": "SB",
+      "default_name": "Sibiu"
+    },
+    {
+      "country_code": "RO",
+      "code": "SJ",
+      "default_name": "Sălaj"
+    },
+    {
+      "country_code": "RO",
+      "code": "SM",
+      "default_name": "Satu-Mare"
+    },
+    {
+      "country_code": "RO",
+      "code": "SV",
+      "default_name": "Suceava"
+    },
+    {
+      "country_code": "RO",
+      "code": "TL",
+      "default_name": "Tulcea"
+    },
+    {
+      "country_code": "RO",
+      "code": "TM",
+      "default_name": "Timiş"
+    },
+    {
+      "country_code": "RO",
+      "code": "TR",
+      "default_name": "Teleorman"
+    },
+    {
+      "country_code": "RO",
+      "code": "VL",
+      "default_name": "Vâlcea"
+    },
+    {
+      "country_code": "RO",
+      "code": "VN",
+      "default_name": "Vrancea"
+    },
+    {
+      "country_code": "RO",
+      "code": "VS",
+      "default_name": "Vaslui"
+    },
+    {
+      "country_code": "US",
+      "code": "AA",
+      "default_name": "Armed Forces Americas"
+    },
+    {
+      "country_code": "US",
+      "code": "AE",
+      "default_name": "Armed Forces Africa"
+    },
+    {
+      "country_code": "US",
+      "code": "AE",
+      "default_name": "Armed Forces Canada"
+    },
+    {
+      "country_code": "US",
+      "code": "AE",
+      "default_name": "Armed Forces Europe"
+    },
+    {
+      "country_code": "US",
+      "code": "AE",
+      "default_name": "Armed Forces Middle East"
+    },
+    {
+      "country_code": "US",
+      "code": "AK",
+      "default_name": "Alaska"
+    },
+    {
+      "country_code": "US",
+      "code": "AL",
+      "default_name": "Alabama"
+    },
+    {
+      "country_code": "US",
+      "code": "AP",
+      "default_name": "Armed Forces Pacific"
+    },
+    {
+      "country_code": "US",
+      "code": "AR",
+      "default_name": "Arkansas"
+    },
+    {
+      "country_code": "US",
+      "code": "AS",
+      "default_name": "American Samoa"
+    },
+    {
+      "country_code": "US",
+      "code": "AZ",
+      "default_name": "Arizona"
+    },
+    {
+      "country_code": "US",
+      "code": "CA",
+      "default_name": "California"
+    },
+    {
+      "country_code": "US",
+      "code": "CO",
+      "default_name": "Colorado"
+    },
+    {
+      "country_code": "US",
+      "code": "CT",
+      "default_name": "Connecticut"
+    },
+    {
+      "country_code": "US",
+      "code": "DC",
+      "default_name": "District of Columbia"
+    },
+    {
+      "country_code": "US",
+      "code": "DE",
+      "default_name": "Delaware"
+    },
+    {
+      "country_code": "US",
+      "code": "FL",
+      "default_name": "Florida"
+    },
+    {
+      "country_code": "US",
+      "code": "FM",
+      "default_name": "Federated States Of Micronesia"
+    },
+    {
+      "country_code": "US",
+      "code": "GA",
+      "default_name": "Georgia"
+    },
+    {
+      "country_code": "US",
+      "code": "GU",
+      "default_name": "Guam"
+    },
+    {
+      "country_code": "US",
+      "code": "HI",
+      "default_name": "Hawaii"
+    },
+    {
+      "country_code": "US",
+      "code": "IA",
+      "default_name": "Iowa"
+    },
+    {
+      "country_code": "US",
+      "code": "ID",
+      "default_name": "Idaho"
+    },
+    {
+      "country_code": "US",
+      "code": "IL",
+      "default_name": "Illinois"
+    },
+    {
+      "country_code": "US",
+      "code": "IN",
+      "default_name": "Indiana"
+    },
+    {
+      "country_code": "US",
+      "code": "KS",
+      "default_name": "Kansas"
+    },
+    {
+      "country_code": "US",
+      "code": "KY",
+      "default_name": "Kentucky"
+    },
+    {
+      "country_code": "US",
+      "code": "LA",
+      "default_name": "Louisiana"
+    },
+    {
+      "country_code": "US",
+      "code": "MA",
+      "default_name": "Massachusetts"
+    },
+    {
+      "country_code": "US",
+      "code": "MD",
+      "default_name": "Maryland"
+    },
+    {
+      "country_code": "US",
+      "code": "ME",
+      "default_name": "Maine"
+    },
+    {
+      "country_code": "US",
+      "code": "MH",
+      "default_name": "Marshall Islands"
+    },
+    {
+      "country_code": "US",
+      "code": "MI",
+      "default_name": "Michigan"
+    },
+    {
+      "country_code": "US",
+      "code": "MN",
+      "default_name": "Minnesota"
+    },
+    {
+      "country_code": "US",
+      "code": "MO",
+      "default_name": "Missouri"
+    },
+    {
+      "country_code": "US",
+      "code": "MP",
+      "default_name": "Northern Mariana Islands"
+    },
+    {
+      "country_code": "US",
+      "code": "MS",
+      "default_name": "Mississippi"
+    },
+    {
+      "country_code": "US",
+      "code": "MT",
+      "default_name": "Montana"
+    },
+    {
+      "country_code": "US",
+      "code": "NC",
+      "default_name": "North Carolina"
+    },
+    {
+      "country_code": "US",
+      "code": "ND",
+      "default_name": "North Dakota"
+    },
+    {
+      "country_code": "US",
+      "code": "NE",
+      "default_name": "Nebraska"
+    },
+    {
+      "country_code": "US",
+      "code": "NH",
+      "default_name": "New Hampshire"
+    },
+    {
+      "country_code": "US",
+      "code": "NJ",
+      "default_name": "New Jersey"
+    },
+    {
+      "country_code": "US",
+      "code": "NM",
+      "default_name": "New Mexico"
+    },
+    {
+      "country_code": "US",
+      "code": "NV",
+      "default_name": "Nevada"
+    },
+    {
+      "country_code": "US",
+      "code": "NY",
+      "default_name": "New York"
+    },
+    {
+      "country_code": "US",
+      "code": "OH",
+      "default_name": "Ohio"
+    },
+    {
+      "country_code": "US",
+      "code": "OK",
+      "default_name": "Oklahoma"
+    },
+    {
+      "country_code": "US",
+      "code": "OR",
+      "default_name": "Oregon"
+    },
+    {
+      "country_code": "US",
+      "code": "PA",
+      "default_name": "Pennsylvania"
+    },
+    {
+      "country_code": "US",
+      "code": "PR",
+      "default_name": "Puerto Rico"
+    },
+    {
+      "country_code": "US",
+      "code": "PW",
+      "default_name": "Palau"
+    },
+    {
+      "country_code": "US",
+      "code": "RI",
+      "default_name": "Rhode Island"
+    },
+    {
+      "country_code": "US",
+      "code": "SC",
+      "default_name": "South Carolina"
+    },
+    {
+      "country_code": "US",
+      "code": "SD",
+      "default_name": "South Dakota"
+    },
+    {
+      "country_code": "US",
+      "code": "TN",
+      "default_name": "Tennessee"
+    },
+    {
+      "country_code": "US",
+      "code": "TX",
+      "default_name": "Texas"
+    },
+    {
+      "country_code": "US",
+      "code": "UT",
+      "default_name": "Utah"
+    },
+    {
+      "country_code": "US",
+      "code": "VA",
+      "default_name": "Virginia"
+    },
+    {
+      "country_code": "US",
+      "code": "VI",
+      "default_name": "Virgin Islands"
+    },
+    {
+      "country_code": "US",
+      "code": "VT",
+      "default_name": "Vermont"
+    },
+    {
+      "country_code": "US",
+      "code": "WA",
+      "default_name": "Washington"
+    },
+    {
+      "country_code": "US",
+      "code": "WI",
+      "default_name": "Wisconsin"
+    },
+    {
+      "country_code": "US",
+      "code": "WV",
+      "default_name": "West Virginia"
+    },
+    {
+      "country_code": "US",
+      "code": "WY",
+      "default_name": "Wyoming"
+    }
+  ],
+  "currencies": [
+    {
+      "code": "USD",
+      "name": "United States Dollar"
+    }
+  ],
+  "channel_currencies": [
+    {
+      "channel_code": "default",
+      "currency_code": "USD"
+    }
+  ]
+}

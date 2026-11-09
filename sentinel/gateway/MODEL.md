@@ -71,3 +71,7 @@ python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 808
 ## 目前v6修正結果
 
 正常查詢的20個固定模型探針皆判normal，包括HTTPX Accept:*/*及application/*；不代表真實網站誤報率0%。完整改版、分數與取捨見[白話紀錄](../analysis/訓練版本與問題處理白話紀錄.md)，證據見normal-probe-v6-2026-11-09。當前權重是在Windows固定依賴重訓及驗證，先前Linux驗證只屬歷史v5套件；v6仍須目標環境自測。
+
+## 資料v7正常值修正後模型
+
+目前已以small-api-v7固定參數重訓，特徵仍v6，未修改分類門檻；舊v6權重另存history/document-values-before。當前模型來源與SHA以model-source.json為準。資料修正及最新數據詳見白話紀錄，不把歷史v5／v6探針當成當前結果。實際Medusa業務驗收仍未完成。

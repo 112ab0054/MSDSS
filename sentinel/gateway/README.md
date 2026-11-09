@@ -5,7 +5,7 @@
 主程式只有 [app.py](app.py)。所有請求照常轉送 Medusa，只有清單內的 [79 個操作](../analysis/api-extension/medusa-holdout-inventory.json) 送進模型偵測。
 這份清單是偵測範圍，不是 API 存取白名單；其他 API 不會因此被 gateway 拒絕。
 目前為觀察模式：模型判為 SQLi/XSS 也照常轉送，避免誤判直接封鎖 demo 操作。
-目前已附授權重訓的v6 Accept修正模型，預設直接載入，不需為啟動再次訓練。來源與推論流程見 [MODEL.md](MODEL.md)。
+目前已附依v7文件填值資料授權重訓的模型（特徵仍v6），預設直接載入，不需為啟動再次訓練。來源與推論流程見 [MODEL.md](MODEL.md)。
 
 ## 安裝與啟動
 
@@ -105,3 +105,5 @@ python -m unittest discover -s sentinel/gateway -p 'test_*.py'
 尚未宣稱可直接用於正式環境。上面的啟動命令關閉一般 access log，避免 query 中的憑證進入網址日誌；預測結果仍會輸出。
 
 模型只在啟動時載入，已在執行的gateway需重啟才會使用v6。原始API文件與保留評估資料未改；版本歷程、問題原因、修正及分數見[白話紀錄](../analysis/訓練版本與問題處理白話紀錄.md)。
+
+當前資料版本v7、特徵版本v6：模型按正常值修正後重訓，啟動後才載入；舊程序需重啟。模型來源見model-source.json；原API格式不合與尚未實機綁定的差異已記錄，不能沿用v6數據當當前效果。

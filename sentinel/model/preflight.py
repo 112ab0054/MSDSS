@@ -110,11 +110,39 @@ def inspect_dataset(data_dir, group_function, exploratory=False, evidence_root=N
             errors.extend(audit_dataset(data_dir,sets,saved))
         elif any(r['metadata'].get('evaluation_protocol')=='document-v3-seen-families-heldout-templates' for r in all_rows):
             errors.append('v3 實驗規則必須附上對應 provenance.json')
-        if saved.get('dataset_revision') in ('v5-train-augmentation','v6-transport-augmentation'):
+        if saved.get('dataset_revision') in ('v5-train-augmentation','v6-transport-augmentation','v7-document-values','v8-live-languages','v9-semantic-values'):
             frozen=saved.get('frozen_holdout_sha256',{})
             for split in ('test','validation','challenge'):
                 if split not in summary or summary[split]['sha256']!=frozen.get(split):
-                    errors.append('v5保留集與凍結指紋不符：'+split)
+                    errors.append('保留集與凍結指紋不符：'+split)
+        if saved.get('dataset_revision') in ('v7-document-values','v8-live-languages','v9-semantic-values'):
+            from document_values import audit_document_values
+            if not saved.get('document_value_rules_sha256'):errors.append('缺少v7文件填值規則指紋')
+            else:errors.extend(audit_document_values(data_dir,sets,saved['document_value_rules_sha256']))
+        if saved.get('dataset_revision') in ('v8-live-languages','v9-semantic-values'):
+            inventory_path = data_dir / 'shopware-language-inventory.json'
+            try:
+                raw = inventory_path.read_bytes()
+                inventory = json.loads(raw)
+                correction = saved['language_correction']
+                if hashlib.sha256(raw).hexdigest() != correction['inventory_sha256']:
+                    errors.append('實機語言清單指紋不符')
+                accepted = {x['id'] for x in inventory['languages']
+                            if x.get('accepted') is True and x.get('context_language_id') == x.get('id')}
+                if not inventory.get('verified') or len(accepted) < 2 or accepted != set(correction['accepted_ids']):
+                    errors.append('缺少至少兩個已驗證的可用語言')
+                for split, rows in sets.items():
+                    for row in rows:
+                        if row['annotation'].get('proposed_label') != 'normal':
+                            continue
+                        headers = row['input']['headers']
+                        if 'sw-language-id' in headers and headers['sw-language-id'] not in accepted:
+                            errors.append(split + ': 正常請求使用未確認的語言 ID')
+            except (OSError, ValueError, KeyError, TypeError):
+                errors.append('實機語言清單缺失或格式不完整')
+        if saved.get('dataset_revision') == 'v9-semantic-values':
+            from semantic_values import audit_semantic_values
+            errors.extend(audit_semantic_values(data_dir, sets, saved))
         if saved.get('required_feature_version') is not None:
             from features import VERSION
             if saved['required_feature_version']!=VERSION:errors.append('資料要求的特徵版本與程式不符')

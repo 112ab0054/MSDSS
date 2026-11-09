@@ -36,3 +36,17 @@
 2026-11-09 Accept修正完成：small-api-v6共1098筆（train702／150／150／96），只新增train108筆三類對稱傳輸header配對，所有保留CSV不變。特徵VERSION6仍2402維，只豁免Accept合法媒體型別位置萬用字元的SQL註解誤計，raw與hash保留；固定參數重訓，更新gateway完整model及Colab套件。正常query=cotton原SQLi56.8%轉normal88.84%，20個固定正常探針皆normal；整體Accuracy86%／86%／72.92%，challenge SQLi Recall21.88%未解。總白話紀錄為訓練版本與問題處理白話紀錄.md。舊v5套件存history/accept-v5-baseline。未新增真實Medusa業務證據、未改API文件／compose／Mirage。
 
 2026-11-09 Git發布完整性修正：重現f1e6ed8直接Git匯出的44項模型測試6失敗，原因為Git text=auto eol=lf把CSV／凍結授權檔轉換換行，與原SHA不符。新增精確bytes保留屬性並恢復Git儲存格式，不改工作檔原內容、SHA檢查或模型。暫存索引候選Git樹重新匯出後46模型＋36資料＋16gateway=98全過，Git與ZIP preflight均ready且四份SHA相同；回歸測試涵蓋autocrlf true/false與真正換行篡改仍拒絕。驗證階段未建立commit或改主索引；後續依使用者要求提交推送。結果見git-artifact-integrity-verification.json及白話紀錄。
+
+2026-11-09 攻擊面向顯示欄：新增small-api-v6-annotated，四份CSV在類別旁新增攻擊面向，多標籤用；分隔，normal不適用；外部圖片載入等標待確認，不改原3類標籤。1098筆原始儲存格及完整紀錄JSON逐筆相同，原v6全保留。來源與閱讀版CSV SHA分開存、凍結閱讀版，面向欄不被read_rows讀入、不進模型。預設訓練路徑及Colab包更新閱讀版，模型不重訓；111筆normal格式與外部標籤疑義未修。本輪未push。
+
+2026-11-09 v7文件填值修正：仍1098筆，normal111語言ID改為歷史passed真值；723筆欄位修正／省略紀錄，844項已檢查問題降0，另修17筆壓縮criteria。請求內無MSDSS cotton；公司11種、部門6、搜尋term39/query24、郵遞區號7、生日3。592/620文件位置在normal出現，26選填未綁定／省略、2分支非實際欄位。攻擊原文／標籤／集合不變，從修正normal重嵌入並保存source ID映射，新輸入新SHA不冒稱舊保留題bytes相同。新preflight檢查文件正常值與規則指紋；舊通用fallback改為報錯。特徵6固定參數重訓gateway模型，Colab／inference-v7更新。實際Docker未啟動，歷史ID未重新驗證，HTTP仍0，未改API文件／compose／Mirage。完整狀態見白話紀錄。
+
+
+2026-11-09 v8語言多樣性：修復Docker失效socket的啟動阻礙（runtime目錄改名保留，無資料清除），啟動既有獨立Shopware，GET language查得英文en-GB與德文de-DE，逐個GET context確認指定語言鏈。111筆normal分配英文54／德文57，同組攻擊同步背景語言，語言本身被注入時保留攻擊原文。145筆input改變，1098筆總數、三類標籤、集合、骨架不變，Sylius validation CSV bytes不變。新增small-api-v8、語言證據及新舊ID映射；Colab ZIP／Notebook／訓練預設改v8。gateway權重與inference-v7未改，須重訓後再替換；既有v7分數不能沿用。語言API成功不等於整批資料HTTP已送出。
+
+
+## v9：不只改語言，還要按欄位意思填不同內容
+
+本次只暫時啟動既有Bagisto／Sylius資料庫唯讀SELECT後停止，未部署應用或改資料庫設定。Bagisto只有en，Sylius有8語言、20國家，已據此修正離線資料；Sylius目前通路仍只分配en_US，沒有宣稱8語言HTTP驗收。國家／城市／郵遞區號／州省與巢狀地址成組產生，並擴充人名、公司、部門、電話、搜尋、備註等。所有至少出現3筆的語義自由文字欄位均至少3種值；只有1～2筆者與固定選項、憑證、實例ID另列原因，不湊數。
+
+新版small-api-v9仍1098筆，原payload、標籤、骨架及集合不變；1036筆欄位修正、794筆input改變，包含保留集合，因此舊分數不能直接沿用。原v8與套件保留，Colab ZIP／Notebook／預設改v9，須重訓，gateway／inference-v7未改。完整計數、限制、來源及檢查見[參數語義與資料多樣性v9.md](參數語義與資料多樣性v9.md)。

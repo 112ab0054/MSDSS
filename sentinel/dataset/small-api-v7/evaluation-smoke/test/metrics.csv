@@ -1,0 +1,17 @@
+﻿metric,value
+accuracy,0.8133333333333334
+balanced_accuracy,0.8133333333333334
+macro_f1,0.8105720968934652
+weighted_f1,0.8105720968934652
+micro_f1,0.8133333333333334
+macro_precision,0.8661107916427065
+macro_recall,0.8133333333333334
+mcc,0.7459638066680834
+cohen_kappa,0.72
+log_loss,0.411951676876396
+multiclass_brier_score,0.23414233342311747
+normal_false_positive_rate,0.02
+attack_detection_recall,0.75
+attack_miss_rate,0.25
+attack_binary_roc_auc,0.9907999999999999
+attack_binary_average_precision,0.9940073336706932

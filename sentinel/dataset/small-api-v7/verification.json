@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-09",
+  "feature_version": 6,
+  "model_retrained": true,
+  "model_sha256": "c1c6f754ee5610c6e49e1d65f6f73059b224e45de539ba1921cc829d57cad332",
+  "dataset_zip_sha256": "fff792cb46b18a0e9a3dfe64d2ad6372c2607f08f2e232c9cd3268d9247a9d30",
+  "metrics": {
+    "test": {
+      "accuracy": 0.8133333333333334,
+      "macro_f1": 0.8105720968934652,
+      "normal_false_positive_rate": 0.02,
+      "attack_detection_recall": 0.75,
+      "recall": {
+        "normal": 0.98,
+        "sqli": 0.58,
+        "xss": 0.88
+      }
+    },
+    "validation": {
+      "accuracy": 0.84,
+      "macro_f1": 0.8367188367188367,
+      "normal_false_positive_rate": 0.0,
+      "attack_detection_recall": 0.9,
+      "recall": {
+        "normal": 1.0,
+        "sqli": 0.74,
+        "xss": 0.78
+      }
+    },
+    "challenge": {
+      "accuracy": 0.71875,
+      "macro_f1": 0.6517426663224949,
+      "normal_false_positive_rate": 0.0,
+      "attack_detection_recall": 0.734375,
+      "recall": {
+        "normal": 1.0,
+        "sqli": 0.1875,
+        "xss": 0.96875
+      }
+    }
+  },
+  "moved_inference_self_test": {
+    "passed": true,
+    "probes": 3,
+    "exploratory": true
+  },
+  "package_manifest_files_verified": 31,
+  "model_selection": "fixed parameters, train only, one comparison; no tuning to holdouts",
+  "current_platform_rechecked": false,
+  "business_validation": false,
+  "sensitive_values_redacted": true,
+  "normal_document_rule_issues": 0,
+  "scope": "partial document constraints, not full schema or live platform validity",
+  "current_zip_preflight_ready": true,
+  "clean_git_export_preflight_ready": true,
+  "python313_document_and_skeleton_audit": true,
+  "canonical_rules_json_hash_valid": true,
+  "source_v6_csv_unchanged": true,
+  "all_original_api_documents_unchanged": true,
+  "changed_normal_fields": 723,
+  "old_issue_count": 844,
+  "normal_issue_count": 0,
+  "deterministic_hash_seeds": [
+    17,
+    153
+  ],
+  "tests": {
+    "model": 54,
+    "dataset": 36,
+    "gateway": 16,
+    "total": 106
+  }
+}

@@ -72,7 +72,7 @@ def run(group_function):
     """
     # 路徑交給 pathlib；資料、輸出與證據根目錄分開設定，搬到其他 OS 不依賴原電腦磁碟機。
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v6', help='預設 small-api-v6；Colab 請指定解壓縮後的 data 目錄')
+    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v9', help='預設 small-api-v9；Colab 請指定解壓縮後的 data 目錄')
     parser.add_argument('--output', type=Path, help='訓練輸出新目錄；--check-only 不需要')
     parser.add_argument('--check-only', action='store_true', help='只列出資料資格與分組問題，不訓練、不產生成績')
     parser.add_argument('--evidence-root', type=Path)
@@ -179,7 +179,7 @@ def run(group_function):
              'identical_feature_vectors_shared': overlap,
              'data_sha256': {s: hashlib.sha256(p.read_bytes()).hexdigest() for s, p in paths.items()},
              'source_sha256': {n: hashlib.sha256((HERE / n).read_bytes()).hexdigest()
-                               for n in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py', 'skeletons.py')},
+                               for n in ('train.py', 'training.py', 'preflight.py', 'data_io.py', 'evaluate.py', 'features.py', 'request_input.py', 'skeletons.py', 'document_values.py', 'semantic_values.py')},
              'seed': 42, 'platform': platform.system(), 'readiness': readiness}
     (output / 'experiment.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     with (output / 'split.csv').open('w', encoding='utf-8-sig', newline='') as f:

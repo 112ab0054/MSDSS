@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-09",
+  "rows": 1098,
+  "new_column": "攻擊面向",
+  "annotation_version": 1,
+  "original_columns_and_complete_record_json_unchanged": true,
+  "model_input_unchanged": true,
+  "model_retrained": false,
+  "gateway_model_sha256": "248b222b9569eb5722afdcde5937480da52021d5d6d62efa4bd1c6d98a9bf4a0",
+  "feature_version": 6,
+  "package_preflight_ready": true,
+  "package_manifest_files_verified": 29,
+  "regeneration_byte_identical": true,
+  "dataset_zip_sha256": "b77ee69bb0aa30a98b56b46a98f0dcfdd8cddc7ae55092903e21b4a27525cb36",
+  "source_sha256": "bfb90e720800ff037202e833d22749e768087f3de8b5bb5ad72048d64d4a06a2",
+  "unit_tests_model": 50,
+  "source_hash_format": "LF source text",
+  "clean_git_export_preflight_ready": true,
+  "main_git_index_untouched": true
+}

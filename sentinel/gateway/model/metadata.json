@@ -122,6 +122,6 @@
     "verbosity": null,
     "num_class": 3
   },
-  "training_seconds": 2.6186365000903606,
+  "training_seconds": 5.078744899947196,
   "trees_selection": "predeclared_not_selected_by_holdout"
 }

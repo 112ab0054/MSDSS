@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-08T15:49:40.0487133+08:00",
-  "project": "C:\\Users\\USER\\Downloads\\MSDSS",
+  "checked_at": "2026-11-09T18:43:15.5278402+08:00",
+  "project": "C:\\Users\\USER\\Documents\\GitHub\\MSDSS",
   "total_ram_gib": 15.63,
-  "free_ram_gib": 1.73,
-  "free_disk_gib": 5.26,
+  "free_ram_gib": 3.44,
+  "free_disk_gib": 5.13,
   "docker_engine": "29.6.2",
   "docker_ready": true,
-  "wsl_available_gib": 5.62,
-  "wsl_reclaimable_file_gib": 5.39,
-  "effective_headroom_gib": 7.12,
+  "wsl_available_gib": 5.8,
+  "wsl_reclaimable_file_gib": 0.76,
+  "effective_headroom_gib": 4.2,
   "required_headroom_gib": 2.25,
   "required_disk_gib": 4.0
 }

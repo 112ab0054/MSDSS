@@ -1,6 +1,24 @@
+# 最新：v9 參數語義多樣性
+
+[small-api-v9](small-api-v9/README.md) 仍1098筆，依資料庫選項與三份API文件逐欄多樣化自由文字，包含巢狀帳單／配送地址。Bagisto只有en；Sylius使用資料庫的8種語言作離線樣本，未聲稱通路全啟用。國家、城市、郵遞區號與州省以組合對應；公司、姓名、電話等擴充不同值。有至少3筆的語義自由文字皆至少3種值，1～2筆者列限制。標籤、集合、骨架、攻擊原文保留；1036筆欄位修改，794筆input改變。舊v8保留，Colab套件用v9，需重訓；gateway仍v7。
+
+[完整數量與限制](../analysis/參數語義與資料多樣性v9.md)。
+
+# v8 實機語言值（保留）
+
+[small-api-v8](small-api-v8/README.md) 共1098筆；Shopware已實測英文及德文，111筆normal分配英文54／德文57；同配對同步背景語言，原攻擊、標籤、集合及骨架保留。145筆請求輸入改變。舊v7保留，Sylius驗證CSV不變。Colab用v8重新訓練；既有gateway模型仍v7。整批資料仍為offline，語言API實測不代表所有請求已執行。
+
 # XGBoost 資料集試產
 
-## 最新：傳輸header補強 v6
+## v7文件填值修正（保留）
+
+[small-api-v7](small-api-v7/README.md) 仍1098筆並保留攻擊面向欄。依三份API文件修正正常控制、重新嵌入相同攻擊原文；標籤與集合不變，輸入與ID有追溯映射。111筆語言ID使用歷史真實值；公司／部門／搜尋／日期等依語義多樣化。無法綁定的選填欄位不捏造，欄位狀態逐一記錄。新preflight檢查正常值；當時Colab與訓練入口用v7，現已改用v8。舊v6保留，不再宣稱新舊保留CSV bytes相同。
+
+## 歷史閱讀版：v6新增攻擊面向欄
+
+[small-api-v6-annotated](small-api-v6-annotated/README.md) 是目前Colab套件與訓練入口預設版本。四份CSV新增「攻擊面向」一欄，多個面向用「；」分隔；normal為不適用。1098筆原始紀錄、標籤、分組與模型輸入逐筆不變，原small-api-v6保留。CSV整檔SHA因新增欄而不同，兩版指紋分開保存並核對。面向不餵模型，也不代表已驗證攻擊效果；不需重訓。
+
+## 傳輸header補強 v6
 
 [small-api-v6](small-api-v6/README.md)：train702／test150／Sylius validation150／challenge96，共1098筆。相對v5新增108筆全部只進train，三類同樣涵蓋四種正常傳輸header情境，保留CSV整檔不變。特徵v6修正Accept萬用值的SQL註解誤計，raw不正規化，Medusa不放進train。見[白話歷程與實測結果](../analysis/訓練版本與問題處理白話紀錄.md)。
 

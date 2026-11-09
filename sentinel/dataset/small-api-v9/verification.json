@@ -1,0 +1,10 @@
+{
+  "model_tests_passed": 60,
+  "test_note": "57 existing tests passed; 3 new semantic tests passed after correcting classification of shippingMethod; dataset CSV bytes unchanged by that classification fix",
+  "zip_manifest_verified": true,
+  "portable_zip_preflight_ready": true,
+  "notebook_code_compiles": true,
+  "http_executed": 0,
+  "training_performed": false,
+  "gateway_model_replaced": false
+}

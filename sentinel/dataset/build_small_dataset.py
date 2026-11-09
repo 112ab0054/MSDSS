@@ -147,7 +147,9 @@ def initial_value(location, name, spec):
     common = {'email': 'customer@example.test', 'firstName': 'Mei', 'lastName': 'Chen',
               'first_name': 'Mei', 'last_name': 'Chen', 'city': 'Taipei', 'street': '1 Test Road',
               'postcode': '100', 'phoneNumber': '0200000000', 'company': 'MSDSS Test'}
-    return common.get(name, 'MSDSS cotton'), '合成文字；格式／業務限制尚待確認'
+    if name in common:
+        return common[name], '具欄位語義的合成測試值；業務尚待確認'
+    raise ValueError('欄位缺少語義填值規則，不可用通用字串代填：'+location+'/'+name)
 
 
 def source_payloads():
