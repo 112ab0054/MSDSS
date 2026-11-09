@@ -1,6 +1,6 @@
 # 已接入的 XGBoost 模型與推論說明
 
-目前已由使用者授權修正Accept語意，使用small-api-v6／特徵v6固定參數重訓並更新完整套件；沒有調門檻或使用Medusa樣本訓練。原results_download (5).zip模型與相關紀錄保存在../model/history/accept-v5-baseline，以下歷史探針維持原樣。
+目前模型為使用者上傳的Colab v9（results_download (6).zip），四份資料SHA與small-api-v9一致，特徵v6／2402維，沒有另行調參或改權重。舊v7完整套件已保存在../model/history/model-v7-before-colab-v9。下方v5／v6／v7探針為歷史，當前真實Medusa結果見[教授展示驗證](../analysis/Medusa教授展示驗證v9.md)。
 已核對原 `bundle-manifest.json`，只保留其中列出的檔案與清單本身，不攜帶 Python 3.13 的 `__pycache__`、全部訓練／測試請求或其他評估產物。
 來源摘要在 [model-source.json](model-source.json)，原套件在 [model/](model/)。
 
@@ -68,10 +68,17 @@ python -m uvicorn app:app --app-dir sentinel/gateway --host 127.0.0.1 --port 808
 這代表接線可用，也顯示正常查詢誤報與攻擊類別混淆；沒有為改善表面結果重新訓練或調整門檻。
 這幾筆只是接線探針，不是新的準確率測試；本機上游不是 Medusa，亦未證明任何漏洞成功。
 
-## 目前v6修正結果
+## 歷史v6修正結果
 
 正常查詢的20個固定模型探針皆判normal，包括HTTPX Accept:*/*及application/*；不代表真實網站誤報率0%。完整改版、分數與取捨見[白話紀錄](../analysis/訓練版本與問題處理白話紀錄.md)，證據見normal-probe-v6-2026-11-09。當前權重是在Windows固定依賴重訓及驗證，先前Linux驗證只屬歷史v5套件；v6仍須目標環境自測。
 
 ## 資料v7正常值修正後模型
 
-目前已以small-api-v7固定參數重訓，特徵仍v6，未修改分類門檻；舊v6權重另存history/document-values-before。當前模型來源與SHA以model-source.json為準。資料修正及最新數據詳見白話紀錄，不把歷史v5／v6探針當成當前結果。實際Medusa業務驗收仍未完成。
+歷史v7曾以small-api-v7固定參數重訓，特徵仍v6，未修改分類門檻；舊v6權重另存history/document-values-before。當前模型來源與SHA以model-source.json為準。資料修正及最新數據詳見白話紀錄，不把歷史v5／v6探針當成當前結果。實際Medusa業務驗收仍未完成。
+
+
+## 目前Colab v9及真實Medusa驗證
+
+新模型完整manifest及三類探針自測通過，16項gateway測試通過。真實Medusa2.21.0的58筆正常流程請求與7筆唯讀搜尋探針，全部有UUID對應的實際gateway分數。正常流程36項斷言通過並建立未扣款的離線測試訂單，但58筆正常意圖有3筆誤判；Cookie及2個缺少路由另列限制，不能說79個API全成功。
+
+目前79操作狀態：42成功、6前置不足、2版本／功能差異、29未測。獨立展示API入口18085連現有真實Medusa9100，原Mirage／storefront未改線。已測資料與分數見教授展示驗證；不要把舊v6正常20探針當成v9整站零誤報。

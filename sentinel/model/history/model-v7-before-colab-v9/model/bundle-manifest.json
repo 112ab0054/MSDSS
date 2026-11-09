@@ -1,0 +1,10 @@
+{
+  "features.py": "4bbdbcbae48664ea3a5cf4a3db8516e17561739854a6da5d20573f80fb2f0af1",
+  "metadata.json": "196bffed59a7e72c646fb34022572faf3d90aa7fd70dab7c7009ace04e9e2f27",
+  "model.json": "c1c6f754ee5610c6e49e1d65f6f73059b224e45de539ba1921cc829d57cad332",
+  "predict.py": "8f2a01069f2806764780c479e108ea2eabe7848cdd63e122b4e2a3678687a435",
+  "README.md": "50035681ad90821be0c88121557b0b355acd85c47f24d87f2afe7ff3a0ef328c",
+  "request_input.py": "417a93fad371c66a8f70b925a240ad93034a3dc688d6f3e2a5b2ee1387589675",
+  "requirements-inference.txt": "9f881ad595fefc14c58c34329c58b11c7fb8b538216b80bb81c74a5ad5ae3db1",
+  "self-test.json": "46ee1436ba167a5829bc78fc6b3e8a0d040572e64758138133ca09ba676fd8d7"
+}

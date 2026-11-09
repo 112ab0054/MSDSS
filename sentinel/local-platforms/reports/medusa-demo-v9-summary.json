@@ -1,0 +1,55 @@
+{
+  "actual_medusa_version": "2.21.0",
+  "gateway": "http://127.0.0.1:18085",
+  "upstream": "http://127.0.0.1:9100",
+  "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
+  "flow_outcome": "passed_with_limitations",
+  "flow_requests": 58,
+  "actual_gateway_score_matches": 65,
+  "business_checks": 36,
+  "business_checks_passed": 36,
+  "api_status_counts": {
+    "尚未測試": 29,
+    "成功": 42,
+    "前置條件不足": 6,
+    "版本／功能差異": 2
+  },
+  "normal_intent_flow_predictions": {
+    "normal": 55,
+    "xss": 2,
+    "sqli": 1
+  },
+  "read_only_probe_results": [
+    {
+      "intent": "normal",
+      "predicted": "normal"
+    },
+    {
+      "intent": "normal",
+      "predicted": "normal"
+    },
+    {
+      "intent": "normal",
+      "predicted": "normal"
+    },
+    {
+      "intent": "sqli",
+      "predicted": "sqli"
+    },
+    {
+      "intent": "sqli",
+      "predicted": "normal"
+    },
+    {
+      "intent": "xss",
+      "predicted": "xss"
+    },
+    {
+      "intent": "xss",
+      "predicted": "xss"
+    }
+  ],
+  "payment": "pp_system_default; order authorized; captured_amount=0; no real charge",
+  "scope": "new isolated Sentinel gateway to existing real Medusa; not Mirage/storefront end-to-end or all79 business success",
+  "training_data": false
+}

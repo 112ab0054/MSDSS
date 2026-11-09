@@ -1,0 +1,4247 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T11:35:09.891754+00:00",
+  "outcome": "failed",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "run_medusa_demo.py": "53c66972e5cad0bb4d880e928f14c407201f8671db8789ebd96433dfcd586faf"
+  },
+  "requests": [
+    {
+      "request_id": "aba5731a-1ede-4277-899e-00202414ddcc",
+      "method": "GET",
+      "path": "/auth/customer/providers",
+      "operation_path": "/auth/customer/providers",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "aba5731a-1ede-4277-899e-00202414ddcc",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/auth/customer/providers",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "providers": [
+          {
+            "id": "emailpass",
+            "identifier": "emailpass",
+            "display_name": "Email/Password Authentication",
+            "flow": "credentials"
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "935aac26-e0f4-40bc-95b1-7473d7cfc818",
+      "method": "GET",
+      "path": "/store/regions",
+      "operation_path": "/store/regions",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "935aac26-e0f4-40bc-95b1-7473d7cfc818",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/regions",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "regions": [
+          {
+            "id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+            "name": "Europe",
+            "currency_code": "eur",
+            "created_at": "2026-09-19T12:28:07.612Z",
+            "updated_at": "2026-09-19T12:28:07.612Z",
+            "deleted_at": null,
+            "metadata": null,
+            "countries": [
+              {
+                "iso_2": "dk",
+                "iso_3": "dnk",
+                "num_code": "208",
+                "name": "DENMARK",
+                "display_name": "Denmark",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "fr",
+                "iso_3": "fra",
+                "num_code": "250",
+                "name": "FRANCE",
+                "display_name": "France",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "de",
+                "iso_3": "deu",
+                "num_code": "276",
+                "name": "GERMANY",
+                "display_name": "Germany",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "it",
+                "iso_3": "ita",
+                "num_code": "380",
+                "name": "ITALY",
+                "display_name": "Italy",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.613Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "es",
+                "iso_3": "esp",
+                "num_code": "724",
+                "name": "SPAIN",
+                "display_name": "Spain",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.040Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "se",
+                "iso_3": "swe",
+                "num_code": "752",
+                "name": "SWEDEN",
+                "display_name": "Sweden",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.040Z",
+                "updated_at": "2026-09-19T12:28:07.613Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "gb",
+                "iso_3": "gbr",
+                "num_code": "826",
+                "name": "UNITED KINGDOM",
+                "display_name": "United Kingdom",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.040Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              }
+            ]
+          }
+        ],
+        "count": 1,
+        "offset": 0,
+        "limit": 50
+      }
+    },
+    {
+      "request_id": "13c40957-64a8-4477-933f-cd0e8c2e12aa",
+      "method": "GET",
+      "path": "/store/regions/reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "operation_path": "/store/regions/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "13c40957-64a8-4477-933f-cd0e8c2e12aa",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/regions/reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "region": {
+          "id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+          "name": "Europe",
+          "currency_code": "eur",
+          "created_at": "2026-09-19T12:28:07.612Z",
+          "updated_at": "2026-09-19T12:28:07.612Z",
+          "deleted_at": null,
+          "metadata": null,
+          "countries": [
+            {
+              "iso_2": "dk",
+              "iso_3": "dnk",
+              "num_code": "208",
+              "name": "DENMARK",
+              "display_name": "Denmark",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "fr",
+              "iso_3": "fra",
+              "num_code": "250",
+              "name": "FRANCE",
+              "display_name": "France",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "de",
+              "iso_3": "deu",
+              "num_code": "276",
+              "name": "GERMANY",
+              "display_name": "Germany",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "it",
+              "iso_3": "ita",
+              "num_code": "380",
+              "name": "ITALY",
+              "display_name": "Italy",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.613Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "es",
+              "iso_3": "esp",
+              "num_code": "724",
+              "name": "SPAIN",
+              "display_name": "Spain",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.040Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "se",
+              "iso_3": "swe",
+              "num_code": "752",
+              "name": "SWEDEN",
+              "display_name": "Sweden",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.040Z",
+              "updated_at": "2026-09-19T12:28:07.613Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "gb",
+              "iso_3": "gbr",
+              "num_code": "826",
+              "name": "UNITED KINGDOM",
+              "display_name": "United Kingdom",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.040Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request_id": "cca56c5f-62f8-4d45-a78e-d555f5808e1a",
+      "method": "GET",
+      "path": "/store/currencies?limit=20",
+      "operation_path": "/store/currencies",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "cca56c5f-62f8-4d45-a78e-d555f5808e1a",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/currencies?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "currencies": [
+          {
+            "code": "aed",
+            "name": "United Arab Emirates Dirham",
+            "symbol": "AED",
+            "symbol_native": "د.إ.‏",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "afn",
+            "name": "Afghan Afghani",
+            "symbol": "Af",
+            "symbol_native": "؋",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "all",
+            "name": "Albanian Lek",
+            "symbol": "ALL",
+            "symbol_native": "Lek",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "amd",
+            "name": "Armenian Dram",
+            "symbol": "AMD",
+            "symbol_native": "դր.",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "aoa",
+            "name": "Angolan Kwanza",
+            "symbol": "AOA",
+            "symbol_native": "Kz",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "ars",
+            "name": "Argentine Peso",
+            "symbol": "AR$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "aud",
+            "name": "Australian Dollar",
+            "symbol": "AU$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "azn",
+            "name": "Azerbaijani Manat",
+            "symbol": "man.",
+            "symbol_native": "ман.",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bam",
+            "name": "Bosnia-Herzegovina Convertible Mark",
+            "symbol": "KM",
+            "symbol_native": "KM",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bdt",
+            "name": "Bangladeshi Taka",
+            "symbol": "Tk",
+            "symbol_native": "৳",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bgn",
+            "name": "Bulgarian Lev",
+            "symbol": "BGN",
+            "symbol_native": "лв.",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bhd",
+            "name": "Bahraini Dinar",
+            "symbol": "BD",
+            "symbol_native": "د.ب.‏",
+            "decimal_digits": 3,
+            "rounding": 0
+          },
+          {
+            "code": "bif",
+            "name": "Burundian Franc",
+            "symbol": "FBu",
+            "symbol_native": "FBu",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "bnd",
+            "name": "Brunei Dollar",
+            "symbol": "BN$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bob",
+            "name": "Bolivian Boliviano",
+            "symbol": "Bs",
+            "symbol_native": "Bs",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "brl",
+            "name": "Brazilian Real",
+            "symbol": "R$",
+            "symbol_native": "R$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bwp",
+            "name": "Botswanan Pula",
+            "symbol": "BWP",
+            "symbol_native": "P",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "byn",
+            "name": "Belarusian Ruble",
+            "symbol": "Br",
+            "symbol_native": "руб.",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bzd",
+            "name": "Belize Dollar",
+            "symbol": "BZ$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "cad",
+            "name": "Canadian Dollar",
+            "symbol": "CA$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          }
+        ],
+        "count": 126,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "66713148-c859-4510-86a3-e91d31a5887f",
+      "method": "GET",
+      "path": "/store/currencies/eur",
+      "operation_path": "/store/currencies/{code}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "66713148-c859-4510-86a3-e91d31a5887f",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/currencies/eur",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "currency": {
+          "code": "eur",
+          "name": "Euro",
+          "symbol": "€",
+          "symbol_native": "€",
+          "decimal_digits": 2,
+          "rounding": 0
+        }
+      }
+    },
+    {
+      "request_id": "42ba4287-820a-4b1b-87e0-5c4d985c9836",
+      "method": "GET",
+      "path": "/store/locales",
+      "operation_path": "/store/locales",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "42ba4287-820a-4b1b-87e0-5c4d985c9836",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/store/locales",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      },
+      "version_difference": "展示站未提供 locales 路由，不能列為API通過"
+    },
+    {
+      "request_id": "d076e060-be13-4697-9286-c064cf576b80",
+      "method": "GET",
+      "path": "/store/collections?limit=20",
+      "operation_path": "/store/collections",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "d076e060-be13-4697-9286-c064cf576b80",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/collections?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "collections": [],
+        "count": 0,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "bfcdc5e6-3b64-4548-aaea-35165bdf1822",
+      "method": "GET",
+      "path": "/store/product-categories?limit=20",
+      "operation_path": "/store/product-categories",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "bfcdc5e6-3b64-4548-aaea-35165bdf1822",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-categories?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product_categories": [
+          {
+            "id": "pcat_01M2WT6S6ZPBY7RF01KED79M94",
+            "name": "Shirts",
+            "description": "",
+            "handle": "shirts",
+            "rank": 0,
+            "external_id": null,
+            "parent_category_id": null,
+            "created_at": "2026-09-19T12:28:08.290Z",
+            "updated_at": "2026-09-19T12:28:08.290Z",
+            "metadata": null,
+            "parent_category": null,
+            "category_children": []
+          },
+          {
+            "id": "pcat_01M2WT6S70PW9KHFA4JK7T44NZ",
+            "name": "Sweatshirts",
+            "description": "",
+            "handle": "sweatshirts",
+            "rank": 1,
+            "external_id": null,
+            "parent_category_id": null,
+            "created_at": "2026-09-19T12:28:08.290Z",
+            "updated_at": "2026-09-19T12:28:08.290Z",
+            "metadata": null,
+            "parent_category": null,
+            "category_children": []
+          },
+          {
+            "id": "pcat_01M2WT6S711JW62359WPKSWMS8",
+            "name": "Merch",
+            "description": "",
+            "handle": "merch",
+            "rank": 3,
+            "external_id": null,
+            "parent_category_id": null,
+            "created_at": "2026-09-19T12:28:08.290Z",
+            "updated_at": "2026-09-19T12:28:08.290Z",
+            "metadata": null,
+            "parent_category": null,
+            "category_children": []
+          },
+          {
+            "id": "pcat_01M2WT6S71VQYHSJRJGPJGZAT8",
+            "name": "Pants",
+            "description": "",
+            "handle": "pants",
+            "rank": 2,
+            "external_id": null,
+            "parent_category_id": null,
+            "created_at": "2026-09-19T12:28:08.290Z",
+            "updated_at": "2026-09-19T12:28:08.290Z",
+            "metadata": null,
+            "parent_category": null,
+            "category_children": []
+          }
+        ],
+        "count": 4,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "959006b8-41a7-4ac7-89f9-f7d6dfcca181",
+      "method": "GET",
+      "path": "/store/product-categories/pcat_01M2WT6S6ZPBY7RF01KED79M94",
+      "operation_path": "/store/product-categories/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "959006b8-41a7-4ac7-89f9-f7d6dfcca181",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-categories/pcat_01M2WT6S6ZPBY7RF01KED79M94",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product_category": {
+          "id": "pcat_01M2WT6S6ZPBY7RF01KED79M94",
+          "name": "Shirts",
+          "description": "",
+          "handle": "shirts",
+          "rank": 0,
+          "external_id": null,
+          "parent_category_id": null,
+          "created_at": "2026-09-19T12:28:08.290Z",
+          "updated_at": "2026-09-19T12:28:08.290Z",
+          "metadata": null,
+          "parent_category": null,
+          "category_children": []
+        }
+      }
+    },
+    {
+      "request_id": "45c0cf68-0967-4569-993b-92e9277e30d8",
+      "method": "GET",
+      "path": "/store/product-options?limit=20",
+      "operation_path": "/store/product-options",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "45c0cf68-0967-4569-993b-92e9277e30d8",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-options?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product_options": [
+          {
+            "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+            "title": "Size",
+            "is_exclusive": false,
+            "created_at": "2026-09-19T12:28:08.312Z",
+            "updated_at": "2026-09-19T12:28:08.312Z",
+            "metadata": null,
+            "values": [
+              {
+                "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                "value": "S",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              },
+              {
+                "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                "value": "M",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              },
+              {
+                "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                "value": "L",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              },
+              {
+                "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                "value": "XL",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              }
+            ]
+          },
+          {
+            "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+            "title": "Color",
+            "is_exclusive": false,
+            "created_at": "2026-09-19T12:28:08.313Z",
+            "updated_at": "2026-09-19T12:28:08.313Z",
+            "metadata": null,
+            "values": [
+              {
+                "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                "value": "Black",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              },
+              {
+                "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                "value": "White",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              }
+            ]
+          }
+        ],
+        "count": 2,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "60f65310-cf3a-4e5b-b751-c7ed00b2e888",
+      "method": "GET",
+      "path": "/store/product-options/opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+      "operation_path": "/store/product-options/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "60f65310-cf3a-4e5b-b751-c7ed00b2e888",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-options/opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product_option": {
+          "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+          "title": "Size",
+          "is_exclusive": false,
+          "created_at": "2026-09-19T12:28:08.312Z",
+          "updated_at": "2026-09-19T12:28:08.312Z",
+          "metadata": null,
+          "values": [
+            {
+              "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+              "value": "L",
+              "rank": null,
+              "metadata": null,
+              "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+              "created_at": "2026-09-19T12:28:08.313Z",
+              "updated_at": "2026-09-19T12:28:08.313Z",
+              "deleted_at": null
+            },
+            {
+              "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+              "value": "M",
+              "rank": null,
+              "metadata": null,
+              "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+              "created_at": "2026-09-19T12:28:08.313Z",
+              "updated_at": "2026-09-19T12:28:08.313Z",
+              "deleted_at": null
+            },
+            {
+              "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+              "value": "S",
+              "rank": null,
+              "metadata": null,
+              "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+              "created_at": "2026-09-19T12:28:08.313Z",
+              "updated_at": "2026-09-19T12:28:08.313Z",
+              "deleted_at": null
+            },
+            {
+              "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+              "value": "XL",
+              "rank": null,
+              "metadata": null,
+              "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+              "created_at": "2026-09-19T12:28:08.313Z",
+              "updated_at": "2026-09-19T12:28:08.313Z",
+              "deleted_at": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request_id": "260ecab6-ba4a-4731-86eb-4f898ce95a13",
+      "method": "GET",
+      "path": "/store/product-tags?limit=20",
+      "operation_path": "/store/product-tags",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "260ecab6-ba4a-4731-86eb-4f898ce95a13",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-tags?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product_tags": [],
+        "count": 0,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "220ee875-4e07-435d-b6a6-f786a0260e67",
+      "method": "GET",
+      "path": "/store/product-types?limit=20",
+      "operation_path": "/store/product-types",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "220ee875-4e07-435d-b6a6-f786a0260e67",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-types?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product_types": [],
+        "count": 0,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "f8c8687d-a4a8-4679-9f77-c8d198b4e426",
+      "method": "GET",
+      "path": "/store/return-reasons?limit=20",
+      "operation_path": "/store/return-reasons",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "f8c8687d-a4a8-4679-9f77-c8d198b4e426",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/return-reasons?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "return_reasons": [],
+        "count": 0,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "e2e04519-d45c-49cb-9a4c-40fc182f083f",
+      "method": "GET",
+      "path": "/store/products?limit=10&region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "operation_path": "/store/products",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "e2e04519-d45c-49cb-9a4c-40fc182f083f",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/products?limit=10&region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "raw_query": "limit=10&region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "products": [
+          {
+            "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+            "title": "Medusa Shorts",
+            "subtitle": null,
+            "description": "Reimagine the feeling of classic shorts. With our cotton shorts, everyday essentials no longer have to be ordinary.",
+            "handle": "shorts",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.374Z",
+            "updated_at": "2026-09-19T12:28:08.374Z",
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEK0PE63FY5WXEXZB85",
+                "title": "M",
+                "sku": "SHORTS-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SK12FPJFXPY0KB87B47",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SK1SMMADT4RP7MDG5DQ",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SK1SMMADT4RP7MDG5DQ",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEKD6S43T5XFF2SZQCQ",
+                "title": "S",
+                "sku": "SHORTS-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SK1KJCZ3NGKWBD4T6BP",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SK0TGTNHR3V96K30NVA",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SK0TGTNHR3V96K30NVA",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEM3XDCSNAJS0PE1W6W",
+                "title": "L",
+                "sku": "SHORTS-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SK3HMY9E49Z2QGMQXGZ",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SK1J2R74W0TRXJYPV4E",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SK1J2R74W0TRXJYPV4E",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEMSS6PYVS6XVPRSZ3R",
+                "title": "XL",
+                "sku": "SHORTS-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SKBZG180C7HCJAQZRD7",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SKBMPG5GKJ940AJ2PEZ",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SKBMPG5GKJ940AJ2PEZ",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              }
+            ],
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S9708BXPZAX13T1Z1QD",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S98VSEDDY51PJ5E8RYN",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ]
+          },
+          {
+            "id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+            "title": "Medusa Sweatpants",
+            "subtitle": null,
+            "description": "Reimagine the feeling of classic sweatpants. With our cotton sweatpants, everyday essentials no longer have to be ordinary.",
+            "handle": "sweatpants",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.373Z",
+            "updated_at": "2026-09-19T12:28:08.373Z",
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEKB2MH8MAQ30B7J7Y2",
+                "title": "XL",
+                "sku": "SWEATPANTS-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SK05JW8ETHFTME2P4RK",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SK094QTW2CGTH83XP1T",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SK094QTW2CGTH83XP1T",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEKE6CRZNCF5M919Z4S",
+                "title": "M",
+                "sku": "SWEATPANTS-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJZP2DTEHZ2KZ9VGGA7",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJZYWSDM8R2Q815Z8JT",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJZYWSDM8R2Q815Z8JT",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEKQBFS0BVS2MFKBRFP",
+                "title": "S",
+                "sku": "SWEATPANTS-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJZHT0XG99VC2KAK6NZ",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJZ1DDXYG07544NXGPK",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJZ1DDXYG07544NXGPK",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEKX04245CCEYS7KS3D",
+                "title": "L",
+                "sku": "SWEATPANTS-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SK0KD6A3FFA68FDQJYJ",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SK0AE43G9FGC6EEMR2Z",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SK0AE43G9FGC6EEMR2Z",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              }
+            ],
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S97Q9BP6AF8KN94N0P5",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S97CY5BWE9TSGV3MMGM",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ]
+          },
+          {
+            "id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+            "title": "Medusa Sweatshirt",
+            "subtitle": null,
+            "description": "Reimagine the feeling of a classic sweatshirt. With our cotton sweatshirt, everyday essentials no longer have to be ordinary.",
+            "handle": "sweatshirt",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.373Z",
+            "updated_at": "2026-09-19T12:28:08.373Z",
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEJ5BCAF7N1YYN9MNJW",
+                "title": "M",
+                "sku": "SWEATSHIRT-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJYB42AQB8QBJTX8JN2",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJYNA3BFE43EGGXMGMM",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJYNA3BFE43EGGXMGMM",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEJ5JZX0WSKPBQF25TC",
+                "title": "S",
+                "sku": "SWEATSHIRT-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJYTSJ947Y6C34GMJ0H",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJY8Y5WAEBZKXDC6F88",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJY8Y5WAEBZKXDC6F88",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEJHS33YMM6FE9MGF1K",
+                "title": "L",
+                "sku": "SWEATSHIRT-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJZT2XW2JX8AYP03T5T",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJYQGSR19WD5P1TT56H",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJYQGSR19WD5P1TT56H",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEK5BYPGNG4Z076HKXH",
+                "title": "XL",
+                "sku": "SWEATSHIRT-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJZRT0S8YNS2YFN1QKB",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJZFHTX80F5C25TWSEE",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJZFHTX80F5C25TWSEE",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              }
+            ],
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S967M89MY7289C8SJ58",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S97QD64RMCTBBG46RHZ",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ]
+          },
+          {
+            "id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+            "title": "Medusa T-Shirt",
+            "subtitle": null,
+            "description": "Reimagine the feeling of a classic T-shirt. With our cotton T-shirts, everyday essentials no longer have to be ordinary.",
+            "handle": "t-shirt",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.373Z",
+            "updated_at": "2026-09-19T12:28:08.373Z",
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEFK4HB9G1AS2DGPVW9",
+                "title": "S / Black",
+                "sku": "SHIRT-S-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.532Z",
+                "updated_at": "2026-09-19T12:28:08.532Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJVPJ8PA30XY49ZKWMM",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJVRZ3DTW7WS4PKFTCR",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJVRZ3DTW7WS4PKFTCR",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEGF1WBVZDPTGP9F79W",
+                "title": "S / White",
+                "sku": "SHIRT-S-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJWVWZP55BB7Q1NH3EQ",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJV0V2NTDCH1K2YY92J",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJV0V2NTDCH1K2YY92J",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEGHAQW6FMNSYT1W20P",
+                "title": "M / Black",
+                "sku": "SHIRT-M-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJWS9RD86552CEAEJHW",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJW0F64WXNXZM4ZHNN1",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJW0F64WXNXZM4ZHNN1",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEH6SN5H8KV6JS1QKFH",
+                "title": "XL / Black",
+                "sku": "SHIRT-XL-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJX18GDX69NSWMMVPMZ",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJXV8PX636VE0QX2D34",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJXV8PX636VE0QX2D34",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEH9MM7CWCEPP8FYB3B",
+                "title": "L / Black",
+                "sku": "SHIRT-L-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJX7V62PCYMA4R7B5VT",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJWXMYV8338H9RSMW05",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJWXMYV8338H9RSMW05",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEHJGCJ5Y8E7DSFGBS1",
+                "title": "L / White",
+                "sku": "SHIRT-L-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJX6MZB0YJ1MJESKXN3",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJX2FV1842X7Y3GMK0Q",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJX2FV1842X7Y3GMK0Q",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEHKC1YPSZ11GAVVE1B",
+                "title": "M / White",
+                "sku": "SHIRT-M-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJW5AJKYAW0WA01337X",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJWKRV48RE8TMQRE56G",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJWKRV48RE8TMQRE56G",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              },
+              {
+                "id": "variant_01M2WT6SEJYDKPZNWYHM5AHZFZ",
+                "title": "XL / White",
+                "sku": "SHIRT-XL-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ],
+                "calculated_price": {
+                  "id": "pset_01M2WT6SJYE3XJHM4Q4DJ7C62B",
+                  "is_calculated_price_price_list": false,
+                  "is_calculated_price_tax_inclusive": false,
+                  "calculated_amount": 10,
+                  "raw_calculated_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "is_original_price_price_list": false,
+                  "is_original_price_tax_inclusive": false,
+                  "original_amount": 10,
+                  "raw_original_amount": {
+                    "value": "10",
+                    "precision": 20
+                  },
+                  "currency_code": "eur",
+                  "calculated_price": {
+                    "id": "price_01M2WT6SJX1Q7ZDXE356ND0B7M",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  },
+                  "original_price": {
+                    "id": "price_01M2WT6SJX1Q7ZDXE356ND0B7M",
+                    "price_list_id": null,
+                    "price_list_type": null,
+                    "min_quantity": null,
+                    "max_quantity": null
+                  }
+                }
+              }
+            ],
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                "title": "Color",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S95WW0N4CY0YZK557AC",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S95QWFJHE0G1QAX926B",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S9614YT60T0QG512W3E",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-white-front.png",
+                "metadata": null,
+                "rank": 2,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S961XE210HPQXM2959A",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-white-back.png",
+                "metadata": null,
+                "rank": 3,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ]
+          }
+        ],
+        "count": 4,
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "request_id": "bae55f77-3eac-4859-9ab4-60a4b1bc27b8",
+      "method": "GET",
+      "path": "/store/products/prod_01M2WT6S930JDX7S27524MB2TC?region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "operation_path": "/store/products/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "bae55f77-3eac-4859-9ab4-60a4b1bc27b8",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/products/prod_01M2WT6S930JDX7S27524MB2TC?region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "raw_query": "region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "product": {
+          "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+          "title": "Medusa Shorts",
+          "subtitle": null,
+          "description": "Reimagine the feeling of classic shorts. With our cotton shorts, everyday essentials no longer have to be ordinary.",
+          "handle": "shorts",
+          "is_giftcard": false,
+          "discountable": true,
+          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+          "collection_id": null,
+          "type_id": null,
+          "weight": 400,
+          "length": null,
+          "height": null,
+          "width": null,
+          "hs_code": null,
+          "origin_country": null,
+          "mid_code": null,
+          "material": null,
+          "created_at": "2026-09-19T12:28:08.374Z",
+          "updated_at": "2026-09-19T12:28:08.374Z",
+          "variants": [
+            {
+              "id": "variant_01M2WT6SEK0PE63FY5WXEXZB85",
+              "title": "M",
+              "sku": "SHORTS-M",
+              "barcode": null,
+              "ean": null,
+              "upc": null,
+              "allow_backorder": false,
+              "manage_inventory": true,
+              "hs_code": null,
+              "origin_country": null,
+              "mid_code": null,
+              "material": null,
+              "weight": null,
+              "length": null,
+              "height": null,
+              "width": null,
+              "metadata": null,
+              "variant_rank": 0,
+              "thumbnail": null,
+              "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "created_at": "2026-09-19T12:28:08.533Z",
+              "updated_at": "2026-09-19T12:28:08.533Z",
+              "deleted_at": null,
+              "options": [
+                {
+                  "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                  "value": "M",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "option": {
+                    "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "title": "Size",
+                    "is_exclusive": false,
+                    "metadata": null,
+                    "created_at": "2026-09-19T12:28:08.312Z",
+                    "updated_at": "2026-09-19T12:28:08.312Z",
+                    "deleted_at": null
+                  },
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                }
+              ],
+              "calculated_price": {
+                "id": "pset_01M2WT6SK12FPJFXPY0KB87B47",
+                "is_calculated_price_price_list": false,
+                "is_calculated_price_tax_inclusive": false,
+                "calculated_amount": 10,
+                "raw_calculated_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "is_original_price_price_list": false,
+                "is_original_price_tax_inclusive": false,
+                "original_amount": 10,
+                "raw_original_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "currency_code": "eur",
+                "calculated_price": {
+                  "id": "price_01M2WT6SK1SMMADT4RP7MDG5DQ",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                },
+                "original_price": {
+                  "id": "price_01M2WT6SK1SMMADT4RP7MDG5DQ",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                }
+              }
+            },
+            {
+              "id": "variant_01M2WT6SEKD6S43T5XFF2SZQCQ",
+              "title": "S",
+              "sku": "SHORTS-S",
+              "barcode": null,
+              "ean": null,
+              "upc": null,
+              "allow_backorder": false,
+              "manage_inventory": true,
+              "hs_code": null,
+              "origin_country": null,
+              "mid_code": null,
+              "material": null,
+              "weight": null,
+              "length": null,
+              "height": null,
+              "width": null,
+              "metadata": null,
+              "variant_rank": 0,
+              "thumbnail": null,
+              "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "created_at": "2026-09-19T12:28:08.533Z",
+              "updated_at": "2026-09-19T12:28:08.533Z",
+              "deleted_at": null,
+              "options": [
+                {
+                  "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                  "value": "S",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "option": {
+                    "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "title": "Size",
+                    "is_exclusive": false,
+                    "metadata": null,
+                    "created_at": "2026-09-19T12:28:08.312Z",
+                    "updated_at": "2026-09-19T12:28:08.312Z",
+                    "deleted_at": null
+                  },
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                }
+              ],
+              "calculated_price": {
+                "id": "pset_01M2WT6SK1KJCZ3NGKWBD4T6BP",
+                "is_calculated_price_price_list": false,
+                "is_calculated_price_tax_inclusive": false,
+                "calculated_amount": 10,
+                "raw_calculated_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "is_original_price_price_list": false,
+                "is_original_price_tax_inclusive": false,
+                "original_amount": 10,
+                "raw_original_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "currency_code": "eur",
+                "calculated_price": {
+                  "id": "price_01M2WT6SK0TGTNHR3V96K30NVA",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                },
+                "original_price": {
+                  "id": "price_01M2WT6SK0TGTNHR3V96K30NVA",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                }
+              }
+            },
+            {
+              "id": "variant_01M2WT6SEM3XDCSNAJS0PE1W6W",
+              "title": "L",
+              "sku": "SHORTS-L",
+              "barcode": null,
+              "ean": null,
+              "upc": null,
+              "allow_backorder": false,
+              "manage_inventory": true,
+              "hs_code": null,
+              "origin_country": null,
+              "mid_code": null,
+              "material": null,
+              "weight": null,
+              "length": null,
+              "height": null,
+              "width": null,
+              "metadata": null,
+              "variant_rank": 0,
+              "thumbnail": null,
+              "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "created_at": "2026-09-19T12:28:08.533Z",
+              "updated_at": "2026-09-19T12:28:08.533Z",
+              "deleted_at": null,
+              "options": [
+                {
+                  "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                  "value": "L",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "option": {
+                    "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "title": "Size",
+                    "is_exclusive": false,
+                    "metadata": null,
+                    "created_at": "2026-09-19T12:28:08.312Z",
+                    "updated_at": "2026-09-19T12:28:08.312Z",
+                    "deleted_at": null
+                  },
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                }
+              ],
+              "calculated_price": {
+                "id": "pset_01M2WT6SK3HMY9E49Z2QGMQXGZ",
+                "is_calculated_price_price_list": false,
+                "is_calculated_price_tax_inclusive": false,
+                "calculated_amount": 10,
+                "raw_calculated_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "is_original_price_price_list": false,
+                "is_original_price_tax_inclusive": false,
+                "original_amount": 10,
+                "raw_original_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "currency_code": "eur",
+                "calculated_price": {
+                  "id": "price_01M2WT6SK1J2R74W0TRXJYPV4E",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                },
+                "original_price": {
+                  "id": "price_01M2WT6SK1J2R74W0TRXJYPV4E",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                }
+              }
+            },
+            {
+              "id": "variant_01M2WT6SEMSS6PYVS6XVPRSZ3R",
+              "title": "XL",
+              "sku": "SHORTS-XL",
+              "barcode": null,
+              "ean": null,
+              "upc": null,
+              "allow_backorder": false,
+              "manage_inventory": true,
+              "hs_code": null,
+              "origin_country": null,
+              "mid_code": null,
+              "material": null,
+              "weight": null,
+              "length": null,
+              "height": null,
+              "width": null,
+              "metadata": null,
+              "variant_rank": 0,
+              "thumbnail": null,
+              "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "created_at": "2026-09-19T12:28:08.533Z",
+              "updated_at": "2026-09-19T12:28:08.533Z",
+              "deleted_at": null,
+              "options": [
+                {
+                  "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                  "value": "XL",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "option": {
+                    "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "title": "Size",
+                    "is_exclusive": false,
+                    "metadata": null,
+                    "created_at": "2026-09-19T12:28:08.312Z",
+                    "updated_at": "2026-09-19T12:28:08.312Z",
+                    "deleted_at": null
+                  },
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                }
+              ],
+              "calculated_price": {
+                "id": "pset_01M2WT6SKBZG180C7HCJAQZRD7",
+                "is_calculated_price_price_list": false,
+                "is_calculated_price_tax_inclusive": false,
+                "calculated_amount": 10,
+                "raw_calculated_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "is_original_price_price_list": false,
+                "is_original_price_tax_inclusive": false,
+                "original_amount": 10,
+                "raw_original_amount": {
+                  "value": "10",
+                  "precision": 20
+                },
+                "currency_code": "eur",
+                "calculated_price": {
+                  "id": "price_01M2WT6SKBMPG5GKJ940AJ2PEZ",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                },
+                "original_price": {
+                  "id": "price_01M2WT6SKBMPG5GKJ940AJ2PEZ",
+                  "price_list_id": null,
+                  "price_list_type": null,
+                  "min_quantity": null,
+                  "max_quantity": null
+                }
+              }
+            }
+          ],
+          "type": null,
+          "collection": null,
+          "options": [
+            {
+              "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+              "title": "Size",
+              "is_exclusive": false,
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:08.312Z",
+              "updated_at": "2026-09-19T12:28:08.312Z",
+              "deleted_at": null,
+              "values": [
+                {
+                  "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                  "value": "L",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                },
+                {
+                  "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                  "value": "M",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                },
+                {
+                  "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                  "value": "S",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                },
+                {
+                  "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                  "value": "XL",
+                  "rank": null,
+                  "metadata": null,
+                  "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                  "created_at": "2026-09-19T12:28:08.313Z",
+                  "updated_at": "2026-09-19T12:28:08.313Z",
+                  "deleted_at": null
+                }
+              ]
+            }
+          ],
+          "tags": [],
+          "images": [
+            {
+              "id": "img_01M2WT6S9708BXPZAX13T1Z1QD",
+              "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+              "metadata": null,
+              "rank": 0,
+              "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "created_at": "2026-09-19T12:28:08.374Z",
+              "updated_at": "2026-09-19T12:28:08.374Z",
+              "deleted_at": null
+            },
+            {
+              "id": "img_01M2WT6S98VSEDDY51PJ5E8RYN",
+              "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-back.png",
+              "metadata": null,
+              "rank": 1,
+              "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "created_at": "2026-09-19T12:28:08.374Z",
+              "updated_at": "2026-09-19T12:28:08.374Z",
+              "deleted_at": null
+            }
+          ],
+          "categories": [
+            {
+              "is_internal": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request_id": "9dd7ce63-6f84-4355-a628-46a022d0a96b",
+      "method": "GET",
+      "path": "/store/product-variants?id=variant_01M2WT6SEK0PE63FY5WXEXZB85&region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "operation_path": "/store/product-variants",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "9dd7ce63-6f84-4355-a628-46a022d0a96b",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/product-variants?id=variant_01M2WT6SEK0PE63FY5WXEXZB85&region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "raw_query": "id=variant_01M2WT6SEK0PE63FY5WXEXZB85&region_id=reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "variants": [
+          {
+            "id": "variant_01M2WT6SEK0PE63FY5WXEXZB85",
+            "title": "M",
+            "sku": "SHORTS-M",
+            "barcode": null,
+            "ean": null,
+            "upc": null,
+            "allow_backorder": false,
+            "manage_inventory": true,
+            "variant_rank": 0,
+            "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+            "thumbnail": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "weight": null,
+            "length": null,
+            "height": null,
+            "width": null,
+            "created_at": "2026-09-19T12:28:08.533Z",
+            "updated_at": "2026-09-19T12:28:08.533Z",
+            "metadata": null,
+            "product": {
+              "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+              "type_id": null
+            },
+            "options": [
+              {
+                "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                "value": "M",
+                "rank": null,
+                "metadata": null,
+                "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "option": {
+                  "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y"
+                },
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null
+              }
+            ],
+            "images": [
+              {
+                "id": "img_01M2WT6S9708BXPZAX13T1Z1QD",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "product": {
+                  "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                  "type_id": null,
+                  "type": null
+                },
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null,
+                "variants": []
+              },
+              {
+                "id": "img_01M2WT6S98VSEDDY51PJ5E8RYN",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "product": {
+                  "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                  "type_id": null,
+                  "type": null
+                },
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null,
+                "variants": []
+              }
+            ],
+            "calculated_price": {
+              "id": "pset_01M2WT6SK12FPJFXPY0KB87B47",
+              "is_calculated_price_price_list": false,
+              "is_calculated_price_tax_inclusive": false,
+              "calculated_amount": 10,
+              "raw_calculated_amount": {
+                "value": "10",
+                "precision": 20
+              },
+              "is_original_price_price_list": false,
+              "is_original_price_tax_inclusive": false,
+              "original_amount": 10,
+              "raw_original_amount": {
+                "value": "10",
+                "precision": 20
+              },
+              "currency_code": "eur",
+              "calculated_price": {
+                "id": "price_01M2WT6SK1SMMADT4RP7MDG5DQ",
+                "price_list_id": null,
+                "price_list_type": null,
+                "min_quantity": null,
+                "max_quantity": null
+              },
+              "original_price": {
+                "id": "price_01M2WT6SK1SMMADT4RP7MDG5DQ",
+                "price_list_id": null,
+                "price_list_type": null,
+                "min_quantity": null,
+                "max_quantity": null
+              }
+            }
+          }
+        ],
+        "count": 1,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "e83d45f5-91f2-4154-96cd-e0ae220aba35",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/register",
+      "operation_path": "/auth/customer/{auth_provider}/register",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "117",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "e83d45f5-91f2-4154-96cd-e0ae220aba35",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "phase1-91b82e3a53b345de9155ef7232616310@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/auth/customer/emailpass/register",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"phase1-91b82e3a53b345de9155ef7232616310@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "b925dbf5-5535-4973-9e2d-2b7cc8192d3d",
+      "method": "POST",
+      "path": "/store/customers",
+      "operation_path": "/store/customers",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "109",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "b925dbf5-5535-4973-9e2d-2b7cc8192d3d",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "phase1-91b82e3a53b345de9155ef7232616310@example.test",
+        "first_name": "MSDSS",
+        "last_name": "Test"
+      },
+      "business_verified": true,
+      "request_target": "/store/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"phase1-91b82e3a53b345de9155ef7232616310@example.test\", \"first_name\": \"MSDSS\", \"last_name\": \"Test\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M701ED5MTTA9918NCSWYZCYN",
+          "email": "phase1-91b82e3a53b345de9155ef7232616310@example.test",
+          "company_name": null,
+          "first_name": "MSDSS",
+          "last_name": "Test",
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T11:35:08.724Z",
+          "updated_at": "2026-11-09T11:35:08.724Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "40ad166a-9ddb-45c1-9b6d-c31a89cad062",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "117",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "40ad166a-9ddb-45c1-9b6d-c31a89cad062",
+        "Content-Type": "application/json",
+        "Connection": "close"
+      },
+      "request_body": {
+        "email": "phase1-91b82e3a53b345de9155ef7232616310@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/auth/customer/emailpass",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"phase1-91b82e3a53b345de9155ef7232616310@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "f8d3ff58-5840-41b0-8295-7769c4fc8f0b",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "f8d3ff58-5840-41b0-8295-7769c4fc8f0b",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M701ED5MTTA9918NCSWYZCYN",
+          "email": "phase1-91b82e3a53b345de9155ef7232616310@example.test",
+          "company_name": null,
+          "first_name": "MSDSS",
+          "last_name": "Test",
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T11:35:08.724Z",
+          "updated_at": "2026-11-09T11:35:08.724Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "58ebb982-3f3a-4fb4-a667-826fdb6c5945",
+      "method": "POST",
+      "path": "/auth/token/refresh",
+      "operation_path": "/auth/token/refresh",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "0",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "58ebb982-3f3a-4fb4-a667-826fdb6c5945",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/auth/token/refresh",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "5319e577-ccfe-4f13-9cb2-40ce51ea22cb",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "5319e577-ccfe-4f13-9cb2-40ce51ea22cb",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M701ED5MTTA9918NCSWYZCYN",
+          "email": "phase1-91b82e3a53b345de9155ef7232616310@example.test",
+          "company_name": null,
+          "first_name": "MSDSS",
+          "last_name": "Test",
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T11:35:08.724Z",
+          "updated_at": "2026-11-09T11:35:08.724Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "b0a9254f-9e9f-4b6a-913a-293665bc8008",
+      "method": "POST",
+      "path": "/auth/session",
+      "operation_path": "/auth/session",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "0",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-Request-Id": "b0a9254f-9e9f-4b6a-913a-293665bc8008",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/auth/session",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "user": {
+          "actor_id": "cus_01M701ED5MTTA9918NCSWYZCYN",
+          "actor_type": "customer",
+          "auth_identity_id": "authid_01M701ED3DFGKDBGA5RQZJV9B4",
+          "auth_provider": "emailpass",
+          "mfa_enabled": false,
+          "mfa_challenge_completed_at": null,
+          "app_metadata": {
+            "customer_id": "cus_01M701ED5MTTA9918NCSWYZCYN"
+          },
+          "user_metadata": {},
+          "iat": 1794224109,
+          "exp": 1794310509
+        }
+      },
+      "precondition_limitation": "本機HTTP入口Cookie登入前置條件未滿足；後續明確使用Bearer，不能宣稱Cookie維持登入成功"
+    },
+    {
+      "request_id": "e3f76f5b-4b5c-4fe1-8fc3-3a304d20ddb7",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "e3f76f5b-4b5c-4fe1-8fc3-3a304d20ddb7",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "message": "Unauthorized"
+      },
+      "precondition_limitation": "已移除Bearer，真實回應未授權"
+    },
+    {
+      "request_id": "5172dc3c-e31b-435b-bbca-56e077d4bc8a",
+      "method": "DELETE",
+      "path": "/auth/session",
+      "operation_path": "/auth/session",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "5172dc3c-e31b-435b-bbca-56e077d4bc8a",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/auth/session",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "message": "Unauthorized"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "實際列出 emailpass 認證方式",
+      "passed": true,
+      "request_ids": [
+        "aba5731a-1ede-4277-899e-00202414ddcc"
+      ]
+    },
+    {
+      "description": "取得真實商務區域與幣別",
+      "passed": true,
+      "request_ids": [
+        "935aac26-e0f4-40bc-95b1-7473d7cfc818"
+      ]
+    },
+    {
+      "description": "區域明細 ID 與清單一致",
+      "passed": true,
+      "request_ids": [
+        "13c40957-64a8-4477-933f-cd0e8c2e12aa"
+      ]
+    },
+    {
+      "description": "取得平台幣別清單",
+      "passed": true,
+      "request_ids": [
+        "cca56c5f-62f8-4d45-a78e-d555f5808e1a"
+      ]
+    },
+    {
+      "description": "讀取選用區域的實際幣別明細",
+      "passed": true,
+      "request_ids": [
+        "66713148-c859-4510-86a3-e91d31a5887f"
+      ]
+    },
+    {
+      "description": "取得 collections 清單",
+      "passed": true,
+      "request_ids": [
+        "d076e060-be13-4697-9286-c064cf576b80"
+      ]
+    },
+    {
+      "description": "取得 product_categories 清單",
+      "passed": true,
+      "request_ids": [
+        "bfcdc5e6-3b64-4548-aaea-35165bdf1822"
+      ]
+    },
+    {
+      "description": "由回應 ID 讀回 product_category 明細",
+      "passed": true,
+      "request_ids": [
+        "959006b8-41a7-4ac7-89f9-f7d6dfcca181"
+      ]
+    },
+    {
+      "description": "取得 product_options 清單",
+      "passed": true,
+      "request_ids": [
+        "45c0cf68-0967-4569-993b-92e9277e30d8"
+      ]
+    },
+    {
+      "description": "由回應 ID 讀回 product_option 明細",
+      "passed": true,
+      "request_ids": [
+        "60f65310-cf3a-4e5b-b751-c7ed00b2e888"
+      ]
+    },
+    {
+      "description": "取得 product_tags 清單",
+      "passed": true,
+      "request_ids": [
+        "260ecab6-ba4a-4731-86eb-4f898ce95a13"
+      ]
+    },
+    {
+      "description": "取得 product_types 清單",
+      "passed": true,
+      "request_ids": [
+        "220ee875-4e07-435d-b6a6-f786a0260e67"
+      ]
+    },
+    {
+      "description": "取得 return_reasons 清單",
+      "passed": true,
+      "request_ids": [
+        "f8c8687d-a4a8-4679-9f77-c8d198b4e426"
+      ]
+    },
+    {
+      "description": "商品清單回傳可選商品與真實 variant ID",
+      "passed": true,
+      "request_ids": [
+        "e2e04519-d45c-49cb-9a4c-40fc182f083f"
+      ]
+    },
+    {
+      "description": "商品詳情與所選變體一致",
+      "passed": true,
+      "request_ids": [
+        "bae55f77-3eac-4859-9ab4-60a4b1bc27b8"
+      ]
+    },
+    {
+      "description": "變體清單可查回所選 variant",
+      "passed": true,
+      "request_ids": [
+        "9dd7ce63-6f84-4355-a628-46a022d0a96b"
+      ]
+    },
+    {
+      "description": "認證註冊、建立顧客、登入後讀回同一顧客",
+      "passed": true,
+      "request_ids": [
+        "e83d45f5-91f2-4154-96cd-e0ae220aba35",
+        "b925dbf5-5535-4973-9e2d-2b7cc8192d3d",
+        "40ad166a-9ddb-45c1-9b6d-c31a89cad062",
+        "f8d3ff58-5840-41b0-8295-7769c4fc8f0b"
+      ]
+    },
+    {
+      "description": "更新後 JWT 仍可讀回同一顧客",
+      "passed": true,
+      "request_ids": [
+        "58ebb982-3f3a-4fb4-a667-826fdb6c5945",
+        "5319e577-ccfe-4f13-9cb2-40ce51ea22cb"
+      ]
+    }
+  ],
+  "error": "HTTP 401：詳見已遮蔽的證據"
+}

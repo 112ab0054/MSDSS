@@ -1,0 +1,589 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T11:33:41.285163+00:00",
+  "outcome": "failed",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "57edda1b6cee9aea4c20df5b4fa60d1bfca4b249fb15ac80b4adcbb37b9ec993",
+    "run_medusa_demo.py": "4d65e540c622a2012a9e5a1daf9f0f65784d54e0005fa905b12baf9f4e3c943f"
+  },
+  "requests": [
+    {
+      "request_id": "2e089dc1-c853-4c35-9e69-777b7d299073",
+      "method": "GET",
+      "path": "/auth/customer/providers",
+      "operation_path": "/auth/customer/providers",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "2e089dc1-c853-4c35-9e69-777b7d299073",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/auth/customer/providers",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "providers": [
+          {
+            "id": "emailpass",
+            "identifier": "emailpass",
+            "display_name": "Email/Password Authentication",
+            "flow": "credentials"
+          }
+        ]
+      }
+    },
+    {
+      "request_id": "699f8d60-be26-4b83-9184-b5ad57b0b90b",
+      "method": "GET",
+      "path": "/store/regions",
+      "operation_path": "/store/regions",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "699f8d60-be26-4b83-9184-b5ad57b0b90b",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/regions",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "regions": [
+          {
+            "id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+            "name": "Europe",
+            "currency_code": "eur",
+            "created_at": "2026-09-19T12:28:07.612Z",
+            "updated_at": "2026-09-19T12:28:07.612Z",
+            "deleted_at": null,
+            "metadata": null,
+            "countries": [
+              {
+                "iso_2": "dk",
+                "iso_3": "dnk",
+                "num_code": "208",
+                "name": "DENMARK",
+                "display_name": "Denmark",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "fr",
+                "iso_3": "fra",
+                "num_code": "250",
+                "name": "FRANCE",
+                "display_name": "France",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "de",
+                "iso_3": "deu",
+                "num_code": "276",
+                "name": "GERMANY",
+                "display_name": "Germany",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "it",
+                "iso_3": "ita",
+                "num_code": "380",
+                "name": "ITALY",
+                "display_name": "Italy",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.039Z",
+                "updated_at": "2026-09-19T12:28:07.613Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "es",
+                "iso_3": "esp",
+                "num_code": "724",
+                "name": "SPAIN",
+                "display_name": "Spain",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.040Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "se",
+                "iso_3": "swe",
+                "num_code": "752",
+                "name": "SWEDEN",
+                "display_name": "Sweden",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.040Z",
+                "updated_at": "2026-09-19T12:28:07.613Z",
+                "deleted_at": null
+              },
+              {
+                "iso_2": "gb",
+                "iso_3": "gbr",
+                "num_code": "826",
+                "name": "UNITED KINGDOM",
+                "display_name": "United Kingdom",
+                "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:00.040Z",
+                "updated_at": "2026-09-19T12:28:07.612Z",
+                "deleted_at": null
+              }
+            ]
+          }
+        ],
+        "count": 1,
+        "offset": 0,
+        "limit": 50
+      }
+    },
+    {
+      "request_id": "866047db-5ccb-4b78-a195-015e113617c6",
+      "method": "GET",
+      "path": "/store/regions/reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "operation_path": "/store/regions/{id}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "866047db-5ccb-4b78-a195-015e113617c6",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/regions/reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "region": {
+          "id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+          "name": "Europe",
+          "currency_code": "eur",
+          "created_at": "2026-09-19T12:28:07.612Z",
+          "updated_at": "2026-09-19T12:28:07.612Z",
+          "deleted_at": null,
+          "metadata": null,
+          "countries": [
+            {
+              "iso_2": "dk",
+              "iso_3": "dnk",
+              "num_code": "208",
+              "name": "DENMARK",
+              "display_name": "Denmark",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "fr",
+              "iso_3": "fra",
+              "num_code": "250",
+              "name": "FRANCE",
+              "display_name": "France",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "de",
+              "iso_3": "deu",
+              "num_code": "276",
+              "name": "GERMANY",
+              "display_name": "Germany",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "it",
+              "iso_3": "ita",
+              "num_code": "380",
+              "name": "ITALY",
+              "display_name": "Italy",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.039Z",
+              "updated_at": "2026-09-19T12:28:07.613Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "es",
+              "iso_3": "esp",
+              "num_code": "724",
+              "name": "SPAIN",
+              "display_name": "Spain",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.040Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "se",
+              "iso_3": "swe",
+              "num_code": "752",
+              "name": "SWEDEN",
+              "display_name": "Sweden",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.040Z",
+              "updated_at": "2026-09-19T12:28:07.613Z",
+              "deleted_at": null
+            },
+            {
+              "iso_2": "gb",
+              "iso_3": "gbr",
+              "num_code": "826",
+              "name": "UNITED KINGDOM",
+              "display_name": "United Kingdom",
+              "region_id": "reg_01M2WT6RH1CCYV5RA12BTHXZTP",
+              "metadata": null,
+              "created_at": "2026-09-19T12:28:00.040Z",
+              "updated_at": "2026-09-19T12:28:07.612Z",
+              "deleted_at": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request_id": "897c98b7-a2d9-4467-9f6b-8db75e3e30d7",
+      "method": "GET",
+      "path": "/store/currencies?limit=20",
+      "operation_path": "/store/currencies",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "897c98b7-a2d9-4467-9f6b-8db75e3e30d7",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/currencies?limit=20",
+      "raw_query": "limit=20",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "currencies": [
+          {
+            "code": "aed",
+            "name": "United Arab Emirates Dirham",
+            "symbol": "AED",
+            "symbol_native": "د.إ.‏",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "afn",
+            "name": "Afghan Afghani",
+            "symbol": "Af",
+            "symbol_native": "؋",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "all",
+            "name": "Albanian Lek",
+            "symbol": "ALL",
+            "symbol_native": "Lek",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "amd",
+            "name": "Armenian Dram",
+            "symbol": "AMD",
+            "symbol_native": "դր.",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "aoa",
+            "name": "Angolan Kwanza",
+            "symbol": "AOA",
+            "symbol_native": "Kz",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "ars",
+            "name": "Argentine Peso",
+            "symbol": "AR$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "aud",
+            "name": "Australian Dollar",
+            "symbol": "AU$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "azn",
+            "name": "Azerbaijani Manat",
+            "symbol": "man.",
+            "symbol_native": "ман.",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bam",
+            "name": "Bosnia-Herzegovina Convertible Mark",
+            "symbol": "KM",
+            "symbol_native": "KM",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bdt",
+            "name": "Bangladeshi Taka",
+            "symbol": "Tk",
+            "symbol_native": "৳",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bgn",
+            "name": "Bulgarian Lev",
+            "symbol": "BGN",
+            "symbol_native": "лв.",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bhd",
+            "name": "Bahraini Dinar",
+            "symbol": "BD",
+            "symbol_native": "د.ب.‏",
+            "decimal_digits": 3,
+            "rounding": 0
+          },
+          {
+            "code": "bif",
+            "name": "Burundian Franc",
+            "symbol": "FBu",
+            "symbol_native": "FBu",
+            "decimal_digits": 0,
+            "rounding": 0
+          },
+          {
+            "code": "bnd",
+            "name": "Brunei Dollar",
+            "symbol": "BN$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bob",
+            "name": "Bolivian Boliviano",
+            "symbol": "Bs",
+            "symbol_native": "Bs",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "brl",
+            "name": "Brazilian Real",
+            "symbol": "R$",
+            "symbol_native": "R$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bwp",
+            "name": "Botswanan Pula",
+            "symbol": "BWP",
+            "symbol_native": "P",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "byn",
+            "name": "Belarusian Ruble",
+            "symbol": "Br",
+            "symbol_native": "руб.",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "bzd",
+            "name": "Belize Dollar",
+            "symbol": "BZ$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          },
+          {
+            "code": "cad",
+            "name": "Canadian Dollar",
+            "symbol": "CA$",
+            "symbol_native": "$",
+            "decimal_digits": 2,
+            "rounding": 0
+          }
+        ],
+        "count": 126,
+        "offset": 0,
+        "limit": 20
+      }
+    },
+    {
+      "request_id": "8debf493-e5e1-48a3-a57e-2966b1e5e397",
+      "method": "GET",
+      "path": "/store/currencies/eur",
+      "operation_path": "/store/currencies/{code}",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "8debf493-e5e1-48a3-a57e-2966b1e5e397",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/currencies/eur",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "currency": {
+          "code": "eur",
+          "name": "Euro",
+          "symbol": "€",
+          "symbol_native": "€",
+          "decimal_digits": 2,
+          "rounding": 0
+        }
+      }
+    },
+    {
+      "request_id": "689ec624-b4bd-4183-bc91-d7f4614a28ca",
+      "method": "GET",
+      "path": "/store/locales",
+      "operation_path": "/store/locales",
+      "request_headers": {
+        "Accept-Encoding": "identity",
+        "Host": "127.0.0.1:18085",
+        "User-Agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-Publishable-Api-Key": "[REDACTED]",
+        "X-Request-Id": "689ec624-b4bd-4183-bc91-d7f4614a28ca",
+        "Connection": "close"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/store/locales",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "http_client_sent_headers",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "description": "實際列出 emailpass 認證方式",
+      "passed": true,
+      "request_ids": [
+        "2e089dc1-c853-4c35-9e69-777b7d299073"
+      ]
+    },
+    {
+      "description": "取得真實商務區域與幣別",
+      "passed": true,
+      "request_ids": [
+        "699f8d60-be26-4b83-9184-b5ad57b0b90b"
+      ]
+    },
+    {
+      "description": "區域明細 ID 與清單一致",
+      "passed": true,
+      "request_ids": [
+        "866047db-5ccb-4b78-a195-015e113617c6"
+      ]
+    },
+    {
+      "description": "取得平台幣別清單",
+      "passed": true,
+      "request_ids": [
+        "897c98b7-a2d9-4467-9f6b-8db75e3e30d7"
+      ]
+    },
+    {
+      "description": "讀取選用區域的實際幣別明細",
+      "passed": true,
+      "request_ids": [
+        "8debf493-e5e1-48a3-a57e-2966b1e5e397"
+      ]
+    }
+  ],
+  "error": "HTTP 404：詳見已遮蔽的證據"
+}

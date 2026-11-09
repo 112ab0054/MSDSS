@@ -1,5 +1,8 @@
 # Sentinel
 
+
+最新模型：已接收使用者Colab v9輸出，更新gateway完整推論套件與inference-v9.zip；原v7套件保留。真實Medusa正常購物與離線建單完成，58筆正常意圖有3筆誤判，79操作中42項成功，其他狀態另列。[教授展示驗證與啟動方式](analysis/Medusa教授展示驗證v9.md)。下文「gateway仍v7／尚未重訓」為之前資料修正階段的歷史紀錄。
+
 Sentinel 是本專案規劃中的 XGBoost 電商 API 請求分類模組。目前已有契約、API 參數文件與研究計畫，尚無正式訓練資料、模型或線上推論服務。
 
 目前離線資料為small-api-v9：train702／test150／Sylius validation150／challenge96，共1098筆；依文件修正正常控制填值，特徵仍v6。舊資料保留，新請求與ID有追溯映射，不能宣稱與舊保留題bytes相同。完整版本與問題歷程見[白話紀錄](analysis/訓練版本與問題處理白話紀錄.md)。Colab 入口與限制見 [模型說明](model/README.md)；本次新增Shopware語言清單與context切換的HTTP證據；1098筆分類資料本身仍offline。

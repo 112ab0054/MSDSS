@@ -73,7 +73,7 @@
   "exploratory": true,
   "mode": "offline",
   "platform_http_verified": false,
-  "python": "3.11.3",
+  "python": "3.13.18",
   "packages": {
     "numpy": "2.3.5",
     "scikit-learn": "1.7.2",
@@ -122,6 +122,6 @@
     "verbosity": null,
     "num_class": 3
   },
-  "training_seconds": 5.078744899947196,
+  "training_seconds": 6.897736541000086,
   "trees_selection": "predeclared_not_selected_by_holdout"
 }

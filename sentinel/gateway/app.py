@@ -138,10 +138,14 @@ def analyze(predictor, request, body):
         # 三類順序為 normal／sqli／xss，取最大機率的類別（argmax），沒有另加 0.5 或 0.9 門檻。
         # 這裡不修改原請求，也不依結果產生封鎖回應。
         result = predictor.predict(model_request(request, body))
+        # 展示驗證只記可比對的UUID，不把任意用戶文字或憑證帶進日誌。
+        request_id = request.headers.get('x-request-id', '')
+        if not re.fullmatch(r'[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}', request_id):
+            request_id = 'unavailable'
         # 只記判斷與來源標記；offline 不冒充實測，機率也不是已驗證的正確率。
-        log.info('prediction label=%s mode=%s exploratory=%s probabilities=%s',
+        log.info('prediction label=%s mode=%s exploratory=%s request_id=%s probabilities=%s',
                  result['label'], result.get('mode', 'unspecified'), result['exploratory'],
-                 json.dumps(result.get('probabilities', {}), sort_keys=True))
+                 request_id, json.dumps(result.get('probabilities', {}), sort_keys=True))
     except Exception as error:
         log.warning('prediction_failed type=%s', type(error).__name__)
 

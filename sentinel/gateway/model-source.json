@@ -1,14 +1,15 @@
 {
-  "source": "local_fixed_train_only_v7_document_values",
-  "dataset": "sentinel/dataset/small-api-v7",
+  "source": "user_uploaded_Colab_results_download_6",
+  "source_archive_sha256": "def5d1ed7b9e733974ef2c36f552718161d0a22de625b6dc6bf40b71fd0f7207",
+  "dataset": "sentinel/dataset/small-api-v9",
   "feature_version": 6,
-  "model_sha256": "c1c6f754ee5610c6e49e1d65f6f73059b224e45de539ba1921cc829d57cad332",
-  "baseline_model_sha256": "248b222b9569eb5722afdcde5937480da52021d5d6d62efa4bd1c6d98a9bf4a0",
-  "original_bundle_manifest_sha256": "a101406600fe63c3ccd9bf7a0c858b8cf949c8fac911a49c5559934f8ea025bc",
+  "model_sha256": "e612214de592b01ec931cc73a100603928c89e747c61eebf3027424669f24993",
+  "baseline_model_sha256": "c1c6f754ee5610c6e49e1d65f6f73059b224e45de539ba1921cc829d57cad332",
+  "original_bundle_manifest_sha256": "0f7e4979c919b302ebe7a89773277488e099cd9bf146e15945f7ae66a4a4f780",
   "model_retrained": true,
   "manual_weight_edit": false,
   "mode": "offline",
   "exploratory": true,
   "platform_http_verified": false,
-  "note": "按文件修正正常值後固定參數重訓；舊v6模型保存在history/document-values-before，未用Medusa資料訓練，未宣稱實機業務成功。"
+  "note": "使用者提供的Colab模型；四份資料SHA與v9一致，排除__pycache__，完整manifest原樣核對；Medusa測試另記，並不回填為訓練實機驗證。"
 }
