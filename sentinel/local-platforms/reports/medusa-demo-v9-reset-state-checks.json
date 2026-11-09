@@ -1,0 +1,407 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T13:55:13.897205+00:00",
+  "outcome": "token_generation_and_invalidation_verified_event_delivery_unobserved",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "63de56f9dc6656d165320ea73be04bbac7619650e4229f209d3cd11e248ab9be",
+    "run_medusa_reset_state_checks.py": "e244ef337bbae27ae943631034a5764d6595debaf08910a08d3395c241063e3d"
+  },
+  "requests": [
+    {
+      "request_id": "32f50d96-69e2-46d8-9e9f-931f807cb95d",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/register",
+      "operation_path": "/auth/customer/{auth_provider}/register",
+      "request_headers": {
+        "Content-length": "122",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "32f50d96-69e2-46d8-9e9f-931f807cb95d",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass/register",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "4c615e22-c990-450e-b289-c42027aa82bf",
+      "method": "POST",
+      "path": "/store/customers",
+      "operation_path": "/store/customers",
+      "request_headers": {
+        "Content-length": "70",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "4c615e22-c990-450e-b289-c42027aa82bf",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test"
+      },
+      "business_verified": false,
+      "request_target": "/store/customers",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M709EKQS8JZDRE7KK4ZZF5ZY",
+          "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T13:55:04.058Z",
+          "updated_at": "2026-11-09T13:55:04.058Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "ba268ce5-5511-4c3f-ad69-8bf112602f23",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Content-length": "122",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "ba268ce5-5511-4c3f-ad69-8bf112602f23",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "7984fabe-bdcc-47ca-94a2-ea33f9fa98bd",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "7984fabe-bdcc-47ca-94a2-ea33f9fa98bd"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M709EKQS8JZDRE7KK4ZZF5ZY",
+          "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T13:55:04.058Z",
+          "updated_at": "2026-11-09T13:55:04.058Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "12083074-19a5-4d0b-a6f4-d556a3911ebc",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/reset-password",
+      "operation_path": "/auth/customer/{auth_provider}/reset-password",
+      "request_headers": {
+        "Content-length": "75",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "12083074-19a5-4d0b-a6f4-d556a3911ebc",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "identifier": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test"
+      },
+      "business_verified": true,
+      "request_target": "/auth/customer/emailpass/reset-password",
+      "raw_query": "",
+      "request_body_raw": "{\"identifier\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      },
+      "reset_request_token_persisted": "[REDACTED]",
+      "document_request_validated": true,
+      "coverage_limitation": "已唯讀證實HTTP產生原生Token；未觀測事件消費或郵件送達，不將其他程序的原生Token當成本次HTTP回傳"
+    },
+    {
+      "request_id": "e57e3d20-83e4-4d00-9a8b-1d6ec3455b99",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/update",
+      "operation_path": "/auth/customer/{auth_provider}/update",
+      "request_headers": {
+        "Content-length": "122",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "e57e3d20-83e4-4d00-9a8b-1d6ec3455b99",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": true,
+      "request_target": "/auth/customer/emailpass/update",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "type": "unauthorized",
+        "message": "Invalid token"
+      },
+      "negative_control": true
+    },
+    {
+      "request_id": "e1130599-69f4-40a8-bb6d-6d41a8f90f81",
+      "method": "POST",
+      "path": "/auth/customer/emailpass",
+      "operation_path": "/auth/customer/{auth_provider}",
+      "request_headers": {
+        "Content-length": "122",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "e1130599-69f4-40a8-bb6d-6d41a8f90f81",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+        "password": "[REDACTED]"
+      },
+      "business_verified": false,
+      "request_target": "/auth/customer/emailpass",
+      "raw_query": "",
+      "request_body_raw": "{\"email\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\", \"password\": \"[REDACTED]\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "token": "[REDACTED]"
+      }
+    },
+    {
+      "request_id": "0d215c69-f891-438b-b7de-05a05ad7abe2",
+      "method": "GET",
+      "path": "/store/customers/me",
+      "operation_path": "/store/customers/me",
+      "request_headers": {
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "Authorization": "[REDACTED]",
+        "X-request-id": "0d215c69-f891-438b-b7de-05a05ad7abe2"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/customers/me",
+      "raw_query": "",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "customer": {
+          "id": "cus_01M709EKQS8JZDRE7KK4ZZF5ZY",
+          "email": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+          "company_name": null,
+          "first_name": null,
+          "last_name": null,
+          "phone": null,
+          "metadata": null,
+          "has_account": true,
+          "deleted_at": null,
+          "created_at": "2026-11-09T13:55:04.058Z",
+          "updated_at": "2026-11-09T13:55:04.058Z",
+          "addresses": []
+        }
+      }
+    },
+    {
+      "request_id": "cd53559a-6a91-455b-b8cf-9c6c21cf5080",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/reset-password",
+      "operation_path": "/auth/customer/{auth_provider}/reset-password",
+      "request_headers": {
+        "Content-length": "75",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "cd53559a-6a91-455b-b8cf-9c6c21cf5080",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "identifier": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test"
+      },
+      "business_verified": true,
+      "request_target": "/auth/customer/emailpass/reset-password",
+      "raw_query": "",
+      "request_body_raw": "{\"identifier\": \"reset-state-8c27c389654e4db296cd710f1cc35890@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      },
+      "reset_request_token_persisted": "[REDACTED]",
+      "document_request_validated": true
+    },
+    {
+      "request_id": "aaa4cc5a-9ee9-4552-994f-a2a575c88f90",
+      "method": "POST",
+      "path": "/auth/customer/emailpass/reset-password",
+      "operation_path": "/auth/customer/{auth_provider}/reset-password",
+      "request_headers": {
+        "Content-length": "82",
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "aaa4cc5a-9ee9-4552-994f-a2a575c88f90",
+        "Content-type": "application/json"
+      },
+      "request_body": {
+        "identifier": "unregistered-reset-63106a8ee152497d9726feb86cb071ff@example.test"
+      },
+      "business_verified": true,
+      "request_target": "/auth/customer/emailpass/reset-password",
+      "raw_query": "",
+      "request_body_raw": "{\"identifier\": \"unregistered-reset-63106a8ee152497d9726feb86cb071ff@example.test\"}",
+      "header_capture": "urllib_pre_send",
+      "status": 201,
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "response_body": {
+        "omitted": "非 JSON 回應不保存"
+      },
+      "negative_control": true
+    }
+  ],
+  "checks": [
+    {
+      "description": "確認本輪帳號存在且可登入",
+      "passed": true,
+      "request_ids": [
+        "7984fabe-bdcc-47ca-94a2-ea33f9fa98bd"
+      ]
+    },
+    {
+      "description": "HTTP重設請求確實產生新的持久化Token資料列，舊資料列已失效",
+      "passed": true,
+      "request_ids": [
+        "12083074-19a5-4d0b-a6f4-d556a3911ebc"
+      ]
+    },
+    {
+      "description": "HTTP發出新重設要求後，先前原生reset JWT被拒絕",
+      "passed": true,
+      "request_ids": [
+        "e57e3d20-83e4-4d00-9a8b-1d6ec3455b99"
+      ]
+    },
+    {
+      "description": "被拒絕的舊reset JWT沒有改掉原密碼，仍登入同一帳號",
+      "passed": true,
+      "request_ids": [
+        "0d215c69-f891-438b-b7de-05a05ad7abe2"
+      ]
+    },
+    {
+      "description": "再次HTTP要求重設，僅保留最新有效Token資料列",
+      "passed": true,
+      "request_ids": [
+        "cd53559a-6a91-455b-b8cf-9c6c21cf5080"
+      ]
+    },
+    {
+      "description": "不存在帳號也回201但不產生Token，證明201不能單獨作成功證據",
+      "passed": true,
+      "request_ids": [
+        "aaa4cc5a-9ee9-4552-994f-a2a575c88f90"
+      ]
+    }
+  ],
+  "error": null,
+  "verification_target": "https://127.0.0.1:18444",
+  "tls_certificate_verification": true
+}

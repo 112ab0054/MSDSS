@@ -1,0 +1,33 @@
+{
+  "scope": "only own new identity; all database observations BEGIN READ ONLY / ROLLBACK; no token hashes or values published",
+  "customer_id": "cus_01M709EKQS8JZDRE7KK4ZZF5ZY",
+  "before": [
+    {
+      "id": "authprt_01M709EW0BVXEEQ29XF62MB7KS",
+      "entity_id": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+      "created_at": "2026-11-09T13:55:12.523+00:00",
+      "expires_at": "2026-11-09T14:10:12.523+00:00"
+    }
+  ],
+  "after_first_http": [
+    {
+      "id": "authprt_01M709EWC1PZ1QMTXSS7DRDYC6",
+      "entity_id": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+      "created_at": "2026-11-09T13:55:12.897+00:00",
+      "expires_at": "2026-11-09T14:10:12.897+00:00"
+    }
+  ],
+  "after_second_http": [
+    {
+      "id": "authprt_01M709EWTWPYN0VHDCJQM2402S",
+      "entity_id": "reset-state-8c27c389654e4db296cd710f1cc35890@example.test",
+      "created_at": "2026-11-09T13:55:13.372+00:00",
+      "expires_at": "2026-11-09T14:10:13.372+00:00"
+    }
+  ],
+  "http_first_request_id": "12083074-19a5-4d0b-a6f4-d556a3911ebc",
+  "http_second_request_id": "cd53559a-6a91-455b-b8cf-9c6c21cf5080",
+  "old_native_token_rejected": true,
+  "event_consumer_observed": false,
+  "email_delivery_verified": false
+}

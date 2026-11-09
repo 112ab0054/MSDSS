@@ -1,11 +1,11 @@
 ﻿method,api,runtime_status,status,http_attempted,business_verified,negative_probe_only,request_count,http_statuses,reason
 POST,/auth/customer/emailpass/verification/confirm,unavailable_feature,版本／功能差異,True,False,True,1,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
 GET,/auth/customer/providers,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/auth/customer/{auth_provider},passed,成功,True,True,False,11,"200,401",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/auth/customer/{auth_provider},passed,成功,True,True,False,13,"200,401",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/auth/customer/{auth_provider}/callback,blocked_prerequisite,前置條件不足,True,False,True,1,401,目前只配置emailpass，沒有第三方OAuth提供者／授權回呼資料
-POST,/auth/customer/{auth_provider}/register,passed,成功,True,True,False,10,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/auth/customer/{auth_provider}/reset-password,partial_pass,部分成功,True,False,False,2,201,依手寫文件送已存在測試帳號identifier並回201；未取得token事件的獨立觀測證據，沒有把郵件投遞當成此API的必填參數
-POST,/auth/customer/{auth_provider}/update,passed,成功,True,True,False,3,"200,401",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/auth/customer/{auth_provider}/register,passed,成功,True,True,False,11,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/auth/customer/{auth_provider}/reset-password,partial_pass,部分成功,True,False,False,5,201,HTTP已唯讀證實產生並輪替原生reset Token、舊JWT失效；不存在帳號也回201但不產生Token。尚未獨立觀測該HTTP事件或郵件送達，仍保留部分成功
+POST,/auth/customer/{auth_provider}/update,passed,成功,True,True,False,4,"200,401",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/auth/mfa/challenges/{id}/verify,blocked_prerequisite,前置條件不足,True,False,True,1,400,MFA未完成註冊，沒有真實因子／挑戰／備援碼前置；只做路由與缺參數探查
 GET,/auth/mfa/factors,passed,成功,True,True,False,1,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/auth/mfa/factors,blocked_prerequisite,前置條件不足,True,False,False,1,400,MFA註冊失敗：MFA encryption key is required to use MFA methods
@@ -17,14 +17,14 @@ DELETE,/auth/session,passed,成功,True,True,False,6,"200,401",真實HTTP與業�
 POST,/auth/token/refresh,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/auth/verification/confirm,passed,成功,True,True,False,3,"200,400",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/auth/verification/request,passed,成功,True,True,False,2,201,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/store/carts,passed,成功,True,True,False,6,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-GET,/store/carts/{id},passed,成功,True,True,False,30,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/store/carts,passed,成功,True,True,False,7,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+GET,/store/carts/{id},passed,成功,True,True,False,31,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/carts/{id},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/carts/{id}/complete,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/carts/{id}/customer,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/carts/{id}/gift-cards,unavailable_feature,版本／功能差異,True,False,True,1,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
 DELETE,/store/carts/{id}/gift-cards,unavailable_feature,版本／功能差異,True,False,True,1,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
-POST,/store/carts/{id}/line-items,passed,成功,True,True,False,9,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/store/carts/{id}/line-items,passed,成功,True,True,False,10,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/carts/{id}/line-items/{line_id},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 DELETE,/store/carts/{id}/line-items/{line_id},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/carts/{id}/promotions,passed,成功,True,True,False,2,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
@@ -36,8 +36,8 @@ GET,/store/collections,passed,成功,True,True,False,5,200,真實HTTP與業務�
 GET,/store/collections/{id},passed,成功,True,True,False,3,"200,404",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/currencies,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/currencies/{code},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/store/customers,passed,成功,True,True,False,10,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-GET,/store/customers/me,passed,成功,True,True,False,25,"200,401",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/store/customers,passed,成功,True,True,False,11,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+GET,/store/customers/me,passed,成功,True,True,False,27,"200,401",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/customers/me,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/customers/me/addresses,passed,成功,True,True,False,8,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/customers/me/addresses,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
@@ -52,8 +52,8 @@ POST,/store/orders/{id}/transfer/accept,passed,成功,True,True,False,2,"200,400
 POST,/store/orders/{id}/transfer/cancel,passed,成功,True,True,False,1,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/orders/{id}/transfer/decline,passed,成功,True,True,False,2,"200,400",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/orders/{id}/transfer/request,passed,成功,True,True,False,3,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/store/payment-collections,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-POST,/store/payment-collections/{id}/payment-sessions,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/store/payment-collections,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+POST,/store/payment-collections/{id}/payment-sessions,passed,成功,True,True,False,6,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 POST,/store/payment-collections/{id}/payment-sessions/{session_id},unavailable_feature,版本／功能差異,True,False,False,4,404,本機2.21.0安裝套件無對應方法／路由，HTTP探查也404；不是正常業務成功
 GET,/store/payment-providers,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/product-categories,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
@@ -65,9 +65,9 @@ GET,/store/product-tags/{id},passed,成功,True,True,False,3,"200,404",真實HTT
 GET,/store/product-types,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/product-types/{id},passed,成功,True,True,False,3,"200,404",真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/product-variants,passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-GET,/store/products,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+GET,/store/products,passed,成功,True,True,False,6,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/products/{id},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
-GET,/store/regions,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
+GET,/store/regions,passed,成功,True,True,False,6,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/regions/{id},passed,成功,True,True,False,4,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/return-reasons,passed,成功,True,True,False,5,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過
 GET,/store/return-reasons/{id},passed,成功,True,True,False,3,200,真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過

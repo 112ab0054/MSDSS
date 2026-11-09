@@ -1,0 +1,11 @@
+{
+  "same_collection_id": "pay_col_01M709JJWP528G6W9E8QXAXRSP",
+  "session_ids": [
+    "payses_01M709JJZXZF7X7G4S6Y217DFD",
+    "payses_01M709JK3V4DDJBF2JRB23YW2P"
+  ],
+  "session_id_changed": true,
+  "latest_marker_persisted": true,
+  "payment_capture_performed": false,
+  "scope": "POST collection/payment-sessions creates or replaces session; not proof that absent POST session/{id} exists"
+}

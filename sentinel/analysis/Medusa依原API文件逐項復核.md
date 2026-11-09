@@ -1,5 +1,7 @@
 # Medusa依原API文件逐項復核32項
 
+後續補證：密碼重設HTTP已確認產生新Token並使舊Token失效；搜尋可用GET /store/products?q=...；付款可透過建立API替換session（ID會改變）。原79操作分類仍為60／1／7／11，累計357筆HTTP與實際分數匹配、193項業務斷言通過。 [補證與替代API](Medusa剩餘項目再補證與替代API.md)。下列先前累計數字屬歷史輪次。
+
 最新補資料實測：60成功、1部分成功、7前置不足、11版本／功能差異，not_run=0；339筆HTTP與實際gateway分數匹配，184項業務斷言通過。促銷、四種目錄明細、密碼更新、退貨及通用驗證碼已補通；通知／郵件送達仍未驗證。 [本輪實測紀錄](Medusa補測資料建立與驗收.md)。本頁後續原因描述保留前輪查核脈絡，最新逐項狀態以JSON／CSV為準。
 
 本次不是只重貼上一輪分類：以使用者原手寫文件、bundled Store規格、目前安裝2.21.0程式碼、安全設定、資料庫唯讀觀察及補測回應交叉確認，並修正先前不夠精確的測試條件與判定。
@@ -71,7 +73,7 @@ update則不同：文件明確要求Authorization為重設token，並列email與
 | --- | --- | --- | --- |
 | POST `/auth/customer/emailpass/verification/confirm` | 01. 確認電子郵件驗證／7 | unavailable_feature → unavailable_feature | 文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。 |
 | POST `/auth/customer/{auth_provider}/callback` | 04. 完成第三方登入回呼驗證／42 | blocked_prerequisite → blocked_prerequisite | 文件用途是第三方回呼；auth_provider欄位例emailpass不能當作該provider支援callback。現只配置emailpass，原生回應明確未實作callback。 |
-| POST `/auth/customer/{auth_provider}/reset-password` | 06. 要求產生重設密碼 token／66 | blocked_prerequisite → partial_pass | 文件此操作是要求產生token並發事件，不是寄信本身。已依identifier呼叫201；因回應故意不透露帳號是否存在、尚無事件獨立證據，列部分成功，不能說缺郵件就是參數錯。 |
+| POST `/auth/customer/{auth_provider}/reset-password` | 06. 要求產生重設密碼 token／66 | blocked_prerequisite → partial_pass | 已用唯讀DB與HTTP舊JWT拒絕證實：本次HTTP重設要求產生新Token、舊Token失效；不存在帳號的201不產生Token。事件／郵件送達仍未獨立觀測，保留部分成功。 |
 | POST `/auth/customer/{auth_provider}/update` | 07. 使用 token 重設密碼／79 | blocked_prerequisite → passed | 已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。 native workflow fixture; not evidence that HTTP reset event was received or email delivered |
 | POST `/auth/mfa/challenges/{id}/verify` | 08. 驗證登入時的 MFA 挑戰／93 | blocked_prerequisite → blocked_prerequisite | 依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。 |
 | POST `/auth/mfa/factors` | 10. 開始綁定 MFA 因子／116 | blocked_prerequisite → blocked_prerequisite | 依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。 |

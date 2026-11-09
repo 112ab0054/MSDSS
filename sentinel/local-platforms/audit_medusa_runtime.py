@@ -27,8 +27,12 @@ def json_sha256(data):
 def classify(operation, matches, native_present, environment=None):
     environment = environment or {}
     if not matches: return 'not_run', '沒有本次展示站證據'
-    successful = [r for r in matches if 200 <= r.get('status', 0) < 300 and r.get('business_verified') and not r.get('route_probe_only')]
+    successful = [r for r in matches if 200 <= r.get('status', 0) < 300 and r.get('business_verified') and not r.get('route_probe_only') and not r.get('negative_control')]
     if successful:
+        if operation['path'].endswith('/reset-password') and not any(r.get('reset_request_event_observed') for r in successful):
+            if any(r.get('reset_request_token_persisted') for r in successful):
+                return 'partial_pass', 'HTTP已唯讀證實產生並輪替原生reset Token、舊JWT失效；不存在帳號也回201但不產生Token。尚未獨立觀測該HTTP事件或郵件送達，仍保留部分成功'
+            return 'partial_pass', '已有受理分支的業務斷言，但未取得Token持久化與事件的獨立觀測，不能當完整重設成功'
         if operation['path'].endswith('/promotions') and not any(r.get('promotion_effect_verified') for r in successful):
             return 'partial_pass', '合法空promo_codes分支已查回同一車與空促銷清單；沒有有效促銷碼，未驗證折扣套用／移除'
         return 'passed', '真實HTTP與業務斷言通過；只代表已覆蓋分支，不代表所有參數分支全通過'
@@ -60,7 +64,7 @@ def audit(sync_inventory=False):
     native = json.loads(route_path.read_text(encoding='utf-8'))
     methods = {(m, normalize(o['path'])) for o in native for m in o['methods']}
     sources = ['medusa-demo-v9-flow.json', 'medusa-demo-v9-remaining.json', 'medusa-demo-v9-remaining-followups.json']
-    for name in ['medusa-demo-v9-document-input-checks.json', 'medusa-demo-v9-native-token-transfers.json', 'medusa-demo-v9-reset-event-check.json', 'medusa-demo-v9-fixture-checks.json', 'medusa-demo-v9-verification-fixture-checks.json']:
+    for name in ['medusa-demo-v9-document-input-checks.json', 'medusa-demo-v9-native-token-transfers.json', 'medusa-demo-v9-reset-event-check.json', 'medusa-demo-v9-fixture-checks.json', 'medusa-demo-v9-verification-fixture-checks.json', 'medusa-demo-v9-reset-state-checks.json', 'medusa-demo-v9-payment-alternative.json']:
         if (REPORTS / name).is_file(): sources.append(name)
     environment_path = REPORTS / 'medusa-demo-v9-document-environment-proof.json'
     environment = json.loads(environment_path.read_text(encoding='utf-8')) if environment_path.is_file() else {}
@@ -70,7 +74,7 @@ def audit(sync_inventory=False):
         document_reviews = {(o['method'], o['path']): o for o in json.loads(document_path.read_text(encoding='utf-8'))['operations']}
     scores = {}
     score_files = ['medusa-demo-v9-gateway-scores.json', 'medusa-demo-v9-remaining-gateway-scores.json', 'medusa-demo-v9-followup-gateway-scores.json']
-    for name in ['medusa-demo-v9-document-check-gateway-scores.json', 'medusa-demo-v9-reset-gateway-scores.json', 'medusa-demo-v9-fixture-gateway-scores.json']:
+    for name in ['medusa-demo-v9-document-check-gateway-scores.json', 'medusa-demo-v9-reset-gateway-scores.json', 'medusa-demo-v9-fixture-gateway-scores.json', 'medusa-demo-v9-reset-state-gateway-scores.json', 'medusa-demo-v9-payment-alternative-gateway-scores.json']:
         if (REPORTS / name).is_file(): score_files.append(name)
     for name in score_files:
         for row in json.loads((REPORTS / name).read_text(encoding='utf-8'))['scores']: scores[row['request_id']] = row
@@ -102,7 +106,10 @@ def audit(sync_inventory=False):
                   runtime_evidence_files=sorted({r['runtime_evidence_file'] for r in matching}),
                   runtime_request_ids=[r['request_id'] for r in matching],
                   runtime_coverage_limitations=sorted({r['coverage_limitation'] for r in matching if r.get('coverage_limitation')}))
-        op['runtime_success_targets'] = sorted({r['runtime_verification_target'] for r in matching if r.get('business_verified') and 200 <= r.get('status', 0) < 300 and not r.get('route_probe_only')})
+        op['runtime_success_targets'] = sorted({r['runtime_verification_target'] for r in matching if r.get('business_verified') and 200 <= r.get('status', 0) < 300 and not r.get('route_probe_only') and not r.get('negative_control')})
+        if old['path'].endswith('/reset-password') and (REPORTS / 'medusa-demo-v9-reset-state-proof.json').is_file():
+            op['runtime_evidence_files'].append('sentinel/local-platforms/reports/medusa-demo-v9-reset-state-proof.json')
+            op['runtime_evidence_files'].append('sentinel/local-platforms/reports/medusa-demo-v9-followup-source-proof.json')
         if old['path'] == '/auth/session' and status == 'passed':
             op['runtime_coverage_limitations'].append('成功範圍為真正HTTPS與自動Secure Cookie；原HTTP18085依然不能視為Cookie成功')
         if old['path'] in ('/store/locales', '/store/shipping-options/{id}/calculate') and environment:

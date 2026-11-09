@@ -115,12 +115,12 @@
           "present_in_selected_sample": false
         }
       ],
-      "selected_request_id": "74133585-802c-4c7a-bcd8-23bd2a82a79e",
-      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-reset-event-check.json",
+      "selected_request_id": "cd53559a-6a91-455b-b8cf-9c6c21cf5080",
+      "selected_evidence_file": "sentinel/local-platforms/reports/medusa-demo-v9-reset-state-checks.json",
       "selected_case_is_negative_probe": false,
       "parameter_presence_is_not_business_success": true,
-      "confirmed_explanation": "文件此操作是要求產生token並發事件，不是寄信本身。已依identifier呼叫201；因回應故意不透露帳號是否存在、尚無事件獨立證據，列部分成功，不能說缺郵件就是參數錯。",
-      "runtime_reason": "依手寫文件送已存在測試帳號identifier並回201；未取得token事件的獨立觀測證據，沒有把郵件投遞當成此API的必填參數"
+      "confirmed_explanation": "已用唯讀DB與HTTP舊JWT拒絕證實：本次HTTP重設要求產生新Token、舊Token失效；不存在帳號的201不產生Token。事件／郵件送達仍未獨立觀測，保留部分成功。",
+      "runtime_reason": "HTTP已唯讀證實產生並輪替原生reset Token、舊JWT失效；不存在帳號也回201但不產生Token。尚未獨立觀測該HTTP事件或郵件送達，仍保留部分成功"
     },
     {
       "method": "POST",

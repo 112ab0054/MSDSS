@@ -1,0 +1,23 @@
+{
+  "application_version": "2.21.0",
+  "sources": {
+    "event_bus": {
+      "sha256": "2023ccea99f8e18ed94e0612e64727d331355ae5f41db506ac3691c420901d32",
+      "logs_only_with_subscribers": true
+    },
+    "search": {
+      "sha256": "6990e27c3b393593fae69b4eff82b92dcba3d51427787f5e3079302bb5cfd303",
+      "http_method_get": true
+    },
+    "reset_http": {
+      "sha256": "e2e04524183629582f312ed33141fdc0fb0ff4f1801974547555bf026b073b35",
+      "hides_workflow_errors": true
+    }
+  },
+  "conclusion": "Missing event log is not evidence of no emitted event: local event bus logs Processing only with subscribers.",
+  "reset_workflow_persisted_executions": {
+    "workflow_id": "generate-reset-password-token",
+    "count": 0,
+    "read_only": true
+  }
+}

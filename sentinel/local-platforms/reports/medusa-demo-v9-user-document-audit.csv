@@ -1,7 +1,7 @@
 ﻿method,api,prior_status,runtime_status,document_heading,document_line,selected_sample_is_negative_probe,confirmed_explanation
 POST,/auth/customer/emailpass/verification/confirm,unavailable_feature,unavailable_feature,01. 確認電子郵件驗證,7,True,文件列有不等於本機已實作。已比對原生2.21.0路由及HTTP404；缺必填值的探查不當正常成功，也未假造已發行禮卡／儲值碼。
 POST,/auth/customer/{auth_provider}/callback,blocked_prerequisite,blocked_prerequisite,04. 完成第三方登入回呼驗證,42,True,文件用途是第三方回呼；auth_provider欄位例emailpass不能當作該provider支援callback。現只配置emailpass，原生回應明確未實作callback。
-POST,/auth/customer/{auth_provider}/reset-password,blocked_prerequisite,partial_pass,06. 要求產生重設密碼 token,66,False,文件此操作是要求產生token並發事件，不是寄信本身。已依identifier呼叫201；因回應故意不透露帳號是否存在、尚無事件獨立證據，列部分成功，不能說缺郵件就是參數錯。
+POST,/auth/customer/{auth_provider}/reset-password,blocked_prerequisite,partial_pass,06. 要求產生重設密碼 token,66,False,已用唯讀DB與HTTP舊JWT拒絕證實：本次HTTP重設要求產生新Token、舊Token失效；不存在帳號的201不產生Token。事件／郵件送達仍未獨立觀測，保留部分成功。
 POST,/auth/customer/{auth_provider}/update,blocked_prerequisite,passed,07. 使用 token 重設密碼,79,False,已補本機真實測試資料／原生前置條件，HTTP與業務斷言通過；詳見本輪補測紀錄。 native workflow fixture; not evidence that HTTP reset event was received or email delivered
 POST,/auth/mfa/challenges/{id}/verify,blocked_prerequisite,blocked_prerequisite,08. 驗證登入時的 MFA 挑戰,93,True,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。
 POST,/auth/mfa/factors,blocked_prerequisite,blocked_prerequisite,10. 開始綁定 MFA 因子,116,False,依文件註冊先送provider=totp、已登入。原生400與安全設定均確認缺MFA encryption key，故無真實factor／challenge／recovery code。後續未填code的紀錄只是負向探查。

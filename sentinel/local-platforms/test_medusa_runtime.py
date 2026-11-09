@@ -35,6 +35,26 @@ class RuntimeStatusTests(unittest.TestCase):
         self.assertEqual(classify(op, [empty, measured], True)[0], 'passed')
         self.assertEqual(classify(op, [dict(measured, business_verified=False)], True)[0], 'blocked_prerequisite')
 
+    def test_reset_token_database_proof_does_not_claim_unobserved_event(self):
+        op = {'path': '/auth/customer/{auth_provider}/reset-password'}
+        row = {'status': 201, 'business_verified': True, 'reset_request_token_persisted': True}
+        self.assertEqual(classify(op, [row], True)[0], 'partial_pass')
+        negative = {'status': 200, 'business_verified': True, 'negative_control': True}
+        self.assertNotEqual(classify({'path': '/store/products'}, [negative], True)[0], 'passed')
+
+    def test_http_reset_and_payment_alternative_have_real_state_assertions(self):
+        reports = Path(__file__).resolve().parent / 'reports'
+        reset = json.loads((reports / 'medusa-demo-v9-reset-state-proof.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(reset['before']), 1)
+        self.assertNotEqual(reset['before'][0]['id'], reset['after_first_http'][0]['id'])
+        self.assertNotEqual(reset['after_first_http'][0]['id'], reset['after_second_http'][0]['id'])
+        self.assertTrue(reset['old_native_token_rejected'])
+        self.assertFalse(reset['event_consumer_observed'])
+        payment = json.loads((reports / 'medusa-demo-v9-payment-alternative-proof.json').read_text(encoding='utf-8'))
+        self.assertTrue(payment['session_id_changed'])
+        self.assertNotEqual(payment['session_ids'][0], payment['session_ids'][1])
+        self.assertFalse(payment['payment_capture_performed'])
+
     def test_real_fixture_evidence_has_reversible_discount_and_correct_return(self):
         root = Path(__file__).resolve().parent
         data = json.loads((root / 'reports/medusa-demo-v9-fixture-checks.json').read_text(encoding='utf-8'))

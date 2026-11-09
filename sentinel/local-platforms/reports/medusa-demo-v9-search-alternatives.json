@@ -1,0 +1,1967 @@
+{
+  "platform": "medusa",
+  "recorded_at": "2026-11-09T13:55:14.393251+00:00",
+  "outcome": "supplementary_route_check_complete",
+  "training_data": false,
+  "code_sha256": {
+    "http_evidence.py": "63de56f9dc6656d165320ea73be04bbac7619650e4229f209d3cd11e248ab9be",
+    "run_medusa_search_alternatives.py": "f1a54f0975bf7e5454338f14c58385534116a66577f322454c7c8b1d40cee46d"
+  },
+  "requests": [
+    {
+      "request_id": "cecc2f87-3598-4b8c-807e-8561ca8158e4",
+      "method": "GET",
+      "path": "/store/products?limit=5",
+      "operation_path": "/store/products",
+      "request_headers": {
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "cecc2f87-3598-4b8c-807e-8561ca8158e4"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/store/products?limit=5",
+      "raw_query": "limit=5",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "products": [
+          {
+            "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+            "title": "Medusa Shorts",
+            "subtitle": null,
+            "description": "Reimagine the feeling of classic shorts. With our cotton shorts, everyday essentials no longer have to be ordinary.",
+            "handle": "shorts",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.374Z",
+            "updated_at": "2026-09-19T12:28:08.374Z",
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S9708BXPZAX13T1Z1QD",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S98VSEDDY51PJ5E8RYN",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ],
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEK0PE63FY5WXEXZB85",
+                "title": "M",
+                "sku": "SHORTS-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEKD6S43T5XFF2SZQCQ",
+                "title": "S",
+                "sku": "SHORTS-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEM3XDCSNAJS0PE1W6W",
+                "title": "L",
+                "sku": "SHORTS-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEMSS6PYVS6XVPRSZ3R",
+                "title": "XL",
+                "sku": "SHORTS-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+            "title": "Medusa Sweatpants",
+            "subtitle": null,
+            "description": "Reimagine the feeling of classic sweatpants. With our cotton sweatpants, everyday essentials no longer have to be ordinary.",
+            "handle": "sweatpants",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.373Z",
+            "updated_at": "2026-09-19T12:28:08.373Z",
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S97Q9BP6AF8KN94N0P5",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S97CY5BWE9TSGV3MMGM",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ],
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEKB2MH8MAQ30B7J7Y2",
+                "title": "XL",
+                "sku": "SWEATPANTS-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEKE6CRZNCF5M919Z4S",
+                "title": "M",
+                "sku": "SWEATPANTS-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEKQBFS0BVS2MFKBRFP",
+                "title": "S",
+                "sku": "SWEATPANTS-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEKX04245CCEYS7KS3D",
+                "title": "L",
+                "sku": "SWEATPANTS-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S936MNHFGXFVGCGMS1G",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+            "title": "Medusa Sweatshirt",
+            "subtitle": null,
+            "description": "Reimagine the feeling of a classic sweatshirt. With our cotton sweatshirt, everyday essentials no longer have to be ordinary.",
+            "handle": "sweatshirt",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.373Z",
+            "updated_at": "2026-09-19T12:28:08.373Z",
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S967M89MY7289C8SJ58",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S97QD64RMCTBBG46RHZ",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ],
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEJ5BCAF7N1YYN9MNJW",
+                "title": "M",
+                "sku": "SWEATSHIRT-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEJ5JZX0WSKPBQF25TC",
+                "title": "S",
+                "sku": "SWEATSHIRT-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEJHS33YMM6FE9MGF1K",
+                "title": "L",
+                "sku": "SWEATSHIRT-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEK5BYPGNG4Z076HKXH",
+                "title": "XL",
+                "sku": "SWEATSHIRT-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S938XQJBAJ20E3WSXE6",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+            "title": "Medusa T-Shirt",
+            "subtitle": null,
+            "description": "Reimagine the feeling of a classic T-shirt. With our cotton T-shirts, everyday essentials no longer have to be ordinary.",
+            "handle": "t-shirt",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.373Z",
+            "updated_at": "2026-09-19T12:28:08.373Z",
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                "title": "Color",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.313Z",
+                "updated_at": "2026-09-19T12:28:08.313Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S95WW0N4CY0YZK557AC",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S95QWFJHE0G1QAX926B",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S9614YT60T0QG512W3E",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-white-front.png",
+                "metadata": null,
+                "rank": 2,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S961XE210HPQXM2959A",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-white-back.png",
+                "metadata": null,
+                "rank": 3,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ],
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEFK4HB9G1AS2DGPVW9",
+                "title": "S / Black",
+                "sku": "SHIRT-S-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.532Z",
+                "updated_at": "2026-09-19T12:28:08.532Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEGF1WBVZDPTGP9F79W",
+                "title": "S / White",
+                "sku": "SHIRT-S-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEGHAQW6FMNSYT1W20P",
+                "title": "M / Black",
+                "sku": "SHIRT-M-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEH6SN5H8KV6JS1QKFH",
+                "title": "XL / Black",
+                "sku": "SHIRT-XL-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEH9MM7CWCEPP8FYB3B",
+                "title": "L / Black",
+                "sku": "SHIRT-L-BLACK",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QQJFETNF9M9GVGYMS",
+                    "value": "Black",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEHJGCJ5Y8E7DSFGBS1",
+                "title": "L / White",
+                "sku": "SHIRT-L-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEHKC1YPSZ11GAVVE1B",
+                "title": "M / White",
+                "sku": "SHIRT-M-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEJYDKPZNWYHM5AHZFZ",
+                "title": "XL / White",
+                "sku": "SHIRT-XL-WHITE",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S93CP3X72XWE9HKYAHY",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7QVSHXC40PNR6MMHRG",
+                    "value": "White",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                    "option": {
+                      "id": "opt_01M2WT6S7RFHEY6NC4B0H4D94W",
+                      "title": "Color",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.313Z",
+                      "updated_at": "2026-09-19T12:28:08.313Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "count": 4,
+        "offset": 0,
+        "limit": 5
+      }
+    },
+    {
+      "request_id": "791f9c7c-5b7b-49fe-800a-43718d6f933d",
+      "method": "GET",
+      "path": "/store/products?q=Medusa%20Shorts",
+      "operation_path": "/store/products",
+      "request_headers": {
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "791f9c7c-5b7b-49fe-800a-43718d6f933d"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/products?q=Medusa%20Shorts",
+      "raw_query": "q=Medusa%20Shorts",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "products": [
+          {
+            "id": "prod_01M2WT6S930JDX7S27524MB2TC",
+            "title": "Medusa Shorts",
+            "subtitle": null,
+            "description": "Reimagine the feeling of classic shorts. With our cotton shorts, everyday essentials no longer have to be ordinary.",
+            "handle": "shorts",
+            "is_giftcard": false,
+            "discountable": true,
+            "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+            "collection_id": null,
+            "type_id": null,
+            "weight": 400,
+            "length": null,
+            "height": null,
+            "width": null,
+            "hs_code": null,
+            "origin_country": null,
+            "mid_code": null,
+            "material": null,
+            "created_at": "2026-09-19T12:28:08.374Z",
+            "updated_at": "2026-09-19T12:28:08.374Z",
+            "type": null,
+            "collection": null,
+            "options": [
+              {
+                "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                "title": "Size",
+                "is_exclusive": false,
+                "metadata": null,
+                "created_at": "2026-09-19T12:28:08.312Z",
+                "updated_at": "2026-09-19T12:28:08.312Z",
+                "deleted_at": null,
+                "values": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ],
+            "tags": [],
+            "images": [
+              {
+                "id": "img_01M2WT6S9708BXPZAX13T1Z1QD",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
+                "metadata": null,
+                "rank": 0,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              },
+              {
+                "id": "img_01M2WT6S98VSEDDY51PJ5E8RYN",
+                "url": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-back.png",
+                "metadata": null,
+                "rank": 1,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.374Z",
+                "updated_at": "2026-09-19T12:28:08.374Z",
+                "deleted_at": null
+              }
+            ],
+            "variants": [
+              {
+                "id": "variant_01M2WT6SEK0PE63FY5WXEXZB85",
+                "title": "M",
+                "sku": "SHORTS-M",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PVZHG4YNHH11PTGZV",
+                    "value": "M",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEKD6S43T5XFF2SZQCQ",
+                "title": "S",
+                "sku": "SHORTS-S",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P5YEMFANTTXX9QMJZ",
+                    "value": "S",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEM3XDCSNAJS0PE1W6W",
+                "title": "L",
+                "sku": "SHORTS-L",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7PW2EXZS9BZY218DQ9",
+                    "value": "L",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              },
+              {
+                "id": "variant_01M2WT6SEMSS6PYVS6XVPRSZ3R",
+                "title": "XL",
+                "sku": "SHORTS-XL",
+                "barcode": null,
+                "ean": null,
+                "upc": null,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "hs_code": null,
+                "origin_country": null,
+                "mid_code": null,
+                "material": null,
+                "weight": null,
+                "length": null,
+                "height": null,
+                "width": null,
+                "metadata": null,
+                "variant_rank": 0,
+                "thumbnail": null,
+                "product_id": "prod_01M2WT6S930JDX7S27524MB2TC",
+                "created_at": "2026-09-19T12:28:08.533Z",
+                "updated_at": "2026-09-19T12:28:08.533Z",
+                "deleted_at": null,
+                "options": [
+                  {
+                    "id": "optval_01M2WT6S7P10R9CP7A1HAD9QNA",
+                    "value": "XL",
+                    "rank": null,
+                    "metadata": null,
+                    "option_id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                    "option": {
+                      "id": "opt_01M2WT6S7QNB9NMD3X8P5K5H0Y",
+                      "title": "Size",
+                      "is_exclusive": false,
+                      "metadata": null,
+                      "created_at": "2026-09-19T12:28:08.312Z",
+                      "updated_at": "2026-09-19T12:28:08.312Z",
+                      "deleted_at": null
+                    },
+                    "created_at": "2026-09-19T12:28:08.313Z",
+                    "updated_at": "2026-09-19T12:28:08.313Z",
+                    "deleted_at": null
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "count": 1,
+        "offset": 0,
+        "limit": 50
+      }
+    },
+    {
+      "request_id": "f49548a6-3f48-4e60-8018-df07959b5251",
+      "method": "GET",
+      "path": "/store/products?q=msdss-no-product-361615cb942e436ab05b01824aded204",
+      "operation_path": "/store/products",
+      "request_headers": {
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "f49548a6-3f48-4e60-8018-df07959b5251"
+      },
+      "request_body": null,
+      "business_verified": true,
+      "request_target": "/store/products?q=msdss-no-product-361615cb942e436ab05b01824aded204",
+      "raw_query": "q=msdss-no-product-361615cb942e436ab05b01824aded204",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "products": [],
+        "count": 0,
+        "offset": 0,
+        "limit": 50
+      }
+    },
+    {
+      "request_id": "94e851ee-0f8b-490b-a876-df35f61aa301",
+      "method": "GET",
+      "path": "/store/products/search?q=Medusa%20Shorts",
+      "operation_path": "/store/products/search",
+      "request_headers": {
+        "Host": "127.0.0.1:18444",
+        "User-agent": "Python-urllib/3.11",
+        "Accept": "application/json",
+        "X-publishable-api-key": "[REDACTED]",
+        "X-request-id": "94e851ee-0f8b-490b-a876-df35f61aa301"
+      },
+      "request_body": null,
+      "business_verified": false,
+      "request_target": "/store/products/search?q=Medusa%20Shorts",
+      "raw_query": "q=Medusa%20Shorts",
+      "request_body_raw": "",
+      "header_capture": "urllib_pre_send",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "type": "not_found",
+        "message": "No search index registered for \"product\". Registered indexes: (none)"
+      },
+      "candidate_only": true,
+      "model_scope_note": "not in existing79 selected operations; no model score claimed for this candidate route"
+    }
+  ],
+  "checks": [
+    {
+      "description": "用回應取得的真實商品名稱搜尋，查回同一商品ID",
+      "passed": true,
+      "request_ids": [
+        "791f9c7c-5b7b-49fe-800a-43718d6f933d"
+      ]
+    },
+    {
+      "description": "不存在的隨機商品名稱查無資料，證實q並非被忽略",
+      "passed": true,
+      "request_ids": [
+        "f49548a6-3f48-4e60-8018-df07959b5251"
+      ]
+    }
+  ],
+  "error": null,
+  "verification_target": "https://127.0.0.1:18444",
+  "tls_certificate_verification": true,
+  "scope": "supplementary compatibility probes; not added to original79 or aggregate model predictions"
+}
