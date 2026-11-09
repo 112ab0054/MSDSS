@@ -1,0 +1,367 @@
+{
+  "scope": "offline request classification; no HTTP or browser execution; no dataset/model changes",
+  "feature_version": 4,
+  "feature_count": 278,
+  "data_sha256": {
+    "train": "9962d26f0d99d3389d500eff1580c817dc87890718af3a7ff2fc231e1f8246ea",
+    "test": "fd4eaeec2141b02182066f749816cd0d82b14b3f4ecd2841489c8e94b1f57dae",
+    "validation": "5ab71efbb212a2773fc08417b8857a31d734c1305a060220e7d178ff2807701c"
+  },
+  "source_sha256": {
+    "features.py": "b606a6f23807eb73e66c132b5facf968266380607d9038534811a2d87a3d7058",
+    "request_input.py": "c4b7bfdf6b924535261a2e82309cf969bb0635d4b9cbba7c1aba06cde2a14116",
+    "audit_xss.py": "4f3110e4dc9a8080c0430b9c0a1c86c0ec98f2156336b3ce3b80ab586ed07009"
+  },
+  "splits": {
+    "train": {
+      "rows": 84,
+      "unique_payloads": 10,
+      "families": {
+        "xss.event": 57,
+        "xss.url": 13,
+        "xss.script": 14
+      },
+      "locations": {
+        "header": 42,
+        "body": 34,
+        "query": 7,
+        "path": 1
+      },
+      "payload_counts": [
+        {
+          "value": "<svg onload=\"void(0)\"></svg>",
+          "rows": 15
+        },
+        {
+          "value": "' autofocus onfocus='void(0)' data-x='",
+          "rows": 12
+        },
+        {
+          "value": "x onmouseover=void(0)",
+          "rows": 11
+        },
+        {
+          "value": "</style><svg onload=\"void(0)\"></svg>",
+          "rows": 9
+        },
+        {
+          "value": "</script><script>void(0)</script>",
+          "rows": 8
+        },
+        {
+          "value": "javascript:void(0)",
+          "rows": 7
+        },
+        {
+          "value": "<img src=\"data:image/png;base64,AA==\" onerror=\"void(0)\">",
+          "rows": 6
+        },
+        {
+          "value": "<a href=\"javascript:void(0)\">View item</a>",
+          "rows": 6
+        },
+        {
+          "value": "<script>void(0)</script>",
+          "rows": 6
+        },
+        {
+          "value": "\" autofocus onfocus=\"void(0)\" data-x=\"",
+          "rows": 4
+        }
+      ],
+      "source_with_xss_pattern": 84,
+      "full_request_with_added_xss_pattern": 76,
+      "source_pattern_lost_after_embedding": 8,
+      "normal_controls_with_xss_specific_pattern": 0
+    },
+    "test": {
+      "rows": 28,
+      "unique_payloads": 3,
+      "families": {
+        "xss.js-string": 19,
+        "xss.js-template": 9
+      },
+      "locations": {
+        "header": 10,
+        "query": 9,
+        "body": 4,
+        "path": 5
+      },
+      "payload_counts": [
+        {
+          "value": "\";void(0);//",
+          "rows": 13
+        },
+        {
+          "value": "${void(0)}",
+          "rows": 9
+        },
+        {
+          "value": "';void(0);//",
+          "rows": 6
+        }
+      ],
+      "source_with_xss_pattern": 0,
+      "full_request_with_added_xss_pattern": 0,
+      "source_pattern_lost_after_embedding": 0,
+      "normal_controls_with_xss_specific_pattern": 0
+    },
+    "validation": {
+      "rows": 28,
+      "unique_payloads": 8,
+      "families": {
+        "external_unclassified": 28
+      },
+      "locations": {
+        "path": 4,
+        "header": 12,
+        "query": 3,
+        "body": 9
+      },
+      "payload_counts": [
+        {
+          "value": "<xml id=xss><x><c><![cdata[<img id=xss src=\"javas]]><![cdata[cript:alert('xss');\">]]></c></x><xml><span dataid=xss src=#i datafld=cdataformatas=html></span>",
+          "rows": 6
+        },
+        {
+          "value": "><script>alert(\"vlab\")</script>",
+          "rows": 5
+        },
+        {
+          "value": "><img id=xss src=x onerror=alert(xss);>",
+          "rows": 4
+        },
+        {
+          "value": ">\"<input type=\"image\" src=\"javascript:document.cookie=true;\">",
+          "rows": 4
+        },
+        {
+          "value": "<!--#exec cmd=\"/bin/echo '<scr'\"--><!--#exec cmd=\"/bin/echo 'ipt src=http://vulnerability-lab.com/crosssitescripting.js></script>'\"-->",
+          "rows": 3
+        },
+        {
+          "value": "-1<img src=\"blah\"onmouseover=\"document.cookie=true;\">",
+          "rows": 3
+        },
+        {
+          "value": "open()>",
+          "rows": 2
+        },
+        {
+          "value": "<link rel=\"stylesheet\" href=\"javascript:document.cookie=true;\">",
+          "rows": 1
+        }
+      ],
+      "source_with_xss_pattern": 17,
+      "full_request_with_added_xss_pattern": 12,
+      "source_pattern_lost_after_embedding": 5,
+      "normal_controls_with_xss_specific_pattern": 0
+    }
+  },
+  "feature_collisions": {
+    "groups": 3,
+    "mixed_label_groups": 0
+  },
+  "controlled_collision": {
+    "payload_a": "${void(0)}",
+    "payload_b": "blue shirt",
+    "full_vector_identical": true,
+    "interpretation": "The first is an XSS-intent catalog string needing JS-template context, not proof of a browser exploit."
+  },
+  "normal_query_event_pattern_matches": [],
+  "reproduction": {
+    "packages": {
+      "numpy": "2.3.5",
+      "scikit-learn": "1.7.2",
+      "xgboost": "3.1.2"
+    },
+    "parameters_unchanged": true,
+    "used_holdout_for_tuning": false,
+    "results": {
+      "train": {
+        "confusion_matrix": [
+          [
+            84,
+            0,
+            0
+          ],
+          [
+            1,
+            83,
+            0
+          ],
+          [
+            2,
+            0,
+            82
+          ]
+        ],
+        "accuracy": 0.9880952380952381,
+        "matches_user_colab_matrix": null
+      },
+      "test": {
+        "confusion_matrix": [
+          [
+            21,
+            0,
+            7
+          ],
+          [
+            7,
+            21,
+            0
+          ],
+          [
+            18,
+            0,
+            10
+          ]
+        ],
+        "accuracy": 0.6190476190476191,
+        "matches_user_colab_matrix": true
+      },
+      "validation": {
+        "confusion_matrix": [
+          [
+            27,
+            0,
+            1
+          ],
+          [
+            8,
+            20,
+            0
+          ],
+          [
+            9,
+            3,
+            16
+          ]
+        ],
+        "accuracy": 0.75,
+        "matches_user_colab_matrix": true
+      }
+    },
+    "top_features": [
+      {
+        "name": "headers.aggregate.sql_comment",
+        "importance": 0.13735364377498627
+      },
+      {
+        "name": "body.sql_comment",
+        "importance": 0.1002340093255043
+      },
+      {
+        "name": "headers.aggregate.lt",
+        "importance": 0.07898655533790588
+      },
+      {
+        "name": "headers.aggregate.xss_event",
+        "importance": 0.07446246594190598
+      },
+      {
+        "name": "headers.aggregate.equals",
+        "importance": 0.06912460178136826
+      },
+      {
+        "name": "body.equals",
+        "importance": 0.0685291439294815
+      },
+      {
+        "name": "body.xss_event",
+        "importance": 0.06385579705238342
+      },
+      {
+        "name": "headers.aggregate.sql_logic",
+        "importance": 0.06004504859447479
+      },
+      {
+        "name": "body.lt",
+        "importance": 0.051949068903923035
+      },
+      {
+        "name": "query.sql_logic",
+        "importance": 0.045949406921863556
+      },
+      {
+        "name": "body.sql_logic",
+        "importance": 0.039849985390901566
+      },
+      {
+        "name": "query.percent",
+        "importance": 0.03849310427904129
+      },
+      {
+        "name": "header.sw-language-id.length",
+        "importance": 0.035137102007865906
+      },
+      {
+        "name": "header.x-channel.length",
+        "importance": 0.027850935235619545
+      },
+      {
+        "name": "body.xss_url",
+        "importance": 0.027550384402275085
+      }
+    ],
+    "importance_by_block": {
+      "method": 0.0,
+      "content_type": 0.0,
+      "query": 0.08709237724542618,
+      "body": 0.3809593915939331,
+      "path": 0.00925541017204523,
+      "headers": 0.45970475673675537,
+      "header": 0.0629880353808403
+    },
+    "xss_predictions_by_location": {
+      "train": {
+        "body": {
+          "xss": 34
+        },
+        "header": {
+          "xss": 42
+        },
+        "path": {
+          "normal": 1
+        },
+        "query": {
+          "xss": 6,
+          "normal": 1
+        }
+      },
+      "test": {
+        "body": {
+          "normal": 4
+        },
+        "header": {
+          "normal": 9,
+          "xss": 1
+        },
+        "path": {
+          "normal": 5
+        },
+        "query": {
+          "xss": 9
+        }
+      },
+      "validation": {
+        "body": {
+          "sqli": 2,
+          "xss": 7
+        },
+        "header": {
+          "normal": 4,
+          "xss": 7,
+          "sqli": 1
+        },
+        "path": {
+          "normal": 4
+        },
+        "query": {
+          "xss": 2,
+          "normal": 1
+        }
+      }
+    }
+  }
+}

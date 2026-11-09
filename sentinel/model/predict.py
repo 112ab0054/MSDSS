@@ -6,7 +6,7 @@ import numpy as np
 from pathlib import Path
 
 from xgboost import XGBClassifier
-from features import LABELS, VERSION, features
+from features import LABELS, VERSION, features, feature_count, layout
 from request_input import INPUT_VERSION
 import request_input
 
@@ -44,7 +44,8 @@ class Predictor:
         self.mode = meta.get('mode', 'unspecified')
         self.header_names = meta['header_names']
         self.feature_count = meta['feature_count']
-        if self.header_names != sorted(set(self.header_names)) or self.feature_count != 74 + 17 * len(self.header_names):
+        if (self.header_names != sorted(set(self.header_names)) or self.feature_count != feature_count(self.header_names)
+                or meta.get('feature_layout') != layout()):
             raise ValueError('Header 順序／維度不符')
         self.model = XGBClassifier()
         self.model.load_model(directory / "model.json")

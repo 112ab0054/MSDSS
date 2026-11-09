@@ -28,7 +28,10 @@ def groups(rows):
         family = (meta.get("payload") or {}).get("family")
         if family:
             meta = {**meta, "family_id": family}
-        for field in ["session_group", "pair_group", "fingerprint", "near_fingerprint", "template_id", "family_id", "historical_source_report", "source_evidence"]:
+        fields=["session_group", "pair_group", "fingerprint", "near_fingerprint", "template_id", "family_id", "historical_source_report", "source_evidence", "source_template_group"]
+        if meta.get('evaluation_protocol') == 'document-v3-seen-families-heldout-templates':
+            fields.remove('family_id')  # Seen-family experiment; templates and sessions stay disjoint.
+        for field in fields:
             value = meta.get(field)
             if value:
                 key = (field, value)

@@ -1,12 +1,43 @@
 """Raw-value numeric baseline. Training/serving share input rules and header slots."""
 import json
 import re
+from sklearn.feature_extraction.text import HashingVectorizer
 from request_input import SENSITIVE, prepare_request, redact_fields
 
-VERSION = 4
+VERSION = 5
 LABELS = ['normal', 'sqli', 'xss']
 PATTERNS = [r'\b(or|and)\b', r'\bunion\b', r'\bselect\b', r'\bsleep\b|\bbenchmark\b',
             r'--|/\*|\*/', r'<script\b', r'\bon\w+\s*=', r'javascript\s*:']
+HASH_BUCKETS = 512
+EXTRA_SYMBOLS = ['(', ')', '{', '}', '$', '`', '/', '\\', ':', '&', '#']
+EXTRA_PATTERNS = [r'\b(?:alert|prompt|confirm|eval|Function|setTimeout|setInterval|void|console\.info|String\.fromCharCode)\s*\(',
+                  r'\b(?:document|window|location)\s*\.', r'\$\{', r'["\'`]\s*;',
+                  r'</(?:script|textarea|style|title)',
+                  r'%(?:3c|3e|22|27|28|29|3b|24|7b|7d)',
+                  r'(?:%3c\s*script|on\w+%3d|javascript%3a)',
+                  r'&#(?:x[0-9a-f]+|\d+);|&(?:lt|gt|quot|apos);']
+
+
+def raw_ngrams(value):
+    # Callable analyzer avoids sklearn's built-in char whitespace compression.
+    for size in range(2, 6):
+        for start in range(max(0, len(value) - size + 1)):
+            yield value[start:start + size]
+
+
+HASHER = HashingVectorizer(analyzer=raw_ngrams, n_features=HASH_BUCKETS,
+                          norm=None, alternate_sign=False, lowercase=False)
+
+
+def feature_count(header_names):
+    return 74 + 17 * len(header_names) + 4 * (HASH_BUCKETS + len(EXTRA_SYMBOLS) + len(EXTRA_PATTERNS))
+
+
+def layout():
+    return {'version': VERSION, 'hash_buckets_per_channel': HASH_BUCKETS,
+            'ngram_sizes': [2, 3, 4, 5], 'channels': ['query', 'body', 'path', 'headers'],
+            'normalization': None, 'lowercase_values': False, 'vocabulary_fit': False,
+            'extra_symbols': EXTRA_SYMBOLS, 'extra_patterns': EXTRA_PATTERNS}
 
 
 def clean(value):
@@ -50,4 +81,11 @@ def features(request, header_names=None):
     for value in (query, body, request['path']):
         result += signals(value)
     result += header_features(headers, header_names)
-    return result  # 74 + 17 * documented header count; currently 278 dimensions.
+    # Header names are case-insensitive identifiers; values are preserved verbatim.
+    ordinary = {str(k).lower(): v for k, v in headers.items() if not SENSITIVE.search(str(k))}
+    header_text = json.dumps(ordinary, ensure_ascii=False, sort_keys=True)
+    for value in (query, body, request['path'], header_text):
+        result += [value.count(c) for c in EXTRA_SYMBOLS]
+        result += [len(re.findall(pattern, value, re.I)) for pattern in EXTRA_PATTERNS]
+        result += HASHER.transform([value]).toarray()[0].tolist()
+    return result

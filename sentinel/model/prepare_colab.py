@@ -19,7 +19,9 @@ def package(data_dir, output, evidence_root=None):
         files['model/' + name] = (HERE / name).read_bytes()
     names, hashes = documented_headers()
     files['model/header-schema.json'] = json.dumps({'header_names': names, 'document_sha256': hashes}, indent=2).encode()
-    for split in ('train', 'test', 'validation'):
+    splits=['train','test','validation']
+    if (data_dir/'challenge.csv').is_file():splits.append('challenge')
+    for split in splits:
         source = data_dir / (split + '.csv')
         files['data/' + source.name] = source.read_bytes()
         if evidence_root:
@@ -32,6 +34,8 @@ def package(data_dir, output, evidence_root=None):
     provenance = data_dir / 'provenance.json'
     if provenance.is_file():
         files['data/provenance.json'] = provenance.read_bytes()
+    for name in ('field-coverage.csv','external-payloads.csv','HTTPPARAMS-LICENSE.txt','README.md'):
+        if (data_dir/name).is_file():files['data/'+name]=(data_dir/name).read_bytes()
     files['package-manifest.json'] = json.dumps({n: hashlib.sha256(b).hexdigest() for n,b in files.items()}, indent=2).encode()
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as z:

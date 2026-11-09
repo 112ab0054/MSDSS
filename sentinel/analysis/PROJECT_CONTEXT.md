@@ -20,3 +20,5 @@
 2026-11-09 訓練資格更新：使用者要求移除人工審核及程式判斷。model/data_io.py 不再要求 training_approved 或 audit 的人工核准欄位；preflight 不再輸出人工審核相關欄位。真實 HTTP、v3 原文、session、來源證據及分割檢查仍保留；舊資料與審核紀錄不改寫。新版 Colab ZIP 另存 model/colab_upload_no_manual_review.zip。
 
 2026-11-09 Colab 訓練修正：新增明確 --mode offline，允許現有生成請求做離線分類實驗，缺 HTTP／session 不再阻擋此模式；不改原資料狀態。--mode live 保留實機證據對帳。使用者已將 Notebook／套件改名為 model/msdss訓練.ipynb、model/dataset.zip，沿用此名稱；不復原舊名稱。
+
+2026-11-09 最新：依XSS診斷新增small-api-v3，主資料450/150/150＋challenge96，共846；train/test共享已見家族但模板與操作隔離，challenge保留未見語境，Sylius外部原文重新抽樣排除v2曾用值。62API／620欄位置都保留，原API文件不改。特徵v5=2402維，原字元2–5gram固定hash及JS／編碼統計，無正規化／詞彙fit。舊v2、v4基準與dataset.zip已保留history/xss-v4-baseline。新版Notebook與dataset.zip沿用現名。Windows固定依賴打包訓練／搬移自測通過，Colab／Ubuntu需當地驗證；未新增HTTP證據。

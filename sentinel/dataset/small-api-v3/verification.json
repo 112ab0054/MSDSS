@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-09",
+  "environment": "Windows / Python 3.11; Colab and Ubuntu require local bundle self-test",
+  "packages": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.7.2",
+    "xgboost": "3.1.2"
+  },
+  "feature_version": 5,
+  "feature_count": 2402,
+  "tests_passed": {
+    "dataset": 36,
+    "model": 24,
+    "privacy": 8,
+    "total": 68
+  },
+  "packaged_training_without_repository_paths": true,
+  "relocated_bundle_self_test": {
+    "passed": true,
+    "probes": 3,
+    "exploratory": true
+  },
+  "evaluated_splits": [
+    "test",
+    "validation",
+    "challenge"
+  ],
+  "group_overlap": 0,
+  "dataset_rows": {
+    "train": 450,
+    "test": 150,
+    "validation": 150,
+    "challenge": 96
+  },
+  "generation_reproducible_across_python_hash_seeds": [
+    17,
+    153
+  ],
+  "data_sha256": {
+    "train": "5282eb693676abb5ee1767921e11950f1f3923aeaeb5a3c564e7de558088680c",
+    "test": "436b220de83eb772db1ddcde9dc68441d904096d54f4ff8f91c487b51f3aa242",
+    "validation": "2b3cc249d271570f2467b53784672cb02f5ada0c15d6e7fa4df9e98cfd141c5e",
+    "challenge": "e977c6869ba4c2ca64356cc46d119fcc92bc464f016d4c2a33d9a9b75b7639fe"
+  },
+  "source_sha256": {
+    "train.py": "fbf74920e5cc902c4210fbeb8c4cc035fcfad1aaa8963632173447ba2c0fc6fb",
+    "training.py": "c52863bb63a499cee081d783094c71b2a736a931f1b178c15421fb015a4e913f",
+    "preflight.py": "8b08becfca9930b13c67ee18f2bad9003f1b71d03c8f187a4050932758c9b594",
+    "data_io.py": "f8724c63a681a26528dddc3d9df3b40044a090a7956867073a4cc033fc5ddf40",
+    "evaluate.py": "b1828dbbd49a637880f1352af26ee198d67e2ad9eee7572ca57def1996f685b1",
+    "features.py": "24e8e4d1d6aa555fff5d1f4ed984b448d32611c65d7599fae5237d247a705041",
+    "request_input.py": "c4b7bfdf6b924535261a2e82309cf969bb0635d4b9cbba7c1aba06cde2a14116"
+  },
+  "used_holdout_results_for_tuning": false,
+  "http_executed": 0,
+  "note": "Fixed-parameter offline pipeline check; new data and features both differ from v2, no single-factor accuracy improvement claim."
+}

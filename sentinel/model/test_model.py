@@ -39,10 +39,11 @@ class ModelTests(unittest.TestCase):
         base = {"headers": {"X-Locale": "en", "Authorization": "abc"}}
         attack = {"headers": {"X-Locale": "<script>void(0)</script>", "Authorization": "abc"}}
         names, _ = documented_headers()
-        self.assertEqual(len(features(base)), 74 + 17 * len(names))
+        from features import feature_count
+        self.assertEqual(len(features(base)), feature_count(names))
         self.assertNotEqual(features(base), features(attack))
         self.assertEqual(features(base), features({"headers": {"x-locale": "en", "authorization": "xyz"}}))
-        self.assertEqual(features({"headers": {"Host": "a.example"}}),
+        self.assertNotEqual(features({"headers": {"Host": "a.example"}}),
                          features({"headers": {"Host": "b.example"}}))
 
     def test_all_request_locations(self):

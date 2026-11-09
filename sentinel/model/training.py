@@ -9,12 +9,13 @@ import platform
 import shutil
 import time
 import zipfile
+import itertools
 import numpy as np
 from sklearn.dummy import DummyClassifier
 from xgboost import XGBClassifier
 from preflight import inspect_dataset
 from evaluate import save_evaluation
-from features import features, LABELS, VERSION
+from features import features, LABELS, VERSION, layout
 from request_input import INPUT_VERSION
 
 
@@ -23,7 +24,7 @@ HERE = Path(__file__).resolve().parent
 
 def run(group_function):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v2', help='預設 small-api-v2；Colab 請指定解壓縮後的 data 目錄')
+    parser.add_argument('--data-dir', type=Path, default=HERE.parent / 'dataset/small-api-v3', help='預設 small-api-v3；Colab 請指定解壓縮後的 data 目錄')
     parser.add_argument('--output', type=Path, help='訓練輸出新目錄；--check-only 不需要')
     parser.add_argument('--check-only', action='store_true', help='只列出資料資格與分組問題，不訓練、不產生成績')
     parser.add_argument('--evidence-root', type=Path)
@@ -40,6 +41,7 @@ def run(group_function):
     if not 1 <= args.trees <= 1000:
         raise ValueError('trees 必須介於 1 與 1000')
     paths = {s: args.data_dir / (s + '.csv') for s in ('train', 'test', 'validation')}
+    if (args.data_dir/'challenge.csv').is_file():paths['challenge']=args.data_dir/'challenge.csv'
     schema = json.loads(args.header_config.read_text(encoding='utf-8-sig'))
     # 固定三份 CSV：不重新切分，也不偷偷把獨立驗證資料加回訓練。
     sets, all_rows, indices, group, readiness = inspect_dataset(
@@ -75,7 +77,7 @@ def run(group_function):
     model.save_model(bundle / 'model.json')
     packages = {n: importlib.metadata.version(n) for n in ('numpy', 'scikit-learn', 'xgboost')}
     meta = {'bundle_version': 1, 'feature_version': VERSION, 'request_input_version': INPUT_VERSION,
-            'labels': LABELS, 'header_names': names, 'feature_count': int(x['train'].shape[1]),
+            'labels': LABELS, 'header_names': names, 'feature_count': int(x['train'].shape[1]), 'feature_layout': layout(),
             'header_document_sha256': schema['document_sha256'], 'exploratory': bool(args.allow_candidates or args.mode == 'offline'),
             'mode': args.mode, 'platform_http_verified': args.mode == 'live' and not args.allow_candidates,
             'python': platform.python_version(), 'packages': packages, 'parameters': model.get_params(),
@@ -108,7 +110,7 @@ def run(group_function):
     counts = {s: {label: int(sum(y[s] == i)) for i, label in enumerate(LABELS)} for s in sets}
     feature_sets = {s: {tuple(v) for v in x[s]} for s in sets}
     overlap = {a + '/' + b: len(feature_sets[a] & feature_sets[b])
-               for a, b in [('train', 'test'), ('train', 'validation'), ('test', 'validation')]}
+               for a, b in itertools.combinations(sets,2)}
     audit = {**meta, 'counts': counts, 'group_overlap': 0,
              'independent_groups': {s: len(set(group[indices[s]])) for s in sets},
              'identical_feature_vectors_shared': overlap,
@@ -124,7 +126,7 @@ def run(group_function):
             for row, g in zip(rows, group[indices[s]]):
                 writer.writerow([row['sample_id'], row['metadata']['platform'], int(g), s])
     reports = {}
-    for s in ('test', 'validation'):
+    for s in [s for s in sets if s!='train']:
         folder = output / s
         folder.mkdir()
         timings = []

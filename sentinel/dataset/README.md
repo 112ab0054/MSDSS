@@ -1,5 +1,9 @@
 # XGBoost 資料集試產
 
+## 最新：文件導向 v3
+
+[small-api-v3](small-api-v3/README.md) 為新離線候選：450/150/150主實驗，加96筆未見語境challenge，共846筆。三類等量、四位置配平、62API／620文件位置保留；Sylius只作外部驗證，Medusa不納入。一般test共享已見家族但模板不重複，challenge保留未見編碼／語境；舊v2及下方歷史紀錄不覆寫。v5特徵2402維，原文不正規化。
+
 2026-11-09 CSV 顯示更新：現行 small-api-v2 的 train/test/validation 已移除「實際送出」「可正式訓練」兩欄；完整紀錄 JSON、請求、標籤、集合與內部 HTTP 證據檢查不變。舊歷史檔保留原狀。
 
 ## 最新：小規模 v2，比例與參數補全
